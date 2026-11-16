@@ -115,9 +115,9 @@
       <!-- 顶部工具按钮组 -->
       <div class="flex items-center flex-wrap gap-2">
         <!-- GitHub 仓库实时自动同步状态与手动刷新按钮 -->
-        <button id="github-sync-btn" onclick="syncFromGitHubRepo(true)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white border border-slate-700 shadow-sm transition flex items-center gap-1.5" title="自动检测并拉取 GitHub 仓库 antuotuo2000/investmentcareer 内新增的 .html 财报">
+        <button id="github-sync-btn" onclick="syncComponents(true)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white border border-slate-700 shadow-sm transition flex items-center gap-1.5" title="检查 Components 文件夹中的新增、更新和删除的 HTML 财报">
           <span>🐙</span>
-          <span id="github-sync-label">GitHub 自动同步</span>
+          <span id="github-sync-label">检查本地更新</span>
         </button>
 
         <!-- 新增：一键收录新财报 / 扫描文件夹核心入口 -->
@@ -131,10 +131,10 @@
           <button id="mode-reader-btn" onclick="setLinkMode('reader')" class="px-2.5 py-1.5 rounded-md font-semibold transition-colors bg-emerald-600 text-white shadow-sm" title="点击直接在本网站内渲染完整交互式财报网页（含全部图表与目录）">
             📊 站内看财报
           </button>
-          <button id="mode-cloud-btn" onclick="setLinkMode('cloud')" class="px-2.5 py-1.5 rounded-md font-medium transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white" title="点击研报时打开 Google Drive 云端文件">
-            ☁️ 云端 Drive 模式
+          <button id="mode-cloud-btn" onclick="setLinkMode('local')" class="px-2.5 py-1.5 rounded-md font-medium transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white" title="直接打开 Components 目录下的 HTML 文件">
+            📂 Components 文件模式
           </button>
-          <button id="mode-local-btn" onclick="setLinkMode('local')" class="px-2.5 py-1.5 rounded-md font-medium transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white" title="将本网页放入本地 InvestmentCareer 文件夹后，点击直接打开同目录 .html">
+          <button id="mode-local-btn" onclick="setLinkMode('local')" class="px-2.5 py-1.5 rounded-md font-medium transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white" title="将本网页放入本地 InvestmentCareer 文件夹后，点击直接打开Components 目录下的 .html">
             💻 本地文件夹模式
           </button>
         </div>
@@ -152,8 +152,8 @@
         </button>
 
         <!-- 云端总文件夹入口 -->
-        <a href="https://drive.google.com/drive/folders/1GxBd3HD8sisUP37daZjqe1ancuXTS9lj" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">
-          <span>📁 云端文件夹</span>
+        <a href="./Components/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">
+          <span>📁 Components 文件夹</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
 
@@ -176,8 +176,8 @@
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/25 text-xs font-medium text-emerald-300">
             <span id="fulltext-status-badge">⚡ 正在加载 33 篇完整财报全文引擎...</span>
           </div>
-          <a href="https://github.com/antuotuo2000/investmentcareer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/15 hover:bg-indigo-500/25 border border-indigo-400/30 text-xs font-semibold text-indigo-200 transition" title="打开绑定的 GitHub 自动收录仓库">
-            <span id="github-hero-status">🐙 已绑定 GitHub: antuotuo2000/investmentcareer</span>
+          <a href="./Components/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/15 hover:bg-indigo-500/25 border border-indigo-400/30 text-xs font-semibold text-indigo-200 transition" title="打开 Components 财报目录">
+            <span id="github-hero-status">🐙 财报来源：Components 本地目录</span>
           </a>
           <button onclick="triggerFolderScan()" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/30 text-xs font-semibold text-cyan-200 transition" title="选择您的本地财报文件夹，自动扫描并收录所有新增的 .html 文件">
             <span>📂 一键扫描文件夹新增 HTML</span>
@@ -345,7 +345,7 @@
         <button onclick="setLinkMode('reader')" class="px-2.5 py-1 rounded-lg bg-emerald-600 text-white font-semibold whitespace-nowrap">
           切回站内阅读
         </button>
-        <button onclick="setLinkMode('cloud')" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 font-semibold whitespace-nowrap">
+        <button onclick="setLinkMode('local')" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 font-semibold whitespace-nowrap">
           切回云端模式
         </button>
       </div>
@@ -399,7 +399,7 @@
   <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-white/60 dark:bg-navy-900/60 py-5 mt-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
       <div>
-        <strong>InvestmentCareer 财报检索与阅读终端</strong> · 已内嵌 Google Drive <a href="https://drive.google.com/drive/folders/1GxBd3HD8sisUP37daZjqe1ancuXTS9lj" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-cyan-400 hover:underline">InvestmentCareer 文件夹</a> 33 份财报，并支持本地文件夹增量扫描与拖拽收录
+        <strong>InvestmentCareer 财报检索与阅读终端</strong> · 已内嵌 Google Drive <a href="./Components/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-cyan-400 hover:underline">InvestmentCareer 文件夹</a> 33 份财报，并支持本地文件夹增量扫描与拖拽收录
       </div>
       <div class="flex items-center gap-4">
         <span>快捷键：<kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">/</kbd> 搜索 · <kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">←/→</kbd> 阅读器翻页 · <kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">Esc</kbd> 退出</span>
@@ -427,13 +427,13 @@
         <div class="space-y-1">
           <div class="flex items-center gap-2 text-xs font-bold text-emerald-400">
             <span>🐙 已直连 GitHub 仓库全自动收录引擎</span>
-            <a href="https://github.com/antuotuo2000/investmentcareer" target="_blank" rel="noopener noreferrer" class="text-cyan-300 underline font-mono">antuotuo2000/investmentcareer</a>
+            <a href="./Components/" target="_blank" rel="noopener noreferrer" class="text-cyan-300 underline font-mono">antuotuo2000/investmentcareer</a>
           </div>
           <p class="text-[11px] text-slate-300 leading-relaxed">
             只要将该仓库设为 <strong>Public</strong>（并可在 Settings → Pages 开启 GitHub Pages），每次打开本网页都会自动读取仓库文件列表，新提交的任意 <code class="font-mono text-emerald-300">&lt;代码&gt;.html</code> 财报将<strong>零手动全自动解析收录</strong>！
           </p>
         </div>
-        <button onclick="syncFromGitHubRepo(true)" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white whitespace-nowrap transition">
+        <button onclick="triggerFolderScan()" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white whitespace-nowrap transition">
           🔄 立即拉取 GitHub 新财报
         </button>
       </div>
@@ -552,7 +552,7 @@
         <button onclick="readerFindStep(1)" class="px-1.5 py-0.5 text-[11px] rounded bg-slate-800 hover:bg-slate-700 text-slate-300" title="下一处匹配">▼</button>
       </div>
 
-      <!-- 右侧：双栏同屏对照 + 下载纯净HTML + 云端原件 -->
+      <!-- 右侧：双栏同屏对照 + 下载纯净HTML + 本地原件 -->
       <div class="flex items-center gap-1.5 flex-wrap">
         <button id="reader-split-btn" onclick="toggleReaderSplit()" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/40 transition flex items-center gap-1" title="左右分屏同时对比阅读两家公司的完整财报">
           <span>🔀 双栏同屏对照</span>
@@ -562,8 +562,8 @@
           ⬇️ 下载纯净HTML
         </button>
 
-        <a id="reader-drive-link" href="https://drive.google.com/drive/folders/1GxBd3HD8sisUP37daZjqe1ancuXTS9lj" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
-          ☁️ 云端原件
+        <a id="reader-drive-link" href="./Components/" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
+          📂 本地原件
         </a>
       </div>
     </div>
@@ -618,11 +618,12 @@
   <!-- 全局轻提示 Toast -->
   <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
+  <script src="./components-snapshot.js"></script>
   <script id="portal-main-script">
     // =========================================================================
     // 1. 真实财报数据库 (32 份内置财报 + 支持无限量动态扫描/拖拽收录)
     // =========================================================================
-    const FOLDER_URL = "https://drive.google.com/drive/folders/1GxBd3HD8sisUP37daZjqe1ancuXTS9lj";
+    const FOLDER_URL = "./Components/";
     const GITHUB_REPO_WEB = "https://github.com/antuotuo2000/investmentcareer";
     const GITHUB_CONTENTS_API = "https://api.github.com/repos/antuotuo2000/investmentcareer/contents/";
 
@@ -3351,7 +3352,7 @@
       { key: "UPLOADED_10", label: "本次上传财报", icon: "📎" },
       { key: "半导体芯片与存储", label: "半导体芯片与存储", icon: "🧠" },
       { key: "半导体设备双雄与四巨头", label: "半导体设备四巨头", icon: "🔬" },
-      { key: "云计算与AI科技巨头", label: "云计算与AI科技巨头", icon: "☁️" },
+      { key: "云计算与AI科技巨头", label: "云计算与AI科技巨头", icon: "📂" },
       { key: "网络通信与智能硬件", label: "网络通信与智能硬件", icon: "📡" },
       { key: "商业航天与前沿AI医疗", label: "商业航天与AI医疗", icon: "🚀" },
       { key: "互联网电商与流媒体娱乐", label: "电商与流媒体娱乐", icon: "🎮" },
@@ -3936,140 +3937,7 @@
     // =========================================================================
     // 4B. GitHub 仓库 (antuotuo2000/investmentcareer) 全自动目录检测与增量收录引擎
     // =========================================================================
-    async function syncFromGitHubRepo(isManual) {
-      const labelEl = document.getElementById("github-sync-label");
-      const heroStatusEl = document.getElementById("github-hero-status");
-      if (labelEl) labelEl.textContent = "同步中…";
 
-      try {
-        const response = await fetch(GITHUB_CONTENTS_API, {
-          headers: { "Accept": "application/vnd.github.v3+json" }
-        });
-
-        if (!response.ok) {
-          if (response.status === 404) {
-            if (labelEl) labelEl.textContent = "GitHub 待公开";
-            if (heroStatusEl) heroStatusEl.textContent = "🐙 GitHub: 设为 Public 后自动同步新 HTML";
-            if (isManual) {
-              showToast("暂未读取到公开仓库内容：请确认 antuotuo2000/investmentcareer 已设为 Public 并上传文件", "warn");
-            }
-          } else {
-            if (labelEl) labelEl.textContent = "GitHub 自动同步";
-            if (isManual) {
-              showToast("GitHub 接口暂时繁忙 (HTTP " + response.status + ")，当前使用内置与本地缓存财报", "warn");
-            }
-          }
-          return;
-        }
-
-        const rootEntries = await response.json();
-        if (!Array.isArray(rootEntries)) {
-          if (labelEl) labelEl.textContent = "GitHub 自动同步";
-          return;
-        }
-
-        let candidateFiles = rootEntries.filter(item =>
-          item && item.type === "file" && /\.html?$/i.test(item.name)
-        );
-
-        // 若仓库内还建有 reports 子目录，也一并自动扫描
-        const subDirs = rootEntries.filter(item =>
-          item && item.type === "dir" && /^(reports|html|docs)$/i.test(item.name)
-        );
-        for (let d = 0; d < subDirs.length; d++) {
-          try {
-            const subRes = await fetch(subDirs[d].url, {
-              headers: { "Accept": "application/vnd.github.v3+json" }
-            });
-            if (subRes.ok) {
-              const subItems = await subRes.json();
-              if (Array.isArray(subItems)) {
-                candidateFiles = candidateFiles.concat(
-                  subItems.filter(it => it && it.type === "file" && /\.html?$/i.test(it.name))
-                );
-              }
-            }
-          } catch (subErr) {}
-        }
-
-        const reportEntries = candidateFiles.filter(item => {
-          const lower = item.name.toLowerCase();
-          return lower !== "index.html" && lower !== "404.html" && !lower.includes("investmentcareer_portal");
-        });
-
-        let newlySynced = 0;
-        let updatedSynced = 0;
-
-        for (let i = 0; i < reportEntries.length; i++) {
-          const entry = reportEntries[i];
-          const existing = REPORTS.find(r => r.fileName.toLowerCase() === entry.name.toLowerCase());
-
-          // 如果该文件已在内置 33 篇中且 SHA 或大小未发生明显变化，直接跳过下载以节省流量实现毫秒级响应
-          if (existing && existing.githubSha === entry.sha && decodedHtmlMap[existing.fileName]) {
-            continue;
-          }
-          if (existing && !existing.githubSha && decodedHtmlMap[existing.fileName]) {
-            const sizeDiff = Math.abs((existing.cleanBytes || existing.fileSize || 0) - (entry.size || 0));
-            if (sizeDiff < 250) {
-              existing.githubSha = entry.sha;
-              continue;
-            }
-          }
-
-          if (!entry.download_url) continue;
-          try {
-            const rawResp = await fetch(entry.download_url);
-            if (!rawResp.ok) continue;
-            const rawHtml = await rawResp.text();
-            if (rawHtml.includes("EMBEDDED_BUNDLE_B64") && rawHtml.includes("InvestmentCareerPortalDB")) {
-              continue;
-            }
-
-            const parsed = parseNewHtmlReport(entry.name, rawHtml, Date.now());
-            parsed.meta.githubSha = entry.sha;
-            if (entry.html_url) {
-              parsed.meta.driveUrl = existing ? existing.driveUrl : entry.html_url;
-            }
-
-            if (existing) {
-              updatedSynced++;
-            } else {
-              newlySynced++;
-            }
-            upsertReportInMemory(parsed.meta, parsed.cleanHtml, true);
-            await saveCustomReportToDB({
-              fileName: parsed.meta.fileName,
-              meta: parsed.meta,
-              html: parsed.cleanHtml
-            });
-          } catch (dlErr) {}
-        }
-
-        if (labelEl) labelEl.textContent = `GitHub 已同步 (${REPORTS.length})`;
-        if (heroStatusEl) {
-          heroStatusEl.textContent = `🐙 GitHub 实时连接中 · 仓库检出 ${reportEntries.length} 篇财报`;
-        }
-
-        if (newlySynced > 0 || updatedSynced > 0) {
-          updateGlobalStatsUI();
-          renderReports();
-          renderCustomReportsList();
-          if (state.isAnalyticsOpen) initCharts();
-          showToast(`🐙 已从 GitHub 自动同步新增 ${newlySynced} 篇、更新 ${updatedSynced} 篇财报！`);
-        } else if (isManual) {
-          showToast(`🐙 GitHub 仓库同步完成：当前共检出 ${reportEntries.length} 篇财报，均已是最新状态`);
-        }
-      } catch (err) {
-        if (labelEl) labelEl.textContent = "GitHub 自动同步";
-        if (isManual) {
-          showToast("无法连接 GitHub API，请检查网络或确认仓库已设为 Public", "warn");
-        }
-      }
-    }
-
-    // =========================================================================
-    // 5. 初始内置 32 篇财报 Gzip 解压与全局字数统计更新
-    // =========================================================================
     function updateGlobalStatsUI() {
       const total = REPORTS.length;
       const customCnt = REPORTS.filter(r => r.isCustomAdded).length;
@@ -4102,59 +3970,106 @@
       }
     }
 
-    async function initEmbeddedReports() {
-      // 先为任何预烘焙的扩展 HTML 建立索引
-      const parser = new DOMParser();
-      Object.keys(EXTRA_BAKED_HTML).forEach(fn => {
-        const doc = parser.parseFromString(EXTRA_BAKED_HTML[fn], "text/html");
-        doc.querySelectorAll("script, style, noscript, svg").forEach(el => el.remove());
-        fullTextMap[fn] = (doc.body ? doc.body.textContent : "").replace(/\s+/g, " ").trim();
-      });
+    let componentSyncRunning = false;
+    let componentCatalogETag = "";
+    const componentVersions = new Map();
 
+    async function syncComponents(isManual = false) {
+      if (componentSyncRunning) return;
+      if (location.protocol === "file:") {
+        document.getElementById("fulltext-status-badge").textContent = "双击「启动财报主页.command」开启 Components 自动收录";
+        if (isManual) showToast("请双击项目中的「启动财报主页.command」开启自动收录", "warn");
+        return;
+      }
+      componentSyncRunning = true;
+      const label = document.getElementById("github-sync-label");
       try {
-        if (typeof DecompressionStream === "undefined") {
-          throw new Error("DecompressionStream unavailable");
-        }
-        const binaryStr = atob(EMBEDDED_BUNDLE_B64);
-        const len = binaryStr.length;
-        const bytes = new Uint8Array(len);
-        for (let i = 0; i < len; i++) {
-          bytes[i] = binaryStr.charCodeAt(i);
-        }
-        const ds = new DecompressionStream("gzip");
-        const writer = ds.writable.getWriter();
-        writer.write(bytes);
-        writer.close();
-
-        const decompressedText = await new Response(ds.readable).text();
-        const parsed = JSON.parse(decompressedText);
-        const sharedLines = parsed.s || [];
-        const filesObj = parsed.f || {};
-
-        Object.keys(filesObj).forEach(fileName => {
-          if (decodedHtmlMap[fileName]) return; // 若已被用户新版覆盖则保留用户新版
-          const arr = filesObj[fileName];
-          const fullHtml = arr.map(item => (typeof item === "number" ? sharedLines[item] : item)).join("\n");
-          decodedHtmlMap[fileName] = fullHtml;
-
-          const doc = parser.parseFromString(fullHtml, "text/html");
-          doc.querySelectorAll("script, style, noscript, svg").forEach(el => el.remove());
-          fullTextMap[fileName] = (doc.body ? doc.body.textContent : "").replace(/\s+/g, " ").trim();
+        const response = await fetch("./components-index.json", {
+          cache: "no-store",
+          headers: componentCatalogETag ? { "If-None-Match": componentCatalogETag } : {}
         });
-      } catch (err) {
-        const badgeEl = document.getElementById("fulltext-status-badge");
-        if (badgeEl) {
-          badgeEl.textContent = "🔍 支持核心公司财报指标、KPI 与新增 HTML 自动收录检索";
+        if (response.status === 304) {
+          if (isManual) showToast("Components 已是最新");
+          return;
+        }
+        if (!response.ok) throw new Error("目录读取失败");
+        const entries = await response.json();
+        if (!Array.isArray(entries) || entries.some(e => !e || typeof e.fileName !== "string" || /[\\/]/.test(e.fileName) || !/\.html?$/i.test(e.fileName))) {
+          throw new Error("目录格式错误");
+        }
+        const present = new Set(entries.map(e => e.fileName));
+        let changed = false;
+        let failed = false;
+        // 分批读取，避免一次打开过多 HTML 文件。
+        for (let i = 0; i < entries.length; i += 6) {
+          await Promise.all(entries.slice(i, i + 6).map(async entry => {
+            const version = String(entry.modified) + ":" + entry.size;
+            if (componentVersions.get(entry.fileName) === version) return;
+            try {
+              const fileResponse = await fetch(getComponentUrl(entry.fileName), { cache: "no-store" });
+              if (!fileResponse.ok) throw new Error("文件读取失败");
+              const parsed = parseNewHtmlReport(entry.fileName, await fileResponse.text(), entry.lastModified);
+              upsertReportInMemory(parsed.meta, parsed.cleanHtml, false);
+              componentVersions.set(entry.fileName, version);
+              changed = true;
+            } catch (error) {
+              failed = true;
+              console.warn("稍后重试财报：", entry.fileName, error);
+            }
+          }));
+        }
+        // 以实际文件夹为准，移除已经删除的文件和旧的内置占位项。
+        for (let i = REPORTS.length - 1; i >= 0; i--) {
+          const name = REPORTS[i].fileName;
+          if (!present.has(name)) {
+            REPORTS.splice(i, 1);
+            delete decodedHtmlMap[name];
+            delete fullTextMap[name];
+            componentVersions.delete(name);
+            changed = true;
+          }
+        }
+        customReportRecords = customReportRecords.filter(r => present.has(r.fileName));
+        if (!failed) componentCatalogETag = response.headers.get("ETag") || "";
+        if (label) label.textContent = failed ? "部分文件待重试" : "检查本地更新";
+        document.getElementById("github-hero-status").textContent = `📂 Components · ${entries.length} 份财报 · 每 10 秒自动检查`;
+        updateGlobalStatsUI();
+        if (changed) renderReports();
+        if (!entries.length) document.getElementById("fulltext-status-badge").textContent = "Components 暂无 HTML 财报，放入后会自动显示";
+        if (isManual) showToast(failed ? "部分文件读取失败，将自动重试" : "已同步 Components 文件夹", failed ? "warn" : undefined);
+      } catch (error) {
+        if (label) label.textContent = "本地服务未连接";
+        document.getElementById("fulltext-status-badge").textContent = "请通过「启动财报主页.command」打开自动收录主页";
+        if (isManual) showToast("无法读取 Components，请使用项目中的启动入口", "warn");
+      } finally {
+        componentSyncRunning = false;
+      }
+    }
+
+    function loadComponentSnapshot() {
+      const entries = window.COMPONENT_SNAPSHOT;
+      if (!Array.isArray(entries)) return;
+      const present = new Set(entries.map(e => e.fileName));
+      for (let i = REPORTS.length - 1; i >= 0; i--) {
+        if (!present.has(REPORTS[i].fileName)) REPORTS.splice(i, 1);
+      }
+      for (const entry of entries) {
+        try {
+          const parsed = parseNewHtmlReport(entry.fileName, entry.html, entry.lastModified);
+          upsertReportInMemory(parsed.meta, parsed.cleanHtml, false);
+        } catch (error) {
+          console.error("本地索引解析失败：", entry.fileName, error);
         }
       }
-
-      // 加载用户在浏览器 IndexedDB 中曾导入过的新增财报，并自动向 GitHub 仓库拉取增量新财报
-      await loadCustomReportsFromDB();
       updateGlobalStatsUI();
-      syncFromGitHubRepo(false);
-      if (state.searchQuery.trim()) {
-        renderReports();
-      }
+      renderReports();
+    }
+
+    async function initEmbeddedReports() {
+      loadComponentSnapshot();
+      await syncComponents();
+      setInterval(() => syncComponents(), 10000);
+      window.addEventListener("focus", () => syncComponents());
     }
 
     function loadSavedState() {
@@ -4444,13 +4359,13 @@
               </button>`;
           } else if (state.linkMode === "cloud") {
             primaryActionBtn = `
-              <a href="${item.driveUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white text-center transition flex items-center justify-center gap-1 shadow-sm">
-                <span>☁️ 打开云端研报</span>
+              <a href="${getComponentUrl(item.fileName)}" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white text-center transition flex items-center justify-center gap-1 shadow-sm">
+                <span>📂 打开本地研报</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>`;
           } else {
             primaryActionBtn = `
-              <button onclick="openLocalReport('${item.fileName}', '${item.driveUrl}')" class="flex-1 py-2 px-3 rounded-xl text-xs font-semibold bg-amber-600 hover:bg-amber-500 text-white text-center transition flex items-center justify-center gap-1 shadow-sm">
+              <button onclick="openLocalReport('${item.fileName}', '${getComponentUrl(item.fileName)}')" class="flex-1 py-2 px-3 rounded-xl text-xs font-semibold bg-amber-600 hover:bg-amber-500 text-white text-center transition flex items-center justify-center gap-1 shadow-sm">
                 <span>💻 打开本地 (${escapeHtml(item.fileName)})</span>
               </button>`;
           }
@@ -4588,8 +4503,8 @@
                   <button onclick="openDetailModal('${item.id}')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200">
                     KPI
                   </button>
-                  <a href="${item.driveUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1.5 rounded-lg text-xs font-medium bg-blue-600/15 text-blue-600 dark:text-blue-300 hover:bg-blue-600/25">
-                    ☁️
+                  <a href="${getComponentUrl(item.fileName)}" target="_blank" rel="noopener noreferrer" class="px-2 py-1.5 rounded-lg text-xs font-medium bg-blue-600/15 text-blue-600 dark:text-blue-300 hover:bg-blue-600/25">
+                    📂
                   </a>
                 </div>
               </td>
@@ -4636,7 +4551,7 @@
       const iframe = document.getElementById("report-reader-iframe");
       const driveLink = document.getElementById("reader-drive-link");
 
-      if (driveLink) driveLink.href = item.driveUrl || FOLDER_URL;
+      if (driveLink) driveLink.href = getComponentUrl(item.fileName);
 
       if (!state.splitReaderId || state.splitReaderId === item.id) {
         const peer = REPORTS.find(r => r.sector === item.sector && r.id !== item.id) || REPORTS.find(r => r.id !== item.id);
@@ -4644,15 +4559,6 @@
       }
 
       populateReaderSelects(item.id, state.splitReaderId);
-
-      const htmlStr = decodedHtmlMap[item.fileName];
-      if (!htmlStr) {
-        showToast("正在完成财报解压，请稍候…", "warn");
-        setTimeout(() => {
-          if (decodedHtmlMap[item.fileName]) openReportReader(reportId);
-        }, 120);
-        return;
-      }
 
       modal.classList.remove("hidden");
       modal.classList.add("flex");
@@ -4670,7 +4576,8 @@
           if (countEl) countEl.textContent = "0/0";
         }
       };
-      iframe.srcdoc = htmlStr;
+      iframe.removeAttribute("srcdoc");
+      iframe.src = getComponentUrl(item.fileName);
 
       if (state.isSplitOpen && state.splitReaderId) {
         loadSplitReport(state.splitReaderId);
@@ -4728,9 +4635,9 @@
       if (!item) return;
       state.splitReaderId = item.id;
       const splitIframe = document.getElementById("report-split-iframe");
-      const htmlStr = decodedHtmlMap[item.fileName];
-      if (splitIframe && htmlStr) {
-        splitIframe.srcdoc = htmlStr;
+      if (splitIframe) {
+        splitIframe.removeAttribute("srcdoc");
+        splitIframe.src = getComponentUrl(item.fileName);
       }
     }
 
@@ -4986,23 +4893,18 @@
         if (mode === "reader") {
           showToast("已开启「站内看财报」模式：点击直接渲染完整交互式财报网页");
         } else {
-          showToast("已切换至「云端 Drive 模式」");
+          showToast("已切换至「Components 文件模式」");
         }
       }
       renderReports();
     }
 
-    function openLocalReport(fileName, driveFallbackUrl) {
-      const isLocalProtocol = window.location.protocol === "file:";
-      if (isLocalProtocol && !decodedHtmlMap[fileName]) {
-        window.open("./" + fileName, "_blank");
-      } else {
-        const report = REPORTS.find(r => r.fileName === fileName);
-        if (report) {
-          openReportReader(report.id);
-          showToast("已直接为您在站内渲染完整财报：" + fileName);
-        }
-      }
+    function getComponentUrl(fileName) {
+      return "./Components/" + encodeURIComponent(fileName);
+    }
+
+    function openLocalReport(fileName) {
+      window.open(getComponentUrl(fileName), "_blank", "noopener,noreferrer");
     }
 
     function toggleFavorite(ticker) {
@@ -5155,12 +5057,12 @@
               ⬇️ 下载纯净HTML (${escapeHtml(item.fileName)})
             </button>
             <a
-              href="${item.driveUrl}"
+              href="${getComponentUrl(item.fileName)}"
               target="_blank"
               rel="noopener noreferrer"
               class="px-3 py-2 rounded-xl text-xs font-medium bg-blue-500/10 text-blue-600 dark:text-blue-300 hover:bg-blue-500/20 transition"
             >
-              ☁️ 云端原件
+              📂 本地原件
             </a>
           </div>
 
@@ -5233,7 +5135,7 @@
                 </div>
                 <div class="pt-3 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between gap-2">
                   <button onclick="openReportReader('${item.id}')" class="flex-1 py-1.5 px-2.5 rounded-lg text-xs font-bold bg-emerald-600 text-white hover:bg-emerald-500 text-center">📊 站内看财报</button>
-                  <a href="${item.driveUrl}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-200 dark:bg-navy-700 text-slate-700 dark:text-slate-200">☁️</a>
+                  <a href="${getComponentUrl(item.fileName)}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-200 dark:bg-navy-700 text-slate-700 dark:text-slate-200">📂</a>
                 </div>
               </div>
             `).join("")}
