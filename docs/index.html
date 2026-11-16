@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>王安安 财报全文搜索与沉浸式阅读终端 — 支持自动扫描收录新财报</title>
+  <title>王安安财报分析</title>
   <!-- Tailwind CSS 3.4.17 -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <!-- Chart.js 4.4.1 -->
@@ -69,6 +69,54 @@
       outline: 3px dashed #10B981;
       outline-offset: -8px;
     }
+
+    /* Keep narrow layouts independent of long company names and tool labels. */
+    #portal-brand, #portal-brand > div:last-child,
+    #reports-grid, #reports-grid article, #reader-content,
+    #reader-content > div, #reader-toolbar > div { min-width: 0; }
+    #portal-brand > div:first-child { flex-shrink: 0; }
+    #reports-grid article h3 { overflow-wrap: anywhere; }
+    #mode-cloud-btn { display: none; } /* Same local action as mode-local-btn. */
+    #mobile-tools-toggle { display: none; }
+    #report-reader-modal { height: 100vh; height: 100dvh; bottom: auto; }
+    #reader-content { min-height: 0; }
+    #reader-content > div { height: auto; flex-basis: 0; }
+    #reader-content iframe { min-height: 0; min-width: 0; display: block; }
+    @media (max-width: 1023px) {
+      #reader-actions, #reader-search { display: none; }
+    }
+    @media (max-width: 639px) {
+      #portal-header { position: relative; top: auto; }
+      #portal-header > div { gap: 8px; }
+      #portal-brand { flex: 1; gap: 8px; }
+      #portal-brand h1 { font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+      #header-count-pill { font-size: 10px; }
+      #mobile-tools-toggle {
+        display: block; flex-shrink: 0; padding: 9px 10px; border-radius: 8px;
+        font-size: 12px; font-weight: 600; background: #e2e8f0; color: #0f172a;
+      }
+      .dark #mobile-tools-toggle { background: #1e293b; color: #e2e8f0; }
+      #portal-tools { display: none; width: 100%; }
+      #mobile-tools-toggle,
+      #portal-tools,
+      #portal-tools.is-open { display: none; }
+      #portal-tools > button, #portal-tools > a { min-height: 36px; }
+      #portal-link-modes { width: 100%; }
+      #portal-link-modes > button { flex: 1; min-width: 0; min-height: 40px; }
+      #reader-toolbar { gap: 6px; padding: 8px; max-height: 45dvh; overflow-y: auto; }
+      #reader-toolbar > div { width: 100%; max-width: none; }
+      #reader-toolbar > div:first-child { flex-wrap: nowrap; }
+      #reader-toolbar > div:first-child > button { flex-shrink: 0; }
+      #reader-toolbar > div:first-child > div { flex: 1; min-width: 0; }
+      #reader-report-select { width: 0; min-width: 0; max-width: none; flex: 1; }
+      #reader-toolbar button, #reader-toolbar a { min-height: 32px; }
+      #reader-toolbar > div:last-child { justify-content: space-between; gap: 4px; }
+      #reader-toolbar > div:last-child > * { padding-left: 6px; padding-right: 6px; font-size: 11px; }
+      #reader-split-pane > div { flex-wrap: wrap; padding: 4px 8px; }
+      #reader-split-pane > div > div { min-width: 0; flex: 1; }
+      #reader-split-select { min-width: 0; width: 0; flex: 1; }
+      #detail-modal-content, #compare-modal > div { max-height: 90dvh; }
+    }
   </style>
 </head>
 <body id="app-body" class="bg-slate-50 text-slate-900 dark:bg-navy-950 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-200">
@@ -90,17 +138,17 @@
   <div class="h-1 w-full bg-gradient-to-r from-blue-600 via-cyan-400 to-emerald-400 sticky top-0 z-40"></div>
 
   <!-- 顶部主导航栏 -->
-  <header class="sticky top-1 z-30 bg-white/90 dark:bg-navy-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80">
+  <header id="portal-header" class="sticky top-1 z-30 bg-white/90 dark:bg-navy-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
       <!-- 品牌标识 -->
-      <div class="flex items-center space-x-3">
+      <div id="portal-brand" class="flex items-center space-x-3">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-cyan-500 flex items-center justify-center text-white font-extrabold font-mono text-sm shadow-lg shadow-blue-500/20">
           IC
         </div>
         <div>
           <div class="flex items-center gap-2 flex-wrap">
             <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">
-              InvestmentCareer 财报检索与阅读终端
+              王安安财报分析
             </h1>
             <span id="header-count-pill" class="px-2 py-0.5 text-[11px] font-mono font-semibold rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25">
               内置全量 33 份完整财报
@@ -112,10 +160,11 @@
         </div>
       </div>
 
+      <button id="mobile-tools-toggle" type="button" aria-controls="portal-tools" aria-expanded="false" onclick="toggleMobileTools()">工具 ▾</button>
       <!-- 顶部工具按钮组 -->
-      <div class="flex items-center flex-wrap gap-2">
+      <div id="portal-tools" class="flex items-center flex-wrap gap-2">
         <!-- GitHub 仓库实时自动同步状态与手动刷新按钮 -->
-        <button id="github-sync-btn" onclick="syncComponents(true)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white border border-slate-700 shadow-sm transition flex items-center gap-1.5" title="检查 Components 文件夹中的新增、更新和删除的 HTML 财报">
+        <button id="github-sync-btn" onclick="syncComponents(true)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white border border-slate-700 shadow-sm transition flex items-center gap-1.5" title="读取已保存的本地索引；运行启动入口可自动收录文件夹更新">
           <span>🐙</span>
           <span id="github-sync-label">检查本地更新</span>
         </button>
@@ -127,7 +176,7 @@
         </button>
 
         <!-- 打开模式切换：站内直接阅读 vs 云端 Drive vs 本地同目录 -->
-        <div class="inline-flex items-center rounded-lg p-0.5 bg-slate-100 dark:bg-navy-800 border border-slate-200 dark:border-slate-700/80 text-xs">
+        <div id="portal-link-modes" class="inline-flex items-center rounded-lg p-0.5 bg-slate-100 dark:bg-navy-800 border border-slate-200 dark:border-slate-700/80 text-xs">
           <button id="mode-reader-btn" onclick="setLinkMode('reader')" class="px-2.5 py-1.5 rounded-md font-semibold transition-colors bg-emerald-600 text-white shadow-sm" title="点击直接在本网站内渲染完整交互式财报网页（含全部图表与目录）">
             📊 站内看财报
           </button>
@@ -376,6 +425,11 @@
       </div>
     </section>
 
+    <div id="reports-load-more" class="hidden text-center py-4 text-sm text-slate-500 dark:text-slate-400" aria-live="polite">
+      <span id="reports-load-status"></span>
+      <button id="reports-load-button" type="button" onclick="loadMoreReports()" class="block mx-auto mt-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-200">加载更多</button>
+    </div>
+
     <!-- 空状态提示 -->
     <section id="empty-state" class="hidden bg-white dark:bg-navy-900 rounded-2xl p-10 text-center border border-slate-200 dark:border-slate-800 space-y-3">
       <div class="text-4xl">🔍</div>
@@ -399,7 +453,7 @@
   <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-white/60 dark:bg-navy-900/60 py-5 mt-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
       <div>
-        <strong>王安安 财报检索与阅读终端</strong> · 已内嵌 Google Drive <a href="./Components/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-cyan-400 hover:underline">InvestmentCareer 文件夹</a> 33 份财报，并支持本地文件夹增量扫描与拖拽收录
+        <strong>王安安财报分析</strong> · 已内嵌 Google Drive <a href="./Components/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-cyan-400 hover:underline">InvestmentCareer 文件夹</a> 33 份财报，并支持本地文件夹增量扫描与拖拽收录
       </div>
       <div class="flex items-center gap-4">
         <span>快捷键：<kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">/</kbd> 搜索 · <kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">←/→</kbd> 阅读器翻页 · <kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">Esc</kbd> 退出</span>
@@ -518,7 +572,7 @@
   <!-- 全屏 / 双栏同屏沉浸式财报阅读器 (Full Interactive HTML Report Reader) -->
   <!-- ======================================================================= -->
   <div id="report-reader-modal" class="fixed inset-0 z-50 hidden flex-col bg-slate-950 text-slate-100">
-    <div class="bg-navy-900 border-b border-slate-800 px-3 sm:px-4 py-2 flex flex-wrap items-center justify-between gap-2 shrink-0">
+    <div id="reader-toolbar" class="bg-navy-900 border-b border-slate-800 px-3 sm:px-4 py-2 flex flex-wrap items-center justify-between gap-2 shrink-0">
       <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
         <button onclick="closeReportReader()" class="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition flex items-center gap-1">
           <span>← 返回列表</span>
@@ -537,7 +591,7 @@
       </div>
 
       <!-- 中部：财报正文内定位搜索高亮 -->
-      <div class="flex items-center gap-1.5 bg-slate-900 border border-slate-700/90 rounded-lg px-2.5 py-1 flex-1 max-w-md min-w-[210px]">
+      <div id="reader-search" class="flex items-center gap-1.5 bg-slate-900 border border-slate-700/90 rounded-lg px-2.5 py-1 flex-1 max-w-md min-w-[210px]">
         <span class="text-xs text-slate-400">🔎</span>
         <input
           id="reader-find-input"
@@ -553,7 +607,7 @@
       </div>
 
       <!-- 右侧：双栏同屏对照 + 下载纯净HTML + 本地原件 -->
-      <div class="flex items-center gap-1.5 flex-wrap">
+      <div id="reader-actions" class="flex items-center gap-1.5 flex-wrap">
         <button id="reader-split-btn" onclick="toggleReaderSplit()" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/40 transition flex items-center gap-1" title="左右分屏同时对比阅读两家公司的完整财报">
           <span>🔀 双栏同屏对照</span>
         </button>
@@ -568,7 +622,7 @@
       </div>
     </div>
 
-    <div class="flex-1 flex flex-col lg:flex-row w-full overflow-hidden bg-slate-900">
+    <div id="reader-content" class="flex-1 flex flex-col lg:flex-row w-full overflow-hidden bg-slate-900">
       <div class="flex-1 h-full relative flex flex-col min-h-0">
         <iframe id="report-reader-iframe" title="财报主阅读窗口" class="w-full flex-1 border-0 bg-white dark:bg-navy-950"></iframe>
       </div>
@@ -3977,8 +4031,23 @@
     async function syncComponents(isManual = false) {
       if (componentSyncRunning) return;
       if (location.protocol === "file:") {
-        document.getElementById("fulltext-status-badge").textContent = "双击「启动财报主页.command」开启 Components 自动收录";
-        if (isManual) showToast("请双击项目中的「启动财报主页.command」开启自动收录", "warn");
+        componentSyncRunning = true;
+        try {
+          await new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = "./components-snapshot.js?t=" + Date.now();
+            script.onload = () => { script.remove(); resolve(); };
+            script.onerror = () => { script.remove(); reject(new Error("索引暂时无法读取")); };
+            document.head.appendChild(script);
+          });
+          loadComponentSnapshot();
+          if (isManual) showToast("已读取保存的本地财报索引");
+        } catch (error) {
+          // 读取失败时保留当前列表，不清空已收录财报。
+          if (isManual) showToast("暂时无法更新索引，现有财报仍然保留", "warn");
+        } finally {
+          componentSyncRunning = false;
+        }
         return;
       }
       componentSyncRunning = true;
@@ -4046,23 +4115,40 @@
       }
     }
 
+    const snapshotVersions = new Map();
+
     function loadComponentSnapshot() {
       const entries = window.COMPONENT_SNAPSHOT;
       if (!Array.isArray(entries)) return;
       const present = new Set(entries.map(e => e.fileName));
+      let changed = false;
       for (let i = REPORTS.length - 1; i >= 0; i--) {
-        if (!present.has(REPORTS[i].fileName)) REPORTS.splice(i, 1);
+        const name = REPORTS[i].fileName;
+        if (!present.has(name)) {
+          REPORTS.splice(i, 1);
+          delete decodedHtmlMap[name];
+          delete fullTextMap[name];
+          snapshotVersions.delete(name);
+          changed = true;
+        }
       }
       for (const entry of entries) {
+        const version = String(entry.lastModified) + ":" + entry.html.length;
+        if (snapshotVersions.get(entry.fileName) === version) continue;
         try {
           const parsed = parseNewHtmlReport(entry.fileName, entry.html, entry.lastModified);
           upsertReportInMemory(parsed.meta, parsed.cleanHtml, false);
+          snapshotVersions.set(entry.fileName, version);
+          changed = true;
         } catch (error) {
           console.error("本地索引解析失败：", entry.fileName, error);
         }
       }
+      customReportRecords = customReportRecords.filter(r => present.has(r.fileName));
       updateGlobalStatsUI();
-      renderReports();
+      document.getElementById("github-sync-label").textContent = "刷新已保存索引";
+      document.getElementById("github-hero-status").textContent = `📂 已保存 ${REPORTS.length} 份财报 · 关闭启动窗口仍可阅读`;
+      if (changed) renderReports();
     }
 
     async function initEmbeddedReports() {
@@ -4309,9 +4395,51 @@
       }).join("");
     }
 
-    function renderReports() {
+    const REPORT_PAGE_SIZE = 10;
+    let visibleReportCount = REPORT_PAGE_SIZE;
+    let renderedReportCount = 0;
+    let reportListSignature = "";
+    let reportLoadObserver = null;
+
+    function loadMoreReports() {
+      if (visibleReportCount >= getFilteredReports().length) return;
+      visibleReportCount += REPORT_PAGE_SIZE;
+      renderReports({ append: true });
+    }
+
+    function initReportInfiniteScroll() {
+      if (!("IntersectionObserver" in window)) return;
+      reportLoadObserver = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) loadMoreReports();
+      }, { rootMargin: "0px 0px 200px 0px" });
+      reportLoadObserver.observe(document.getElementById("reports-load-more"));
+    }
+
+    function renderReports({ append = false } = {}) {
       renderSectorPills();
       const filtered = getFilteredReports();
+      const signature = JSON.stringify([state.searchQuery, state.selectedSector,
+        state.selectedExchange, state.onlyFavorites, state.sortBy, state.viewMode,
+        filtered.map(item => item.id)]);
+      if (signature !== reportListSignature) {
+        visibleReportCount = REPORT_PAGE_SIZE;
+        renderedReportCount = 0;
+        reportListSignature = signature;
+        append = false;
+      }
+      const end = Math.min(visibleReportCount, filtered.length);
+      const visible = filtered.slice(append ? renderedReportCount : 0, end);
+      const loadMore = document.getElementById("reports-load-more");
+      const loadButton = document.getElementById("reports-load-button");
+      loadMore.classList.toggle("hidden", filtered.length === 0);
+      loadButton.classList.toggle("hidden", end >= filtered.length);
+      document.getElementById("reports-load-status").textContent = end < filtered.length
+        ? `已显示 ${end} / ${filtered.length} 家，继续下滑加载更多`
+        : `已显示全部 ${filtered.length} 家公司`;
+      if (reportLoadObserver) {
+        reportLoadObserver.unobserve(loadMore);
+        if (end < filtered.length) reportLoadObserver.observe(loadMore);
+      }
 
       document.getElementById("stat-filtered").textContent = String(filtered.length);
       document.getElementById("fav-count-badge").textContent = "(" + state.favorites.size + ")";
@@ -4342,7 +4470,7 @@
         gridEl.classList.remove("hidden");
         tableWrapEl.classList.add("hidden");
 
-        gridEl.innerHTML = filtered.map(item => {
+        const cardsHtml = visible.map(item => {
           const isFav = state.favorites.has(item.ticker);
           const isCompared = state.compareList.includes(item.ticker);
           const hlTicker = highlightText(item.ticker, state.searchQuery);
@@ -4461,11 +4589,13 @@
             </article>
           `;
         }).join("");
+        if (append) gridEl.insertAdjacentHTML("beforeend", cardsHtml);
+        else gridEl.innerHTML = cardsHtml;
       } else {
         gridEl.classList.add("hidden");
         tableWrapEl.classList.remove("hidden");
 
-        tableBodyEl.innerHTML = filtered.map(item => {
+        const rowsHtml = visible.map(item => {
           const isFav = state.favorites.has(item.ticker);
           const hlTicker = highlightText(item.ticker, state.searchQuery);
           const hlCnName = highlightText(item.cnName, state.searchQuery);
@@ -4511,7 +4641,10 @@
             </tr>
           `;
         }).join("");
+        if (append) tableBodyEl.insertAdjacentHTML("beforeend", rowsHtml);
+        else tableBodyEl.innerHTML = rowsHtml;
       }
+      renderedReportCount = end;
     }
 
     // =========================================================================
@@ -4865,6 +4998,14 @@
         gridBtn.className = "px-2.5 py-1 rounded-md text-xs font-medium text-slate-600 dark:text-slate-300";
       }
       renderReports();
+    }
+
+    function toggleMobileTools() {
+      const tools = document.getElementById("portal-tools");
+      const expanded = tools.classList.toggle("is-open");
+      const toggle = document.getElementById("mobile-tools-toggle");
+      toggle.setAttribute("aria-expanded", String(expanded));
+      toggle.textContent = expanded ? "收起 ▴" : "工具 ▾";
     }
 
     function setLinkMode(mode) {
@@ -5326,6 +5467,7 @@
     window.addEventListener("DOMContentLoaded", () => {
       loadSavedState();
       renderReports();
+      initReportInfiniteScroll();
       initGlobalDragAndDrop();
       initEmbeddedReports();
     });

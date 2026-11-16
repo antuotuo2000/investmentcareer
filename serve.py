@@ -1,74 +1,41 @@
 #!/usr/bin/env python3
-"""Serve the portal and discover local Components reports without dependencies."""
-import hashlib
-import json
-from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+"""Open the persistent local homepage and keep its disk index up to date."""
 from pathlib import Path
-from urllib.parse import urlsplit
+import time
 import webbrowser
 from build_snapshot import build_snapshot
 
 DOCS = Path(__file__).resolve().parent / "docs"
 
 
-def catalog():
-    entries = []
-    for path in sorted((DOCS / "Components").iterdir(), key=lambda p: p.name.casefold()):
-        if path.is_file() and not path.is_symlink() and path.suffix.lower() in (".html", ".htm"):
-            stat = path.stat()
-            entries.append({"fileName": path.name, "modified": stat.st_mtime_ns,
-                            "lastModified": stat.st_mtime * 1000, "size": stat.st_size})
-    return entries
-
-
-class Handler(SimpleHTTPRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=str(DOCS), **kwargs)
-
-    def do_GET(self):
-        if urlsplit(self.path).path == "/components-index.json":
-            try:
-                data = json.dumps(catalog(), ensure_ascii=False).encode("utf-8")
-            except OSError:
-                self.send_error(503, "Components directory is unavailable")
-                return
-            tag = '"' + hashlib.sha256(data).hexdigest() + '"'
-            if self.headers.get("If-None-Match") == tag:
-                self.send_response(304)
-                self.send_header("ETag", tag)
-                self.end_headers()
-                return
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(data)))
-            self.send_header("Cache-Control", "no-cache")
-            self.send_header("ETag", tag)
-            self.end_headers()
-            self.wfile.write(data)
-            return
-        super().do_GET()
-
-    def end_headers(self):
-        if urlsplit(self.path).path != "/components-index.json":
-            self.send_header("Cache-Control", "no-cache")
-        super().end_headers()
+def directory_version():
+    return tuple(sorted((p.name, p.stat().st_mtime_ns, p.stat().st_size)
+                        for p in (DOCS / "Components").iterdir()
+                        if p.is_file() and not p.is_symlink()
+                        and p.suffix.lower() in (".html", ".htm")))
 
 
 def main():
-    build_snapshot()
-    try:
-        server = ThreadingHTTPServer(("127.0.0.1", 8765), Handler)
-    except OSError as error:
-        raise SystemExit("无法启动本地服务（8765 端口可能已被使用）：" + str(error))
-    url = "http://127.0.0.1:8765/"
-    print("财报主页：" + url + "\n新增 HTML 请放入：" + str(DOCS / "Components") + "\n保持此窗口开启，按 Ctrl+C 停止。", flush=True)
+    version = directory_version()
+    count = build_snapshot()
+    url = (DOCS / "index.html").as_uri()
+    print("已保存 " + str(count) + " 份财报的本地索引。\n主页：" + url +
+          "\n关闭此窗口后，已收录财报仍可阅读、刷新和重新打开。" +
+          "\n保持窗口开启可自动收录新文件；按 Ctrl+C 停止自动收录。", flush=True)
     webbrowser.open(url)
     try:
-        server.serve_forever()
+        while True:
+            time.sleep(2)
+            try:
+                current = directory_version()
+                if current != version:
+                    count = build_snapshot()
+                    version = current
+                    print("已保存最新索引：" + str(count) + " 份财报", flush=True)
+            except OSError as error:
+                print("文件暂时无法读取，将重试：" + str(error), flush=True)
     except KeyboardInterrupt:
-        pass
-    finally:
-        server.server_close()
+        print("自动收录已停止，已保存的财报继续可用。", flush=True)
 
 
 if __name__ == "__main__":
