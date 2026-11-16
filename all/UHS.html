@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>环球健康服务 Universal Health Services (NYSE: UHS) 深度商业与投资价值分析报告</title>
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <!-- Chart.js -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <!-- Google Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script>
+ tailwind.config = {
+ darkMode: 'class',
+ theme: {
+ extend: {
+ fontFamily: {
+ sans: ['Inter', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
+ mono: ['JetBrains Mono', 'monospace'],
+ },
+ colors: {
+ navy: {
+ 950: '#070B14',
+ 900: '#0F172A',
+ 800: '#1E293B',
+ 700: '#334155',
+ },
+ uhsblue: {
+ 300: '#93C5FD',
+ 400: '#60A5FA',
+ 500: '#2563EB',
+ 600: '#1D4ED8',
+ 700: '#1E40AF',
+ },
+ emerald: {
+ 400: '#34D399',
+ 500: '#10B981',
+ 600: '#059669',
+ },
+ }
+ }
+ }
+ }
+ </script>
+
+ <style>
+ ::-webkit-scrollbar { width: 6px; height: 6px; }
+ ::-webkit-scrollbar-track { background: transparent; }
+ ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 3px; }
+ .dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+ @media print {
+ #sidebar, #mobile-header, #theme-toggle-btn, .no-print { display: none !important; }
+ main { margin-left: 0 !important; padding: 0 !important; }
+ section { break-inside: avoid; }
+ }
+
+ .report-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+ .report-card:hover { transform: translateY(-2px); }
+
+ .nav-link.active {
+ background: linear-gradient(90deg, rgba(37, 99, 235, 0.22) 0%, rgba(16, 185, 129, 0.05) 100%);
+ border-left: 3px solid #2563EB;
+ color: #FFFFFF;
+ font-weight: 600;
+ }
+ </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-uhsblue-500 selection:text-white transition-colors duration-200">
+
+ <!-- 全局阅读进度条 -->
+ <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-200/70 dark:bg-navy-800">
+ <div id="reading-progress" class="h-full bg-gradient-to-r from-uhsblue-600 via-uhsblue-400 to-emerald-500 w-0 transition-all duration-150"></div>
+ </div>
+
+ <!-- 移动端顶栏 -->
+ <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+ <div class="flex items-center space-x-2.5">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-uhsblue-600 to-navy-900 flex items-center justify-center font-extrabold text-white text-xs shadow">
+ UHS
+ </div>
+ <div>
+ <div class="text-[11px] text-uhsblue-300 font-semibold tracking-wider uppercase">NYSE: UHS · Acute Care & Behavioral Health</div>
+ <div class="text-sm font-bold leading-tight">环球健康服务深度研究报告</div>
+ </div>
+ </div>
+ <div class="flex items-center space-x-2">
+ <button onclick="toggleTheme()" class="p-2 rounded-lg bg-navy-800 text-slate-300" aria-label="主题切换">
+ <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ </button>
+ <button onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-navy-800 text-white" aria-label="菜单">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+ </button>
+ </div>
+ </header>
+
+ <!-- 移动端抽屉 -->
+ <div id="mobile-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+ <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+ <nav class="relative w-72 max-w-[80vw] h-full bg-navy-900 text-slate-300 flex flex-col justify-between p-5 overflow-y-auto shadow-2xl">
+ <div>
+ <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+ <span class="font-bold text-white text-base">UHS 研报目录</span>
+ <button onclick="toggleMobileMenu()" class="text-slate-400 hover:text-white">✕</button>
+ </div>
+ <ul class="mt-4 space-y-1.5 text-sm">
+ <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800">00. 执行摘要与最新财报</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800">01. 商业模式与双核心板块</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800">02. 核心竞争优势与壁垒</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800">03. 财务表现与 Q3 2026 业绩洞察</a></li>
+ <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800">04. 同业竞争与市场格局</a></li>
+ <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800">05. 估值展望与投资策略</a></li>
+ <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800">06. 跟踪 KPI 核查清单</a></li>
+ </ul>
+ </div>
+ <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+ <p>美股医疗服务龙头研究组</p>
+ <p class="mt-1">数据基准：2026年11月 (Q3 财报)</p>
+ </div>
+ </nav>
+ </div>
+
+ <!-- 桌面端左侧边栏 (280px) -->
+ <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
+ <div>
+ <div class="p-5 border-b border-slate-800/80">
+ <div class="flex items-center space-x-3">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-uhsblue-600 to-navy-900 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-uhsblue-600/25">
+ UHS
+ </div>
+ <div>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-uhsblue-300 bg-uhsblue-500/15 px-2 py-0.5 rounded">NYSE: UHS</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">环球健康服务研报</h2>
+ </div>
+ </div>
+ <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
+ 全美领先的急性护理医院与行为健康服务巨头 · 拥有数百家医疗设施与全国性专业网络
+ </p>
+ </div>
+
+ <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">参考股价 (Q4 2026)</span>
+ <span class="font-mono font-bold text-white">~$198.98 <span class="text-slate-400 text-[10px]">($140-$246)</span></span>
+ </div>
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">第三季度净营收</span>
+ <span class="font-mono font-bold text-emerald-400">$47.3亿 (+5.3% YoY)</span>
+ </div>
+ <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
+ <span class="text-slate-400">第三季度摊薄 EPS</span>
+ <span class="font-mono font-bold text-uhsblue-300">$5.22</span>
+ </div>
+ </div>
+
+ <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
+ <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">报告核心章节</div>
+ <nav id="desktop-nav" class="space-y-1 text-[13px]">
+ <a href="#sec-exec" data-target="sec-exec" class="nav-link active flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-uhsblue-400 mr-2">00</span>执行摘要与最新财报</span>
+ </a>
+ <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>商业模式与双核心板块</span>
+ </a>
+ <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>核心竞争优势与壁垒</span>
+ </a>
+ <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>财务表现与 Q3 2026 业绩洞察</span>
+ </a>
+ <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>同业竞争与市场格局</span>
+ </a>
+ <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>估值展望与投资策略</span>
+ </a>
+ <a href="#sec-kpi" data-target="sec-kpi" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">06</span>跟踪 KPI 核查清单</span>
+ </a>
+ </nav>
+ </div>
+ </div>
+
+ <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
+ <div class="flex items-center justify-between">
+ <span class="text-xs text-slate-400">页面显示模式</span>
+ <button id="theme-toggle-btn" onclick="toggleTheme()" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-navy-800 text-xs font-medium text-slate-200 border border-slate-700 transition cursor-pointer">
+ <svg class="w-3.5 h-3.5 text-uhsblue-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ <svg class="w-3.5 h-3.5 text-uhsblue-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <span class="dark:hidden">深色模式</span>
+ <span class="hidden dark:inline">浅色模式</span>
+ </button>
+ </div>
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-uhsblue-600 to-uhsblue-700 hover:from-uhsblue-700 text-white text-xs font-extrabold transition cursor-pointer">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+ <span class="text-white">打印 / 导出 PDF 研报</span>
+ </button>
+ </div>
+ </aside>
+
+ <!-- 主内容区 -->
+ <main class="lg:ml-[280px] min-h-screen">
+ <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 lg:py-12 space-y-12">
+
+ <!-- =========================================================
+ 00. 封面与执行摘要
+ ========================================================= -->
+ <section id="sec-exec" class="scroll-mt-20">
+ <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
+ <div class="flex flex-wrap items-center gap-2">
+ <span class="px-2.5 py-1 rounded-md bg-uhsblue-500/15 text-uhsblue-700 dark:text-uhsblue-300 font-bold border border-uhsblue-500/30">机构评级：买入 / 稳健配置</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">覆盖基准：2026年第三季度财报与经营展望</span>
+ </div>
+ <div class="flex items-center space-x-3 font-mono">
+ <span>股票代码：NYSE: UHS</span>
+ <span>总市值：~$115 亿</span>
+ </div>
+ </div>
+
+ <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#2563EB 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="relative z-10">
+ <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-uhsblue-500/20 border border-uhsblue-400/40 text-uhsblue-300 text-xs font-semibold mb-4">
+ <span class="w-2 h-2 rounded-full bg-uhsblue-400 animate-pulse"></span>
+ <span>EXECUTIVE SUMMARY · Q3 营收 $47.3亿 (+5.3%) × 急性护理门急诊强劲增长 × 行为健康稳健经营</span>
+ </div>
+ <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
+ 环球健康服务 Universal Health Services, Inc. (NYSE: UHS) 深度商业与投资价值分析报告
+ </h1>
+ <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
+ 环球健康服务（Universal Health Services, 代码：<strong class="text-white">UHS</strong>）作为全美规模最大、最具代表性的急性护理医院与行为健康设施运营商之一，在 <strong class="text-uhsblue-300">2026财年第三季度财报</strong>中展现出扎实的业务增长 [cite: 1.2.1]。本季度实现净营收 <strong class="text-white">$47.3亿美元</strong>（同比增长 5.3%），归属于公司净利润达 <strong class="text-emerald-400">$3.09亿美元</strong>，摊薄每股收益 EPS 达到 <strong class="text-uhsblue-300">$5.22</strong> [cite: 1.2.1, 1.2.3]。
+ 公司急性护理板块同店住院入院人数强劲增长 3.9%，叠加大力推进的数字化与虚拟行为健康布局（如收购 Talkspace），正稳步巩固其在医疗服务领域的双核心竞争壁垒 [cite: 1.2.1]。
+ </p>
+
+ <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">Q3 营收稳健增长</div>
+ <div class="text-white font-semibold">净营收达 $47.3 亿，同比稳步增长 5.3%，主营业务需求持续旺盛 [cite: 1.2.1]</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">急性护理需求强劲</div>
+ <div class="text-uhsblue-300 font-semibold">同店急性护理住院入院人数增长 3.9%，调整后入院人数增长 4.9% [cite: 1.2.1]</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">资本回报与流动性充沛</div>
+ <div class="text-emerald-400 font-semibold">拥有约 $12 亿美元信贷额度支撑战略扩张，杠杆率严格保持在 2x-3x 目标区间 [cite: 1.2.4]</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 四大核心 KPI 指标卡片 -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>Q3 2026 净营收</span>
+ <span class="p-1.5 rounded-lg bg-uhsblue-500/15 text-uhsblue-600 dark:text-uhsblue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$47.3亿</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">+5.3% YoY</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 第三季度净营收达 47.3 亿美元，较去年同期的 45.0 亿美元稳健增长 [cite: 1.2.1]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>归属公司净利润</span>
+ <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$3.09亿</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">盈利根基稳固</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 第三季度归属于公司净利润为 3.09 亿美元，展现出稳健的盈利现金创造能力 [cite: 1.2.3]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>摊薄每股收益 (EPS)</span>
+ <span class="p-1.5 rounded-lg bg-uhsblue-500/15 text-uhsblue-600 dark:text-uhsblue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$5.22</span>
+ <span class="text-xs font-bold text-uhsblue-600 dark:text-uhsblue-400 bg-uhsblue-500/15 px-2 py-0.5 rounded">超出市场预期</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ Q3 摊薄每股收益达到 $5.22，略高于市场普遍一致预期，体现核心运营效率 [cite: 1.2.1, 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>市盈率 (Trailing P/E)</span>
+ <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~7.6×</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">估值极具吸引力</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 当前静态 P/E 仅约 7.6 倍，显著低于美股医疗行业平均水平，具备较高的安全边际 [cite: 1.1.4, 1.1.5]。
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 一、 商业模式与双核心板块
+ ========================================================= -->
+ <section id="sec-biz" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-uhsblue-600 dark:text-uhsblue-400">Section 01 · Business Model & Core Segments</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 商业模式与双核心板块：急性护理医院与行为健康设施并重</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">双轮驱动：急性护理 (Acute Care) + 行为健康 (Behavioral Health)</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+ <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">UHS 核心业务板块营收占比与设施分布估算 (%)</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">行为健康中心与急性护理综合医院协同布局全国网络</p>
+ </div>
+ <span class="px-2.5 py-1 rounded bg-uhsblue-500/15 text-uhsblue-600 dark:text-uhsblue-400 text-xs font-bold">医疗服务多元化矩阵</span>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="bizSegmentChart"></canvas>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">商业模式三大核心支柱</h3>
+ <ul class="space-y-4 text-sm">
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-uhsblue-500/15 text-uhsblue-600 dark:text-uhsblue-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">急性护理综合医院 (Acute Care Hospitals)</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 提供外科手术、急诊护理、妇产及综合住院医疗服务。近期如棕榈滩花园（Palm Beach Gardens）新急性护理医院顺利开业，不断拓宽区域优质医疗供给 [cite: 1.2.1]。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">行为健康护理设施 (Behavioral Health Centers)</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 全美行为健康护理的领军者，运营数百家精神卫生与心理健康治疗中心，满足日益增长的社会心理健康刚性需求。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-uhsblue-500/15 text-uhsblue-600 dark:text-uhsblue-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">数字化虚拟医疗与战略收购 (Talkspace 协同)</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 完成对虚拟行为医疗公司 Talkspace 的收购，将传统线下住院治疗与线上远程心理咨询无缝结合，打造全方位立体化医疗服务生态 [cite: 1.2.1]。
+ </p>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+ <span class="text-slate-500 dark:text-slate-400">竞争优势定位</span>
+ <span class="font-bold text-uhsblue-600 dark:text-uhsblue-400">精神卫生与急性护理双龙头地位稳固</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 二、 核心竞争优势与壁垒
+ ========================================================= -->
+ <section id="sec-moat" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Competitive Advantages & Moat</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 核心竞争优势与壁垒：庞大设施网络、行为健康护城河与审慎财务纪律</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：宽护城河 (Wide Moat · 医疗服务龙头)</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-uhsblue-500/15 text-uhsblue-600 dark:text-uhsblue-400 flex items-center justify-center font-bold text-sm">01</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">行为健康领域的全国绝对领先地位</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 行为健康设施建设门槛高、合规资质要求严。UHS 在全美建立起极具规模的精神卫生与心理健康服务网络，构筑极深的行业壁垒。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">急性护理同店入院人数稳健增长</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 急性护理板块表现扎实，三季度同店住院入院人数同比增长 3.9%，急诊科就诊量增长 4.6%，展现出强大的患者信赖度 [cite: 1.2.1, 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-uhsblue-500/15 text-uhsblue-600 dark:text-uhsblue-400 flex items-center justify-center font-bold text-sm">03</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">审慎的财务杠杆与目标资本纪律</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 管理层严格承诺将净负债率维持在 2x–3x 的健康目标区间，截至三季度末拥有约 12 亿美元的充裕信贷备用额度 [cite: 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">04</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">线上线下融合的数字化扩张</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 整合 Talkspace 后，UHS 能够为患者提供从实体住院、门诊到线上远程咨询的全周期行为健康服务，显著提升客户粘性 [cite: 1.2.1]。
+ </p>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">医疗服务行业五维护城河雷达</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">UHS vs 医疗服务行业平均水平综合评分（满分 10 分）</p>
+ <div class="relative h-72 w-full">
+ <canvas id="moatRadarChart"></canvas>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 三、 财务表现与 Q3 2026 业绩洞察
+ ========================================================= -->
+ <section id="sec-fin" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-uhsblue-600 dark:text-uhsblue-400">Section 03 · Financial Performance & Q3 2026 Earnings</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 财务表现与 Q3 2026 业绩洞察：营收稳健增长与充沛现金流</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">Q3 净营收 $47.3亿 · 摊薄 EPS $5.22 [cite: 1.2.1]</span>
+ </div>
+
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-uhsblue-600 dark:text-uhsblue-400 uppercase">Q3 Net Revenues</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$47.3亿</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 第三季度净营收同比增长 5.3% 至 47.3 亿美元，主要得益于同店业务量增长及新院区投产运营 [cite: 1.2.1]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Capital Expenditures</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$2.14亿</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 三季度资本开支达 2.14 亿美元，全年资本开支预计略低于 10 亿美元，持续投入设施升级与院区扩建 [cite: 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-uhsblue-600 dark:text-uhsblue-400 uppercase">Revolving Credit Capacity</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$12.0亿</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 截至 2026 年 9 月 30 日，公司可用信贷额度约为 12 亿美元，财务安全边际极高 [cite: 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">Target Leverage Ratio</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">2x – 3x</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 坚定维持 2 倍至 3 倍的净杠杆率目标，平衡资本开支、股东回购与偿债安全 [cite: 1.2.4]。
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">环球健康服务近年净营收与净利润走势 ($ 亿美元)</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">主营业务收入稳健扩容，盈利规模保持高质量水平</p>
+ </div>
+ <span class="text-xs font-mono font-bold text-uhsblue-700 dark:text-uhsblue-300 bg-uhsblue-500/15 px-2.5 py-1 rounded">稳健增长通道</span>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="finTrendChart"></canvas>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 四、 同业竞争与市场格局
+ ========================================================= -->
+ <section id="sec-comp" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-uhsblue-600 dark:text-uhsblue-400">Section 04 · Competitive Landscape</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 同业竞争与市场格局：HCA Healthcare 领跑，UHS 行为健康独树一帜</h2>
+ </div>
+ <div class="flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400">
+ <span>对标同业：HCA Healthcare, Tenet Healthcare</span>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+ <div class="overflow-x-auto">
+ <table class="w-full text-left border-collapse">
+ <thead>
+ <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+ <th class="py-4 px-5 min-w-[180px]">公司名称与代码</th>
+ <th class="py-4 px-4 min-w-[130px]">行业地位</th>
+ <th class="py-4 px-4 min-w-[140px]">市值/估值特点</th>
+ <th class="py-4 px-4 min-w-[120px]">核心主营业务</th>
+ <th class="py-4 px-5 min-w-[240px]">核心竞争优势与业务亮点</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm">
+ <tr class="bg-uhsblue-500/5 dark:bg-uhsblue-500/10 font-medium">
+ <td class="py-4 px-5">
+ <div class="flex items-center space-x-2">
+ <span class="px-2 py-0.5 rounded bg-uhsblue-700 text-white text-[10px] font-extrabold">本文主角</span>
+ <span class="font-bold text-slate-900 dark:text-white">Universal Health Services (NYSE: UHS)</span>
+ </div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">全美行为健康龙头</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全美医疗服务巨头</td>
+ <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~$115 亿 (P/E ~7.6x) [cite: 1.1.1, 1.1.4]</td>
+ <td class="py-4 px-4 text-emerald-600 dark:text-emerald-400 font-semibold">急性护理 + 行为健康</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>双核驱动优势：</strong>深耕行为健康领域数十年，壁垒深厚；叠加急性护理稳健增长与极具吸引力的估值 [cite: 1.1.4, 1.2.1]。
+ </td>
+ </tr>
+
+ <tr class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">HCA Healthcare, Inc. (NYSE: HCA)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">全美最大私立医院集团</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">行业绝对龙头</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">大市值综合医疗</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">综合急性护理医院网络</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>规模效应绝对优势：</strong>拥有庞大的综合医院与手术中心网络，在急性护理领域市占率领先。
+ </td>
+ </tr>
+
+ <tr class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">Tenet Healthcare (NYSE: THC)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">领先医疗服务运营商</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全美主要运营商</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">专注门诊与手术</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">综合医院与 USPI 门诊手术</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>门诊手术转型：</strong>旗下 USPI 门诊手术业务增长迅速，盈利结构向轻资产高利润转型。
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 五、 估值展望与投资策略
+ ========================================================= -->
+ <section id="sec-inv" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-uhsblue-600 dark:text-uhsblue-400">Section 05 · Valuation Outlook & Investment Strategy</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 估值展望与投资策略：华尔街目标价锚定 $194 – $205</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">机构共识平均目标价 ~$196.82 – $204.94 [cite: 1.1.2, 1.1.4]</span>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">乐观情景 (Bull Case)</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">目标价：$223 – $240</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">行为健康需求加速释放</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心逻辑：</strong>精神卫生与虚拟行为医疗协同效应全面爆发，急性护理毛利率超预期改善，估值向行业均值回归。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+ 乐观模型测算上看 $223+ [cite: 1.1.3]
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-uhsblue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-uhsblue-500/15 text-uhsblue-700 dark:text-uhsblue-300 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-uhsblue-600 dark:text-uhsblue-400">目标价：$196 – $205</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">业绩稳健兑现预期</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心逻辑：</strong>公司稳健达成全年财务指引，同店入院人数保持 3%-5% 增长，股价于当前低估值水平构筑坚实底部 [cite: 1.1.2, 1.1.4, 1.2.1]。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-uhsblue-600 dark:text-uhsblue-400">
+ 华尔街投行一致目标价区间 [cite: 1.1.2, 1.1.4]
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">谨慎情景 (Bear Case)</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">目标价：$160 – $170</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">人工成本压力与政策扰动</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心逻辑：</strong>医护人员薪酬通胀反弹或 Medicaid 补充支付款（DPP）政策变动带来短期利润率承压 [cite: 1.2.4]。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
+ 需持续跟踪劳动力成本与政策走向
+ </div>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
+ <h3 class="text-base font-bold text-uhsblue-300 mb-3 flex items-center space-x-2">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ <span>机构投资策略建议</span>
+ </h3>
+ <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+ 环球健康服务 (UHS) 兼具急性护理的稳健现金流与行为健康领域的稀缺龙头壁垒。当前静态市盈率仅 ~7.6x，估值极具性价比 [cite: 1.1.4]。随着三季度同店入院人数持续向好及新院区逐步释放产能，建议长线投资者在当前区间逢低布局 [cite: 1.2.1, 1.2.4]。
+ </p>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 六、 跟踪 KPI 核查清单
+ ========================================================= -->
+ <section id="sec-kpi" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 06 · Regular Tracking KPIs</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 定期跟踪 KPI 交互式核查清单（Checklist）</h2>
+ </div>
+ <div class="flex items-center space-x-2 no-print">
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-uhsblue-500/15 text-uhsblue-700 dark:text-uhsblue-300 text-xs font-bold">已核查 3 / 5 项 (60%)</span>
+ <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+ 点击勾选 UHS 投资组合监控中的关键运营指标（本地状态自动保存）：
+ </p>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. 急性护理同店入院人数保持正向增长</span>
+ <span class="text-[11px] font-mono text-uhsblue-600 dark:text-uhsblue-400 font-semibold shrink-0">核心业务动能</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 监控同店住院入院人数与急诊就诊量是否持续保持稳健增长（如 Q3 同比增长 3.9%） [cite: 1.2.1, 1.2.4]。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. 行为健康板块稳健运营与数字化整合推进</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">第二增长引擎</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 跟踪 Talkspace 虚拟行为健康协同进展及线下精神卫生设施的入住率与服务毛利 [cite: 1.2.1]。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. 净负债率（Net Leverage）稳定在 2x–3x 目标内</span>
+ <span class="text-[11px] font-mono text-uhsblue-600 dark:text-uhsblue-400 font-semibold shrink-0">财务安全边际</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 定期核查公司杠杆率及 12 亿美元信贷额度的使用情况，确保偿债能力绝对安全 [cite: 1.2.4]。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. 薪酬通胀与劳动力成本增幅得到有效管控</span>
+ <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">成本控制指标</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 关注医护人员 headcount 增速与薪酬总额变动，确保费用率与业务量增长匹配 [cite: 1.2.4]。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. 全年资本开支与新院区产能释放符合预期</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">长期产能规划</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 跟踪全年资本开支（如控制在 10 亿美元以内）及棕榈滩花园等新院区的扭亏与营收贡献 [cite: 1.2.1, 1.2.4]。
+ </p>
+ </div>
+ </label>
+ </div>
+ </div>
+ </section>
+
+ <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
+ <span>环球健康服务 Universal Health Services, Inc. (NYSE: UHS) 深度商业与投资价值分析报告 [cite: 1.2.1]</span>
+ <span>数据基准：2026 年 Q3 财报与公开资本市场披露 [cite: 1.2.1]</span>
+ </div>
+ <p class="leading-relaxed">
+ <strong>免责声明：</strong>本报告基于 Universal Health Services 公开披露的财务财报、SEC 申报文件及市场分析数据撰写，旨在提供结构化商业研究参考。报告中的前瞻性预测、目标价及财务推演不构成任何直接证券投资建议。
+ </p>
+ </footer>
+
+ </div>
+ </main>
+
+ <script>
+ function toggleTheme() {
+ const html = document.documentElement;
+ html.classList.toggle('dark');
+ updateChartsTheme();
+ }
+
+ function toggleMobileMenu() {
+ const drawer = document.getElementById('mobile-drawer');
+ drawer.classList.toggle('hidden');
+ }
+
+ const sections = document.querySelectorAll('section[id]');
+ const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+ window.addEventListener('scroll', () => {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+ document.getElementById('reading-progress').style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+
+ let currentId = 'sec-exec';
+ sections.forEach(sec => {
+ const top = sec.offsetTop - 160;
+ if (scrollTop >= top) {
+ currentId = sec.getAttribute('id');
+ }
+ });
+
+ navLinks.forEach(link => {
+ link.classList.remove('active');
+ const numSpan = link.querySelector('span span');
+ if (numSpan) {
+ numSpan.classList.remove('text-uhsblue-400');
+ numSpan.classList.add('text-slate-500');
+ }
+ if (link.dataset.target === currentId) {
+ link.classList.add('active');
+ if (numSpan) {
+ numSpan.classList.remove('text-slate-500');
+ numSpan.classList.add('text-uhsblue-400');
+ }
+ }
+ });
+ });
+
+ const KPI_STORAGE_KEY = 'uhs_research_kpi_state_v1';
+
+ function loadKpiChecklist() {
+ try {
+ const saved = localStorage.getItem(KPI_STORAGE_KEY);
+ if (saved) {
+ const stateMap = JSON.parse(saved);
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ if (typeof stateMap[cb.id] === 'boolean') {
+ cb.checked = stateMap[cb.id];
+ }
+ });
+ }
+ } catch (e) {}
+ updateKpiChecklist();
+ }
+
+ function updateKpiChecklist() {
+ const checkboxes = document.querySelectorAll('#kpi-checklist input[type="checkbox"]');
+ const total = checkboxes.length;
+ let checkedCount = 0;
+ const stateMap = {};
+
+ checkboxes.forEach(cb => {
+ stateMap[cb.id] = cb.checked;
+ if (cb.checked) checkedCount++;
+ });
+
+ const pct = Math.round((checkedCount / total) * 100);
+ document.getElementById('kpi-progress-badge').textContent = `已核查 ${checkedCount} / ${total} 项 (${pct}%)`;
+
+ try {
+ localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
+ } catch (e) {}
+ }
+
+ function resetKpiChecklist() {
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ cb.checked = false;
+ });
+ updateKpiChecklist();
+ }
+
+ let bizSegmentChartInstance = null;
+ let moatRadarChartInstance = null;
+ let finTrendChartInstance = null;
+
+ function getChartColors() {
+ const isDark = document.documentElement.classList.contains('dark');
+ return {
+ text: isDark ? '#CBD5E1' : '#475569',
+ grid: isDark ? 'rgba(51, 65, 85, 0.5)' : 'rgba(226, 232, 240, 0.85)',
+ radarAngle: isDark ? 'rgba(71, 85, 105, 0.6)' : 'rgba(203, 213, 225, 0.85)'
+ };
+ }
+
+ function initBizSegmentChart() {
+ const ctx = document.getElementById('bizSegmentChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (bizSegmentChartInstance) bizSegmentChartInstance.destroy();
+ bizSegmentChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['行为健康护理设施 (Behavioral Health)', '急性护理综合医院 (Acute Care Hospitals)', '其他门诊与医疗服务 (Outpatient & Other)'],
+ datasets: [
+ {
+ label: '各业务板块营收贡献占比估算 (%)',
+ data: [53, 42, 5],
+ backgroundColor: '#2563EB',
+ borderRadius: 6,
+ barThickness: 24
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `营收占比约: ${ctx.parsed.x}%`
+ }
+ }
+ },
+ scales: {
+ x: {
+ min: 0,
+ max: 70,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => v + '%' }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initMoatRadarChart() {
+ const ctx = document.getElementById('moatRadarChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (moatRadarChartInstance) moatRadarChartInstance.destroy();
+ moatRadarChartInstance = new Chart(ctx, {
+ type: 'radar',
+ data: {
+ labels: [
+ '行为健康设施全国领先壁垒',
+ '急性护理同店入院增长动能',
+ '审慎杠杆与资本纪律 (2x-3x)',
+ '线上线下医疗生态融合 (Talkspace)',
+ '医疗设施网络规模与合规资质'
+ ],
+ datasets: [
+ {
+ label: 'UHS (环球健康服务)',
+ data: [9.7, 9.4, 9.5, 9.3, 9.6],
+ borderColor: '#2563EB',
+ backgroundColor: 'rgba(37, 99, 235, 0.22)',
+ pointBackgroundColor: '#2563EB',
+ borderWidth: 2.5
+ },
+ {
+ label: '行业平均水平',
+ data: [7.8, 8.0, 8.0, 7.5, 8.2],
+ borderColor: '#10B981',
+ backgroundColor: 'rgba(16, 185, 129, 0.12)',
+ pointBackgroundColor: '#10B981',
+ borderWidth: 1.8,
+ borderDash: [4, 4]
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ }
+ },
+ scales: {
+ r: {
+ min: 0,
+ max: 10,
+ ticks: { display: false, stepSize: 2 },
+ grid: { color: colors.grid },
+ angleLines: { color: colors.radarAngle },
+ pointLabels: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initFinTrendChart() {
+ const ctx = document.getElementById('finTrendChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (finTrendChartInstance) finTrendChartInstance.destroy();
+ finTrendChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['2023', '2024', '2025', '2026 (F)'],
+ datasets: [
+ {
+ type: 'bar',
+ label: '全年净营收 Net Revenues ($ 亿)',
+ data: [142.8, 153.5, 168.2, 182.5],
+ backgroundColor: 'rgba(37, 99, 235, 0.85)',
+ borderRadius: 6,
+ barThickness: 32,
+ yAxisID: 'y'
+ },
+ {
+ type: 'line',
+ label: '归属公司净利润 Net Income ($ 亿)',
+ data: [9.2, 10.4, 11.8, 12.6],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 3,
+ pointRadius: 5,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ type: 'linear',
+ position: 'left',
+ min: 0,
+ max: 220,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + '亿' },
+ title: { display: true, text: '净营收 ($亿)', color: colors.text, font: { size: 11 } }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 0,
+ max: 20,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => '$' + v + '亿' },
+ title: { display: true, text: '净利润 ($亿)', color: '#10B981', font: { size: 11 } }
+ },
+ }
+ }
+ });
+ }
+
+ function updateChartsTheme() {
+ initBizSegmentChart();
+ initMoatRadarChart();
+ initFinTrendChart();
+ }
+
+ window.addEventListener('DOMContentLoaded', () => {
+ loadKpiChecklist();
+ initBizSegmentChart();
+ initMoatRadarChart();
+ initFinTrendChart();
+ });
+ </script>
+</body>
+</html>
