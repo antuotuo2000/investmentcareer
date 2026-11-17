@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>怪物饮料 Monster Beverage Corporation (NASDAQ: MNST) 深度研究报告：全球能量饮料双雄争霸、国际化28%高增与供应链定价权突围</title>
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <!-- Chart.js -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <!-- Google Fonts: Inter + Noto Sans SC + JetBrains Mono -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script>
+ tailwind.config = {
+ darkMode: 'class',
+ theme: {
+ extend: {
+ fontFamily: {
+ sans: ['Inter', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
+ mono: ['JetBrains Mono', 'monospace'],
+ },
+ colors: {
+ navy: {
+ 950: '#070B14',
+ 900: '#0F172A',
+ 800: '#1E293B',
+ 700: '#334155',
+ },
+ mnstgreen: {
+ 300: '#86EFAC',
+ 400: '#4ADE80',
+ 500: '#22C55E',
+ 600: '#16A34A',
+ 700: '#15803D',
+ },
+ mnstlime: {
+ 400: '#ACC810',
+ 500: '#84CC16',
+ 600: '#65A30D',
+ },
+ emerald: {
+ 400: '#34D399',
+ 500: '#10B981',
+ 600: '#059669',
+ },
+ teal: {
+ 400: '#22D3EE',
+ 500: '#06B6D4',
+ 600: '#0891B2',
+ }
+ }
+ }
+ }
+ }
+ </script>
+
+ <style>
+ ::-webkit-scrollbar {
+ width: 6px;
+ height: 6px;
+ }
+ ::-webkit-scrollbar-track {
+ background: transparent;
+ }
+ ::-webkit-scrollbar-thumb {
+ background: #94A3B8;
+ border-radius: 3px;
+ }
+ .dark ::-webkit-scrollbar-thumb {
+ background: #475569;
+ }
+
+ @media print {
+ #sidebar, #mobile-header, #theme-toggle-btn, .no-print {
+ display: none !important;
+ }
+ main {
+ margin-left: 0 !important;
+ padding: 0 !important;
+ }
+ section {
+ break-inside: avoid;
+ }
+ }
+
+ .report-card {
+ transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+ }
+ .report-card:hover {
+ transform: translateY(-2px);
+ }
+
+ .nav-link.active {
+ background: linear-gradient(90deg, rgba(34, 197, 94, 0.24) 0%, rgba(16, 185, 129, 0.06) 100%);
+ border-left: 3px solid #22C55E;
+ color: #FFFFFF;
+ font-weight: 600;
+ }
+ </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-mnstgreen-500 selection:text-white transition-colors duration-200">
+
+ <!-- 顶部全局阅读进度条 -->
+ <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-200/70 dark:bg-navy-800">
+ <div id="reading-progress" class="h-full bg-gradient-to-r from-mnstgreen-600 via-mnstgreen-400 to-emerald-500 w-0 transition-all duration-150"></div>
+ </div>
+
+ <!-- 移动端顶部导航栏 -->
+ <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+ <div class="flex items-center space-x-2.5">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-mnstgreen-500 to-mnstlime-500 flex items-center justify-center font-extrabold text-navy-950 text-xs shadow">
+ MNST
+ </div>
+ <div>
+ <div class="text-[11px] text-mnstgreen-400 font-semibold tracking-wider uppercase">NASDAQ: MNST · Energy Drink Leader</div>
+ <div class="text-sm font-bold leading-tight">怪物饮料 深度研究报告</div>
+ </div>
+ </div>
+ <div class="flex items-center space-x-2">
+ <button onclick="toggleTheme()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300" aria-label="切换阅读主题">
+ <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ </button>
+ <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-white" aria-label="打开目录">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+ </button>
+ </div>
+ </header>
+
+ <!-- 移动端折叠抽屉菜单 -->
+ <div id="mobile-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+ <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+ <nav class="relative w-72 max-w-[80vw] h-full bg-navy-900 text-slate-300 flex flex-col justify-between p-5 overflow-y-auto shadow-2xl">
+ <div>
+ <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+ <span class="font-bold text-white text-base">MNST 研报目录导航</span>
+ <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg text-slate-400 hover:text-white">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+ </button>
+ </div>
+ <ul class="mt-4 space-y-1.5 text-sm">
+ <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">00. 执行摘要与核心指标</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 商业模式与产品架构</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 行业地位与核心护城河</a></li>
+ <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 饮料与消费巨头横向对比</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与复利推演</a></li>
+ <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 投资决策与风险配置</a></li>
+ <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">06. 季度跟踪 KPI 核查清单</a></li>
+ </ul>
+ </div>
+ <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+ <p>全球消费与饮料行业研究组</p>
+ <p class="mt-1">数据基准：2026年11月 (Q3 26 / FY26E)</p>
+ </div>
+ </nav>
+ </div>
+
+ <!-- 桌面端左侧固定侧边导航栏 (宽 280px) -->
+ <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
+ <div>
+ <div class="p-5 border-b border-slate-800/80">
+ <div class="flex items-center space-x-3">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-mnstgreen-400 via-mnstgreen-500 to-mnstlime-500 flex items-center justify-center text-navy-950 font-extrabold text-base shadow-lg shadow-mnstgreen-500/25">
+ MNST
+ </div>
+ <div>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-mnstgreen-400 bg-mnstgreen-500/15 px-2 py-0.5 rounded">NASDAQ: MNST</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">怪物饮料深度研报</h2>
+ </div>
+ </div>
+ <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
+ 全球能量饮料龙头 · 可口可乐战略同盟与国际市场 28% 高速扩张引擎
+ </p>
+ </div>
+
+ <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">参考股价 (52周区间)</span>
+ <span class="font-mono font-bold text-white">~$47.18 <span class="text-slate-400 text-[10px]">($35.4-$50.2)</span></span>
+ </div>
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">Q3 季度净销售额</span>
+ <span class="font-mono font-bold text-emerald-400">$25.6亿 <span class="text-slate-400">(+16.7%)</span></span>
+ </div>
+ <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
+ <span class="text-slate-400">远期估值与净利</span>
+ <span class="font-mono font-bold text-mnstgreen-400">~42x P/E · 净利 $5.68亿</span>
+ </div>
+ </div>
+
+ <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
+ <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">核心研究章节</div>
+ <nav id="desktop-nav" class="space-y-1 text-[13px]">
+ <a href="#sec-exec" data-target="sec-exec" class="nav-link active flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-mnstgreen-400 mr-2">00</span>执行摘要与核心指标</span>
+ </a>
+ <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>商业模式与产品架构</span>
+ </a>
+ <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>行业地位与核心护城河</span>
+ </a>
+ <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>饮料与消费巨头横向对比</span>
+ </a>
+ <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与复利推演</span>
+ </a>
+ <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>投资决策与风险配置</span>
+ </a>
+ <a href="#sec-kpi" data-target="sec-kpi" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">06</span>季度跟踪 KPI 核查清单</span>
+ </a>
+ </nav>
+ </div>
+ </div>
+
+ <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
+ <div class="flex items-center justify-between">
+ <span class="text-xs text-slate-400">阅读模式切换</span>
+ <button id="theme-toggle-btn" onclick="toggleTheme()" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-medium text-slate-200 border border-slate-700 transition cursor-pointer">
+ <svg class="w-3.5 h-3.5 text-mnstgreen-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ <svg class="w-3.5 h-3.5 text-mnstgreen-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <span class="dark:hidden">深色护眼模式</span>
+ <span class="hidden dark:inline">机构亮色模式</span>
+ </button>
+ </div>
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-mnstgreen-500 to-mnstlime-500 hover:from-mnstgreen-600 hover:to-mnstlime-600 text-navy-950 text-xs font-extrabold transition shadow-sm cursor-pointer">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+ <span>打印 / 导出 PDF 研报</span>
+ </button>
+ </div>
+ </aside>
+
+ <!-- 主内容区 -->
+ <main class="lg:ml-[280px] min-h-screen">
+ <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 lg:py-12 space-y-12">
+
+ <!-- =========================================================
+ 00. Hero 研报封面区与执行摘要
+ ========================================================= -->
+ <section id="sec-exec" class="scroll-mt-20">
+ <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
+ <div class="flex flex-wrap items-center gap-2">
+ <span class="px-2.5 py-1 rounded-md bg-mnstgreen-500/15 text-mnstgreen-700 dark:text-mnstgreen-400 font-bold border border-mnstgreen-500/30">评级：买入 / 全球能量饮料成长核心底仓</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">周期：2026Q3 首次单季破 $25 亿与国际市场 28% 高增兑现期</span>
+ </div>
+ <div class="flex items-center space-x-3 font-mono">
+ <span>覆盖时间：2026年11月</span>
+ <span>NASDAQ: MNST</span>
+ </div>
+ </div>
+
+ <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#22C55E 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="relative z-10">
+ <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-mnstgreen-500/20 border border-mnstgreen-400/40 text-mnstgreen-300 text-xs font-semibold mb-4">
+ <span class="w-2 h-2 rounded-full bg-mnstgreen-400 animate-pulse"></span>
+ <span>CORE THESIS · 历史首次单季突破 $25 亿销售额 × 国际市场飙升 28% × 可口可乐全球分销协同网络</span>
+ </div>
+ <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
+ 怪物饮料 Monster Beverage Corporation (NASDAQ: MNST) 深度研究报告：全球能量饮料双雄争霸、国际化28%高增与供应链定价权突围
+ </h1>
+ <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
+ 怪物饮料（Monster Beverage）交出突破性的 <strong class="text-white">2026Q3 财报</strong>：公司历史上首次实现单季净销售额突破 <strong class="text-mnstgreen-300">$25.6 亿美元（同比增长 16.7%）</strong>。
+ 得益于无糖 Ultra 系列在欧洲和拉丁美洲的爆发（欧洲 Ultra 增长 42%、巴西大增 70%），<strong class="text-white">国际市场净销售额同比大增 28.1%</strong>，占总营收比重提升至 47%。单季净利润达到 <strong class="text-emerald-400">$5.68 亿美元</strong>，调整后稀释每股收益（EPS）增至 $0.30。借助可口可乐全球强大的分销系统与 2027 年重磅创新产品管线，怪物饮料正在稳固其全球能量饮料霸主地位。
+ </p>
+
+ <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">单季营收历史性突破</div>
+ <div class="text-white font-semibold">Q3 净销售额达 $25.6B（+16.7% YoY），历史上首次单季跨越 25 亿美元大关</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">国际化多点爆发引擎</div>
+ <div class="text-mnstgreen-300 font-semibold">海外市场大增 28.1% 至 $1.20B（占总营收 47%），欧洲与拉美市场势头极为强劲</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">可口可乐分销网络协同</div>
+ <div class="text-emerald-400 font-semibold">依托全球 Bottler 体系实现轻资产快速下沉，毛利率与盈利质量维持行业顶尖水平</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 4个核心 KPI 卡片 -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>总市值与最新股价</span>
+ <span class="p-1.5 rounded-lg bg-mnstgreen-500/15 text-mnstgreen-600 dark:text-mnstgreen-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~$90.9B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$47.18</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 全球市值稳居 ~910 亿美元高位，享有双位数营收增速的成长性消费品估值溢价。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>Q3 净销售额与国际占比</span>
+ <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$2.56B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">海外占 47%</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 单季净销售额 $25.6 亿（+16.7% YoY），其中海外国际市场贡献 47%（$1.20B），增长动能极为强劲。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>Q3 净利润与 EPS 表现</span>
+ <span class="p-1.5 rounded-lg bg-teal-500/15 text-teal-600 dark:text-teal-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$568.4M</span>
+ <span class="text-xs font-bold text-teal-600 dark:text-teal-400 bg-teal-500/15 px-2 py-0.5 rounded">EPS $0.30</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 单季净利润达 $5.68 亿美元（+8.4% YoY），调整后稀释每股收益 $0.30 略超市场分析师一致预期。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>资产负债与资本回报</span>
+ <span class="p-1.5 rounded-lg bg-mnstgreen-500/15 text-mnstgreen-600 dark:text-mnstgreen-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">现金>债务</span>
+ <span class="text-xs font-bold text-mnstgreen-700 dark:text-mnstgreen-400 bg-mnstgreen-500/15 px-2 py-0.5 rounded">回购 $1.0亿</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 资产负债表拥有充沛净现金，Q3 单季回购 230 万股（约 $1.0 亿），剩余回购授权约 $8.0 亿美元。
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 一、 商业模式与产品架构 (Business & Product Architecture)
+ ========================================================= -->
+ <section id="sec-biz" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-mnstgreen-600 dark:text-mnstgreen-400">Section 01 · Business & Product Architecture</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 商业模式与产品架构：专注于品牌与配方，携手可口可乐轻资产全球分销</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY26E 总营收 ~$8.2B+ · 品牌营销与瓶装厂分销联盟</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+ <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">2022–2026E 全球净销售额与国际市场占比演进</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">全球销售额稳步向 80 亿美元以上跨越，海外国际市场贡献突破 47%</p>
+ </div>
+ <div class="inline-flex rounded-lg bg-slate-100 dark:bg-navy-800 p-1 text-xs no-print">
+ <button onclick="switchBizChart('revenue_mix')" id="btn-chart-rev" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-mnstgreen-600 dark:text-mnstgreen-400 shadow-sm transition cursor-pointer">视图A：营收与国际结构</button>
+ <button onclick="switchBizChart('brand_segments')" id="btn-chart-brand" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：品牌矩阵与区域增速</button>
+ </div>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="bizArchitectureChart"></canvas>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">怪物饮料三大核心商业优势</h3>
+ <ul class="space-y-4 text-sm">
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-mnstgreen-500/15 text-mnstgreen-600 dark:text-mnstgreen-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">与可口可乐公司的全球战略分销联盟</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 通过与可口可乐建立深度股权与全球装瓶商（Bottler）分销网络绑定，怪物饮料得以将品牌和浓缩液迅速铺向全球近百个国家和地区，省去巨额线下重资产物流建设。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">专注于产品创新与极致品牌营销</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 公司核心精力聚焦于品牌塑造、极限运动赞助（如 UFC、MotoGP、电竞赛事）、文化圈层渗透以及口味研发，构筑了极具叛逆与潮流基因的青年粉丝粘性。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-teal-500/15 text-teal-600 dark:text-teal-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">多元化产品矩阵（Monster Energy + Ultra + Reign）</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 从经典 Monster 绿色罐装到零糖低卡的 Ultra 家族、高性能健身能量饮料 Reign 以及果汁能量系列 Juice Monster，全面覆盖不同年龄与健身消费场景。
+ </p>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+ <span class="text-slate-500 dark:text-slate-400">全球增长主引擎</span>
+ <span class="font-bold text-mnstgreen-600 dark:text-mnstgreen-400">欧洲、拉丁美洲及新兴亚洲市场</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-mnstgreen-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-mnstgreen-500/15 text-mnstgreen-700 dark:text-mnstgreen-400 text-xs font-bold">绝对现金牛基石 · 占总营收 ~90%+</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">能量饮料板块 (Monster Energy Drinks)</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 核心能量饮料业务（Monster Energy Drinks）</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 涵盖经典 Monster、Ultra 无糖系列、Juice Monster 果汁系列、Reign 高性能能量饮料及 Bang 品牌矩阵。Q3 期间，无糖 Ultra 系列在欧洲大增 42%，成为全球健康化消费浪潮下的超级增长极；同时全美各渠道价格调整顺利落地，有效对冲通胀压力。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>Q3 净销售额 $2.56B (+16.7%)</span>
+ <span class="text-mnstgreen-600 dark:text-mnstgreen-400 font-semibold">Ultra 无糖系列引领全球放量</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">战略探索赛道 · 酒精与即饮茶</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">酒精品牌与战略新品 (Alcohol Brands)</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 酒精饮料与其他多元化探索板块</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 包含 The Beast Unleashed 等麦芽酒精饮料产品线。尽管 Q3 酒精板块营收录得小幅调整（约 $2,850 万），但公司正通过精细化渠道测试和产品迭代，探索从单一能量饮料向全品类年轻态含酒精与非酒精潮饮的边界延伸。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>Q3 酒精板块营收 ~$28.5M</span>
+ <span class="text-emerald-600 dark:text-emerald-400 font-semibold">长线孵化年轻态潮饮生态</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-teal-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-teal-500/15 text-teal-700 dark:text-teal-400 text-xs font-bold">国际扩张引擎 · 欧洲与拉美</span>
+ <span class="font-mono text-xs font-bold text-teal-600 dark:text-teal-400">海外市场 (International Markets)</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">3. 国际市场矩阵（EMEA、拉美与亚太）</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ Q3 海外国际市场销售额飙升 28.1% 至 12.0 亿美元（占总营收 47%）。其中 EMEA 欧洲区域市占率显著提升并夺得英国、埃及、塞尔维亚等地价值份额第一；拉丁美洲的巴西暴涨 70%、墨西哥增长 20.6%，成为全球业绩增长的最强双翼。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>国际收入占比升至 47%</span>
+ <span class="text-teal-600 dark:text-teal-400 font-semibold">巴西大增 70% / 欧洲市占率登顶</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-indigo-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-700 dark:text-indigo-400 text-xs font-bold">供应链与定价协同 · 成本防御</span>
+ <span class="font-mono text-xs font-bold text-indigo-600 dark:text-indigo-400">供应链与价格管理</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">4. 全球供应链协同与定价权保障</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 面对铝罐成本、国际运费及产品组合带来的毛利结构压力，公司于 2026 年 11 月 1 日在全美正式落地新一轮价格调整。配合精细化的供应链布局与套期保值，有效抵御通胀侵蚀，保持毛利率在 52%–54% 的行业塔尖区间。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>美国提价已于 11月1日生效</span>
+ <span class="text-indigo-600 dark:text-indigo-400 font-semibold">强大品牌定价权对冲成本波动</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 二、 行业地位与四重核心护城河 (Industry Position & Moat)
+ ========================================================= -->
+ <section id="sec-moat" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Industry Position & Economic Moat</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 行业地位与四重核心护城河：可口可乐联盟、青年文化心智与高毛利</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全球能量饮料双雄)</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-mnstgreen-500/15 text-mnstgreen-600 dark:text-mnstgreen-400 flex items-center justify-center font-bold text-sm">01</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">可口可乐全球装瓶分销联盟护城河</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 依托可口可乐无孔不入的全球 Bottler 销售网络，Monster 能够以极低的资本开支将产品推向全球几乎所有便利店、超市和加油站，形成竞争对手难以复刻的分销规模壁垒。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">无与伦比的青年文化与极限运动心智</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 长期深耕极限运动、赛车、电竞与音乐节，Monster 品牌在 Z 世代和年轻群体中具有极高的文化符号价值与忠诚度，广告转化效率远超传统大众饮料。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold text-sm">03</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">轻资产高回报与强劲现金流创造力</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 将重资产灌装与物流外包给战略伙伴，自身专注品牌与研发，使公司拥有极高的资产回报率（ROE 维持在 25%+）与源源不断的自由现金流。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">04</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">持续迭代的全球爆款创新产品管线</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 从 Ultra 无糖系列的持续放量到 2027 年储备的丰富新品矩阵，怪物饮料通过不断推出契合低卡、功能性需求的创新SKU，成功引领全球能量饮料消费风潮。
+ </p>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">全球能量与软饮料巨头五维护城河雷达图</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">怪物饮料 (MNST) vs 红牛 (Private) vs 百事可乐 (PEP)（满分 10 分）</p>
+ <div class="relative h-72 w-full">
+ <canvas id="moatRadarChart"></canvas>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 三、 饮料与消费巨头横向对比 (Competitive Landscape)
+ ========================================================= -->
+ <section id="sec-comp" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-mnstgreen-600 dark:text-mnstgreen-400">Section 03 · Global Beverage Competitive Landscape</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球饮料与消费巨头横向对比：双位数高成长 vs 传统低速标杆</h2>
+ </div>
+ <div class="flex flex-wrap gap-1.5 text-xs no-print" id="comp-filter-group">
+ <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-mnstgreen-500 text-navy-950 shadow-sm transition cursor-pointer">全部巨头</button>
+ <button onclick="filterCompetitors('beverage')" data-filter="beverage" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">软饮料与能量赛道</button>
+ <button onclick="filterCompetitors('staples')" data-filter="staples" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">全球必需消费巨头</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+ <div class="overflow-x-auto">
+ <table class="w-full text-left border-collapse">
+ <thead>
+ <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+ <th class="py-4 px-5 min-w-[180px]">企业名称与核心品牌</th>
+ <th class="py-4 px-4 min-w-[130px]">核心主营业务</th>
+ <th class="py-4 px-4 min-w-[140px]">营收增速 (YoY)</th>
+ <th class="py-4 px-4 min-w-[100px]">远期 P/E</th>
+ <th class="py-4 px-4 min-w-[115px]">远期股息率</th>
+ <th class="py-4 px-5 min-w-[230px]">核心优劣势与竞合定位评估</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm" id="comp-table-body">
+ <tr data-category="beverage" class="bg-mnstgreen-500/5 dark:bg-mnstgreen-500/10 font-medium">
+ <td class="py-4 px-5">
+ <div class="flex items-center space-x-2">
+ <span class="px-2 py-0.5 rounded bg-mnstgreen-500 text-navy-950 text-[10px] font-extrabold">能量饮料成长王</span>
+ <span class="font-bold text-slate-900 dark:text-white">怪物饮料 (MNST)</span>
+ </div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Monster / Ultra / Reign</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球垂直功能性能量饮料</td>
+ <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">+16.7% (双位数高增)</td>
+ <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~42.3x</td>
+ <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">无派息 (全额 reinvest)</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>全球能量饮料双雄之一：</strong>营收增速近乎传统饮料巨头的 3 倍，海外国际市场爆发力极强，享有高成长估值溢价。
+ </td>
+ </tr>
+
+ <tr data-category="staples" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">可口可乐公司 (KO)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Coca-Cola Company</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球碳水与非碳酸软饮料帝国</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">低个位数稳定增长</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~22.0x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~3.10%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>全球软饮料泰斗与盟友：</strong>既是 MNST 的主要股东与全球分销盟友，又是全球现金流最稳健的红利防御标的。
+ </td>
+ </tr>
+
+ <tr data-category="staples" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">百事公司 (PEP)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">PepsiCo, Inc.</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">饮料（含 Rockstar/Celsius投资）+ 休闲食品</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">低单数 / ~4%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~18.0x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~3.35%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>零食与饮料双料巨头：</strong>估值折价明显，但整体顶线增速显著落后于专注于功能性能量饮料的 Monster。
+ </td>
+ </tr>
+
+ <tr data-category="beverage" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">Celsius Holdings (CELH)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Celsius Holdings, Inc.</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">功能性健身能量饮料</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">高波动高成长</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~35.0x</td>
+ <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">无派息</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>新兴健身能量挑战者：</strong>同样由百事可乐代理分销，主打燃脂健身场景，是 Monster 在北美市场的主要差异化竞争对手。
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">全球主要饮料巨头营收增速与远期 P/E 估值对照</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">怪物饮料凭借双位数顶线高增长，享有高于传统软饮料巨头（如百事 PEP）的成长估值溢价</p>
+ </div>
+ <span class="text-xs font-semibold text-mnstgreen-700 dark:text-mnstgreen-400 bg-mnstgreen-500/15 px-2.5 py-1 rounded">双位数高增驱动估值溢价</span>
+ </div>
+ <div class="relative h-64 w-full">
+ <canvas id="compMarginChart"></canvas>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 四、 财务健康与复利推演 (Financial Health & Compounding Simulator)
+ ========================================================= -->
+ <section id="sec-fin" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Financial Health & Growth Compounding Simulator</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康度与复利体系：5.68亿净利、超高毛利与无债务资产负债表</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">净现金资产结构 · ROE 高达 25%</span>
+ </div>
+
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-mnstgreen-600 dark:text-mnstgreen-400 uppercase">Gross Margin</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~53.0%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 品牌轻资产模式带来行业顶尖的毛利率水平，虽受国际运费及产品组合阶段性扰动，但定价权确保盈利质量稳如磐石。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Return on Equity (ROE)</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">25.0%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 极高的资本回报率印证了公司卓越的品牌资产变现能力与资本配置效率。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase">Net Cash Position</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">零长期债务</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 资产负债表拥有充沛现金储备，无长期债务负担，具备极强的抗宏观波动与随时进行大规模股票回购的财务自由度。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">Q3 Net Income</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$568.4M</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 单季净利润同比增长 8.4% 至 $5.68 亿美元，九个月累计净利润达 $17.2 亿美元（+18.3% YoY）。
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">2021–2026E 全球净销售额与净利润稳步攀升趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">双位数顶线增长驱动净利润与每股收益持续突破，展现出强劲的全球消费龙头复利特征</p>
+ </div>
+ <span class="text-xs font-mono font-bold text-mnstgreen-700 dark:text-mnstgreen-400 bg-mnstgreen-500/15 px-2.5 py-1 rounded">年均复合增速双位数</span>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="valEvolutionChart"></canvas>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-700 shadow-xl space-y-6 no-print">
+ <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-700/80">
+ <div>
+ <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-mnstgreen-400 font-bold">
+ <span>MNST COMPOUNDING SIMULATOR · 怪物饮料长期成长与估值推演器</span>
+ </div>
+ <h3 class="text-lg sm:text-xl font-bold text-white mt-1">怪物饮料长期持仓复利与国际化渗透动态推演器</h3>
+ <p class="text-xs text-slate-400 mt-0.5">基准参数：当前参考股价 $47.18 | 总市值 ~$90.9B | 模拟未来多年净利润与估值多维增长</p>
+ </div>
+ <label class="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-mnstgreen-500/15 border border-mnstgreen-400/30 text-xs font-semibold text-mnstgreen-300 cursor-pointer shrink-0">
+ <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#22C55E] cursor-pointer">
+ <span>启用国际市场 25%+ 渗透加速模型</span>
+ </label>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-5 space-y-4 text-xs">
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">初始模拟投资额 (USD)</span>
+ <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$30,000</span>
+ </div>
+ <input id="sim-principal" type="range" min="5000" max="200000" step="5000" value="30000" oninput="updateDividendSimulator()" class="w-full accent-[#22C55E] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">长期持有年限 (Years)</span>
+ <span id="sim-years-label" class="font-mono font-bold text-white text-sm">5 年</span>
+ </div>
+ <input id="sim-years" type="range" min="1" max="10" step="1" value="5" oninput="updateDividendSimulator()" class="w-full accent-[#22C55E] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">年均净利润与营收复合增长率 (CAGR)</span>
+ <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">11.5%</span>
+ </div>
+ <input id="sim-growth" type="range" min="5" max="20" step="0.5" value="11.5" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
+ </div>
+
+ <div class="pt-1">
+ <div class="text-slate-300 font-medium mb-2">远期市盈率估值倍数预期（Forward P/E Multiple）：</div>
+ <div class="grid grid-cols-3 gap-2" id="tax-btn-group">
+ <button type="button" onclick="setTaxRate(30)" data-tax="30" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-mnstgreen-400 transition cursor-pointer">
+ 30x 保守估值<br><span class="text-[10px] text-slate-400">历史低位区间</span>
+ </button>
+ <button type="button" onclick="setTaxRate(38)" data-tax="38" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-mnstgreen-500 text-navy-950 border border-mnstgreen-400 shadow transition cursor-pointer">
+ 38x 合理中枢<br><span class="text-[10px] text-navy-900">长期历史均值</span>
+ </button>
+ <button type="button" onclick="setTaxRate(45)" data-tax="45" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-mnstgreen-400 transition cursor-pointer">
+ 45x 牛市溢价<br><span class="text-[10px] text-slate-400">高成长科技溢价</span>
+ </button>
+ </div>
+ </div>
+ </div>
+
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末预计投资资产估值 (USD)</div>
+ <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$51,840</div>
+ <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计总回报 +72.8% (基于 38x P/E)</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末隐含年化每股收益 (EPS)</div>
+ <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-mnstgreen-400 mt-1.5">$1.82</div>
+ <div id="sim-monthly-div" class="text-xs text-slate-400 mt-1.5">伴随净利润稳步复利复合增长</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末对应估值多维年化回报率 (CAGR)</div>
+ <div id="sim-yoc" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">11.5%</div>
+ <div class="text-xs text-slate-400 mt-1.5">年化复合投资回报增长</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末国际营收占比预估</div>
+ <div id="sim-cum-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1.5">~55%</div>
+ <div id="sim-shares-end" class="text-xs text-slate-400 mt-1.5">海外市场成为绝对第一驱动力</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <div class="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-emerald-700 dark:text-emerald-400 text-base">多头核心论点 (Bull Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">国际化 28% 高增 + 品牌护城河</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>海外国际市场爆发式增长：</strong>Q3 国际收入大增 28.1% 至 $1.20B，欧洲 Ultra 系列与拉美（巴西大增 70%）展现惊人渗透力。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>可口可乐全球分销协同：</strong>轻资产模型带来极高的 ROIC 与无长期债务的纯净现金资产负债表，财务安全性极高。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>强大的定价权与产品创新管线：</strong>11月1日全美提价落地，配合 2027 年储备的丰富新品矩阵，确保双位数顶线增长。</span></li>
+ </ul>
+ </div>
+
+ <div class="bg-rose-50/70 dark:bg-rose-950/20 rounded-2xl p-6 border border-rose-200 dark:border-rose-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-rose-700 dark:text-rose-400 text-base">空头担忧论点 (Bear Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">高估值多重倍数 + 铝罐成本</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>估值处于历史相对高位：</strong>Forward P/E 达到 ~42x，市场对双位数高增长定价充分，对任何季度增速放缓表现敏感。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>原材料与铝罐成本波动：</strong>铝罐成本、海外运费及国际销售占比提升（毛利百分比相对较低）对整体毛利率结构的结构性挤压。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>功能饮料赛道竞争加剧：</strong>Celsius 等新兴健身能量品牌在北美的差异化竞争对部分细分客群造成一定分流。</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 五、 投资决策与风险配置框架 (Investment Decision & Risk)
+ ========================================================= -->
+ <section id="sec-inv" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-mnstgreen-600 dark:text-mnstgreen-400">Section 05 · Investment Decision & Risk Allocation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景目标价推演与饮料组合策略</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：优质长线成长底仓 · 逢回调积极布局</span>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">牛市情景 (Bull Case)</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">概率：25%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">45x–48x P/E ($58–$65)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>国际市场延续 25%+ 爆发式增长，欧洲与新兴市场市占率加速登顶；2027 年创新产品管线全面大热，净利润率超预期回升。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+ 潜在年化总回报：+18% 至 +24%
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-mnstgreen-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-mnstgreen-500/15 text-mnstgreen-700 dark:text-mnstgreen-400 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-mnstgreen-600 dark:text-mnstgreen-400">概率：55%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">38x–42x P/E ($48–$55)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>2026–2028 稳步兑现双位数营收与净利复合增长，定价权与成本对冲顺利，估值中枢维持在 40x 附近，稳定贡献阿尔法收益。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-mnstgreen-600 dark:text-mnstgreen-400">
+ 稳健年化总回报：+11% 至 +14%（成长与强劲内生复利）
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">熊市情景 (Bear Case)</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：20%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">28x–32x P/E ($35–$40)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>海外汇兑波动加剧或铝罐成本意外跳升压缩毛利率，导致顶线增速放缓至个位数，市场给予估值多重倍数回调。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
+ 潜在回撤风险：-15% 至 -22%（无负债现金底盘抗跌力强）
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险与跟踪边界</h3>
+ <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 铝罐原材料与国际运费通胀</span>
+ <span class="text-xs font-mono text-rose-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">供应链成本波动对毛利率的边际压缩</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 尽管美国区已于11月1日顺利提价，但铝锭价格及国际海运费用的非线性波动仍需密切追踪。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 海外汇率波动与非美占比提升</span>
+ <span class="text-xs font-mono text-amber-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">国际业务占比攀升（47%）带来的汇兑折算扰动</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 随着海外收入占比接近一半，强势美元或非美主要货币汇率波动可能对美元报表端营收产生阶段性扰动。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold">03 · 功能饮料赛道竞争与口味更迭</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">新锐健康能量品牌的细分市场分流</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 面对 Celsius 及各类新兴无糖、植物能量饮品的不断涌现，需保持 Ultra 系列的高频口味迭代与营销穿透力。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 监管政策与功能性饮品成分审查</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">全球各地针对咖啡因及标签法规的合规监管</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 各国（如印度及欧洲部分地区）对能量饮料标签、咖啡因含量及销售对象的合规政策变动。
+ </p>
+ </div>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
+ <h3 class="text-base font-bold text-mnstgreen-400 mb-4 flex items-center space-x-2">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ <span>机构级投资组合配置纪律与饮料板块协同策略</span>
+ </h3>
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-white mb-1">1. 饮料巨头组合配置（MNST + KO）</div>
+ <p class="text-slate-300 leading-relaxed">
+ <strong>MNST</strong> 提供双位数爆发式成长的功能性能量饮料阿尔法；<strong>KO</strong> 提供全球现金分红与极佳的抗周期防御，两者完美互补。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-mnstgreen-400 mb-1">2. 股价回调分批建仓纪律</div>
+ <p class="text-slate-300 leading-relaxed">
+ MNST 属于高品质成长消费股，估值常年处于 40x 附近；若因短期市场情绪波动回调至 <strong>$42–$45 区间</strong>，建议果断分批增持。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-emerald-400 mb-1">3. 资产配置税务与长线复利</div>
+ <p class="text-slate-300 leading-relaxed">
+ 由于公司不派发股息、资金全额留存用于主业扩张与全球渗透，非常适合置于海外长期成长账户中，充分享受复利增值效应。
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 六、 季度基本面跟踪 KPI 交互式核查清单 (Checklist)
+ ========================================================= -->
+ <section id="sec-kpi" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 06 · Quarterly Fundamental Tracking KPIs</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 季度基本面跟踪 KPI 交互式核查清单（Checklist）</h2>
+ </div>
+ <div class="flex items-center space-x-2 no-print">
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-mnstgreen-500/15 text-mnstgreen-700 dark:text-mnstgreen-400 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
+ <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 dark:hover:bg-navy-700 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+ 点击勾选季度财报中已验证达标的经营指标（勾选状态自动本地保存），持续校验怪物饮料国际化增速与毛利率防御水平：
+ </p>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#22C55E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. 全球净销售额是否持续保持双位数（15%+）同比增长</span>
+ <span class="text-[11px] font-mono text-mnstgreen-600 dark:text-mnstgreen-400 font-semibold shrink-0">核心顶线指标</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 检查每季财报总营收是否稳健增长（如 Q3 达到 $2.56B，同比 +16.7%），验证全球需求景气度。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#22C55E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. 国际海外市场销售额增速是否维持 25%+ 高增并扩大占比</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">全球扩张引擎</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 跟踪欧洲、拉美与亚太海外市场的创收表现（当前海外占比已提升至 47%）。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#22C55E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. 毛利率是否稳守 52%–54% 行业塔尖区间</span>
+ <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-semibold shrink-0">盈利质量防线</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 监控铝罐价格、供应链运费波动及价格调整的对冲效果，确保毛利率维持健康水位。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#22C55E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. 无糖 Ultra 家族及 2027 年创新产品管线的市场反馈</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">产品创新动力</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 评估 Ultra 系列在各大洲的渗透率及新品上市对年轻消费者心智的抓取力度。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#22C55E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. 可口可乐全球装瓶厂分销体系协同与铺货广度</span>
+ <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-semibold shrink-0">分销网络赋能</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 检验双方战略合作的深度，确保海外新进入市场终端货架陈列与铺货率达到预期目标。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#22C55E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">6. 自由现金流生成与股票回购授权（剩余 $8亿）执行节奏</span>
+ <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">股东回报放大器</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 追踪公司无债务资产负债表下的现金积累，以及管理层利用回购增厚 EPS 的资本配置动作。
+ </p>
+ </div>
+ </label>
+ </div>
+ </div>
+ </section>
+
+ <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
+ <span>怪物饮料 Monster Beverage Corporation (NASDAQ: MNST) 深度商业与投资价值分析报告 · 机构研究框架版</span>
+ <span>数据基准：2026Q3 财报及 2026 年 11 月市场一致预期 (FY26E)</span>
+ </div>
+ <p class="leading-relaxed">
+ <strong>免责声明：</strong>本深度研究报告基于怪物饮料公开财务报告（10-Q/10-K）、2026Q3 业绩财报及全球饮料行业调研资料整理生成，旨在提供结构化的产业分析与龙头估值框架。报告中涉及的盈利预测、国际增速推演、三情景目标价及复利模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。
+ </p>
+ </footer>
+
+ </div>
+ </main>
+
+ <script>
+ function toggleTheme() {
+ const html = document.documentElement;
+ html.classList.toggle('dark');
+ updateChartsTheme();
+ }
+
+ function toggleMobileMenu() {
+ const drawer = document.getElementById('mobile-drawer');
+ drawer.classList.toggle('hidden');
+ }
+
+ const sections = document.querySelectorAll('section[id]');
+ const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+ window.addEventListener('scroll', () => {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+ document.getElementById('reading-progress').style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+
+ let currentId = 'sec-exec';
+ sections.forEach(sec => {
+ const top = sec.offsetTop - 160;
+ if (scrollTop >= top) {
+ currentId = sec.getAttribute('id');
+ }
+ });
+
+ navLinks.forEach(link => {
+ link.classList.remove('active');
+ const numSpan = link.querySelector('span span');
+ if (numSpan) {
+ numSpan.classList.remove('text-mnstgreen-400');
+ numSpan.classList.add('text-slate-500');
+ }
+ if (link.dataset.target === currentId) {
+ link.classList.add('active');
+ if (numSpan) {
+ numSpan.classList.remove('text-slate-500');
+ numSpan.classList.add('text-mnstgreen-400');
+ }
+ }
+ });
+ });
+
+ function filterCompetitors(category) {
+ document.querySelectorAll('.comp-filter-btn').forEach(btn => {
+ if (btn.dataset.filter === category) {
+ btn.classList.add('bg-mnstgreen-500', 'text-navy-950', 'font-semibold', 'shadow-sm');
+ btn.classList.remove('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ } else {
+ btn.classList.remove('bg-mnstgreen-500', 'text-navy-950', 'font-semibold', 'shadow-sm');
+ btn.classList.add('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ }
+ });
+
+ const rows = document.querySelectorAll('#comp-table-body tr');
+ rows.forEach(row => {
+ const rowCat = row.dataset.category;
+ if (category === 'all' || rowCat === 'beverage' || rowCat === category) {
+ row.style.display = '';
+ } else {
+ row.style.display = 'none';
+ }
+ });
+ }
+
+ let currentMultiple = 38;
+
+ function setTaxRate(mult) {
+ currentMultiple = mult;
+ document.querySelectorAll('#tax-btn-group .tax-btn').forEach(btn => {
+ const btnMult = parseFloat(btn.dataset.tax);
+ if (Math.abs(btnMult - mult) < 0.001) {
+ btn.className = 'tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-mnstgreen-500 text-navy-950 border border-mnstgreen-400 shadow transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-navy-900';
+ } else {
+ btn.className = 'tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-mnstgreen-400 transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-slate-400';
+ }
+ });
+ updateDividendSimulator();
+ }
+
+ function updateDividendSimulator() {
+ const principal = parseFloat(document.getElementById('sim-principal').value);
+ const years = parseInt(document.getElementById('sim-years').value, 10);
+ const growthPct = parseFloat(document.getElementById('sim-growth').value);
+
+ document.getElementById('sim-principal-label').textContent = '$' + principal.toLocaleString('en-US');
+ document.getElementById('sim-years-label').textContent = years + ' 年';
+ document.getElementById('sim-growth-label').textContent = growthPct.toFixed(1) + '%';
+
+ const initNetIncome = 2.25; // 2026E net income approx $2.25B
+ const g = growthPct / 100;
+
+ let finalNetIncome = initNetIncome * Math.pow(1 + g, years);
+ let initialMarketCap = 90.9;
+ let estimatedMarketCap = finalNetIncome * currentMultiple * 1.0;
+ let totalReturnPct = ((estimatedMarketCap - initialMarketCap) / initialMarketCap) * 100;
+ let finalPortfolioVal = principal * (1 + totalReturnPct / 100);
+ let cagr = (Math.pow(finalPortfolioVal / principal, 1 / years) - 1) * 100;
+
+ document.getElementById('sim-final-value').textContent = '$' + Math.round(finalPortfolioVal).toLocaleString('en-US');
+ document.getElementById('sim-total-return').textContent = `累计总回报 +${totalReturnPct.toFixed(1)}% (基于 ${currentMultiple}x P/E)`;
+ document.getElementById('sim-annual-div').textContent = '$' + (1.15 * Math.pow(1 + g, years)).toFixed(2);
+ document.getElementById('sim-yoc').textContent = cagr.toFixed(1) + '%';
+ document.getElementById('sim-cum-div').textContent = `~${(47 + years * 3)}%`;
+ }
+
+ const KPI_STORAGE_KEY = 'mnst_research_kpi_state_v1';
+
+ function loadKpiChecklist() {
+ try {
+ const saved = localStorage.getItem(KPI_STORAGE_KEY);
+ if (saved) {
+ const stateMap = JSON.parse(saved);
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ if (typeof stateMap[cb.id] === 'boolean') {
+ cb.checked = stateMap[cb.id];
+ }
+ });
+ }
+ } catch (e) {}
+ updateKpiChecklist();
+ }
+
+ function updateKpiChecklist() {
+ const checkboxes = document.querySelectorAll('#kpi-checklist input[type="checkbox"]');
+ const total = checkboxes.length;
+ let checkedCount = 0;
+ const stateMap = {};
+
+ checkboxes.forEach(cb => {
+ stateMap[cb.id] = cb.checked;
+ if (cb.checked) checkedCount++;
+ });
+
+ const pct = Math.round((checkedCount / total) * 100);
+ document.getElementById('kpi-progress-badge').textContent = `已核查 ${checkedCount} / ${total} 项 (${pct}%)`;
+
+ try {
+ localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
+ } catch (e) {}
+ }
+
+ function resetKpiChecklist() {
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ cb.checked = false;
+ });
+ updateKpiChecklist();
+ }
+
+ let bizChartInstance = null;
+ let radarChartInstance = null;
+ let compMarginChartInstance = null;
+ let valEvolutionChartInstance = null;
+ let currentBizMode = 'revenue_mix';
+
+ function getChartColors() {
+ const isDark = document.documentElement.classList.contains('dark');
+ return {
+ text: isDark ? '#CBD5E1' : '#475569',
+ grid: isDark ? 'rgba(51, 65, 85, 0.5)' : 'rgba(226, 232, 240, 0.85)',
+ radarAngle: isDark ? 'rgba(71, 85, 105, 0.6)' : 'rgba(203, 213, 225, 0.85)'
+ };
+ }
+
+ function initBizChart() {
+ const ctx = document.getElementById('bizArchitectureChart').getContext('2d');
+ const colors = getChartColors();
+
+ const revConfig = {
+ type: 'bar',
+ data: {
+ labels: ['2022', '2023', '2024', '2025', '2026E'],
+ datasets: [
+ {
+ label: '北美本土净销售额 ($B)',
+ data: [4.2, 4.4, 4.6, 4.9, 5.2],
+ backgroundColor: '#22C55E',
+ borderRadius: 4,
+ stack: 'rev'
+ },
+ {
+ label: '国际海外净销售额 ($B)',
+ data: [2.1, 2.3, 2.7, 3.2, 3.8],
+ backgroundColor: '#10B981',
+ borderRadius: 4,
+ stack: 'rev'
+ },
+ {
+ type: 'line',
+ label: '海外国际营收占比 (%)',
+ data: [33.3, 34.3, 37.0, 39.5, 47.0],
+ borderColor: '#06B6D4',
+ backgroundColor: '#06B6D4',
+ borderWidth: 2.5,
+ pointRadius: 4,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => ctx.dataset.yAxisID === 'y1' ? `国际占比: ${ctx.parsed.y}%` : `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ min: 0,
+ max: 10,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'B' }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 0,
+ max: 60,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#06B6D4', font: { size: 11 }, callback: v => v + '%' }
+ }
+ }
+ }
+ };
+
+ const brandConfig = {
+ type: 'bar',
+ data: {
+ labels: [
+ '国际市场净销售额同比增速 (%)',
+ '欧洲 Ultra 无糖系列增速 (%)',
+ '巴西市场销售额同比增速 (%)',
+ '墨西哥市场销售额同比增速 (%)'
+ ],
+ datasets: [
+ {
+ label: '核心区域与品牌增长指标',
+ data: [28.1, 42.0, 70.0, 20.6],
+ backgroundColor: [
+ '#22C55E',
+ '#10B981',
+ '#06B6D4',
+ '#84CC16'
+ ],
+ borderRadius: 6,
+ barThickness: 26
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `同比增速: +${ctx.parsed.x}%`
+ }
+ }
+ },
+ scales: {
+ x: {
+ min: 0,
+ max: 80,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => v + '%' }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ };
+
+ if (bizChartInstance) bizChartInstance.destroy();
+ bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_mix' ? revConfig : brandConfig);
+ }
+
+ function switchBizChart(mode) {
+ currentBizMode = mode;
+ const btnRev = document.getElementById('btn-chart-rev');
+ const btnBrand = document.getElementById('btn-chart-brand');
+ const titleEl = document.getElementById('biz-chart-title');
+ const subEl = document.getElementById('biz-chart-sub');
+
+ if (mode === 'revenue_mix') {
+ btnRev.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-mnstgreen-600 dark:text-mnstgreen-400 shadow-sm transition cursor-pointer';
+ btnBrand.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2022–2026E 全球净销售额与国际市场占比演进';
+ subEl.textContent = '全球销售额稳步向 80 亿美元以上跨越，海外国际市场贡献突破 47%';
+ } else {
+ btnBrand.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-mnstgreen-600 dark:text-mnstgreen-400 shadow-sm transition cursor-pointer';
+ btnRev.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2026Q3 国际及重点海外区域核心增速拆解';
+ subEl.textContent = '国际营收大增 28.1%，欧洲 Ultra 飙升 42%，巴西狂飙 70% 创下历史新高';
+ }
+ initBizChart();
+ }
+
+ function initRadarChart() {
+ const ctx = document.getElementById('moatRadarChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (radarChartInstance) radarChartInstance.destroy();
+ radarChartInstance = new Chart(ctx, {
+ type: 'radar',
+ data: {
+ labels: [
+ '可口可乐全球分销网络协同',
+ '青年与极限运动文化心智',
+ '无糖及功能性产品创新力',
+ '毛利率与轻资产回报率',
+ '国际市场高速渗透动能'
+ ],
+ datasets: [
+ {
+ label: '怪物饮料 (MNST)',
+ data: [9.7, 9.9, 9.4, 9.6, 9.5],
+ borderColor: '#22C55E',
+ backgroundColor: 'rgba(34, 197, 94, 0.24)',
+ pointBackgroundColor: '#22C55E',
+ borderWidth: 2.5
+ },
+ {
+ label: '红牛 (Red Bull · 私募)',
+ data: [9.2, 9.8, 8.8, 9.5, 9.0],
+ borderColor: '#10B981',
+ backgroundColor: 'rgba(16, 185, 129, 0.14)',
+ pointBackgroundColor: '#10B981',
+ borderWidth: 2.0
+ },
+ {
+ label: '百事可乐 (PEP)',
+ data: [9.9, 7.5, 8.0, 8.2, 8.5],
+ borderColor: '#06B6D4',
+ backgroundColor: 'rgba(6, 182, 212, 0.12)',
+ pointBackgroundColor: '#06B6D4',
+ borderWidth: 1.8,
+ borderDash: [4, 4]
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ }
+ },
+ scales: {
+ r: {
+ min: 0,
+ max: 10,
+ ticks: { display: false, stepSize: 2 },
+ grid: { color: colors.grid },
+ angleLines: { color: colors.radarAngle },
+ pointLabels: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initCompMarginChart() {
+ const ctx = document.getElementById('compMarginChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (compMarginChartInstance) compMarginChartInstance.destroy();
+ compMarginChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: [
+ '怪物饮料 (MNST · 能量饮料成长王)',
+ 'Celsius Holdings (CELH · 健身能量挑战者)',
+ '可口可乐 (KO · 全球软饮料泰斗)',
+ '百事公司 (PEP · 饮料与休闲食品巨头)'
+ ],
+ datasets: [
+ {
+ label: '远期市盈率 Forward P/E (x)',
+ data: [42.3, 35.0, 22.0, 18.0],
+ backgroundColor: '#22C55E',
+ borderRadius: 5,
+ barThickness: 16
+ },
+ {
+ label: '远期股息率 Dividend Yield (%)',
+ data: [0.0, 0.0, 3.10, 3.35],
+ backgroundColor: '#10B981',
+ borderRadius: 5,
+ barThickness: 16
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: ${ctx.dataset.yAxisID === 'y' && ctx.datasetIndex === 0 ? ctx.parsed.x + 'x' : ctx.parsed.x + '%'}`
+ }
+ }
+ },
+ scales: {
+ x: {
+ max: 50,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 } }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initValEvolutionChart() {
+ const ctx = document.getElementById('valEvolutionChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (valEvolutionChartInstance) valEvolutionChartInstance.destroy();
+ valEvolutionChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['2021', '2022', '2023', '2024', '2025', '2026E'],
+ datasets: [
+ {
+ type: 'bar',
+ label: '全年净销售额 ($ 亿美元)',
+ data: [5.24, 6.31, 7.14, 7.55, 7.85, 8.25],
+ backgroundColor: 'rgba(34, 197, 94, 0.85)',
+ borderRadius: 5,
+ barThickness: 28,
+ yAxisID: 'y'
+ },
+ {
+ type: 'line',
+ label: '全年净利润 ($ 亿美元)',
+ data: [1.38, 1.18, 1.61, 1.74, 1.95, 2.25],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 3,
+ pointRadius: 5,
+ pointHoverRadius: 7,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ type: 'linear',
+ position: 'left',
+ min: 0,
+ max: 10,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v.toFixed(1) + 'B' },
+ title: { display: true, text: '净销售额 ($B)', color: colors.text, font: { size: 11 } }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 0,
+ max: 3,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => '$' + v.toFixed(1) + 'B' },
+ title: { display: true, text: '净利润 ($B)', color: '#10B981', font: { size: 11 } }
+ }
+ }
+ }
+ });
+ }
+
+ function updateChartsTheme() {
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ }
+
+ window.addEventListener('DOMContentLoaded', () => {
+ loadKpiChecklist();
+ updateDividendSimulator();
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ });
+ </script>
+</body>
+</html>

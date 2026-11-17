@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>先锋标普500 ETF Vanguard S&P 500 ETF (NYSEARCA: VOO) 深度研究报告：全球资产配置基石、极致低费率与美股核心红利追踪</title>
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <!-- Chart.js -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <!-- Google Fonts: Inter + Noto Sans SC + JetBrains Mono -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script>
+ tailwind.config = {
+ darkMode: 'class',
+ theme: {
+ extend: {
+ fontFamily: {
+ sans: ['Inter', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
+ mono: ['JetBrains Mono', 'monospace'],
+ },
+ colors: {
+ navy: {
+ 950: '#070B14',
+ 900: '#0F172A',
+ 800: '#1E293B',
+ 700: '#334155',
+ },
+ vanguardred: {
+ 300: '#FCA5A5',
+ 400: '#F87171',
+ 500: '#9B111E',
+ 600: '#7F0E17',
+ 700: '#5C0A10',
+ },
+ vanguardblue: {
+ 400: '#38BDF8',
+ 500: '#0EA5E9',
+ 600: '#0284C7',
+ },
+ emerald: {
+ 400: '#34D399',
+ 500: '#10B981',
+ 600: '#059669',
+ },
+ }
+ }
+ }
+ }
+ </script>
+
+ <style>
+ ::-webkit-scrollbar {
+ width: 6px;
+ height: 6px;
+ }
+ ::-webkit-scrollbar-track {
+ background: transparent;
+ }
+ ::-webkit-scrollbar-thumb {
+ background: #94A3B8;
+ border-radius: 3px;
+ }
+ .dark ::-webkit-scrollbar-thumb {
+ background: #475569;
+ }
+
+ @media print {
+ #sidebar, #mobile-header, #theme-toggle-btn, .no-print {
+ display: none !important;
+ }
+ main {
+ margin-left: 0 !important;
+ padding: 0 !important;
+ }
+ section {
+ break-inside: avoid;
+ }
+ }
+
+ .report-card {
+ transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+ }
+ .report-card:hover {
+ transform: translateY(-2px);
+ }
+
+ .nav-link.active {
+ background: linear-gradient(90deg, rgba(155, 17, 30, 0.24) 0%, rgba(16, 185, 129, 0.06) 100%);
+ border-left: 3px solid #9B111E;
+ color: #FFFFFF;
+ font-weight: 600;
+ }
+ </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-vanguardred-500 selection:text-white transition-colors duration-200">
+
+ <!-- 顶部全局阅读进度条 -->
+ <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-200/70 dark:bg-navy-800">
+ <div id="reading-progress" class="h-full bg-gradient-to-r from-vanguardred-600 via-vanguardred-400 to-emerald-500 w-0 transition-all duration-150"></div>
+ </div>
+
+ <!-- 移动端顶部导航栏 -->
+ <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+ <div class="flex items-center space-x-2.5">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-vanguardred-500 to-navy-800 flex items-center justify-center font-extrabold text-white text-xs shadow">
+ VOO
+ </div>
+ <div>
+ <div class="text-[11px] text-vanguardred-300 font-semibold tracking-wider uppercase">NYSEARCA: VOO · S&P 500 ETF</div>
+ <div class="text-sm font-bold leading-tight">先锋标普500 ETF 深度研究报告</div>
+ </div>
+ </div>
+ <div class="flex items-center space-x-2">
+ <button onclick="toggleTheme()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300" aria-label="切换阅读主题">
+ <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ </button>
+ <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-white" aria-label="打开目录">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+ </button>
+ </div>
+ </header>
+
+ <!-- 移动端折叠抽屉菜单 -->
+ <div id="mobile-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+ <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+ <nav class="relative w-72 max-w-[80vw] h-full bg-navy-900 text-slate-300 flex flex-col justify-between p-5 overflow-y-auto shadow-2xl">
+ <div>
+ <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+ <span class="font-bold text-white text-base">VOO 研报目录导航</span>
+ <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg text-slate-400 hover:text-white">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+ </button>
+ </div>
+ <ul class="mt-4 space-y-1.5 text-sm">
+ <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">00. 执行摘要与核心指标</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 标普500指数底层架构与权重分布</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 核心优势与极致费率护城河</a></li>
+ <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 同类标普500 ETF（SPY / IVV）横向对比</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 长期复利回报与定投推演</a></li>
+ <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 投资决策与资产配置策略</a></li>
+ <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">06. 定期跟踪 KPI 核查清单</a></li>
+ </ul>
+ </div>
+ <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+ <p>全球资产配置与被动投资研究组</p>
+ <p class="mt-1">数据基准：2026年11月 (Vanguard VOO)</p>
+ </div>
+ </nav>
+ </div>
+
+ <!-- 桌面端左侧固定侧边导航栏 (宽 280px) -->
+ <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
+ <div>
+ <div class="p-5 border-b border-slate-800/80">
+ <div class="flex items-center space-x-3">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-vanguardred-600 via-vanguardred-700 to-navy-900 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-vanguardred-600/25">
+ VOO
+ </div>
+ <div>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-vanguardred-300 bg-vanguardred-500/15 px-2 py-0.5 rounded">NYSEARCA: VOO</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">先锋标普500 ETF研报</h2>
+ </div>
+ </div>
+ <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
+ 全球被动投资基石 · 0.03% 极低费率、资产管理规模突破 $1.07万亿与美股核心资产一网打尽
+ </p>
+ </div>
+
+ <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">参考股价 (52周区间)</span>
+ <span class="font-mono font-bold text-white">~$687.13 <span class="text-slate-400 text-[10px]">($578-$718)</span></span>
+ </div>
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">管理费率 (Expense Ratio)</span>
+ <span class="font-mono font-bold text-emerald-400">0.03% <span class="text-slate-400">($3/年/万美元)</span></span>
+ </div>
+ <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
+ <span class="text-slate-400">资产管理规模 (AUM)</span>
+ <span class="font-mono font-bold text-vanguardred-300">~$1.07 万亿美元</span>
+ </div>
+ </div>
+
+ <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
+ <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">核心研究章节</div>
+ <nav id="desktop-nav" class="space-y-1 text-[13px]">
+ <a href="#sec-exec" data-target="sec-exec" class="nav-link active flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-vanguardred-400 mr-2">00</span>执行摘要与核心指标</span>
+ </a>
+ <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>标普500指数底层架构与权重分布</span>
+ </a>
+ <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>核心优势与极致费率护城河</span>
+ </a>
+ <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>同类标普500 ETF 横向对比</span>
+ </a>
+ <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>长期复利回报与定投推演</span>
+ </a>
+ <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>投资决策与资产配置策略</span>
+ </a>
+ <a href="#sec-kpi" data-target="sec-kpi" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">06</span>定期跟踪 KPI 核查清单</span>
+ </a>
+ </nav>
+ </div>
+ </div>
+
+ <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
+ <div class="flex items-center justify-between">
+ <span class="text-xs text-slate-400">阅读模式切换</span>
+ <button id="theme-toggle-btn" onclick="toggleTheme()" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-medium text-slate-200 border border-slate-700 transition cursor-pointer">
+ <svg class="w-3.5 h-3.5 text-vanguardred-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ <svg class="w-3.5 h-3.5 text-vanguardred-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <span class="dark:hidden">深色护眼模式</span>
+ <span class="hidden dark:inline">机构亮色模式</span>
+ </button>
+ </div>
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-vanguardred-600 to-vanguardred-700 hover:from-vanguardred-700 hover:to-vanguardred-800 text-white text-xs font-extrabold transition shadow-sm cursor-pointer">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+ <span class="text-white">打印 / 导出 PDF 研报</span>
+ </button>
+ </div>
+ </aside>
+
+ <!-- 主内容区 -->
+ <main class="lg:ml-[280px] min-h-screen">
+ <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 lg:py-12 space-y-12">
+
+ <!-- =========================================================
+ 00. Hero 研报封面区与执行摘要
+ ========================================================= -->
+ <section id="sec-exec" class="scroll-mt-20">
+ <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
+ <div class="flex flex-wrap items-center gap-2">
+ <span class="px-2.5 py-1 rounded-md bg-vanguardred-500/15 text-vanguardred-700 dark:text-vanguardred-300 font-bold border border-vanguardred-500/30">评级：买入 / 全球资产配置终极压舱石</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">周期：2026 年宏观经济与美股大盘配置期</span>
+ </div>
+ <div class="flex items-center space-x-3 font-mono">
+ <span>覆盖时间：2026年11月</span>
+ <span>NYSEARCA: VOO</span>
+ </div>
+ </div>
+
+ <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#9B111E 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="relative z-10">
+ <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-vanguardred-500/20 border border-vanguardred-400/40 text-vanguardred-300 text-xs font-semibold mb-4">
+ <span class="w-2 h-2 rounded-full bg-vanguardred-400 animate-pulse"></span>
+ <span>CORE THESIS · 0.03% 极致低费率 × 追踪标普500指数 × 资产管理规模突破 $1.07 万亿美元的财富雪球</span>
+ </div>
+ <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
+ 先锋标普500 ETF Vanguard S&P 500 ETF (NYSEARCA: VOO) 深度研究报告：全球资产配置基石、极致低费率与美股核心红利追踪
+ </h1>
+ <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
+ 作为全球被动投资与资产配置的绝对图腾，先锋标普500 ETF（Vanguard S&P 500 ETF, 代码：<strong class="text-white">VOO</strong>）凭借行业最低档的 <strong class="text-vanguardred-300">0.03% 管理费率（每年每万元仅收 3 美元）</strong>与数万亿美元级别的强健流动性，稳居全球投资者配置美股大盘首选 [cite: 1.1.2, 1.1.4]。
+ 截至 2026 年 11 月，VOO 资产管理规模（AUM）已逼近 <strong class="text-emerald-400">$1.07 万亿美元</strong>大关，完美囊括了美国市值最大、盈利最为稳健的 500 家顶级上市公司（科技股占比约 40.5%） [cite: 1.1.2, 1.1.5]。无论是长线退休理财还是大类资产配置，VOO 均是不容置疑的核心压舱石 [cite: 1.1.2]。
+ </p>
+
+ <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">行业最低档管理费率</div>
+ <div class="text-white font-semibold">Expense Ratio 仅为 0.03%，几乎将指数投资成本压至零，最大化长期复利效益 [cite: 1.1.2]</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">巨无霸级资产规模</div>
+ <div class="text-vanguardred-300 font-semibold">AUM 突破 $1.07 万亿美元，买卖价差极窄，日成交量巨大，流动性无懈可击 [cite: 1.1.2]</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">美股核心资产全覆盖</div>
+ <div class="text-emerald-400 font-semibold">一网打尽微软、苹果、英伟达、亚马逊等全美最强 500 家龙头企业 [cite: 1.2.4]</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 4个核心 KPI 卡片 -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>实时参考股价 (52周区间)</span>
+ <span class="p-1.5 rounded-lg bg-vanguardred-500/15 text-vanguardred-600 dark:text-vanguardred-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~$687.13</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">($578-$718)</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 伴随美股大盘稳步上行，VOO 股价在 2026 年底交投于 $687–$693 区间，处于 52 周高位附近 [cite: 1.1.1, 1.1.2]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>管理费率 (Expense Ratio)</span>
+ <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">0.03%</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">行业地板价</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 每年每投资 10,000 美元仅收取 3 美元管理费，极大保护了投资者的长线复利成果 [cite: 1.1.2, 1.1.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>资产管理规模 (AUM)</span>
+ <span class="p-1.5 rounded-lg bg-vanguardblue-500/15 text-vanguardblue-600 dark:text-vanguardblue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$1.07T+</span>
+ <span class="text-xs font-bold text-vanguardblue-600 dark:text-vanguardblue-400 bg-vanguardblue-500/15 px-2 py-0.5 rounded">万亿级航母</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 总资产突破 1.07 万亿美元，拥有极佳的二级市场深度和零追踪误差表现 [cite: 1.1.2]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>分红收益率 (Dividend Yield)</span>
+ <span class="p-1.5 rounded-lg bg-vanguardred-500/15 text-vanguardred-600 dark:text-vanguardred-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~1.07%</span>
+ <span class="text-xs font-bold text-vanguardred-700 dark:text-vanguardred-300 bg-vanguardred-500/15 px-2 py-0.5 rounded">季度派息</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 按季度稳定派发股息（最新年化约 $7.43/股），支持开启股息自动再投资（DRIP）实现复利雪球 [cite: 1.1.2]。
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 一、 标普500指数底层架构与权重分布 (Index Architecture & Sector Allocation)
+ ========================================================= -->
+ <section id="sec-biz" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-vanguardred-600 dark:text-vanguardred-400">Section 01 · Index Architecture & Sector Allocation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 标普500指数底层架构与行业权重分布：科技驱动与多元板块协同</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">追踪标普500指数 · 500家美国顶尖大盘股</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+ <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">VOO 前十大重仓股与核心行业权重分布 (%)</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">信息技术板块占比超 40%，金融、通信与医疗等传统防御及成长板块形成强大支撑 [cite: 1.1.5]</p>
+ </div>
+ <div class="inline-flex rounded-lg bg-slate-100 dark:bg-navy-800 p-1 text-xs no-print">
+ <button onclick="switchBizChart('sector_alloc')" id="btn-chart-sector" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-vanguardred-600 dark:text-vanguardred-300 shadow-sm transition cursor-pointer">视图A：核心行业分布</button>
+ <button onclick="switchBizChart('top_holdings')" id="btn-chart-hold" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：前十大重仓权重</button>
+ </div>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="bizArchitectureChart"></canvas>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">标普500指数筛选与运作机制</h3>
+ <ul class="space-y-4 text-sm">
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-vanguardred-500/15 text-vanguardred-600 dark:text-vanguardred-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">严格盈利门槛与动态准入标准</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 入选标普500指数不仅要求公司总部位于美国、市值规模庞大（通常大于 145 亿美元），还必须满足连续四个季度实现 GAAP 盈利的硬性标准，自动剔除纯概念炒作的劣质资产。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-vanguardblue-500/15 text-vanguardblue-600 dark:text-vanguardblue-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">市值加权机制（Market-Cap Weighted）</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 采用自由流通市值加权，这意味着美股最优秀的巨头（如微软、苹果、英伟达等）自然占据更高权重，自动跟随时代科技与产业革命动态进化。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">先锋集团（Vanguard）独特母公司架构</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 先锋由旗下基金持有人共同所有（Client-owned），这种独特结构使其能够将所有运营结余全部反哺给基金投资者，从而实现 0.03% 的全行业最低费率。
+ </p>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+ <span class="text-slate-500 dark:text-slate-400">成分股调整频率</span>
+ <span class="font-bold text-vanguardred-600 dark:text-vanguardred-400">季度评审与动态汰弱留强</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-vanguardred-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-vanguardred-500/15 text-vanguardred-700 dark:text-vanguardred-300 text-xs font-bold">成长核心驱动 · 占资产比重 ~40.5% [cite: 1.1.5]</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">Information Technology</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 信息技术与人工智能科技板块</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 以微软、苹果、英伟达等全球科技巨头为核心。受益于全球 AI 算力基建与云计算浪潮，科技板块占据 VOO 近半壁江山，是推动大盘长期资本增值的主要引擎 [cite: 1.1.5]。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>板块权重约 40.5% [cite: 1.1.5]</span>
+ <span class="text-vanguardred-600 dark:text-vanguardred-400 font-semibold">囊括全球最强 AI 与软件巨头</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-vanguardblue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-vanguardblue-500/15 text-vanguardblue-700 dark:text-vanguardblue-300 text-xs font-bold">防御与现金流支柱 · 金融、医疗与消费</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">Financials & Healthcare</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 金融服务、医疗健康与通信服务板块</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 金融服务（占比 ~11.1%）、通信服务（~10.0%）及医疗健康板块提供了极佳的现金流分红与抗周期防御属性，平衡了纯科技股的高波动性 [cite: 1.1.5]。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>金融 ~11.1% / 通信 ~10.0% [cite: 1.1.5]</span>
+ <span class="text-vanguardblue-600 dark:text-vanguardblue-400 font-semibold">多元化板块对冲宏观风险</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 二、 核心优势与极致费率护城河 (Core Advantages & Fee Moat)
+ ========================================================= -->
+ <section id="sec-moat" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Core Advantages & Fee Moat</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 核心优势与四大护城河：0.03% 极低费率、万亿级流动性与长线复利</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全球被动投资标杆)</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-vanguardred-500/15 text-vanguardred-600 dark:text-vanguardred-400 flex items-center justify-center font-bold text-sm">01</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">0.03% 行业地板价管理费（几乎零损耗）</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 在长达 10 年、20 年的长期投资中，微乎其微的 0.03% 费率能够为投资者节省成千上万美元的隐性管理成本，最大化保留每一分资本增值 [cite: 1.1.2]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">万亿美元级资产规模（AUM ~$1.07T+）</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 庞大的资产规模带来了极度充沛的日均交易量和微乎其微的买卖价差（Bid-Ask Spread），机构与个人投资者可随时大额进出，毫无流动性后顾之忧 [cite: 1.1.2]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-vanguardblue-500/15 text-vanguardblue-600 dark:text-vanguardblue-400 flex items-center justify-center font-bold text-sm">03</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">极低的追踪误差（Tracking Error）</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 依托先锋集团精湛的被动指数优化复制技术，VOO 能够极其精准地拟合标普 500 指数表现，几乎不会出现偏离大盘的负向阿尔法。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">04</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">卓越的税收效率（Tax Efficiency）</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ ETF 独特的实物申赎机制（In-kind creation/redemption）有效避免了基金经理频繁调仓产生的资本利得税，对长期课税账户极为友好。
+ </p>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">全球被动投资 ETF 五维护城河雷达图</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">VOO (Vanguard) vs SPY (State Street) vs IVV (BlackRock)（满分 10 分）</p>
+ <div class="relative h-72 w-full">
+ <canvas id="moatRadarChart"></canvas>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 三、 同类标普500 ETF（SPY / IVV）横向对比 (Competitive Landscape)
+ ========================================================= -->
+ <section id="sec-comp" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-vanguardred-600 dark:text-vanguardred-400">Section 03 · S&P 500 ETF Peer Competitive Landscape</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 同类标普500 ETF（SPY / IVV）横向对比：长线投资首选 VOO vs 短线期权标杆 SPY</h2>
+ </div>
+ <div class="flex flex-wrap gap-1.5 text-xs no-print" id="comp-filter-group">
+ <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-vanguardred-600 text-white shadow-sm transition cursor-pointer">全部标普500 ETF</button>
+ <button onclick="filterCompetitors('vanguard')" data-filter="vanguard" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">长线投资首选 (VOO/IVV)</button>
+ <button onclick="filterCompetitors('trader')" data-filter="trader" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">短线期权交易 (SPY)</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+ <div class="overflow-x-auto">
+ <table class="w-full text-left border-collapse">
+ <thead>
+ <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+ <th class="py-4 px-5 min-w-[180px]">ETF 名称与代码</th>
+ <th class="py-4 px-4 min-w-[130px]">发行商 (Issuer)</th>
+ <th class="py-4 px-4 min-w-[140px]">管理费率 (Expense Ratio)</th>
+ <th class="py-4 px-4 min-w-[100px]">资产规模 (AUM)</th>
+ <th class="py-4 px-4 min-w-[115px]">期权与流动性特点</th>
+ <th class="py-4 px-5 min-w-[230px]">核心优劣势与适用场景评估</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm" id="comp-table-body">
+ <tr data-category="vanguard" class="bg-vanguardred-500/5 dark:bg-vanguardred-500/10 font-medium">
+ <td class="py-4 px-5">
+ <div class="flex items-center space-x-2">
+ <span class="px-2 py-0.5 rounded bg-vanguardred-700 text-white text-[10px] font-extrabold">长线持有王牌</span>
+ <span class="font-bold text-slate-900 dark:text-white">Vanguard S&P 500 ETF (VOO)</span>
+ </div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Vanguard</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">先锋集团 (Vanguard)</td>
+ <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">0.03% ($3/年/万) [cite: 1.1.2]</td>
+ <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~$1.07 万亿 [cite: 1.1.2]</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">极佳零售及长线流动性</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>长线买入并持有（Buy & Hold）的绝对首选：</strong>0.03% 超低费率极大减少长期复利摩擦损耗，散户与机构养老金配置标配 [cite: 1.1.2]。
+ </td>
+ </tr>
+
+ <tr data-category="vanguard" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">iShares Core S&P 500 ETF (IVV)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">BlackRock iShares</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">贝莱德 (BlackRock)</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">0.03%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~$500B+</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">极佳机构流动性</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>VOO 的直接平替：</strong>同样享有 0.03% 的极致低费率，由贝莱德发行，在机构投资者和特定券商平台极受欢迎。
+ </td>
+ </tr>
+
+ <tr data-category="trader" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">SPDR S&P 500 ETF Trust (SPY)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">State Street SPDR</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">道富环球 (State Street)</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">0.09%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~$550B+</td>
+ <td class="py-4 px-4 font-mono text-emerald-600 dark:text-emerald-400">全球期权流动性之王</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>短线交易与期权王者：</strong>历史最悠久、日成交量最大、期权链最深。但 0.09% 费率高于 VOO，不适合长期持有 [cite: 1.2.4]。
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">主流标普500 ETF 管理费率（Expense Ratio）多维对比</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">先锋 VOO 与贝莱德 IVV 以 0.03% 费率并列行业最低，SPY 因历史原因费率为 0.09% [cite: 1.1.2, 1.2.4]</p>
+ </div>
+ <span class="text-xs font-semibold text-vanguardred-700 dark:text-vanguardred-300 bg-vanguardred-500/15 px-2.5 py-1 rounded">0.03% 费率碾压传统基金</span>
+ </div>
+ <div class="relative h-64 w-full">
+ <canvas id="compMarginChart"></canvas>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 四、 长期复利回报与定投推演 (Long-Term Compounding & Dca Simulator)
+ ========================================================= -->
+ <section id="sec-fin" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Long-Term Compounding & Dca Simulator</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 长期复利回报与定投推演：标普500历史年化 10% 财富雪球模拟</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">历史长期年化回报 ~10%（含股息再投资）</span>
+ </div>
+
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-vanguardred-600 dark:text-vanguardred-400 uppercase">Historical S&P 500 CAGR</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~10.0%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 过去数十年中，标普 500 指数在经历多次经济周期、泡沫与危机后，长期平均年化名义总回报（含股息再投资）稳定在 10% 左右。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Expense Savings vs Mutual Funds</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">高达数倍</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 对比传统主动管理型基金（平均费率 0.6%–1.0%），VOO 每年可为投资者省下大量管理费，积少成多形成巨大财富差距。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-vanguardblue-600 dark:text-vanguardblue-400 uppercase">Dividend Reinvestment (DRIP)</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">核心复利引擎</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 季度派发的股息自动买入份额，在长期复利作用下贡献了总回报的相当大一部分比例。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">DCA Discipline</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">穿越牛熊利器</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 定期定额投资（Dollar Cost Averaging）能够有效化解美股大盘短期震荡风险，是散户参与美股红利的最优解。
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">2021–2026 VOO 资产规模与股价波动演进趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">万亿级资金持续流入，反映出全球资本对美股优质大盘资产的长期坚定信仰</p>
+ </div>
+ <span class="text-xs font-mono font-bold text-vanguardred-700 dark:text-vanguardred-300 bg-vanguardred-500/15 px-2.5 py-1 rounded">万亿资金长期坚定流入</span>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="valEvolutionChart"></canvas>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-700 shadow-xl space-y-6 no-print">
+ <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-700/80">
+ <div>
+ <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-vanguardred-300 font-bold">
+ <span>VOO COMPOUNDING SIMULATOR · 标普500长线复利与定投推演器</span>
+ </div>
+ <h3 class="text-lg sm:text-xl font-bold text-white mt-1">先锋标普500 ETF (VOO) 长期定投与资产增值动态推演器</h3>
+ <p class="text-xs text-slate-400 mt-0.5">基准参数：当前参考股价 ~$687.13 | 历史年化总回报率 ~10% | 模拟多年期资本复利增长模型</p>
+ </div>
+ <label class="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-vanguardred-500/15 border border-vanguardred-400/30 text-xs font-semibold text-vanguardred-300 cursor-pointer shrink-0">
+ <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#9B111E] cursor-pointer">
+ <span>开启股息自动再投资 (DRIP 复利)</span>
+ </label>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-5 space-y-4 text-xs">
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">每月定投金额 / 初始投入 (USD)</span>
+ <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$1,000 / 月</span>
+ </div>
+ <input id="sim-principal" type="range" min="200" max="5000" step="100" value="1000" oninput="updateDividendSimulator()" class="w-full accent-[#9B111E] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">长期投资年限 (Years)</span>
+ <span id="sim-years-label" class="font-mono font-bold text-white text-sm">10 年</span>
+ </div>
+ <input id="sim-years" type="range" min="1" max="30" step="1" value="10" oninput="updateDividendSimulator()" class="w-full accent-[#9B111E] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">预期年化总回报率 (CAGR)</span>
+ <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">10.0%</span>
+ </div>
+ <input id="sim-growth" type="range" min="5" max="15" step="0.5" value="10.0" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
+ </div>
+
+ <div class="pt-1">
+ <div class="text-slate-300 font-medium mb-2">投资策略情景：</div>
+ <div class="grid grid-cols-3 gap-2" id="tax-btn-group">
+ <button type="button" onclick="setTaxRate(8)" data-tax="8" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-vanguardred-400 transition cursor-pointer">
+ 8% 保守回报<br><span class="text-[10px] text-slate-400">历史偏低区间</span>
+ </button>
+ <button type="button" onclick="setTaxRate(10)" data-tax="10" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-vanguardred-600 text-white border border-vanguardred-500 shadow transition cursor-pointer">
+ 10% 历史中枢<br><span class="text-[10px] text-slate-200">标准长期均值</span>
+ </button>
+ <button type="button" onclick="setTaxRate(12)" data-tax="12" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-vanguardred-400 transition cursor-pointer">
+ 12% 进取回报<br><span class="text-[10px] text-slate-400">科技牛市溢价</span>
+ </button>
+ </div>
+ </div>
+ </div>
+
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末预计总资产市值 (USD)</div>
+ <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$206,550</div>
+ <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计本金 $120,000 | 投资收益 +$86,550</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末年化年度股息现金流</div>
+ <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-vanguardred-300 mt-1.5">$2,210</div>
+ <div class="text-xs text-slate-400 mt-1.5">按 ~1.07% 股息率静态折算</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末持有 VOO 总份额预估</div>
+ <div id="sim-yoc" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">300.6 股</div>
+ <div class="text-xs text-slate-400 mt-1.5">长期定投积累核心筹码</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">有效节省管理费对比主动基金</div>
+ <div id="sim-cum-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400">数千美元</div>
+ <div class="text-shares-end text-xs text-slate-400 mt-1.5">0.03% 费率常年护航复利雪球</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <div class="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-emerald-700 dark:text-emerald-400 text-base">多头核心论点 (Bull Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">终极被动配置 + 0.03% 极低费率</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>战胜绝大多数主动基金经理：</strong>统计表明长期来看，超过 80%–90% 的主动管理型美股基金无法战胜标普 500 指数，买 VOO 即买入美国最优秀的企业集合 [cite: 1.1.2]。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>极致的费率与流动性优势：</strong>0.03% 的超低管理费率和万亿级 AUM 确保了最低的摩擦损耗与无缝交易 [cite: 1.1.2]。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>自动优胜劣汰机制：</strong>标普500指数定期汰弱留强，夕阳企业自动剔除，新兴科技巨头自动纳新，实现永续进化。</span></li>
+ </ul>
+ </div>
+
+ <div class="bg-rose-50/70 dark:bg-rose-950/20 rounded-2xl p-6 border border-rose-200 dark:border-rose-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-rose-700 dark:text-rose-400 text-base">空头担忧论点 (Bear Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">美股高估值风险 + 科技股集中度</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>前十大重仓股集中度较高：</strong>由于市值加权，微软、苹果、英伟达等前几大科技巨头占比较大，若科技股遭遇回调，大盘将面临阶段性回撤压力。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>无法规避系统性熊市风险：</strong>当美股整体遭遇宏观经济衰退或系统性金融危机时，VOO 将跟随大盘同步下跌，缺乏对冲手段。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>较低的初始股息率：</strong>当前 ~1.07% 的分红率对追求高现金流回报的投资者而言偏低 [cite: 1.1.2]。</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 五、 投资决策与风险配置框架 (Investment Decision & Risk)
+ ========================================================= -->
+ <section id="sec-inv" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-vanguardred-600 dark:text-vanguardred-400">Section 05 · Investment Decision & Risk Allocation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景目标价推演与资产配置策略</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：全球资产配置终极底仓 · 定期定额长期持有</span>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">牛市情景 (Bull Case)</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">概率：25%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">年化回报 12%–14% ($850+)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>美国经济实现强劲软着陆，AI 产业革命全面赋能各行各业生产力，企业盈利超预期增长，标普500指数加速向上突破。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+ 潜在年化总回报：+12% 至 +14%
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-vanguardred-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-vanguardred-500/15 text-vanguardred-700 dark:text-vanguardred-300 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-vanguardred-600 dark:text-vanguardred-400">概率：55%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">年化回报 9%–11% ($750–$820)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>宏观经济维持温和增长，企业盈利保持历史平均增速，VOO 延续长期 ~10% 的历史复利中枢。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-vanguardred-600 dark:text-vanguardred-400">
+ 稳健年化总回报：+9% 至 +11%（大盘长期均值复利）
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">熊市情景 (Bear Case)</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：20%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">回调 15%–25% ($520–$580)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>通货膨胀反弹或宏观经济意外陷入衰退，美股高估值遭遇系统性挤压，大盘经历阶段性回调。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
+ 潜在回撤风险：-15% 至 -25%（大盘系统性回调风险）
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险与跟踪边界</h3>
+ <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 美股宏观经济衰退风险</span>
+ <span class="text-xs font-mono text-rose-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">企业盈利随经济周期同步波动</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 标普500成分股涵盖全美各行各业，若美国经济出现硬着陆，企业盈利下滑将直接对指数表现造成压制。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 科技巨头估值过高风险</span>
+ <span class="text-xs font-mono text-amber-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">头部科技股权重占比较高</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 前十大重仓股合计权重超过 40%，若科技巨头业绩增速放缓或估值回落，指数整体将承受较大波动 [cite: 1.2.1, 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-vanguardred-500/10 text-vanguardred-600 dark:text-vanguardred-400 text-xs font-bold">03 · 利率与通货膨胀路径扰动</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">美联储货币政策与无风险利率变化</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 高利率环境可能对高成长科技股的估值多重倍数产生压制，需密切关注宏观利率走向。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 地缘政治与全球供应链风险</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">跨国巨头海外营收受地缘政治影响</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 标普500成分股的大量营收来自海外全球市场，国际地缘政治紧张或贸易摩擦可能对跨国企业利润造成影响。
+ </p>
+ </div>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
+ <h3 class="text-base font-bold text-vanguardred-300 mb-4 flex items-center space-x-2">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ <span>机构级投资组合配置纪律与标普500策略</span>
+ </h3>
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-white mb-1">1. 终极核心底仓（Core Holding）</div>
+ <p class="text-slate-300 leading-relaxed">
+ 将 VOO 定位为个人及机构投资组合的绝对核心底仓（建议占权益资产 50% 以上），充分享受美国核心资产的长线复利 [cite: 1.1.2]。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-vanguardred-300 mb-1">2. 定期定额纪律（DCA）</div>
+ <p class="text-slate-300 leading-relaxed">
+ 采取无视市场涨跌的定期定额投资策略，克服追涨杀跌的人性弱点，在美股震荡中不断积累低成本筹码。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-emerald-400 mb-1">3. 开启股息自动再投资（DRIP）</div>
+ <p class="text-slate-300 leading-relaxed">
+ 将每季度收到的现金分红自动买入份额，让财富雪球越滚越大，最大化长线被动投资威力 [cite: 1.1.2]。
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 六、 定期跟踪 KPI 交互式核查清单 (Checklist)
+ ========================================================= -->
+ <section id="sec-kpi" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 06 · Regular Tracking KPIs</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 定期跟踪 KPI 交互式核查清单（Checklist）</h2>
+ </div>
+ <div class="flex items-center space-x-2 no-print">
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-vanguardred-500/15 text-vanguardred-700 dark:text-vanguardred-300 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
+ <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 dark:hover:bg-navy-700 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+ 点击勾选投资组合管理中已验证达标的指标（勾选状态自动本地保存），持续校验 VOO 配置合规性与资产健康度：
+ </p>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#9B111E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. 管理费率保持在 0.03% 行业最低档未发生上调 [cite: 1.1.2]</span>
+ <span class="text-[11px] font-mono text-vanguardred-600 dark:text-vanguardred-400 font-semibold shrink-0">费率合规锚</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 定期核查先锋基金公告，确保 VOO 的 0.03% 费率保持不变，享受最低成本复利。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#9B111E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. 资产管理规模（AUM 突破 $1.07T+）流动性充沛 [cite: 1.1.2]</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">市场深度指标</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 确认 AUM 保持万亿规模，买卖价差极窄，大额申购赎回无摩擦。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#9B111E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. 指数追踪误差（Tracking Error）接近于零</span>
+ <span class="text-[11px] font-mono text-vanguardblue-600 dark:text-vanguardblue-400 font-semibold shrink-0">拟合精度指标</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 检查 VOO 净值表现与标普 500 指数基准的吻合度，确保没有产生异常偏离。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#9B111E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. 季度分红派息按时到账并正常开启 DRIP 复利</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">现金流回报落实</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 确认每季度末的现金分红顺利发放，并自动转化为基金份额滚存。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#9B111E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. 个人资产配置中 VOO 权重符合既定风险预算（如占权益 50%+）</span>
+ <span class="text-[11px] font-mono text-vanguardred-600 dark:text-vanguardred-400 font-semibold shrink-0">大类资产纪律</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 定期审视个人投资组合，避免因单一个股或板块暴涨导致仓位失衡。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#9B111E]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">6. 定期定额（DCA）纪律持续执行未受市场情绪干扰</span>
+ <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">定投纪律执行</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 坚持在市场波动期雷打不动按计划定投，充分发挥时间与复利的力量。
+ </p>
+ </div>
+ </label>
+ </div>
+ </div>
+ </section>
+
+ <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
+ <span>先锋标普500 ETF Vanguard S&P 500 ETF (NYSEARCA: VOO) 深度商业与投资价值分析报告 · 机构研究框架版 [cite: 1.1.2]</span>
+ <span>数据基准：2026 年最新先锋基金公开招募说明书与市场行情数据 [cite: 1.2.1]</span>
+ </div>
+ <p class="leading-relaxed">
+ <strong>免责声明：</strong>本深度研究报告基于 Vanguard 官方基金公开资料、标普 500 指数编制规则及 2026 年市场行情数据整理生成，旨在提供结构化的被动投资分析与资产配置框架。报告中涉及的长期复利推演、历史年化回报率、三情景目标价及定投模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。
+ </p>
+ </footer>
+
+ </div>
+ </main>
+
+ <script>
+ function toggleTheme() {
+ const html = document.documentElement;
+ html.classList.toggle('dark');
+ updateChartsTheme();
+ }
+
+ function toggleMobileMenu() {
+ const drawer = document.getElementById('mobile-drawer');
+ drawer.classList.toggle('hidden');
+ }
+
+ const sections = document.querySelectorAll('section[id]');
+ const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+ window.addEventListener('scroll', () => {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+ document.getElementById('reading-progress').style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+
+ let currentId = 'sec-exec';
+ sections.forEach(sec => {
+ const top = sec.offsetTop - 160;
+ if (scrollTop >= top) {
+ currentId = sec.getAttribute('id');
+ }
+ });
+
+ navLinks.forEach(link => {
+ link.classList.remove('active');
+ const numSpan = link.querySelector('span span');
+ if (numSpan) {
+ numSpan.classList.remove('text-vanguardred-400');
+ numSpan.classList.add('text-slate-500');
+ }
+ if (link.dataset.target === currentId) {
+ link.classList.add('active');
+ if (numSpan) {
+ numSpan.classList.remove('text-slate-500');
+ numSpan.classList.add('text-vanguardred-400');
+ }
+ }
+ });
+ });
+
+ function filterCompetitors(category) {
+ document.querySelectorAll('.comp-filter-btn').forEach(btn => {
+ if (btn.dataset.filter === category) {
+ btn.classList.add('bg-vanguardred-700', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.remove('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ } else {
+ btn.classList.remove('bg-vanguardred-700', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.add('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ }
+ });
+
+ const rows = document.querySelectorAll('#comp-table-body tr');
+ rows.forEach(row => {
+ const rowCat = row.dataset.category;
+ if (category === 'all' || rowCat === 'vanguard' || rowCat === category) {
+ row.style.display = '';
+ } else {
+ row.style.display = 'none';
+ }
+ });
+ }
+
+ let currentCagr = 10;
+
+ function setTaxRate(cagrVal) {
+ currentCagr = cagrVal;
+ document.querySelectorAll('#tax-btn-group .tax-btn').forEach(btn => {
+ const btnCagr = parseFloat(btn.dataset.tax);
+ if (Math.abs(btnCagr - cagrVal) < 0.001) {
+ btn.className = 'tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-vanguardred-600 text-white border border-vanguardred-500 shadow transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-slate-200';
+ } else {
+ btn.className = 'tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-vanguardred-400 transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-slate-400';
+ }
+ });
+ updateDividendSimulator();
+ }
+
+ function updateDividendSimulator() {
+ const monthly = parseFloat(document.getElementById('sim-principal').value);
+ const years = parseInt(document.getElementById('sim-years').value, 10);
+ const growthPct = parseFloat(document.getElementById('sim-growth').value);
+ const drip = document.getElementById('drip-toggle').checked;
+
+ document.getElementById('sim-principal-label').textContent = '$' + monthly.toLocaleString('en-US') + ' / 月';
+ document.getElementById('sim-years-label').textContent = years + ' 年';
+ document.getElementById('sim-growth-label').textContent = growthPct.toFixed(1) + '%';
+
+ const r = growthPct / 100 / 12;
+ const n = years * 12;
+ const initPrice = 687.13;
+
+ let futureValue = 0;
+ let totalPrincipal = monthly * n;
+
+ if (r > 0) {
+ futureValue = monthly * ((Math.pow(1 + r, n) - 1) / r);
+ } else {
+ futureValue = totalPrincipal;
+ }
+
+ const totalReturn = futureValue - totalPrincipal;
+ const totalReturnPct = (totalReturn / totalPrincipal) * 100;
+ const estimatedShares = futureValue / initPrice;
+ const annualDiv = futureValue * 0.0107; // 1.07% dividend yield
+
+ document.getElementById('sim-final-value').textContent = '$' + Math.round(futureValue).toLocaleString('en-US');
+ document.getElementById('sim-total-return').textContent = `累计本金 $${Math.round(totalPrincipal).toLocaleString('en-US')} | 投资收益 +$${Math.round(totalReturn).toLocaleString('en-US')}`;
+ document.getElementById('sim-annual-div').textContent = '$' + Math.round(annualDiv).toLocaleString('en-US');
+ document.getElementById('sim-yoc').textContent = estimatedShares.toFixed(1) + ' 股';
+ }
+
+ const KPI_STORAGE_KEY = 'voo_research_kpi_state_v1';
+
+ function loadKpiChecklist() {
+ try {
+ const saved = localStorage.getItem(KPI_STORAGE_KEY);
+ if (saved) {
+ const stateMap = JSON.parse(saved);
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ if (typeof stateMap[cb.id] === 'boolean') {
+ cb.checked = stateMap[cb.id];
+ }
+ });
+ }
+ } catch (e) {}
+ updateKpiChecklist();
+ }
+
+ function updateKpiChecklist() {
+ const checkboxes = document.querySelectorAll('#kpi-checklist input[type="checkbox"]');
+ const total = checkboxes.length;
+ let checkedCount = 0;
+ const stateMap = {};
+
+ checkboxes.forEach(cb => {
+ stateMap[cb.id] = cb.checked;
+ if (cb.checked) checkedCount++;
+ });
+
+ const pct = Math.round((checkedCount / total) * 100);
+ document.getElementById('kpi-progress-badge').textContent = `已核查 ${checkedCount} / ${total} 项 (${pct}%)`;
+
+ try {
+ localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
+ } catch (e) {}
+ }
+
+ function resetKpiChecklist() {
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ cb.checked = false;
+ });
+ updateKpiChecklist();
+ }
+
+ let bizChartInstance = null;
+ let radarChartInstance = null;
+ let compMarginChartInstance = null;
+ let valEvolutionChartInstance = null;
+ let currentBizMode = 'revenue_mix';
+
+ function getChartColors() {
+ const isDark = document.documentElement.classList.contains('dark');
+ return {
+ text: isDark ? '#CBD5E1' : '#475569',
+ grid: isDark ? 'rgba(51, 65, 85, 0.5)' : 'rgba(226, 232, 240, 0.85)',
+ radarAngle: isDark ? 'rgba(71, 85, 105, 0.6)' : 'rgba(203, 213, 225, 0.85)'
+ };
+ }
+
+ function initBizChart() {
+ const ctx = document.getElementById('bizArchitectureChart').getContext('2d');
+ const colors = getChartColors();
+
+ const sectorConfig = {
+ type: 'bar',
+ data: {
+ labels: ['信息技术 (Tech)', '金融服务', '通信服务', '医疗健康', '可选消费', '工业', '其他板块'],
+ datasets: [
+ {
+ label: '标普500指数行业权重 (%)',
+ data: [40.5, 11.1, 10.0, 9.0, 8.5, 8.0, 12.9],
+ backgroundColor: '#9B111E',
+ borderRadius: 6,
+ barThickness: 24
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `行业权重: ${ctx.parsed.x}%`
+ }
+ }
+ },
+ scales: {
+ x: {
+ min: 0,
+ max: 45,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => v + '%' }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ };
+
+ const holdConfig = {
+ type: 'bar',
+ data: {
+ labels: ['微软 (MSFT)', '苹果 (AAPL)', '英伟达 (NVDA)', '亚马逊 (AMZN)', 'Meta (META)', '谷歌 (GOOGL)', '伯克希尔 (BRK.B)', '特斯拉 (TSLA)', '礼来 (LLY)', '摩根大通 (JPM)'],
+ datasets: [
+ {
+ label: '前十大重仓股预估权重 (%)',
+ data: [7.2, 6.8, 6.5, 3.7, 2.5, 2.3, 1.7, 1.5, 1.4, 1.3],
+ backgroundColor: '#0EA5E9',
+ borderRadius: 6,
+ barThickness: 20
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `重仓权重: ${ctx.parsed.x}%`
+ }
+ }
+ },
+ scales: {
+ x: {
+ min: 0,
+ max: 10,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => v + '%' }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ };
+
+ if (bizChartInstance) bizChartInstance.destroy();
+ bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_mix' ? sectorConfig : holdConfig);
+ }
+
+ function switchBizChart(mode) {
+ currentBizMode = mode;
+ const btnSector = document.getElementById('btn-chart-sector');
+ const btnHold = document.getElementById('btn-chart-hold');
+ const titleEl = document.getElementById('biz-chart-title');
+ const subEl = document.getElementById('biz-chart-sub');
+
+ if (mode === 'revenue_mix') {
+ btnSector.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-vanguardred-600 dark:text-vanguardred-300 shadow-sm transition cursor-pointer';
+ btnHold.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = 'VOO 前十大重仓股与核心行业权重分布 (%)';
+ subEl.textContent = '信息技术板块占比超 40%，金融、通信与医疗等传统防御及成长板块形成强大支撑 [cite: 1.1.5]';
+ } else {
+ btnHold.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-vanguardred-600 dark:text-vanguardred-300 shadow-sm transition cursor-pointer';
+ btnSector.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '标普500指数前十大巨头重仓股明细';
+ subEl.textContent = '美股七雄（Magnificent Seven）及核心龙头构筑了指数主要的市值与盈利增量';
+ }
+ initBizChart();
+ }
+
+ function initRadarChart() {
+ const ctx = document.getElementById('moatRadarChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (radarChartInstance) radarChartInstance.destroy();
+ radarChartInstance = new Chart(ctx, {
+ type: 'radar',
+ data: {
+ labels: [
+ '管理费率低廉度 (0.03%)',
+ '资产规模与流动性深度',
+ '指数追踪误差与复制精度',
+ '税收效率与实物申赎机制',
+ '品牌声誉与母公司结构'
+ ],
+ datasets: [
+ {
+ label: 'VOO (Vanguard)',
+ data: [9.9, 9.8, 9.9, 9.8, 9.9],
+ borderColor: '#9B111E',
+ backgroundColor: 'rgba(155, 17, 30, 0.24)',
+ pointBackgroundColor: '#9B111E',
+ borderWidth: 2.5
+ },
+ {
+ label: 'IVV (BlackRock)',
+ data: [9.9, 9.5, 9.8, 9.8, 9.5],
+ borderColor: '#0EA5E9',
+ backgroundColor: 'rgba(14, 165, 233, 0.14)',
+ pointBackgroundColor: '#0EA5E9',
+ borderWidth: 2.0
+ },
+ {
+ label: 'SPY (State Street)',
+ data: [7.5, 9.9, 9.8, 9.8, 9.0],
+ borderColor: '#10B981',
+ backgroundColor: 'rgba(16, 185, 129, 0.12)',
+ pointBackgroundColor: '#10B981',
+ borderWidth: 1.8,
+ borderDash: [4, 4]
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ }
+ },
+ scales: {
+ r: {
+ min: 0,
+ max: 10,
+ ticks: { display: false, stepSize: 2 },
+ grid: { color: colors.grid },
+ angleLines: { color: colors.radarAngle },
+ pointLabels: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initCompMarginChart() {
+ const ctx = document.getElementById('compMarginChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (compMarginChartInstance) compMarginChartInstance.destroy();
+ compMarginChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: [
+ 'VOO (Vanguard S&P 500 ETF)',
+ 'IVV (iShares Core S&P 500 ETF)',
+ 'SPY (SPDR S&P 500 ETF Trust)'
+ ],
+ datasets: [
+ {
+ label: '管理费率 Expense Ratio (%)',
+ data: [0.03, 0.03, 0.09],
+ backgroundColor: '#9B111E',
+ borderRadius: 5,
+ barThickness: 20
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `管理费率: ${ctx.parsed.x}%`
+ }
+ }
+ },
+ scales: {
+ x: {
+ max: 0.12,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => v + '%' }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initValEvolutionChart() {
+ const ctx = document.getElementById('valEvolutionChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (valEvolutionChartInstance) valEvolutionChartInstance.destroy();
+ valEvolutionChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['2021', '2022', '2023', '2024', '2025', '2026'],
+ datasets: [
+ {
+ type: 'bar',
+ label: '资产管理规模 AUM ($ 万亿美元)',
+ data: [0.35, 0.28, 0.45, 0.65, 0.88, 1.07],
+ backgroundColor: 'rgba(155, 17, 30, 0.85)',
+ borderRadius: 5,
+ barThickness: 28,
+ yAxisID: 'y'
+ },
+ {
+ type: 'line',
+ label: 'VOO 年末股价参考 ($)',
+ data: [430, 350, 440, 530, 610, 687],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 3,
+ pointRadius: 5,
+ pointHoverRadius: 7,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => ctx.dataset.yAxisID === 'y1' ? `参考股价: $${ctx.parsed.y}` : `资产规模 AUM: $${ctx.parsed.y}T`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ type: 'linear',
+ position: 'left',
+ min: 0,
+ max: 1.5,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'T' },
+ title: { display: true, text: '资产规模 AUM ($T)', color: colors.text, font: { size: 11 } }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 0,
+ max: 800,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => '$' + v },
+ title: { display: true, text: '参考股价 ($)', color: '#10B981', font: { size: 11 } }
+ }
+ }
+ }
+ });
+ }
+
+ function updateChartsTheme() {
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ }
+
+ window.addEventListener('DOMContentLoaded', () => {
+ loadKpiChecklist();
+ updateDividendSimulator();
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ });
+ </script>
+</body>
+</html>

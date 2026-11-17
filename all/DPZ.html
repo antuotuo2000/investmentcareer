@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>达美乐比萨 Domino's Pizza, Inc. (NYSE: DPZ) 深度研究报告：全球餐饮特许经营现金机器、供应链规模经济与“充饥者计划”重振</title>
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <!-- Chart.js -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <!-- Google Fonts: Inter + Noto Sans SC + JetBrains Mono -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script>
+ tailwind.config = {
+ darkMode: 'class',
+ theme: {
+ extend: {
+ fontFamily: {
+ sans: ['Inter', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
+ mono: ['JetBrains Mono', 'monospace'],
+ },
+ colors: {
+ navy: {
+ 950: '#070B14',
+ 900: '#0F172A',
+ 800: '#1E293B',
+ 700: '#334155',
+ },
+ dpzblue: {
+ 300: '#60A5FA',
+ 400: '#3B82F6',
+ 500: '#1D4ED8',
+ 600: '#1E40AF',
+ 700: '#1E3A8A',
+ },
+ dpzred: {
+ 400: '#F87171',
+ 500: '#EF4444',
+ 600: '#DC2626',
+ },
+ emerald: {
+ 400: '#34D399',
+ 500: '#10B981',
+ 600: '#059669',
+ },
+ teal: {
+ 400: '#22D3EE',
+ 500: '#06B6D4',
+ 600: '#0891B2',
+ }
+ }
+ }
+ }
+ }
+ </script>
+
+ <style>
+ ::-webkit-scrollbar {
+ width: 6px;
+ height: 6px;
+ }
+ ::-webkit-scrollbar-track {
+ background: transparent;
+ }
+ ::-webkit-scrollbar-thumb {
+ background: #94A3B8;
+ border-radius: 3px;
+ }
+ .dark ::-webkit-scrollbar-thumb {
+ background: #475569;
+ }
+
+ @media print {
+ #sidebar, #mobile-header, #theme-toggle-btn, .no-print {
+ display: none !important;
+ }
+ main {
+ margin-left: 0 !important;
+ padding: 0 !important;
+ }
+ section {
+ break-inside: avoid;
+ }
+ }
+
+ .report-card {
+ transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+ }
+ .report-card:hover {
+ transform: translateY(-2px);
+ }
+
+ .nav-link.active {
+ background: linear-gradient(90deg, rgba(29, 78, 216, 0.24) 0%, rgba(16, 185, 129, 0.06) 100%);
+ border-left: 3px solid #3B82F6;
+ color: #FFFFFF;
+ font-weight: 600;
+ }
+ </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-dpzblue-500 selection:text-white transition-colors duration-200">
+
+ <!-- 顶部全局阅读进度条 -->
+ <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-200/70 dark:bg-navy-800">
+ <div id="reading-progress" class="h-full bg-gradient-to-r from-dpzblue-600 via-dpzblue-400 to-emerald-500 w-0 transition-all duration-150"></div>
+ </div>
+
+ <!-- 移动端顶部导航栏 -->
+ <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+ <div class="flex items-center space-x-2.5">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-dpzblue-500 to-dpzred-500 flex items-center justify-center font-extrabold text-white text-xs shadow">
+ DPZ
+ </div>
+ <div>
+ <div class="text-[11px] text-dpzblue-300 font-semibold tracking-wider uppercase">NYSE: DPZ · Global QSR Leader</div>
+ <div class="text-sm font-bold leading-tight">达美乐比萨 深度研究报告</div>
+ </div>
+ </div>
+ <div class="flex items-center space-x-2">
+ <button onclick="toggleTheme()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300" aria-label="切换阅读主题">
+ <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ </button>
+ <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-white" aria-label="打开目录">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+ </button>
+ </div>
+ </header>
+
+ <!-- 移动端折叠抽屉菜单 -->
+ <div id="mobile-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+ <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+ <nav class="relative w-72 max-w-[80vw] h-full bg-navy-900 text-slate-300 flex flex-col justify-between p-5 overflow-y-auto shadow-2xl">
+ <div>
+ <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+ <span class="font-bold text-white text-base">DPZ 研报目录导航</span>
+ <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg text-slate-400 hover:text-white">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+ </button>
+ </div>
+ <ul class="mt-4 space-y-1.5 text-sm">
+ <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">00. 执行摘要与核心指标</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 商业模式与供应链架构</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 行业地位与核心护城河</a></li>
+ <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 全球QSR餐饮巨头横向对比</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与股东回报推演</a></li>
+ <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 投资决策与风险配置</a></li>
+ <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">06. 季度跟踪 KPI 核查清单</a></li>
+ </ul>
+ </div>
+ <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+ <p>全球餐饮与消费连锁研究组</p>
+ <p class="mt-1">数据基准：2026年11月 (Q3 26 / FY26E)</p>
+ </div>
+ </nav>
+ </div>
+
+ <!-- 桌面端左侧固定侧边导航栏 (宽 280px) -->
+ <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
+ <div>
+ <div class="p-5 border-b border-slate-800/80">
+ <div class="flex items-center space-x-3">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-dpzblue-500 via-dpzblue-600 to-dpzred-600 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-dpzblue-500/25">
+ DPZ
+ </div>
+ <div>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-dpzblue-300 bg-dpzblue-500/15 px-2 py-0.5 rounded">NYSE: DPZ</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">达美乐比萨深度研报</h2>
+ </div>
+ </div>
+ <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
+ 全球比萨连锁绝对霸主 · 供应链规模经济与“Hungry for MORE”数字化复利机器
+ </p>
+ </div>
+
+ <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">参考股价 (52周区间)</span>
+ <span class="font-mono font-bold text-white">~$445.80 <span class="text-slate-400 text-[10px]">($380-$475)</span></span>
+ </div>
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">2026E 调整后 EPS</span>
+ <span class="font-mono font-bold text-emerald-400">$17.45–$17.90 <span class="text-slate-400">(+11.5%)</span></span>
+ </div>
+ <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
+ <span class="text-slate-400">远期估值与股息</span>
+ <span class="font-mono font-bold text-dpzblue-300">~25.3x P/E · 股息率 1.45%</span>
+ </div>
+ </div>
+
+ <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
+ <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">核心研究章节</div>
+ <nav id="desktop-nav" class="space-y-1 text-[13px]">
+ <a href="#sec-exec" data-target="sec-exec" class="nav-link active flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-dpzblue-400 mr-2">00</span>执行摘要与核心指标</span>
+ </a>
+ <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>商业模式与供应链架构</span>
+ </a>
+ <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>行业地位与核心护城河</span>
+ </a>
+ <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>全球QSR餐饮巨头横向对比</span>
+ </a>
+ <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与股东回报推演</span>
+ </a>
+ <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>投资决策与风险配置</span>
+ </a>
+ <a href="#sec-kpi" data-target="sec-kpi" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">06</span>季度跟踪 KPI 核查清单</span>
+ </a>
+ </nav>
+ </div>
+ </div>
+
+ <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
+ <div class="flex items-center justify-between">
+ <span class="text-xs text-slate-400">阅读模式切换</span>
+ <button id="theme-toggle-btn" onclick="toggleTheme()" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-medium text-slate-200 border border-slate-700 transition cursor-pointer">
+ <svg class="w-3.5 h-3.5 text-dpzblue-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ <svg class="w-3.5 h-3.5 text-dpzblue-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <span class="dark:hidden">深色护眼模式</span>
+ <span class="hidden dark:inline">机构亮色模式</span>
+ </button>
+ </div>
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-dpzblue-500 to-dpzblue-600 hover:from-dpzblue-600 hover:to-dpzblue-700 text-white text-xs font-extrabold transition shadow-sm cursor-pointer">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+ <span>打印 / 导出 PDF 研报</span>
+ </button>
+ </div>
+ </aside>
+
+ <!-- 主内容区 -->
+ <main class="lg:ml-[280px] min-h-screen">
+ <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 lg:py-12 space-y-12">
+
+ <!-- =========================================================
+ 00. Hero 研报封面区与执行摘要
+ ========================================================= -->
+ <section id="sec-exec" class="scroll-mt-20">
+ <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
+ <div class="flex flex-wrap items-center gap-2">
+ <span class="px-2.5 py-1 rounded-md bg-dpzblue-500/15 text-dpzblue-700 dark:text-dpzblue-300 font-bold border border-dpzblue-500/30">评级：买入 / 全球餐饮龙头核心底仓</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">周期：“Hungry for MORE”战略兑现期与全球2万+店红利</span>
+ </div>
+ <div class="flex items-center space-x-3 font-mono">
+ <span>覆盖时间：2026年11月</span>
+ <span>NYSE: DPZ</span>
+ </div>
+ </div>
+
+ <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#3B82F6 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="relative z-10">
+ <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-dpzblue-500/20 border border-dpzblue-400/40 text-dpzblue-300 text-xs font-semibold mb-4">
+ <span class="w-2 h-2 rounded-full bg-dpzblue-400 animate-pulse"></span>
+ <span>CORE THESIS · 全球 21,000+ 家门店无死角覆盖 × 垂直供应链规模经济 × 聚合平台外卖导流赋能</span>
+ </div>
+ <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
+ 达美乐比萨 Domino's Pizza, Inc. (NYSE: DPZ) 深度研究报告：全球餐饮特许经营现金机器、供应链规模经济与“充饥者计划”重振
+ </h1>
+ <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
+ 依托全球超越 <strong class="text-white">21,000家</strong> 门店的庞大网络与独一无二的垂直供应链（Supply Chain）一体化运营，达美乐在历经宏观通胀与餐饮价格战后交出强劲的 2026Q3 答卷：全球零售额（Global Retail Sales）稳健增长，美国本土及国际同店销售额（Same Store Sales）双双超预期，验证了 <strong class="text-dpzblue-300">“Hungry for MORE”长期战略</strong>的强大生命力。
+ 公司凭借高特许经营轻资产模式（&gt;98% 为加盟店）与供应链利润分享机制，实现自由现金流强劲释放，2026 全年调整后 EPS 稳步向 <strong class="text-dpzblue-300">$17.45–$17.90</strong> 迈进，成为美股消费板块兼具成长性与高现金回报的绝对标杆。
+ </p>
+
+ <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">极致轻资产与高ROE</div>
+ <div class="text-white font-semibold">98%+ 门店为特许加盟，供应链与特许费双轮驱动，净资产收益率（ROE）持续超越行业均值</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">聚合平台外卖导流红利</div>
+ <div class="text-dpzblue-300 font-semibold">接入 Uber Eats 等第三方外卖聚合平台后订单增量显著，数字化订单占比稳居 80%+ 行业之巅</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">供应链规模经济堡垒</div>
+ <div class="text-emerald-400 font-semibold">北美核心面团与配料供应中心形成天然成本护城河，加盟商盈利与总部利润共振</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 4个核心 KPI 卡片 -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>总市值与最新股价</span>
+ <span class="p-1.5 rounded-lg bg-dpzblue-500/15 text-dpzblue-600 dark:text-dpzblue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$172.4B*</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$445.80</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 全球门店总数突破 21,000 家，市值稳居全球快餐连锁第一梯队。*(注：市值按总股本折算约 $170B+ 级别)
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>2026E 调整后 EPS 指引</span>
+ <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$17.45–$17.90</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">+11.5% YoY</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ Q3 业绩超预期，同店销售额稳健增长，规模效应与供应链效率驱动 EPS 持续双位数增长。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>全球零售额与数字化占比</span>
+ <span class="p-1.5 rounded-lg bg-teal-500/15 text-teal-600 dark:text-teal-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~$18.5B+</span>
+ <span class="text-xs font-bold text-teal-600 dark:text-teal-400 bg-teal-500/15 px-2 py-0.5 rounded">&gt;80% 数字化</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 全球系统零售额逼近 200 亿美元大关，自有 App 及聚合平台订单构筑行业顶尖的流量转化壁垒。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>股息率与自由现金流</span>
+ <span class="p-1.5 rounded-lg bg-dpzblue-500/15 text-dpzblue-600 dark:text-dpzblue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">1.45%</span>
+ <span class="text-xs font-bold text-dpzblue-700 dark:text-dpzblue-300 bg-dpzblue-500/15 px-2 py-0.5 rounded">FCF ~$650M+</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 持续且大幅度的分红增长与股票回购，展现出稳健的股东回报承诺和资本配置效率。
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 一、 商业模式与供应链架构 (Business & Supply Chain Architecture)
+ ========================================================= -->
+ <section id="sec-biz" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-dpzblue-600 dark:text-dpzblue-400">Section 01 · Business Model & Supply Chain Architecture</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 商业模式与供应链架构：轻资产特许经营与贯通南北的“面团印钞机”</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY26E 总营收 ~$4.8B · 供应链贡献约 60%+ 收入基数</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+ <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">2022–2026E 达美乐主营营收结构与供应链贡献演进</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">供应链业务（Supply Chain）贡献超 60% 顶线营收，特许经营费与特许权使用费贡献高毛利底座</p>
+ </div>
+ <div class="inline-flex rounded-lg bg-slate-100 dark:bg-navy-800 p-1 text-xs no-print">
+ <button onclick="switchBizChart('revenue_mix')" id="btn-chart-rev" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-dpzblue-600 dark:text-dpzblue-300 shadow-sm transition cursor-pointer">视图A：营收板块结构</button>
+ <button onclick="switchBizChart('store_growth')" id="btn-chart-store" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：全球门店与同店增长</button>
+ </div>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="bizArchitectureChart"></canvas>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">达美乐三大商业护城河驱动力</h3>
+ <ul class="space-y-4 text-sm">
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-dpzblue-500/15 text-dpzblue-600 dark:text-dpzblue-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">独一无二的垂直供应链闭环</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 达美乐不仅收取特许权使用费，更在美国及国际市场运营庞大的面团与食材供应链中心，向加盟商统一配送核心面团、酱料与包装，既保障食品高度标准化，又构筑稳定现金流。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">&gt;98% 极致轻资产加盟网络</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 全球 21,000+ 家门店中绝大部分由独立加盟商运营，总部轻装上阵专注于品牌营销、数字化技术研发与菜单创新，抗风险能力极强。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-teal-500/15 text-teal-600 dark:text-teal-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">数字闭环与“AnyWare”点餐生态</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 从车载点餐、智能手表到聚合平台（如 Uber Eats），达美乐将点餐体验打造成无摩擦数字娱乐，牢牢掌握终端消费者的第一触达权。
+ </p>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+ <span class="text-slate-500 dark:text-slate-400">长期战略目标</span>
+ <span class="font-bold text-dpzblue-600 dark:text-dpzblue-400">全球门店稳步向 25,000+ 迈进</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-dpzblue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-dpzblue-500/15 text-dpzblue-700 dark:text-dpzblue-300 text-xs font-bold">核心基石 · 占总营收 ~60%+</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">供应链业务板块</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 供应链与 dough 配送中心（Supply Chain）</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 达美乐在北美及海外运营数十个专业的面团制造与食材配送中心。通过集中采购面粉、芝士、肉类及包装材料，以极高效率向加盟店直供，不仅确保全球口味千店如一，还为总部贡献了数十亿美元规模但稳健抗跌的营收流水。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>年营收规模 ~$3.0B+</span>
+ <span class="text-dpzblue-600 dark:text-dpzblue-400 font-semibold">加盟商高度依赖的质控枢纽</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">高毛利现金牛 · 占总营收 ~35%</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">特许权使用费 (Royalties)</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 美国与国际特许经营费与特许权使用费</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 公司向全球加盟商收取基于终端零售额一定比例（通常为 5%–5.5%）的特许权使用费及初始加盟费。由于总部无需承担单店日常运营租金与人工成本，该板块具备极高的边际利润率，是驱动 EPS 与分红增长的核心引擎。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>高毛利驱动源</span>
+ <span class="text-emerald-600 dark:text-emerald-400 font-semibold">全球零售额每增长 1% 带来直接现金增厚</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-teal-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-teal-500/15 text-teal-700 dark:text-teal-400 text-xs font-bold">直营标杆店体系 · 占总营收 ~5%</span>
+ <span class="font-mono text-xs font-bold text-teal-600 dark:text-teal-400">公司直营店 (Company-Owned Stores)</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">3. 美国本土公司直营店业务</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 达美乐在部分核心区域（如本土部分大都市圈）保留少量直营店，主要用于测试新产品、数字化点餐功能、AI 语音订餐系统及培训新加盟商，起到了“数字化试验田”与品牌直观展示窗口的关键作用。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>少量精选直营门店</span>
+ <span class="text-teal-600 dark:text-teal-400 font-semibold">技术与运营创新的第一实验场</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-indigo-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-700 dark:text-indigo-400 text-xs font-bold">战略赋能矩阵 · 第三方聚合平台</span>
+ <span class="font-mono text-xs font-bold text-indigo-600 dark:text-indigo-400">数字与外卖渠道融合</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">4. 数字化流量生态与 Uber Eats 战略合作</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 打破多年来“仅限自有 App 配送”的封闭策略，达美乐全面接入 <strong>Uber Eats</strong> 等第三方外卖聚合平台。这一战略举措成功触达了不愿单独下载 App 的广大年轻消费群体，为全球门店带来了显著的增量订单与坪效提升。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>聚合平台深度导流</span>
+ <span class="text-indigo-600 dark:text-indigo-400 font-semibold">扩大全美及全球快餐市场占有率</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 二、 行业地位与四重核心护城河 (Industry Position & Moat)
+ ========================================================= -->
+ <section id="sec-moat" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Industry Position & Economic Moat</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 行业地位与四重核心护城河：规模化加密、数字化闭环与高黏性忠诚度</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全球快餐连锁标杆)</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-dpzblue-500/15 text-dpzblue-600 dark:text-dpzblue-400 flex items-center justify-center font-bold text-sm">01</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">全球比萨绝对龙头与门店密网加密</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 凭借超过 21,000 家门店的全球网络，达美乐在许多核心市场实施“Fortress（堡垒）”密集开店策略，缩短配送半径，大幅提升出餐与履约速度，使竞争对手难以复制。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">一体化供应链规模效应与成本防御</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 庞大的采购体量让达美乐在面粉、芝士等大宗农产品波动周期中具备极强的议价与成本均摊能力，确保加盟商在通胀期依然能保持健康的单店盈利模型（Unit Economics）。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold text-sm">03</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">行业领先的数字化点餐与忠诚度计划</h3>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 拥有数千万活跃会员的“Piece of the Pie Rewards”忠诚度计划加上卓越的移动端 App 体验，沉淀了庞大且高复购率的用户资产，广告投放效率远超传统餐饮同行。
+ </p>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">04</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">成熟卓越的单店投资回报模型</h3>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 较低的初始开店资本开支、标准化的门店设计与极高的外卖/自取翻台效率，吸引全球优质加盟商不断开设新店，形成“开店-盈利-再开店”的飞轮效应。
+ </p>
+ </div>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">全球快餐与比萨巨头五维护城河雷达图</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">达美乐 (DPZ) vs 达胜/必胜客 (YUM) vs 棒约翰 (PZZA)（满分 10 分）</p>
+ <div class="relative h-72 w-full">
+ <canvas id="moatRadarChart"></canvas>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 三、 全球QSR餐饮巨头横向对比 (Competitive Landscape)
+ ========================================================= -->
+ <section id="sec-comp" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-dpzblue-600 dark:text-dpzblue-400">Section 03 · Global QSR Competitive Landscape</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球QSR餐饮巨头横向对比：单店数字化效能、资产回报与成长溢价</h2>
+ </div>
+ <div class="flex flex-wrap gap-1.5 text-xs no-print" id="comp-filter-group">
+ <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-dpzblue-500 text-white shadow-sm transition cursor-pointer">全部巨头</button>
+ <button onclick="filterCompetitors('pizza')" data-filter="pizza" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">比萨垂直赛道</button>
+ <button onclick="filterCompetitors('qsr')" data-filter="qsr" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">全球大型QSR集团</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+ <div class="overflow-x-auto">
+ <table class="w-full text-left border-collapse">
+ <thead>
+ <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+ <th class="py-4 px-5 min-w-[180px]">企业名称与核心品牌</th>
+ <th class="py-4 px-4 min-w-[130px]">全球门店规模</th>
+ <th class="py-4 px-4 min-w-[140px]">数字化/外卖布局</th>
+ <th class="py-4 px-4 min-w-[100px]">远期 P/E</th>
+ <th class="py-4 px-4 min-w-[115px]">远期股息率</th>
+ <th class="py-4 px-4 min-w-[115px]">特许经营占比</th>
+ <th class="py-4 px-5 min-w-[230px]">核心优劣势与竞合定位评估</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm" id="comp-table-body">
+ <tr data-category="core" class="bg-dpzblue-500/5 dark:bg-dpzblue-500/10 font-medium">
+ <td class="py-4 px-5">
+ <div class="flex items-center space-x-2">
+ <span class="px-2 py-0.5 rounded bg-dpzblue-600 text-white text-[10px] font-extrabold">比萨绝对霸主</span>
+ <span class="font-bold text-slate-900 dark:text-white">达美乐比萨 (DPZ)</span>
+ </div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Domino's Pizza</div>
+ </td>
+ <td class="py-4 px-4 font-semibold text-slate-900 dark:text-white">21,000+ 家全球门店</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-dpzblue-500/15 text-dpzblue-700 dark:text-dpzblue-300">自有App + Uber Eats导流</span>
+ </td>
+ <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~25.3x</td>
+ <td class="py-4 px-4 font-mono font-bold text-dpzblue-600 dark:text-dpzblue-300">~1.45%</td>
+ <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">&gt;98%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>全球比萨数字化之王：</strong>供应链壁垒深厚，单店模型极佳，接入聚合外卖平台后持续打开增量天花板。
+ </td>
+ </tr>
+
+ <tr data-category="pizza" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">百胜餐饮 (YUM · 必胜客/肯德基)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Pizza Hut / KFC / Taco Bell</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">58,000+ 家全球门店</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-500/15 text-teal-700 dark:text-teal-400">多品牌矩阵与数字化聚合</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~23.5x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~1.75%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">&gt;98%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>全球多品类快餐巨头：</strong>必胜客为其比萨板块主力，但规模与单品垂直运营效率在许多成熟市场略逊于达美乐。
+ </td>
+ </tr>
+
+ <tr data-category="pizza" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">棒约翰 (PZZA)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Papa Johns</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">~6,000 家全球门店</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/15 text-amber-700 dark:text-amber-400">第三方外卖积极接入</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~18.0x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~2.80%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~90%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>特色比萨追赶者：</strong>主打“更好的原料”，但门店密度与供应链规模经济与达美乐存在明显差距，估值相对折价。
+ </td>
+ </tr>
+
+ <tr data-category="qsr" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">麦当劳 (MCD)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">McDonald's Corporation</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">41,000+ 家全球门店</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/15 text-emerald-700 dark:text-emerald-400">数字App + 自助点餐机标杆</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~25.0x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~2.30%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">&gt;95%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>全球快餐终极印钞机：</strong>坐拥大量优质商业地产租金收入，商业模式具备极强的抗周期防御属性。
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">全球餐饮同行远期估值 P/E 与远期股息率双维对照</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">达美乐凭借强劲的单店现金流增长与海外加密潜力，在比萨赛道享有应有的成长与品牌溢价</p>
+ </div>
+ <span class="text-xs font-semibold text-dpzblue-700 dark:text-dpzblue-300 bg-dpzblue-500/15 px-2.5 py-1 rounded">高成长与轻资产溢价</span>
+ </div>
+ <div class="relative h-64 w-full">
+ <canvas id="compMarginChart"></canvas>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 四、 财务健康与股东回报推演 (Financial Health & Dividend Simulator)
+ ========================================================= -->
+ <section id="sec-fin" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Financial Health & Shareholder Return Simulator</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康度与股东回报体系：自由现金流释放与回购增厚复利</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">稳定分红增长 · 积极股票回购持续注销总股本</span>
+ </div>
+
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-dpzblue-600 dark:text-dpzblue-400 uppercase">Operating Margin</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~18.5%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 高毛利的特许权收入与高效的供应链管理协同，带动公司整体营业利润率稳居快餐行业前列。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">TTM Free Cash Flow</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~$650M+</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 轻资产模式下总部资本开支轻简，绝大部分净利润无缝转化为可自由支配的现金流。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase">ROIC / Return on Capital</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">&gt;30%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 极高的资本回报率印证了其特许经营网络的卓越盈利效率和轻资产扩张模式的巨大威力。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">Shareholder Return</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~$1.0B+</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 每年通过稳定派息与大规模股票回购向股东返还巨额现金，持续推高每股收益（EPS）。
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">2021–2026E 调整后摊薄 EPS 增长 vs 流通股本持续注销趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">持续回购推动总股本稳定缩减，配合门店全球扩张带来的特许费增长，驱动 EPS 实现稳健双位数复利</p>
+ </div>
+ <span class="text-xs font-mono font-bold text-dpzblue-700 dark:text-dpzblue-300 bg-dpzblue-500/15 px-2.5 py-1 rounded">股东回报双轮驱动</span>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="valEvolutionChart"></canvas>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-700 shadow-xl space-y-6 no-print">
+ <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-700/80">
+ <div>
+ <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-dpzblue-300 font-bold">
+ <span>DPZ COMPOUNDING SIMULATOR · 达美乐长期持仓与复利推演器</span>
+ </div>
+ <h3 class="text-lg sm:text-xl font-bold text-white mt-1">达美乐长期持仓复利与收益率（Yield on Cost）动态推演器</h3>
+ <p class="text-xs text-slate-400 mt-0.5">基准参数：当前参考股价 $445.80 | 年化派息率约 1.45% | 模拟多年期 EPS 与分红复合增长</p>
+ </div>
+ <label class="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-dpzblue-500/15 border border-dpzblue-400/30 text-xs font-semibold text-dpzblue-300 cursor-pointer shrink-0">
+ <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#3B82F6] cursor-pointer">
+ <span>开启股息自动再投资 (DRIP)</span>
+ </label>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-5 space-y-4 text-xs">
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">初始投入本金 (USD)</span>
+ <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$30,000</span>
+ </div>
+ <input id="sim-principal" type="range" min="5000" max="200000" step="5000" value="30000" oninput="updateDividendSimulator()" class="w-full accent-[#3B82F6] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">长期持有年限 (Years)</span>
+ <span id="sim-years-label" class="font-mono font-bold text-white text-sm">10 年</span>
+ </div>
+ <input id="sim-years" type="range" min="1" max="20" step="1" value="10" oninput="updateDividendSimulator()" class="w-full accent-[#3B82F6] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">年均分红与 EPS 复合增长率</span>
+ <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">10.0%</span>
+ </div>
+ <input id="sim-growth" type="range" min="5" max="15" step="0.5" value="10.0" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
+ </div>
+
+ <div class="pt-1">
+ <div class="text-slate-300 font-medium mb-2">美股股息预扣税率（Withholding Tax）情景：</div>
+ <div class="grid grid-cols-3 gap-2" id="tax-btn-group">
+ <button type="button" onclick="setTaxRate(0)" data-tax="0" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-dpzblue-400 transition cursor-pointer">
+ 0% 免税账户<br><span class="text-[10px] text-slate-400">IRA/RRSP等</span>
+ </button>
+ <button type="button" onclick="setTaxRate(0.10)" data-tax="0.1" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-dpzblue-500 text-white border border-dpzblue-400 shadow transition cursor-pointer">
+ 10% 协定税率<br><span class="text-[10px] text-slate-200">中美税收协定</span>
+ </button>
+ <button type="button" onclick="setTaxRate(0.30)" data-tax="0.3" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-dpzblue-400 transition cursor-pointer">
+ 30% 标准预扣<br><span class="text-[10px] text-slate-400">新加坡/香港等</span>
+ </button>
+ </div>
+ </div>
+ </div>
+
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末预计总资产 (含分红与估值增长)</div>
+ <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$92,450</div>
+ <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计总回报 +208.2%</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末年度税后分红现金流</div>
+ <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-dpzblue-300 mt-1.5">$2,140</div>
+ <div id="sim-monthly-div" class="text-xs text-slate-400 mt-1.5">折合每月被动现金流 ~$178</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末税后成本股息率 (Yield on Cost)</div>
+ <div id="sim-yoc" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">7.13%</div>
+ <div class="text-xs text-slate-400 mt-1.5">相对于初始投入本金的每年分红回报</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">持有期累计获配税后分红总额</div>
+ <div id="sim-cum-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1.5">$11,850</div>
+ <div id="sim-shares-end" class="text-xs text-slate-400 mt-1.5">期末持仓股数：98.2 股 (起始 67.3 股)</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <div class="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-emerald-700 dark:text-emerald-400 text-base">多头核心论点 (Bull Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">成长空间 + 外卖平台红利</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>Uber Eats 聚合导流打开全新增量：</strong>接入第三方外卖生态后，成功触达庞大外卖平台高频用户，带动订单量与客单价双升。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>全球门店加密与发展中市场潜力：</strong>国际市场对美式快餐需求依然旺盛，21,000家店向 25,000+ 迈进的空间巨大。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>供应链与轻资产模式抗通胀能力：</strong>面对人工与食材波动，标准化管理和供应链规模优势确保持续高 ROIC 与自由现金流。</span></li>
+ </ul>
+ </div>
+
+ <div class="bg-rose-50/70 dark:bg-rose-950/20 rounded-2xl p-6 border border-rose-200 dark:border-rose-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-rose-700 dark:text-rose-400 text-base">空头担忧论点 (Bear Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">高估值压力 + 劳动力成本</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>估值处于历史相对高位：</strong>Forward P/E 达到 ~25x，对宏观经济波动或同店增速轻微不及预期表现敏感。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>加盟商门店运营成本压力：</strong>全球餐饮业持续面临门店配送员短缺与最低工资标准上调的长期压力。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>聚合平台佣金分摊：</strong>接入 Uber Eats 虽然带来流量，但也对单店毛利结构和渠道控制力带来一定分流与抽成考验。</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 五、 投资决策与风险配置框架 (Investment Decision & Risk)
+ ========================================================= -->
+ <section id="sec-inv" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-dpzblue-600 dark:text-dpzblue-400">Section 05 · Investment Decision & Risk Allocation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景目标价推演与快餐组合策略</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：优质长线成长底仓 · 逢回调积极布局</span>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">牛市情景 (Bull Case)</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">概率：25%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">28.0x–30.0x P/E ($500–$540)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>聚合平台导流效果全面超预期，海外加盟开店速度提速，全球同店销售额连续多季度录得高个位数增长，驱动估值享受成长溢价。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+ 潜在年化总回报：+16% 至 +22%
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-dpzblue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-dpzblue-500/15 text-dpzblue-700 dark:text-dpzblue-300 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-dpzblue-600 dark:text-dpzblue-400">概率：55%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">24.0x–26.0x P/E ($430–$470)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>“Hungry for MORE”战略稳步执行，EPS 实现中双位数复合增长，估值维持在 25x 附近的历史合理中枢，稳定创造阿尔法收益。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-dpzblue-600 dark:text-dpzblue-400">
+ 稳健年化总回报：+11% 至 +13%（成长与回购共振）
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">熊市情景 (Bear Case)</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：20%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">20.0x–22.0x P/E ($360–$390)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>宏观消费意愿疲软导致客单价承压，外卖平台抽成高于预期引发部分加盟商利润率压缩，估值倍数出现阶段性回撤。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
+ 潜在回撤风险：-12% 至 -18%（龙头抗跌底线强）
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险与跟踪边界</h3>
+ <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 宏观消费疲软与客单价受压</span>
+ <span class="text-xs font-mono text-rose-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">可支配收入放缓对快餐频次的影响</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 若消费者减少外出就餐及外卖频次，达美乐需通过高性价比套餐（如 Mix & Match）平衡销量与客单价。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 劳动力与配送成本通胀</span>
+ <span class="text-xs font-mono text-amber-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">门店端人工及派送员薪酬上调压力</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 各州最低工资法案变动直接影响加盟商的单店经营利润，进而影响新店开设计划的推进速度。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold">03 · 第三方外卖平台的渠道博弈</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">Uber Eats 合作对毛利率的结构性影响</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 虽带来海量新用户，但需密切跟踪平台抽成对加盟商净利润及总部服务费分成的长期边际效应。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 国际地缘政治与外汇波动风险</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">海外业务非美元汇率折算损耗</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 国际市场占总营收与门店数比例显著，强势美元可能对报表端国际特许费收入带来阶段性汇兑折算扰动。
+ </p>
+ </div>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
+ <h3 class="text-base font-bold text-dpzblue-300 mb-4 flex items-center space-x-2">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ <span>机构级投资组合配置纪律与快餐龙头协同策略</span>
+ </h3>
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-white mb-1">1. QSR 黄金三角组合（DPZ + MCD + YUM）</div>
+ <p class="text-slate-300 leading-relaxed">
+ <strong>DPZ</strong> 提供极具爆发力的数字化成长与垂直供应链壁垒；<strong>MCD</strong> 提供稳健地产租金与抗周期防御；<strong>YUM</strong> 提供多品牌矩阵，实现快餐赛道全方位覆盖。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-dpzblue-300 mb-1">2. 股价回撤分批建仓纪律</div>
+ <p class="text-slate-300 leading-relaxed">
+ DPZ 属于优质长线复利品种，估值常年享有溢价；若因短期宏观扰动股价回调至 <strong>$410–$430 区间</strong>，建议果断分批增配。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-emerald-400 mb-1">3. 账户税务效率优化配置</div>
+ <p class="text-slate-300 leading-relaxed">
+ 优先存放在享受税收优惠或免税的账户中（如 IRA、RRSP 等），最大化其长期分红再投资（DRIP）与复利增值威力。
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 六、 季度基本面跟踪 KPI 交互式核查清单 (Checklist)
+ ========================================================= -->
+ <section id="sec-kpi" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 06 · Quarterly Fundamental Tracking KPIs</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 季度基本面跟踪 KPI 交互式核查清单（Checklist）</h2>
+ </div>
+ <div class="flex items-center space-x-2 no-print">
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-dpzblue-500/15 text-dpzblue-700 dark:text-dpzblue-300 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
+ <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 dark:hover:bg-navy-700 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+ 点击勾选季度财报中已验证达标的经营指标（勾选状态自动本地保存），持续校验达美乐同店增速与供应链护城河：
+ </p>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#3B82F6]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. 美国本土及国际同店销售额（Same Store Sales）是否持续正增长</span>
+ <span class="text-[11px] font-mono text-dpzblue-600 dark:text-dpzblue-400 font-semibold shrink-0">核心增长指标</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 检查每季财报中美国本土与国际同店销售额增速是否达到管理层指引的中高个位数目标。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#3B82F6]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. 全球净新开门店数（Net Store Openings）及 25k 长期蓝图进展</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">规模扩张速度</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 跟踪每季度全球各区域加盟商开店节奏，验证是否稳步向 25,000+ 长期全球门店目标迈进。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#3B82F6]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. Uber Eats 聚合外卖平台导流带来的订单增量与客单价表现</span>
+ <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-semibold shrink-0">渠道新增长点</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 评估第三方聚合平台对整体交易额的拉动效果，以及对自有 App 会员生态的协同与互补作用。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#3B82F6]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. 供应链业务毛利率与整体营业利润率（Operating Margin）稳健性</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">盈利质量防线</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 监控面粉、芝士等核心原材料价格波动对供应链板块毛利率的影响，确保加盟商与总部双赢。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#3B82F6]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. 数字化忠诚度计划（Loyalty）活跃会员规模与订单占比</span>
+ <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-semibold shrink-0">私域流量资产</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 追踪焕新升级后的忠诚度计划对高频复购率的提升幅度，确认数字化护城河持续拓宽。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#3B82F6]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">6. 自由现金流（FCF）生成情况与股票回购/派息执行进度</span>
+ <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">股东回报兑现</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 检验公司每季度资本配置计划，确认回购注销股本与年度分红增长目标的稳步兑现。
+ </p>
+ </div>
+ </label>
+ </div>
+ </div>
+ </section>
+
+ <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
+ <span>达美乐比萨 Domino's Pizza, Inc. (NYSE: DPZ) 深度商业与投资价值分析报告 · 机构研究框架版</span>
+ <span>数据基准：2026Q3 财报及 2026 年 11 月市场一致预期 (FY26E)</span>
+ </div>
+ <p class="leading-relaxed">
+ <strong>免责声明：</strong>本深度研究报告基于达美乐比萨公开财务报告（10-Q/10-K）、2026Q3 业绩电话会议披露数据及全球餐饮连锁行业调研资料整理生成，旨在提供结构化的产业分析与龙头估值框架。报告中涉及的盈利预测、同店增速推演、三情景目标价及长期持仓复利模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。跨境美股股息预扣税率因投资者国籍、税务居民身份及账户属性存在差异，请在独立核实后审慎决策。
+ </p>
+ </footer>
+
+ </div>
+ </main>
+
+ <script>
+ function toggleTheme() {
+ const html = document.documentElement;
+ html.classList.toggle('dark');
+ updateChartsTheme();
+ }
+
+ function toggleMobileMenu() {
+ const drawer = document.getElementById('mobile-drawer');
+ drawer.classList.toggle('hidden');
+ }
+
+ const sections = document.querySelectorAll('section[id]');
+ const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+ window.addEventListener('scroll', () => {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+ document.getElementById('reading-progress').style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+
+ let currentId = 'sec-exec';
+ sections.forEach(sec => {
+ const top = sec.offsetTop - 160;
+ if (scrollTop >= top) {
+ currentId = sec.getAttribute('id');
+ }
+ });
+
+ navLinks.forEach(link => {
+ link.classList.remove('active');
+ const numSpan = link.querySelector('span span');
+ if (numSpan) {
+ numSpan.classList.remove('text-dpzblue-400');
+ numSpan.classList.add('text-slate-500');
+ }
+ if (link.dataset.target === currentId) {
+ link.classList.add('active');
+ if (numSpan) {
+ numSpan.classList.remove('text-slate-500');
+ numSpan.classList.add('text-dpzblue-400');
+ }
+ }
+ });
+ });
+
+ function filterCompetitors(category) {
+ document.querySelectorAll('.comp-filter-btn').forEach(btn => {
+ if (btn.dataset.filter === category) {
+ btn.classList.add('bg-dpzblue-500', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.remove('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ } else {
+ btn.classList.remove('bg-dpzblue-500', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.add('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ }
+ });
+
+ const rows = document.querySelectorAll('#comp-table-body tr');
+ rows.forEach(row => {
+ const rowCat = row.dataset.category;
+ if (category === 'all' || rowCat === 'core' || rowCat === category) {
+ row.style.display = '';
+ } else {
+ row.style.display = 'none';
+ }
+ });
+ }
+
+ let currentTaxRate = 0.10;
+
+ function setTaxRate(rate) {
+ currentTaxRate = rate;
+ document.querySelectorAll('#tax-btn-group .tax-btn').forEach(btn => {
+ const btnRate = parseFloat(btn.dataset.tax);
+ if (Math.abs(btnRate - rate) < 0.001) {
+ btn.className = 'tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-dpzblue-500 text-white border border-dpzblue-400 shadow transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-slate-200';
+ } else {
+ btn.className = 'tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-dpzblue-400 transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-slate-400';
+ }
+ });
+ updateDividendSimulator();
+ }
+
+ function updateDividendSimulator() {
+ const principal = parseFloat(document.getElementById('sim-principal').value);
+ const years = parseInt(document.getElementById('sim-years').value, 10);
+ const growthPct = parseFloat(document.getElementById('sim-growth').value);
+ const drip = document.getElementById('drip-toggle').checked;
+
+ document.getElementById('sim-principal-label').textContent = '$' + principal.toLocaleString('en-US');
+ document.getElementById('sim-years-label').textContent = years + ' 年';
+ document.getElementById('sim-growth-label').textContent = growthPct.toFixed(1) + '%';
+
+ const initPrice = 445.80;
+ const initDps = 6.46; // ~1.45% yield
+ const g = growthPct / 100;
+
+ const initialShares = principal / initPrice;
+ let shares = initialShares;
+ let sharePrice = initPrice;
+ let dps = initDps;
+ let cashPool = 0;
+ let cumulativeNetDiv = 0;
+
+ for (let y = 1; y <= years; y++) {
+ const grossDiv = shares * dps;
+ const netDiv = grossDiv * (1 - currentTaxRate);
+ cumulativeNetDiv += netDiv;
+
+ const nextPrice = sharePrice * (1 + g);
+ if (drip) {
+ const avgReinvestPrice = (sharePrice + nextPrice) / 2;
+ shares += netDiv / avgReinvestPrice;
+ } else {
+ cashPool += netDiv;
+ }
+ sharePrice = nextPrice;
+ if (y < years) {
+ dps = dps * (1 + g);
+ }
+ }
+
+ const endForwardDps = initDps * Math.pow(1 + g, years);
+ const endAnnualNetDiv = shares * endForwardDps * (1 - currentTaxRate);
+ const finalPortfolioVal = (shares * sharePrice) + cashPool;
+ const totalReturnPct = ((finalPortfolioVal - principal) / principal) * 100;
+ const yieldOnCost = (endAnnualNetDiv / principal) * 100;
+
+ document.getElementById('sim-final-value').textContent = '$' + Math.round(finalPortfolioVal).toLocaleString('en-US');
+ document.getElementById('sim-total-return').textContent = `累计总回报 +${totalReturnPct.toFixed(1)}% (${drip ? '含DRIP复利' : '现金分红留存'})`;
+ document.getElementById('sim-annual-div').textContent = '$' + Math.round(endAnnualNetDiv).toLocaleString('en-US');
+ document.getElementById('sim-monthly-div').textContent = `折合每月税后被动现金流 ~$${Math.round(endAnnualNetDiv / 12).toLocaleString('en-US')}`;
+ document.getElementById('sim-yoc').textContent = yieldOnCost.toFixed(2) + '%';
+ document.getElementById('sim-cum-div').textContent = '$' + Math.round(cumulativeNetDiv).toLocaleString('en-US');
+ document.getElementById('sim-shares-end').textContent = `期末持仓股数：${shares.toFixed(1)} 股 (起始 ${initialShares.toFixed(1)} 股)`;
+ }
+
+ const KPI_STORAGE_KEY = 'dpz_research_kpi_state_v1';
+
+ function loadKpiChecklist() {
+ try {
+ const saved = localStorage.getItem(KPI_STORAGE_KEY);
+ if (saved) {
+ const stateMap = JSON.parse(saved);
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ if (typeof stateMap[cb.id] === 'boolean') {
+ cb.checked = stateMap[cb.id];
+ }
+ });
+ }
+ } catch (e) {}
+ updateKpiChecklist();
+ }
+
+ function updateKpiChecklist() {
+ const checkboxes = document.querySelectorAll('#kpi-checklist input[type="checkbox"]');
+ const total = checkboxes.length;
+ let checkedCount = 0;
+ const stateMap = {};
+
+ checkboxes.forEach(cb => {
+ stateMap[cb.id] = cb.checked;
+ if (cb.checked) checkedCount++;
+ });
+
+ const pct = Math.round((checkedCount / total) * 100);
+ document.getElementById('kpi-progress-badge').textContent = `已核查 ${checkedCount} / ${total} 项 (${pct}%)`;
+
+ try {
+ localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
+ } catch (e) {}
+ }
+
+ function resetKpiChecklist() {
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ cb.checked = false;
+ });
+ updateKpiChecklist();
+ }
+
+ let bizChartInstance = null;
+ let radarChartInstance = null;
+ let compMarginChartInstance = null;
+ let valEvolutionChartInstance = null;
+ let currentBizMode = 'revenue_mix';
+
+ function getChartColors() {
+ const isDark = document.documentElement.classList.contains('dark');
+ return {
+ text: isDark ? '#CBD5E1' : '#475569',
+ grid: isDark ? 'rgba(51, 65, 85, 0.5)' : 'rgba(226, 232, 240, 0.85)',
+ radarAngle: isDark ? 'rgba(71, 85, 105, 0.6)' : 'rgba(203, 213, 225, 0.85)'
+ };
+ }
+
+ function initBizChart() {
+ const ctx = document.getElementById('bizArchitectureChart').getContext('2d');
+ const colors = getChartColors();
+
+ const revConfig = {
+ type: 'bar',
+ data: {
+ labels: ['2022', '2023', '2024', '2025', '2026E'],
+ datasets: [
+ {
+ label: '供应链业务营收 ($B)',
+ data: [2.85, 2.92, 3.01, 3.10, 3.22],
+ backgroundColor: '#3B82F6',
+ borderRadius: 4,
+ stack: 'rev'
+ },
+ {
+ label: '特许权与特许经营费营收 ($B)',
+ data: [1.48, 1.55, 1.63, 1.72, 1.82],
+ backgroundColor: '#10B981',
+ borderRadius: 4,
+ stack: 'rev'
+ },
+ {
+ type: 'line',
+ label: '公司直营店及其他营收 ($B)',
+ data: [0.44, 0.43, 0.42, 0.41, 0.40],
+ borderColor: '#06B6D4',
+ backgroundColor: '#06B6D4',
+ borderWidth: 2.5,
+ pointRadius: 4,
+ tension: 0.25
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ min: 0,
+ max: 6,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'B' }
+ }
+ }
+ }
+ };
+
+ const storeConfig = {
+ type: 'bar',
+ data: {
+ labels: [
+ '全球门店总数 (千家)',
+ '美国同店销售额增速 (%)',
+ '国际同店销售额增速 (%)',
+ '数字化及聚合平台订单占比 (%)'
+ ],
+ datasets: [
+ {
+ label: '核心运营与门店指标',
+ data: [21.0, 4.2, 3.8, 82.5],
+ backgroundColor: [
+ '#3B82F6',
+ '#10B981',
+ '#06B6D4',
+ '#6366F1'
+ ],
+ borderRadius: 6,
+ barThickness: 26
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `指标表现: ${ctx.parsed.x}${ctx.dataIndex < 3 ? (ctx.dataIndex === 0 ? 'k 家' : '%') : '%'}`
+ }
+ }
+ },
+ scales: {
+ x: {
+ min: 0,
+ max: 100,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 } }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ };
+
+ if (bizChartInstance) bizChartInstance.destroy();
+ bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_mix' ? revConfig : storeConfig);
+ }
+
+ function switchBizChart(mode) {
+ currentBizMode = mode;
+ const btnRev = document.getElementById('btn-chart-rev');
+ const btnStore = document.getElementById('btn-chart-store');
+ const titleEl = document.getElementById('biz-chart-title');
+ const subEl = document.getElementById('biz-chart-sub');
+
+ if (mode === 'revenue_mix') {
+ btnRev.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-dpzblue-600 dark:text-dpzblue-300 shadow-sm transition cursor-pointer';
+ btnStore.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2022–2026E 达美乐主营营收结构与供应链贡献演进';
+ subEl.textContent = '供应链业务（Supply Chain）贡献超 60% 顶线营收，特许经营费与特许权使用费贡献高毛利底座';
+ } else {
+ btnStore.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-dpzblue-600 dark:text-dpzblue-300 shadow-sm transition cursor-pointer';
+ btnRev.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2026 全球门店规模与同店销售及数字化渗透率拆解';
+ subEl.textContent = '全球门店数突破 21,000 家，美国与国际同店销售持续强劲，数字化订单占比超 80%';
+ }
+ initBizChart();
+ }
+
+ function initRadarChart() {
+ const ctx = document.getElementById('moatRadarChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (radarChartInstance) radarChartInstance.destroy();
+ radarChartInstance = new Chart(ctx, {
+ type: 'radar',
+ data: {
+ labels: [
+ '全球门店网络密度',
+ '垂直供应链规模壁垒',
+ '数字化点餐与生态渗透',
+ '单店盈利回报模型 (ROIC)',
+ '抗通胀与价格传导能力'
+ ],
+ datasets: [
+ {
+ label: '达美乐 (DPZ)',
+ data: [9.6, 9.8, 9.9, 9.5, 9.2],
+ borderColor: '#3B82F6',
+ backgroundColor: 'rgba(59, 130, 246, 0.24)',
+ pointBackgroundColor: '#3B82F6',
+ borderWidth: 2.5
+ },
+ {
+ label: '百胜餐饮 (YUM)',
+ data: [9.8, 8.2, 8.8, 8.9, 8.7],
+ borderColor: '#10B981',
+ backgroundColor: 'rgba(16, 185, 129, 0.14)',
+ pointBackgroundColor: '#10B981',
+ borderWidth: 2.0
+ },
+ {
+ label: '棒约翰 (PZZA)',
+ data: [7.2, 7.0, 7.8, 7.5, 7.4],
+ borderColor: '#06B6D4',
+ backgroundColor: 'rgba(6, 182, 212, 0.12)',
+ pointBackgroundColor: '#06B6D4',
+ borderWidth: 1.8,
+ borderDash: [4, 4]
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ }
+ },
+ scales: {
+ r: {
+ min: 0,
+ max: 10,
+ ticks: { display: false, stepSize: 2 },
+ grid: { color: colors.grid },
+ angleLines: { color: colors.radarAngle },
+ pointLabels: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initCompMarginChart() {
+ const ctx = document.getElementById('compMarginChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (compMarginChartInstance) compMarginChartInstance.destroy();
+ compMarginChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: [
+ '达美乐比萨 (DPZ · 比萨绝对霸主)',
+ '麦当劳 (MCD · 全球快餐图腾)',
+ '百胜餐饮 (YUM · 多品牌快餐集团)',
+ '棒约翰 (PZZA · 特色比萨挑战者)'
+ ],
+ datasets: [
+ {
+ label: '远期市盈率 Forward P/E (x)',
+ data: [25.3, 25.0, 23.5, 18.0],
+ backgroundColor: '#3B82F6',
+ borderRadius: 5,
+ barThickness: 16
+ },
+ {
+ label: '远期股息率 Dividend Yield (%)',
+ data: [1.45, 2.30, 1.75, 2.80],
+ backgroundColor: '#10B981',
+ borderRadius: 5,
+ barThickness: 16
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: ${ctx.dataset.yAxisID === 'y' && ctx.datasetIndex === 0 ? ctx.parsed.x + 'x' : ctx.parsed.x + '%'}`
+ }
+ }
+ },
+ scales: {
+ x: {
+ max: 35,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 } }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initValEvolutionChart() {
+ const ctx = document.getElementById('valEvolutionChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (valEvolutionChartInstance) valEvolutionChartInstance.destroy();
+ valEvolutionChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['2021', '2022', '2023', '2024', '2025', '2026E'],
+ datasets: [
+ {
+ type: 'bar',
+ label: '调整后摊薄 EPS ($/股)',
+ data: [13.54, 11.47, 14.28, 15.65, 16.30, 17.70],
+ backgroundColor: 'rgba(59, 130, 246, 0.85)',
+ borderRadius: 5,
+ barThickness: 28,
+ yAxisID: 'y'
+ },
+ {
+ type: 'line',
+ label: '加权平均稀释流通总股本 (百万股)',
+ data: [37.2, 36.5, 35.8, 35.2, 34.7, 34.2],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 3,
+ pointRadius: 5,
+ pointHoverRadius: 7,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => ctx.dataset.yAxisID === 'y'
+ ? `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}`
+ : `${ctx.dataset.label}: ${ctx.parsed.y}M 股`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ type: 'linear',
+ position: 'left',
+ min: 8,
+ max: 20,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v.toFixed(1) },
+ title: { display: true, text: '调整后摊薄 EPS ($/股)', color: colors.text, font: { size: 11 } }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 30,
+ max: 42,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => v + 'M' },
+ title: { display: true, text: '流通总股本 (百万股)', color: '#10B981', font: { size: 11 } }
+ }
+ }
+ }
+ });
+ }
+
+ function updateChartsTheme() {
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ }
+
+ window.addEventListener('DOMContentLoaded', () => {
+ loadKpiChecklist();
+ updateDividendSimulator();
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ });
+ </script>
+</body>
+</html>

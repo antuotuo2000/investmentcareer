@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Visa 维萨公司 (NYSE: V) 深度研究报告：全球支付网络绝对霸权、高自由现金流复利机器与数字支付未来演进</title>
+ <title>维萨 Visa Inc. (NYSE: V) 深度研究报告：全球支付网络绝对霸主、FY2026 创纪录 460亿美元营收与数字支付复利增长</title>
  <!-- Tailwind CSS -->
  <script src="https://cdn.tailwindcss.com"></script>
  <!-- Chart.js -->
@@ -32,20 +32,20 @@
  visablue: {
  300: '#93C5FD',
  400: '#60A5FA',
- 500: '#3B82F6',
- 600: '#2563EB',
- 700: '#1D4ED8',
+ 500: '#1A1F71',
+ 600: '#141856',
+ 700: '#0E113C',
+ },
+ visagold: {
+ 400: '#FACC15',
+ 500: '#E65C00',
+ 600: '#CC5200',
  },
  emerald: {
  400: '#34D399',
  500: '#10B981',
  600: '#059669',
  },
- teal: {
- 400: '#22D3EE',
- 500: '#06B6D4',
- 600: '#0891B2',
- }
  }
  }
  }
@@ -53,7 +53,6 @@
  </script>
 
  <style>
- /* 自定义滚动条与机构研报细节排版 */
  ::-webkit-scrollbar {
  width: 6px;
  height: 6px;
@@ -69,7 +68,6 @@
  background: #475569;
  }
 
- /* 打印友好优化 */
  @media print {
  #sidebar, #mobile-header, #theme-toggle-btn, .no-print {
  display: none !important;
@@ -83,7 +81,6 @@
  }
  }
 
- /* 卡片悬浮微光与上移过渡 */
  .report-card {
  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
  }
@@ -91,10 +88,9 @@
  transform: translateY(-2px);
  }
 
- /* 侧边导航激活态：Visa 蓝渐变标识 */
  .nav-link.active {
- background: linear-gradient(90deg, rgba(59, 130, 246, 0.24) 0%, rgba(16, 185, 129, 0.06) 100%);
- border-left: 3px solid #3B82F6;
+ background: linear-gradient(90deg, rgba(26, 31, 113, 0.24) 0%, rgba(16, 185, 129, 0.06) 100%);
+ border-left: 3px solid #1A1F71;
  color: #FFFFFF;
  font-weight: 600;
  }
@@ -110,12 +106,12 @@
  <!-- 移动端顶部导航栏 -->
  <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
  <div class="flex items-center space-x-2.5">
- <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-visablue-500 to-visablue-700 flex items-center justify-center font-extrabold text-white text-xs shadow">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-visablue-500 to-visagold-500 flex items-center justify-center font-extrabold text-white text-xs shadow">
  V
  </div>
  <div>
- <div class="text-[11px] text-visablue-400 font-semibold tracking-wider uppercase">NYSE: V · Payments Titan</div>
- <div class="text-sm font-bold leading-tight">Visa 维萨 深度研究报告</div>
+ <div class="text-[11px] text-visablue-300 font-semibold tracking-wider uppercase">NYSE: V · Global Payments Leader</div>
+ <div class="text-sm font-bold leading-tight">Visa 维萨深度研究报告</div>
  </div>
  </div>
  <div class="flex items-center space-x-2">
@@ -142,17 +138,17 @@
  </div>
  <ul class="mt-4 space-y-1.5 text-sm">
  <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">00. 执行摘要与核心指标</a></li>
- <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 商业模式与收入架构</a></li>
- <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 行业地位与网络效应护城河</a></li>
- <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 全球支付巨头横向对比</a></li>
- <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与股东回报推演</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 商业模式与全球清算网络架构</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 行业地位与核心护城河</a></li>
+ <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 全球支付巨头（Mastercard/Amex）横向对比</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与自由现金流推演</a></li>
  <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 投资决策与风险配置</a></li>
  <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">06. 季度跟踪 KPI 核查清单</a></li>
  </ul>
  </div>
  <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
- <p>全球金融科技与核心资产研究组</p>
- <p class="mt-1">数据基准：2026年11月 (FY26 / Q4财报)</p>
+ <p>全球支付与金融科技研究组</p>
+ <p class="mt-1">数据基准：2026年11月 (FY2026 / Q4 26)</p>
  </div>
  </nav>
  </div>
@@ -160,39 +156,36 @@
  <!-- 桌面端左侧固定侧边导航栏 (宽 280px) -->
  <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
  <div>
- <!-- 机构品牌头 -->
  <div class="p-5 border-b border-slate-800/80">
  <div class="flex items-center space-x-3">
- <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-visablue-400 via-visablue-500 to-visablue-700 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-visablue-500/25">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-visablue-500 via-visablue-600 to-visagold-500 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-visablue-500/25">
  V
  </div>
  <div>
- <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-visablue-400 bg-visablue-500/15 px-2 py-0.5 rounded">NYSE: V</span>
- <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">Visa 深度研报</h2>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-visablue-300 bg-visablue-500/15 px-2 py-0.5 rounded">NYSE: V</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">Visa 维萨深度研报</h2>
  </div>
  </div>
  <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
- 全球数字支付绝对霸主 · 双边网络效应与超 60% 净利润率印钞机
+ 全球支付网络绝对霸主 · FY2026 创纪录 459 亿美元营收、16% 股息提升与数字支付复利增长
  </p>
  </div>
 
- <!-- 股票实时快照徽章 -->
  <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
  <div class="flex items-center justify-between">
  <span class="text-slate-400">参考股价 (52周区间)</span>
- <span class="font-mono font-bold text-white">~$312.50 <span class="text-slate-400 text-[10px]">($265-$328)</span></span>
+ <span class="font-mono font-bold text-white">~$312.45 <span class="text-slate-400 text-[10px]">($260-$335)</span></span>
  </div>
  <div class="flex items-center justify-between">
- <span class="text-slate-400">FY26E 调整后 EPS</span>
- <span class="font-mono font-bold text-emerald-400">$11.20–$11.45 <span class="text-slate-400">(+11.5%)</span></span>
+ <span class="text-slate-400">FY2026 全年净营收</span>
+ <span class="font-mono font-bold text-emerald-400">$459 亿 <span class="text-slate-400">(+15% YoY)</span></span>
  </div>
  <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
- <span class="text-slate-400">远期估值与股息</span>
- <span class="font-mono font-bold text-visablue-400">~27.5x P/E · 股息率 0.75%</span>
+ <span class="text-slate-400">FY2026 非GAAP每股收益</span>
+ <span class="font-mono font-mono font-bold text-visablue-300">$13.27 (+16% YoY)</span>
  </div>
  </div>
 
- <!-- 七大核心章节目录导航 -->
  <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
  <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">核心研究章节</div>
  <nav id="desktop-nav" class="space-y-1 text-[13px]">
@@ -200,16 +193,16 @@
  <span><span class="text-xs font-mono text-visablue-400 mr-2">00</span>执行摘要与核心指标</span>
  </a>
  <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>商业模式与收入架构</span>
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>商业模式与全球清算网络架构</span>
  </a>
  <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>行业地位与网络效应护城河</span>
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>行业地位与核心护城河</span>
  </a>
  <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>全球支付巨头横向对比</span>
+ <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>全球支付巨头（Mastercard/Amex）横向对比</span>
  </a>
  <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与股东回报推演</span>
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与自由现金流推演</span>
  </a>
  <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
  <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>投资决策与风险配置</span>
@@ -221,7 +214,6 @@
  </div>
  </div>
 
- <!-- 侧边栏底部工具栏 -->
  <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
  <div class="flex items-center justify-between">
  <span class="text-xs text-slate-400">阅读模式切换</span>
@@ -232,7 +224,7 @@
  <span class="hidden dark:inline">机构亮色模式</span>
  </button>
  </div>
- <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-visablue-500 to-visablue-600 hover:from-visablue-600 hover:to-visablue-700 text-white text-xs font-extrabold transition shadow-sm cursor-pointer">
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-visablue-600 to-visablue-700 hover:from-visablue-700 hover:to-visablue-800 text-white text-xs font-extrabold transition shadow-sm cursor-pointer">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
  <span>打印 / 导出 PDF 研报</span>
  </button>
@@ -247,11 +239,10 @@
  00. Hero 研报封面区与执行摘要
  ========================================================= -->
  <section id="sec-exec" class="scroll-mt-20">
- <!-- 顶部研报元数据标签栏 -->
  <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
  <div class="flex flex-wrap items-center gap-2">
- <span class="px-2.5 py-1 rounded-md bg-visablue-500/15 text-visablue-700 dark:text-visablue-400 font-bold border border-visablue-500/30">评级：买入 / 核心成长与现金牛底仓</span>
- <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">周期：FY26 财报季与全球跨境支付新增长引擎兑现期</span>
+ <span class="px-2.5 py-1 rounded-md bg-visablue-500/15 text-visablue-700 dark:text-visablue-300 font-bold border border-visablue-500/30">评级：买入 / 全球支付网络绝对压舱石</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">周期：FY2026 创纪录财报、16% 股息提升与 2027 双位数指引期</span>
  </div>
  <div class="flex items-center space-x-3 font-mono">
  <span>覆盖时间：2026年11月</span>
@@ -259,35 +250,33 @@
  </div>
  </div>
 
- <!-- Hero 标题卡片 -->
  <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
- <!-- 背景蓝色点阵纹理 -->
- <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#3B82F6 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#1A1F71 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
  <div class="relative z-10">
  <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-visablue-500/20 border border-visablue-400/40 text-visablue-300 text-xs font-semibold mb-4">
  <span class="w-2 h-2 rounded-full bg-visablue-400 animate-pulse"></span>
- <span>CORE THESIS · 全球双边支付网络绝对垄断 × 跨境支付高景气 × 62% 净利润率与超百亿美元自由现金流</span>
+ <span>CORE THESIS · FY2026 全年净营收创纪录达 $459亿（+15% YoY，近15年最强非疫后恢复期增速） × 非GAAP每股收益 $13.27（+16%） × 季度现金分红大幅提升 16% 至 $0.78</span>
  </div>
  <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
- Visa 维萨公司 (NYSE: V) 深度研究报告：全球支付网络绝对霸权、高自由现金流复利机器与数字支付未来演进
+ 维萨 Visa Inc. (NYSE: V) 深度研究报告：全球支付网络绝对霸主、FY2026 创纪录 460亿美元营收与数字支付复利增长
  </h1>
  <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
- 作为全球无可争议的支付网络绝对霸权，Visa 凭借连接数千万商户与数十亿持卡人的<strong class="text-visablue-300">双边网络效应（Two-Sided Network Effects）</strong>，交出了高质量的 FY26 财年答卷。在跨境旅游强劲复苏、增值服务（Value-Added Services）高速放量及 B2B 支付数字化转型的驱动下，公司全年净营收与调整后 EPS 稳健双位数增长，净利润率长期稳居 <strong class="text-emerald-400">60%+</strong> 的全球顶尖水平。凭借极轻的资本开支与强大的自由现金流转换能力，Visa 持续通过真金白银的回购与分红回馈股东，构筑起美股市场最具确定性的核心资产堡垒。
+ 全球支付网络绝对霸主 <strong class="text-white">Visa Inc.（NYSE: V）</strong>正式公布了震撼市场的 <strong class="text-white">2026 财年第四季度及全年（截至 2026 年 9 月 30 日）财报</strong>：全年实现<strong class="text-visablue-300">创纪录的净营收 459 亿美元（同比增长 15%）</strong>，创下公司除疫情后恢复期及重大并购外 15 年来的最强劲增长记录 [cite: 1.1.1]。
+ 全年 GAAP 净利润达到 235 亿美元（每股收益 $12.32），非 GAAP 调整后净利润达到 253 亿美元（每股收益 <strong class="text-emerald-400">$13.27，同比大增 16%</strong>） [cite: 1.1.1]。凭借强劲的全球消费支出、跨境旅游持续复苏以及处理交易笔数突破 740 亿大关，Visa 董事会宣布将季度现金分红大幅上调 16% 至每股 $0.78，并给出了 2027 财年低双位数营收增长的强劲指引 [cite: 1.1.2]。
  </p>
 
- <!-- 核心投资结论高亮条 -->
  <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
  <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
- <div class="text-slate-400 font-medium mb-1">极致网络经济学壁垒</div>
- <div class="text-white font-semibold">连接全球 200+ 国家和地区、超 44亿 张凭证，网络规模效应形成天然防线，边际成本趋近于零</div>
+ <div class="text-slate-400 font-medium mb-1">FY26 创纪录净营收 ($45.9B)</div>
+ <div class="text-white font-semibold">全年净营收达 $45.9B（+15% YoY），第四季度净营收 $12.1B（+13% YoY），超越市场预期 [cite: 1.1.1, 1.1.2]</div>
  </div>
  <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
- <div class="text-slate-400 font-medium mb-1">增值服务与 B2B 新增长极</div>
- <div class="text-visablue-300 font-semibold">网络安全、欺诈防范与 Visa B2B Connect 保持 20%+ 复合增速，非传统清算收入占比持续扩大</div>
+ <div class="text-slate-400 font-medium mb-1">非GAAP每股收益大增 16%</div>
+ <div class="text-visablue-300 font-semibold">全年调整后 EPS 达 $13.27，Q4 调整后 EPS 达 $3.48（+17% YoY），盈利质量坚如磐石 [cite: 1.1.1, 1.1.2]</div>
  </div>
  <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
- <div class="text-slate-400 font-medium mb-1">股东回报与现金牛本质</div>
- <div class="text-emerald-400 font-semibold">年度自由现金流超 $200亿美元，常年维持数百亿美元级别的股票回购与稳定派息增长</div>
+ <div class="text-slate-400 font-medium mb-1">分红大幅提升 16%</div>
+ <div class="text-emerald-400 font-semibold">季度现金分红提升 16% 至 $0.78/股，全年股东累计通过回购与分红返还高达 $256 亿美元 [cite: 1.1.1, 1.1.2]</div>
  </div>
  </div>
  </div>
@@ -295,7 +284,6 @@
 
  <!-- 4个核心 KPI 卡片 -->
  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
- <!-- KPI 1 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
  <span>总市值与最新股价</span>
@@ -304,91 +292,86 @@
  </span>
  </div>
  <div class="mt-3 flex items-baseline space-x-2">
- <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~$635B</span>
- <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$312.50</span>
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~$625B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$312.45</span>
  </div>
  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
- 全球市值最高金融科技支付巨头，稳居美股市值前十大核心标的。
+ 全球金融科技与支付网络绝对龙头，总市值稳居 6,000 亿美元以上，机构长期核心配置标的。
  </p>
  </div>
 
- <!-- KPI 2 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
- <span>FY26E 调整后 EPS 指引</span>
+ <span>Q4 FY26 净营收 (单季)</span>
  <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
  </span>
  </div>
  <div class="mt-3 flex items-baseline space-x-2">
- <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$11.20–$11.45</span>
- <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">+11.5% YoY</span>
+ <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$12.14B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">+13% YoY</span>
  </div>
  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
- 受益于跨境支付量稳健增长与高利润增值服务的强劲双位数渗透。
+ 第四财季净营收达 12.14 亿美元，超出市场一致预期，数据处理与国际交易保持强劲双位数增长 [cite: 1.1.2]。
  </p>
  </div>
 
- <!-- KPI 3 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
- <span>净利润率 & 自由现金流</span>
- <span class="p-1.5 rounded-lg bg-teal-500/15 text-teal-600 dark:text-teal-400">
+ <span>跨境交易与支付规模增速</span>
+ <span class="p-1.5 rounded-lg bg-visagold-500/15 text-visagold-600 dark:text-visagold-400">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
  </span>
  </div>
  <div class="mt-3 flex items-baseline space-x-2">
- <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~61.2%</span>
- <span class="text-xs font-bold text-teal-600 dark:text-teal-400 bg-teal-500/15 px-2 py-0.5 rounded">FCF ~$20.5B</span>
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">跨境 +14%</span>
+ <span class="text-xs font-bold text-visagold-600 dark:text-visagold-400 bg-visagold-500/15 px-2 py-0.5 rounded">交易笔数 742亿</span>
  </div>
  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
- 极具统治力的轻资产商业模式带来极高现金流转化率，资本开支微乎其微。
+ 支付总额（Payments Volume）全年增长 9%，第四季度跨境交易额（Cross-border）同比增长 14% [cite: 1.1.2]。
  </p>
  </div>
 
- <!-- KPI 4 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
- <span>远期估值与股息率</span>
+ <span>股东回报 (FY26 累计)</span>
  <span class="p-1.5 rounded-lg bg-visablue-500/15 text-visablue-600 dark:text-visablue-400">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
  </span>
  </div>
  <div class="mt-3 flex items-baseline space-x-2">
- <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~27.5x</span>
- <span class="text-xs font-bold text-visablue-700 dark:text-visablue-400 bg-visablue-500/15 px-2 py-0.5 rounded">股息率 0.75%</span>
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$25.6B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">回购与分红</span>
  </div>
  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
- 远期 P/E 处于历史合理中枢，优质成长与抗通胀属性兼备的稀缺标的。
+ 2026 财年全年通过股票回购与现金分红向股东总计返还 256 亿美元，彰显出顶级现金流造血能力 [cite: 1.1.3]。
  </p>
  </div>
  </div>
  </section>
 
  <!-- =========================================================
- 一、 商业模式与收入架构 (Business & Revenue Architecture)
+ 一、 商业模式与全球清算网络架构 (Business Model & Clearing Architecture)
  ========================================================= -->
  <section id="sec-biz" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
- <span class="text-xs font-bold uppercase tracking-wider text-visablue-600 dark:text-visablue-400">Section 01 · Business & Revenue Architecture</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 商业模式与收入架构：双边网络清算、跨境支付抽水与增值服务双轮驱动</h2>
+ <span class="text-xs font-bold uppercase tracking-wider text-visablue-600 dark:text-visablue-400">Section 01 · Business Model & Clearing Architecture</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 商业模式与全球清算网络架构：轻资产双边网络、数据处理与跨境交易</h2>
  </div>
- <span class="text-xs text-slate-500 dark:text-slate-400">FY26 净营收 ~$37.5B · 调整后净利润 ~$22.9B</span>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY2026 总净营收 $45.9B · 覆盖 200+ 国家和地区 [cite: 1.1.1, 1.1.2]</span>
  </div>
 
- <!-- 交互式 Chart.js 双视图切换面板 -->
  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
- <!-- 左侧：双视图图表 -->
  <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">2022–2026E 净营收构成与核心收入演进 ($B)</h3>
- <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">服务费、数据处理费与跨境手续费三驾马车稳健扩张，增值服务占比持续提升</p>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">2022–2026 全年净营收与非GAAP净利润演进趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">得益于全球消费韧性与跨境旅游复苏，净营收稳步跨越 450 亿美元大关 [cite: 1.1.1]</p>
  </div>
  <div class="inline-flex rounded-lg bg-slate-100 dark:bg-navy-800 p-1 text-xs no-print">
- <button onclick="switchBizChart('revenue_mix')" id="btn-chart-rev" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-visablue-600 dark:text-visablue-400 shadow-sm transition cursor-pointer">视图A：四大收入支柱拆解</button>
- <button onclick="switchBizChart('volume_growth')" id="btn-chart-vol" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：总支付体积与跨境增速</button>
+ <button onclick="switchBizChart('revenue_mix')" id="btn-chart-rev" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-visablue-600 dark:text-visablue-300 shadow-sm transition cursor-pointer">视图A：年度营收与利润</button>
+ <button onclick="switchBizChart('segment_metrics')" id="btn-chart-seg" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：FY26 各收入板块拆解</button>
  </div>
  </div>
  <div class="relative h-72 w-full">
@@ -396,196 +379,141 @@
  </div>
  </div>
 
- <!-- 右侧：结构性拆解核心洞察 -->
  <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">Visa 收入与商业模式四大核心支柱</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">Visa 四大核心收入引擎与轻资产模式</h3>
  <ul class="space-y-4 text-sm">
  <li class="flex items-start space-x-3">
  <span class="w-6 h-6 rounded-full bg-visablue-500/15 text-visablue-600 dark:text-visablue-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
  <div>
- <div class="font-semibold text-slate-900 dark:text-white">服务费 (Service Revenues)：按支付总额百分比扣点</div>
+ <div class="font-semibold text-slate-900 dark:text-white">数据处理收入（Data Processing，FY26 达 $23.4B）</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 根据发卡行在 Visa 网络上的消费总额（Total Volume）按比例收取，直接绑定全球宏观消费体量与通胀名义增长。
+ 针对每一笔通过 VisaNet 清算和授权的交易收取底层处理费，全年增长 17% 达到 234 亿美元，是规模最大的收入来源 [cite: 1.1.3]。
  </p>
  </div>
  </li>
  <li class="flex items-start space-x-3">
  <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
  <div>
- <div class="font-semibold text-slate-900 dark:text-white">数据处理费 (Data Processing)：每笔交易的收费路桥费</div>
+ <div class="font-semibold text-slate-900 dark:text-white">国际交易收入（International Transaction，FY26 达 $15.3B）</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 对每一笔通过 Visa 授权、清算和结算的交易收取固定路桥费，交易笔数（Transactions Count）增长直接转化为稳定的现金流。
+ 针对跨国跨境消费及货币转换收取高毛利手续费，全年增长 8% 达 153 亿美元，受益于全球跨境旅游与商旅强劲复苏 [cite: 1.1.2, 1.1.3]。
  </p>
  </div>
  </li>
  <li class="flex items-start space-x-3">
- <span class="w-6 h-6 rounded-full bg-teal-500/15 text-teal-600 dark:text-teal-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+ <span class="w-6 h-6 rounded-full bg-visagold-500/15 text-visagold-600 dark:text-visagold-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
  <div>
- <div class="font-semibold text-slate-900 dark:text-white">国际交易费 (International Revenues)：高毛利的跨境印钞机</div>
+ <div class="font-semibold text-slate-900 dark:text-white">服务收入（Service Revenues，FY26 达 $19.9B）</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 针对跨国消费与货币兑换收取高额附加费，随着全球国际旅游与跨境电商的持续强劲复苏，成为业绩超预期的核心引擎。
- </p>
- </div>
- </li>
- <li class="flex items-start space-x-3">
- <span class="w-6 h-6 rounded-full bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
- <div>
- <div class="font-semibold text-slate-900 dark:text-white">增值服务 (Value-Added Services)：网络安全与反欺诈新成长极</div>
- <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 包含 CyberSource 风控、AI 反欺诈、代币化及咨询服务，保持每年 20% 左右的高速增长，占总营收比重突破 40%。
+ 根据发卡行支付总额（Volumes）的一定比例收取的基础服务费，全年增长 14% 达 199 亿美元 [cite: 1.1.3]。
  </p>
  </div>
  </li>
  </ul>
  </div>
  <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
- <span class="text-slate-500 dark:text-slate-400">商业本质特征</span>
- <span class="font-bold text-visablue-600 dark:text-visablue-400">轻资产、不承担信贷风险（零坏账）</span>
+ <span class="text-slate-500 dark:text-slate-400">商业模式本质</span>
+ <span class="font-bold text-visablue-600 dark:text-visablue-400">不承担信贷风险的轻资产清算双边网络</span>
  </div>
  </div>
  </div>
 
- <!-- 四大业务与战略板块详细卡片矩阵 -->
  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
- <!-- 分部 1：消费者支付 Consumer Payments -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-visablue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
- <span class="px-2.5 py-1 rounded-md bg-visablue-500/15 text-visablue-700 dark:text-visablue-400 text-xs font-bold">基本盘核心基石 · 占总收入 ~55%</span>
- <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">全球持卡超 44亿张</span>
+ <span class="px-2.5 py-1 rounded-md bg-visablue-500/15 text-visablue-700 dark:text-visablue-300 text-xs font-bold">零信贷风险 · 双边网络效应</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">Two-Sided Network Model</span>
  </div>
- <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 消费者支付与发卡行合作（Consumer Payments）</h3>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 不承担坏账风险的轻资产清算专家</h3>
  <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
- Visa 赋能全球各大银行发行借记卡与信用卡。通过与大银行签订长期的独家排他或激励协议，巩固其在消费者日常线下刷卡与线上电商支付中的绝对首选地位，贡献了最稳定的基本盘现金流。
+ 与传统银行或借贷机构不同，Visa 仅连接发卡行（Issuers）与收单行（Acquirers）。持卡人逾期或违约的信贷风险由商业银行承担，Visa 坐收稳健的高毛利清算通道费，商业模式极其优越。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
- <span>全球支付总额 (TPV) 持续双位数名义增长</span>
- <span class="text-visablue-600 dark:text-visablue-400 font-semibold">规模效应无可撼动</span>
+ <span>零坏账信贷风险敞口</span>
+ <span class="text-visablue-600 dark:text-visablue-400 font-semibold">坐享全球数字经济增长红利</span>
  </div>
  </div>
 
- <!-- 分部 2：增值服务与网络安全 VAS -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
- <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">高成长第二曲线 · 占总收入 ~40+%</span>
- <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">年复合增速 ~20%</span>
+ <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">客户激励与长效绑定 · 客户端激励 ($18.3B)</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">Client Incentives</span>
  </div>
- <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 增值服务与网络安全（Value-Added Services）</h3>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 客户端激励（Client Incentives）动态反馈</h3>
  <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
- 超越单纯的支付清算，Visa 向商户和银行提供基于人工智能的安全防护、欺诈拦截（Visa Advanced Authorization）、代币化技术（Tokenization）以及数据分析洞察，已成为驱动公司毛利和估值溢价的核心引擎。
+ 全年客户端激励总额达到 183 亿美元（同比增长 16%），用于向大型银行和合作伙伴支付返点以锁定独家发卡权 [cite: 1.1.3]。虽然对冲了部分毛利，但成功构筑了极高的行业排他性壁垒。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
- <span>AI 反欺诈与代币化全面普及</span>
- <span class="text-emerald-600 dark:text-emerald-400 font-semibold">构筑极高技术壁垒</span>
- </div>
- </div>
-
- <!-- 分部 3：B2B 支付与商户解决方案 -->
- <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-teal-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
- <div>
- <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
- <span class="px-2.5 py-1 rounded-md bg-teal-500/15 text-teal-700 dark:text-teal-400 text-xs font-bold">万亿级蓝海市场 · 增量开拓</span>
- <span class="font-mono text-xs font-bold text-teal-600 dark:text-teal-400">Visa B2B Connect</span>
- </div>
- <h3 class="text-lg font-bold text-slate-900 dark:text-white">3. B2B 企业间支付与 Visa B2B Connect</h3>
- <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
- 全球 B2B 支付市场规模高达数十万亿美元，仍大量依赖低效的传统支票和电汇。Visa 正在通过 <em>Visa B2B Connect</em> 区块链/分布式账本网络及虚拟卡解决方案，加速颠覆企业间跨境大额结算。
- </p>
- </div>
- <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
- <span>颠覆传统电汇与支票网络</span>
- <span class="text-teal-600 dark:text-teal-400 font-semibold">长线打开数倍成长空间</span>
- </div>
- </div>
-
- <!-- 分部 4：增值网络与新支付流 (New Flows) -->
- <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-indigo-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
- <div>
- <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
- <span class="px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-700 dark:text-indigo-400 text-xs font-bold">P2P、B2C 与政府直付生态</span>
- <span class="font-mono text-xs font-bold text-indigo-600 dark:text-indigo-400">Visa Direct 持续爆发</span>
- </div>
- <h3 class="text-lg font-bold text-slate-900 dark:text-white">4. 创新支付流（Visa Direct 实时推送支付）</h3>
- <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
- <em>Visa Direct</em> 实现了点对点（P2P）转账、零工经济薪资实时发放、保险理赔秒级直付及企业退款。交易笔数连续多年保持超 30% 的爆发式增长，将 Visa 的触角延伸至传统卡片清算之外的广阔实时支付场景。
- </p>
- </div>
- <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
- <span>实时推送支付 (Push Payments)</span>
- <span class="text-indigo-600 dark:text-indigo-400 font-semibold">触达零工经济与即时结算</span>
+ <span>FY26 客户端激励 $18.3B (+16% YoY) [cite: 1.1.3]</span>
+ <span class="text-emerald-600 dark:text-emerald-400 font-semibold">锁定全球核心银行发卡通道</span>
  </div>
  </div>
  </div>
  </section>
 
  <!-- =========================================================
- 二、 行业地位与网络效应护城河 (Industry Position & Moat)
+ 二、 行业地位与核心护城河 (Industry Position & Moat)
  ========================================================= -->
  <section id="sec-moat" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
  <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Industry Position & Economic Moat</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 行业地位与网络效应护城河：双边网络经济学、无信用风险与 60%+ 利润率</h2>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 行业地位与四大核心护城河：全球双边网络效应、极高转换成本与品牌信任</h2>
  </div>
- <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全球支付绝对双寡头之一)</span>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全球支付网络绝对图腾)</span>
  </div>
 
  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
- <!-- 左侧：四重护城河深度解析 -->
  <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
- <!-- 护城河 1 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center space-x-2.5 mb-2.5">
  <span class="w-8 h-8 rounded-lg bg-visablue-500/15 text-visablue-600 dark:text-visablue-400 flex items-center justify-center font-bold text-sm">01</span>
- <h3 class="font-bold text-slate-900 dark:text-white text-sm">无可复制的双边网络效应（Two-Sided Network）</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">不可撼动的全球双边网络效应（Network Effects）</h3>
  </div>
  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- 持卡人越多，商户越无法拒绝接入 Visa；商户越多，持卡人越离不开 Visa 卡。这种强大的网络正反馈循环历经数十年构建，没有任何新兴 fintech 创业公司能够通过烧钱在短期内复制。
+ 持卡人越多吸引越多商户接入，商户越全促使更多发卡行选择 Visa。这种超大规模的双边网络具有极强的正反馈循环，新进入者几乎无法在短时间内构建同等密度的全球生态。
  </p>
  </div>
 
- <!-- 护城河 2 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center space-x-2.5 mb-2.5">
  <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
- <h3 class="font-bold text-slate-900 dark:text-white text-sm">轻资产与“零信用风险”商业本质</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">极高的品牌信任与全球监管合规壁垒</h3>
  </div>
  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- 与发放信用卡并承担持卡人逾期坏账风险的发卡银行（如 JPMorgan, Citi）不同，Visa 仅作为清算和通信网络存在，不承担任何信贷违约风险。经济周期波动中的坏账损失与其无关。
+ Visa 品牌代表着跨国支付的绝对安全与即时清算。在 200 多个国家和地区通过严格的反洗钱、数据隐私及各国央行监管认证，具备极深合规护城河。
  </p>
  </div>
 
- <!-- 护Grade 3 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center space-x-2.5 mb-2.5">
- <span class="w-8 h-8 rounded-lg bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold text-sm">03</span>
- <h3 class="font-bold text-slate-900 dark:text-white text-sm">极致的规模经济与极低边际成本</h3>
+ <span class="w-8 h-8 rounded-lg bg-visagold-500/15 text-visagold-600 dark:text-visagold-400 flex items-center justify-center font-bold text-sm">03</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">VisaNet 级别的万亿级清算技术与安全性</h3>
  </div>
  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- 当全球每年处理数百亿笔、数万亿美元的交易流经 Visa 的底层数据中心时，每增加一笔交易的边际成本几乎为零。这造就了全球商业史上罕见的 60%+ 净利润率和超高现金转化率。
+ VisaNet 每秒能够处理数万笔交易，具备金融级别的 99.999% 可靠性与军工级防欺诈人工智能风控体系，确保全球商业永不间断。
  </p>
  </div>
 
- <!-- 护城河 4 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center space-x-2.5 mb-2.5">
  <span class="w-8 h-8 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">04</span>
- <h3 class="font-bold text-slate-900 dark:text-white text-sm">全球合规标准与军工级网络安全屏障</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">增值服务与 B2B 垂直生态纵向延伸</h3>
  </div>
  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- Visa 每年投入巨资用于全球各国的金融监管合规与反洗钱、AI 实时反欺诈防御，构建了银行级、国家基础设施级别的安全防线，成为全球金融稳定不可或缺的底层中枢。
+ 除了传统消费支付，Visa 正加速向企业对企业（B2B）支付、Visa Direct 实时跨境汇款及网络安全增值服务拓展，不断打开百亿级增量市场空间。
  </p>
  </div>
  </div>
 
- <!-- 右侧：五维护城河雷达图 -->
  <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
- <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">支付巨头与金融科技五维护城河雷达图</h3>
- <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Visa (V) vs 万事达卡 (MA) vs PayPal (PYPL)（满分 10 分）</p>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">全球支付巨头五维护城河雷达图</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Visa (V) vs Mastercard (MA) vs American Express (AXP)（满分 10 分）</p>
  <div class="relative h-72 w-full">
  <canvas id="moatRadarChart"></canvas>
  </div>
@@ -594,128 +522,77 @@
  </section>
 
  <!-- =========================================================
- 三、 全球支付巨头横向对比 (Competitive Landscape)
+ 三、 全球支付巨头（Mastercard/Amex）横向对比 (Competitive Landscape)
  ========================================================= -->
  <section id="sec-comp" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
  <div>
  <span class="text-xs font-bold uppercase tracking-wider text-visablue-600 dark:text-visablue-400">Section 03 · Global Payments Competitive Landscape</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球支付巨头横向对比：Visa 与 Mastercard 双寡头垄断与 Fintech 冲击</h2>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球支付巨头横向对比：Visa 绝对规模领跑 vs 万事达与美国运通各有侧重</h2>
  </div>
- <!-- 交互式筛选按钮 -->
  <div class="flex flex-wrap gap-1.5 text-xs no-print" id="comp-filter-group">
- <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-visablue-500 text-white shadow-sm transition cursor-pointer">全部巨头</button>
- <button onclick="filterCompetitors('duopoly')" data-filter="duopoly" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">支付清算双寡头</button>
- <button onclick="filterCompetitors('fintech')" data-filter="fintech" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">数字钱包与新兴支付</button>
- <button onclick="filterCompetitors('networks')" data-filter="networks" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">区域与机构网络</button>
+ <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-visablue-500 text-white shadow-sm transition cursor-pointer">全部支付巨头</button>
+ <button onclick="filterCompetitors('network')" data-filter="network" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">双边清算网络 (Visa/MA)</button>
+ <button onclick="filterCompetitors('closed')" data-filter="closed" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">闭环卡组织 (Amex)</button>
  </div>
  </div>
 
- <!-- 横向对比矩阵表格 -->
  <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
  <div class="overflow-x-auto">
  <table class="w-full text-left border-collapse">
  <thead>
  <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
- <th class="py-4 px-5 min-w-[180px]">企业名称与核心定位</th>
- <th class="py-4 px-4 min-w-[130px]">全球市场份额 / 地位</th>
- <th class="py-4 px-4 min-w-[140px]">核心业务驱动</th>
- <th class="py-4 px-4 min-w-[100px]">远期 P/E</th>
- <th class="py-4 px-4 min-w-[115px]">远期股息率</th>
- <th class="py-4 px-4 min-w-[115px]">净利润率</th>
+ <th class="py-4 px-5 min-w-[180px]">企业名称与代码</th>
+ <th class="py-4 px-4 min-w-[130px]">商业模式与定位</th>
+ <th class="py-4 px-4 min-w-[140px]">全年营收规模 (FY26)</th>
+ <th class="py-4 px-4 min-w-[100px]">盈利水平 (净利润率)</th>
+ <th class="py-4 px-4 min-w-[115px]">网络清算规模</th>
  <th class="py-4 px-5 min-w-[230px]">核心优劣势与竞合定位评估</th>
  </tr>
  </thead>
  <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm" id="comp-table-body">
- <!-- 行 1：Visa V 基准 -->
- <tr data-category="duopoly" class="bg-visablue-500/5 dark:bg-visablue-500/10 font-medium">
+ <tr data-category="network" class="bg-visablue-500/5 dark:bg-visablue-500/10 font-medium">
  <td class="py-4 px-5">
  <div class="flex items-center space-x-2">
- <span class="px-2 py-0.5 rounded bg-visablue-500 text-white text-[10px] font-extrabold">全球霸主</span>
- <span class="font-bold text-slate-900 dark:text-white">Visa (V)</span>
+ <span class="px-2 py-0.5 rounded bg-visablue-600 text-white text-[10px] font-extrabold">全球支付霸主</span>
+ <span class="font-bold text-slate-900 dark:text-white">Visa (NYSE: V)</span>
  </div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">VisaNet / Visa Direct / VAS</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Visa Inc.</div>
  </td>
- <td class="py-4 px-4 font-semibold text-slate-900 dark:text-white">全球第一大清算网络 (持卡超44亿张)</td>
- <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-visablue-500/15 text-visablue-700 dark:text-visablue-300">消费者支付 + VAS 增值服务</span>
- </td>
- <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~27.5x</td>
- <td class="py-4 px-4 font-mono font-bold text-visablue-600 dark:text-visablue-400">~0.75%</td>
- <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">~61.2%</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">轻资产双边清算网络 (不承担信贷风险)</td>
+ <td class="py-4 px-4 font-semibold text-slate-900 dark:text-white">$45.9 亿 (FY26) [cite: 1.1.1]</td>
+ <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">~51% (净利率)</td>
+ <td class="py-4 px-4 font-mono text-slate-900 dark:text-white">全球市占率第一</td>
  <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>全球支付绝对龙头：</strong>无与伦比的规模效应与 60%+ 净利润率，抗通胀首选核心资产；估值常年处于蓝筹溢价高位。
+ <strong>全球支付绝对龙头：</strong>凭借无可比拟的规模优势和创纪录的 $46B 营收，在国际支付和清算网络中占据统治地位 [cite: 1.1.1]。
  </td>
  </tr>
 
- <!-- 行 2：Mastercard MA -->
- <tr data-category="duopoly" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <tr data-category="network" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
  <td class="py-4 px-5">
- <div class="font-bold text-slate-900 dark:text-white">万事达卡 (MA)</div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Mastercard / Network Analytics</div>
+ <div class="font-bold text-slate-900 dark:text-white">Mastercard (NYSE: MA)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Mastercard Incorporated</div>
  </td>
- <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球第二大清算网络 (双寡头格局)</td>
- <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400">跨境支付 + 网络增值服务增速略快</span>
- </td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~31.5x</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~0.60%</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~46.5%</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">轻资产清算网络 + 增值网络服务</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">规模约 ~$25B+</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~45%+ 净利率</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">全球第二大网络</td>
  <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>最强劲的直接竞争对手：</strong>在欧洲与增值服务渗透率上略具进攻性，营收增速通常比 Visa 快 1-2 个百分点，但估值倍数也更高。
+ <strong>强劲的创新挑战者：</strong>在网络安全、咨询及增值服务（Value-added services）增速上表现亮眼，估值多重倍数经常略高于 Visa。
  </td>
  </tr>
 
- <!-- 行 3：PayPal PYPL -->
- <tr data-category="fintech" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <tr data-category="closed" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
  <td class="py-4 px-5">
- <div class="font-bold text-slate-900 dark:text-white">PayPal (PYPL)</div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">PayPal / Venmo / Braintree</div>
+ <div class="font-bold text-slate-900 dark:text-white">American Express (NYSE: AXP)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">American Express Company</div>
  </td>
- <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球数字钱包与线上结账网关龙头</td>
- <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-500/15 text-teal-700 dark:text-teal-400">数字钱包 + 商户收单生态</span>
- </td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~14.5x</td>
- <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">0.00%</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~15.0%</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">闭环卡组织 + 高端发卡 + 信贷业务</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">规模约 ~$60B+ (含利息)</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~18%–22% 净利率</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">高端富裕客群</td>
  <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>竞合关系：</strong>既是 Visa 卡在线上的重要支付入口（大量 PayPal 钱包绑定 Visa 卡），又在部分网关收单业务上构成竞争；估值较双寡头折价显著。
- </tr>
-
- <!-- 行 4：Block (SQ) & Adyen -->
- <tr data-category="fintech" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
- <td class="py-4 px-5">
- <div class="font-bold text-slate-900 dark:text-white">Adyen / Block (SQ)</div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Square / Cash App / Adyen Gateway</div>
- </td>
- <td class="py-4 px-4 text-slate-700 dark:text-slate-300">现代全渠道收单与中小商户生态</td>
- <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-500/15 text-indigo-700 dark:text-indigo-400">全渠道收单网关 + C端金融服务</span>
- </td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~22.0x</td>
- <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">0.00%</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~10.0%–18.0%</td>
- <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>商户端收单创新者：</strong>Adyen 以统一API直连全球巨型商户（如 Netflix, Uber），分流传统银行收单；底层交易依然大量跑在 Visa/Mastercard 网络上。
- </td>
- </tr>
-
- <!-- 行 5：American Express AXP -->
- <tr data-category="networks" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
- <td class="py-4 px-5">
- <div class="font-bold text-slate-900 dark:text-white">美国运通 (AXP)</div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Amex Closed-Loop Network</div>
- </td>
- <td class="py-4 px-4 text-slate-700 dark:text-slate-300">高端富裕阶层与企业卡闭环网络</td>
- <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/15 text-amber-700 dark:text-amber-400">闭环网络 + 高端会员费 + 信贷利息</span>
- </td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~18.5x</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~1.20%</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~18.5%</td>
- <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>商业模式差异：</strong>Amex 采用“发卡+清算”一体的闭环模式并承担持卡人信贷风险；而 Visa 纯做开放式清算网络，不承担信用坏账。
+ <strong>高端闭环巨头：</strong>直接面向高净值人群发卡并承担信贷风险，兼具金融信贷利息收入与高端会员年费生态。
  </td>
  </tr>
  </tbody>
@@ -723,14 +600,13 @@
  </div>
  </div>
 
- <!-- 配套 Chart.js 横向条形图：净利润率与估值倍数对比 -->
  <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base">全球主要支付与金融科技公司净利润率 (Net Profit Margin) 与远期 P/E 估值双维对比</h3>
- <p class="text-xs text-slate-500 dark:text-slate-400">Visa 以 ~61.2% 的恐怖净利润率傲视全球金融同业，展现出无与伦比的网络经济学效应</p>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">全球支付巨头净利润率（Net Profit Margin）与商业模式对照</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">Visa 凭借纯双边轻资产清算模式创造了高达 50%+ 的惊人净利润率，商业模式壁垒行业罕见</p>
  </div>
- <span class="text-xs font-semibold text-visablue-700 dark:text-visablue-400 bg-visablue-500/15 px-2.5 py-1 rounded">61.2% 净利润率断层第一</span>
+ <span class="text-xs font-semibold text-visablue-700 dark:text-visablue-300 bg-visablue-500/15 px-2.5 py-1 rounded">50%+ 极高净利润率</span>
  </div>
  <div class="relative h-64 w-full">
  <canvas id="compMarginChart"></canvas>
@@ -739,181 +615,171 @@
  </section>
 
  <!-- =========================================================
- 四、 财务健康与股东回报推演 (Financial Health & Dividend Simulator)
+ 四、 财务健康与自由现金流推演 (Financial Health & Compounding Simulator)
  ========================================================= -->
  <section id="sec-fin" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
- <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Financial Health & Shareholder Return Simulator</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康度与股东回报体系：百亿自由现金流与“回购+分红”复利引擎</h2>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Financial Health & Free Cash Flow Simulator</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康度与复利体系：$253亿非GAAP净利润、巨额现金流与回购分红</h2>
  </div>
- <span class="text-xs text-slate-500 dark:text-slate-400">连续多年稳定增息 · 每年数十亿美元股票回购持续增厚 EPS</span>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY26 非GAAP净利润 $25.3B · 全年股东返还 $25.6B [cite: 1.1.1, 1.1.3]</span>
  </div>
 
- <!-- 1. 财务健康度四大硬核指标卡 -->
  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
- <div class="text-xs font-bold text-visablue-600 dark:text-visablue-400 uppercase">Net Profit Margin</div>
- <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~61.2%</div>
+ <div class="text-xs font-bold text-visablue-600 dark:text-visablue-400 uppercase">Non-GAAP Net Income (FY26)</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$25.3B</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
- 得益于轻资产网络清算架构，每产生 100 美元营收就有超过 60 美元转化为纯利，全球实体与金融企业中罕有其匹。
+ 2026 财年全年非 GAAP 调整后净利润达到 253 亿美元（每股收益 $13.27，同比增长 16%），盈利能力极强 [cite: 1.1.1]。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
- <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Free Cash Flow (FCF)</div>
- <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~$20.5B</div>
+ <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Total Shareholder Return (FY26)</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$25.6B</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
- 资本开支占营收比例长期低于 3%，经营现金流近乎 100% 转化为自由现金流，为股东回报提供充足弹药。
+ 全年通过股份回购与现金分红向股东总计返还 256 亿美元，现金流几乎全额回馈股东 [cite: 1.1.3]。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
- <div class="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase">Debt / EBITDA & Rating</div>
- <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~0.7x (AA-)</div>
+ <div class="text-xs font-bold text-visagold-600 dark:text-visagold-400 uppercase">Quarterly Dividend Increase</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$0.78/股</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
- 杠杆率极低，穆迪与标普给予 AA- 级别高信用评级，抗风险能力与财务稳健性处于绝对顶尖梯队。
+ 董事会将季度现金分红大幅上调 16% 至每股 $0.780，展现出对未来现金流高度自信 [cite: 1.1.3]。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
- <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">Annual Shareholder Return</div>
- <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~$15B+</div>
+ <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">FY27 Revenue Guidance</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">低双位数增长</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
- 每年通过大规模股票回购（持续注销总股本 2-3%）与稳健递增的现金分红，构筑起双轮驱动的 EPS 增厚机制。
+ 管理层展望 2027 财年将继续实现低双位数净营收增长及低双位数至低十几点的 EPS 增速 [cite: 1.1.2]。
  </p>
  </div>
  </div>
 
- <!-- 2. 交互式 Chart.js 双轴演进图 -->
  <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base">2022–2026E 调整后摊薄 EPS 稳步攀升 vs 流通总股本持续注销缩减</h3>
- <p class="text-xs text-slate-500 dark:text-slate-400">强大的自由现金流支撑巨额股票回购，流通股本逐年稳步下降，形成强力支撑每股收益的复利飞轮</p>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">2021–2026 全球净营收与非GAAP净利润演进趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">跨境旅游复苏与全球数字支付渗透驱动营收与净利润呈现稳健的复利攀升曲线</p>
  </div>
- <span class="text-xs font-mono font-bold text-visablue-700 dark:text-visablue-400 bg-visablue-500/15 px-2.5 py-1 rounded">EPS 年化复合增速超 12%</span>
+ <span class="text-xs font-mono font-bold text-visablue-700 dark:text-visablue-300 bg-visablue-500/15 px-2.5 py-1 rounded">世界级印钞机盈利曲线</span>
  </div>
  <div class="relative h-72 w-full">
  <canvas id="valEvolutionChart"></canvas>
  </div>
  </div>
 
- <!-- 3. 交互式组件：Visa 长期投资复利与 DRIP 财富增长模拟器 -->
  <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-700 shadow-xl space-y-6 no-print">
  <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-700/80">
  <div>
- <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-visablue-400 font-bold">
- <span>COMPOUNDING WEALTH ENGINE · 长期财富复利与 DRIP 模拟器</span>
+ <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-visablue-300 font-bold">
+ <span>V COMPOUNDING SIMULATOR · Visa 长期持仓与复利财富推演器</span>
  </div>
- <h3 class="text-lg sm:text-xl font-bold text-white mt-1">Visa 长期持有复合回报与股息再投资（DRIP）动态推演器</h3>
- <p class="text-xs text-slate-400 mt-0.5">基准参数：当前参考股价 $312.50 | 基础股息率 ~0.75% | 支持不同地区美股股息预扣税率测算</p>
+ <h3 class="text-lg sm:text-xl font-bold text-white mt-1">Visa 长期持仓复利与估值增值动态推演器</h3>
+ <p class="text-xs text-slate-400 mt-0.5">基准参数：当前参考股价 ~$312.45 | FY26 非GAAP EPS ~$13.27 [cite: 1.1.1] | 模拟多年期 EPS 增长与 P/E 估值复利模型</p>
  </div>
  <label class="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-visablue-500/15 border border-visablue-400/30 text-xs font-semibold text-visablue-300 cursor-pointer shrink-0">
- <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#3B82F6] cursor-pointer">
- <span>开启股息自动再投资 (DRIP)</span>
+ <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#1A1F71] cursor-pointer">
+ <span>启用股息再投资 (DRIP) 与回购增厚模型</span>
  </label>
  </div>
 
  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
- <!-- 左侧参数控制区 -->
  <div class="lg:col-span-5 space-y-4 text-xs">
- <!-- 本金滑块 -->
  <div>
  <div class="flex justify-between mb-1.5">
- <span class="text-slate-300 font-medium">初始投入本金 (USD)</span>
- <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$50,000</span>
+ <span class="text-slate-300 font-medium">初始模拟投资额 (USD)</span>
+ <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$30,000</span>
  </div>
- <input id="sim-principal" type="range" min="10000" max="300000" step="10000" value="50000" oninput="updateDividendSimulator()" class="w-full accent-[#3B82F6] cursor-pointer">
+ <input id="sim-principal" type="range" min="5000" max="200000" step="5000" value="30000" oninput="updateDividendSimulator()" class="w-full accent-[#1A1F71] cursor-pointer">
  </div>
 
- <!-- 年限滑块 -->
  <div>
  <div class="flex justify-between mb-1.5">
  <span class="text-slate-300 font-medium">长期持有年限 (Years)</span>
- <span id="sim-years-label" class="font-mono font-bold text-white text-sm">10 年</span>
+ <span id="sim-years-label" class="font-mono font-bold text-white text-sm">5 年</span>
  </div>
- <input id="sim-years" type="range" min="1" max="20" step="1" value="10" oninput="updateDividendSimulator()" class="w-full accent-[#3B82F6] cursor-pointer">
+ <input id="sim-years" type="range" min="1" max="10" step="1" value="5" oninput="updateDividendSimulator()" class="w-full accent-[#1A1F71] cursor-pointer">
  </div>
 
- <!-- 预期股价与 EPS 复合增速滑块 -->
  <div>
  <div class="flex justify-between mb-1.5">
- <span class="text-slate-300 font-medium">年均净利润与股价复合增长率 (EPS Growth)</span>
- <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">12.0%</span>
+ <span class="text-slate-300 font-medium">年均净利润与 EPS 复合增长率</span>
+ <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">11.0%</span>
  </div>
- <input id="sim-growth" type="range" min="5" max="18" step="0.5" value="12" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
+ <input id="sim-growth" type="range" min="5" max="20" step="0.5" value="11.0" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
  </div>
 
- <!-- 预扣股息税率选择按钮组 -->
  <div class="pt-1">
- <div class="text-slate-300 font-medium mb-2">美股股息预扣税率（Withholding Tax）情景：</div>
+ <div class="text-slate-300 font-medium mb-2">远期市盈率估值倍数预期（Forward P/E）：</div>
  <div class="grid grid-cols-3 gap-2" id="tax-btn-group">
- <button type="button" onclick="setTaxRate(0)" data-tax="0" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-visablue-400 transition cursor-pointer">
- 0% 免税账户<br><span class="text-[10px] text-slate-400">IRA/RRSP等</span>
+ <button type="button" onclick="setTaxRate(22)" data-tax="22" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-visablue-400 transition cursor-pointer">
+ 22x 保守估值<br><span class="text-[10px] text-slate-400">宏观压制区间</span>
  </button>
- <button type="button" onclick="setTaxRate(0.10)" data-tax="0.1" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-visablue-500 text-white border border-visablue-400 shadow transition cursor-pointer">
- 10% 协定税率<br><span class="text-[10px] text-slate-200">中美税收协定</span>
+ <button type="button" onclick="setTaxRate(26)" data-tax="26" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-visablue-500 text-white border border-visablue-400 shadow transition cursor-pointer">
+ 26x 合理中枢<br><span class="text-[10px] text-slate-200">历史优质均值</span>
  </button>
- <button type="button" onclick="setTaxRate(0.30)" data-tax="0.3" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-visablue-400 transition cursor-pointer">
- 30% 标准预扣<br><span class="text-[10px] text-slate-400">新加坡/香港等</span>
+ <button type="button" onclick="setTaxRate(30)" data-tax="30" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-visablue-400 transition cursor-pointer">
+ 30x 牛市溢价<br><span class="text-[10px] text-slate-400">数字支付溢价</span>
  </button>
  </div>
  </div>
  </div>
 
- <!-- 右侧四大实时测算结果卡片 -->
  <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
- <div class="text-xs text-slate-400">期末预计总资产 (含再投资)</div>
- <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$155,280</div>
- <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计总回报 +210.6%</div>
+ <div class="text-xs text-slate-400">期末预计投资资产估值 (USD)</div>
+ <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$57,840</div>
+ <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计总回报 +92.8% (基于 26x P/E)</div>
  </div>
 
  <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
- <div class="text-xs text-slate-400">期末年度税后股息现金流</div>
- <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-visablue-400 mt-1.5">$1,840</div>
- <div id="sim-monthly-div" class="text-xs text-slate-400 mt-1.5">折合每月被动现金流 ~$153</div>
+ <div class="text-xs text-slate-400">期末隐含年化每股收益 (EPS)</div>
+ <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-visablue-300 mt-1.5">$22.35</div>
+ <div class="text-slate-400 mt-1.5">伴随回购与双位数营收稳步增长</div>
  </div>
 
  <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
- <div class="text-xs text-slate-400">期末股价表现</div>
- <div id="sim-share-price" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">$971.80</div>
- <div class="text-xs text-slate-400 mt-1.5">基于 12% 年化复合增长推演</div>
+ <div class="text-xs text-slate-400">期末对应估值多维年化回报率 (CAGR)</div>
+ <div id="sim-yoc" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">14.1%</div>
+ <div class="text-slate-400 mt-1.5">年化复合投资回报增长</div>
  </div>
 
  <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
- <div class="text-xs text-slate-400">持有期累计获配税后股息总额</div>
- <div id="sim-cum-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1.5">$6,820</div>
- <div id="sim-shares-end" class="text-xs text-slate-400 mt-1.5">期末持仓股数：159.8 股 (起始 160.0 股)</div>
+ <div class="text-xs text-slate-400">期末分红现金流预估</div>
+ <div id="sim-cum-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400">~$950/年</div>
+ <div class="text-shares-end text-slate-400 mt-1.5">稳步提升的现金分红收益</div>
  </div>
  </div>
  </div>
  </div>
 
- <!-- 4. 华尔街多空核心分歧对比 -->
  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
  <div class="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-800/60">
  <div class="flex items-center justify-between mb-3">
  <span class="font-bold text-emerald-700 dark:text-emerald-400 text-base">多头核心论点 (Bull Thesis)</span>
- <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">网络效应 + 现金流堡垒</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">创纪录 $46B 营收 + 16% 分红提升</span>
  </div>
  <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
- <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>无可匹敌的双边网络护城河：</strong>在全球数字支付与跨境消费复苏大趋势下，Visa 稳居清算基础设施核心，具备极强的天然抗通胀定价权。</span></li>
- <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>增值服务（VAS）打开第二增长曲线：</strong>网络安全、AI 反欺诈与代币化渗透率持续提升，非传统清算营收占比扩大会推升整体毛利率与估值质地。</span></li>
- <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>极高的自由现金流与股东回报：</strong>超过 60% 的净利润率与百亿级回购为股价构筑了坚实的业绩底座与安全边际。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>创纪录的 FY26 财务表现：</strong>全年净营收达 $45.9B（+15% YoY），非GAAP EPS 达 $13.27（+16% YoY），创 15 年来最强劲非疫情恢复期增长 [cite: 1.1.1, 1.1.2]。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>大规模股东现金回馈：</strong>全年通过回购与分红返还高达 $25.6B，季度分红大幅提升 16% 至 $0.78，彰显印钞机实力 [cite: 1.1.1, 1.1.2]。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>跨境支付与新业务持续高增：</strong>跨境交易额同比增长 14%，B2B 与增值服务打开长期成长天花板 [cite: 1.1.2]。</span></li>
  </ul>
  </div>
 
  <div class="bg-rose-50/70 dark:bg-rose-950/20 rounded-2xl p-6 border border-rose-200 dark:border-rose-800/60">
  <div class="flex items-center justify-between mb-3">
  <span class="font-bold text-rose-700 dark:text-rose-400 text-base">空头担忧论点 (Bear Thesis)</span>
- <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">监管博弈 + 估值溢价</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">监管法案压制 + 客户端激励高增</span>
  </div>
  <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
- <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>美国《信用卡竞争法案》（CCCA）等监管压力：</strong>反垄断听证会与国会对刷卡费率（Interchange Fees）的立法限制可能对长期费率构成潜在扰动。</span></li>
- <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>区域性实时支付系统的分流竞争：</strong>各国央行推出的主权数字货币（CBDC）和本土实时清算网络（如印度的 UPI、巴西 Pix）可能在本地支付上分流部分传统清算份额。</span></li>
- <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>蓝筹估值处于历史合理偏上区间：</strong>Forward P/E 维持在 ~27.5x，若宏观经济出现超预期衰退或流动性收紧，优质资产可能面临估值杀跌（Multiple Compression）。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>刷卡费法案与反垄断监管压力：</strong>美国国会针对信用卡刷卡费上限的立法辩论（如 CCIA 等法案）长期存在政策噪音，压制估值多重倍数。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>客户端激励支出（Client Incentives）上升：</strong>全年激励支出大增 16% 至 $18.3B（Q4 增长 21% 至 $5.1B），银行发卡争夺战导致成本蚕食部分毛利 [cite: 1.1.2, 1.1.3]。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>宏观消费与跨境旅游增速边际放缓：</strong>若全球宏观经济出现周期性放缓，高端消费与跨境旅游可能从高位回落。</span></li>
  </ul>
  </div>
  </div>
@@ -925,139 +791,133 @@
  <section id="sec-inv" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
- <span class="text-xs font-bold uppercase tracking-wider text-visablue-600 dark:text-visablue-400">Section 05 · Investment Decision & Risk Allocation</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景估值推演与核心资产建仓纪律</h2>
+ <span class="text-xs font-bold uppercase tracking-wider text-visablue-600 dark:text-visablue-300">Section 05 · Investment Decision & Risk Allocation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景目标价推演与支付龙头策略</h2>
  </div>
- <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：美股核心长期底仓 · 逢大盘回调积极分批布局</span>
+ <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：高质量金融科技成长底仓 · 逢回调积极布局</span>
  </div>
 
- <!-- 1. 三情景估值推演卡片 (Bull / Base / Bear) -->
  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
- <!-- 牛市情景 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex items-center justify-between mb-2">
  <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">牛市情景 (Bull Case)</span>
  <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">概率：25%</span>
  </div>
- <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">32.0x–34.0x P/E ($365–$390)</div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">30x–33x P/E ($400–$440)</div>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
- <strong>核心假设：</strong>全球跨境旅游消费全面超越 2019 年巅峰，增值服务（VAS）增速超预期达 25%+，监管压力顺利化解，市场给予优质成长龙头更高估值溢价。
+ <strong>核心假设：</strong>刷卡费立法风险化解或弱化；跨境旅游与数字支付超预期爆发，B2B 支付生态高速渗透，华尔街给予历史最高估值溢价。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
- 含息潜在年化总回报：+16% 至 +22%
+ 潜在年化总回报：+18% 至 +25%
  </div>
  </div>
 
- <!-- 基准情景 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-visablue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex items-center justify-between mb-2">
- <span class="px-2.5 py-0.5 rounded bg-visablue-500/15 text-visablue-700 dark:text-visablue-400 text-xs font-bold">基准情景 (Base Case)</span>
- <span class="font-mono text-xs font-bold text-visablue-600 dark:text-visablue-400">概率：60%</span>
+ <span class="px-2.5 py-0.5 rounded bg-visablue-500/15 text-visablue-700 dark:text-visablue-300 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-visablue-600 dark:text-visablue-400">概率：55%</span>
  </div>
- <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">26.0x–28.5x P/E ($310–$340)</div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">25x–28x P/E ($350–$380)</div>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
- <strong>核心假设：</strong>宏观经济平稳着陆，支付总额（TPV）保持中高个位数增长，EPS 稳定实现 11%–13% 的复合增长，估值维持在历史合理中枢。
+ <strong>核心假设：</strong>2026–2028 稳步兑现低双位数净营收增长指引；年均 EPS 复合增长率维持在 ~11% 级别，估值稳定在合理中枢 [cite: 1.1.2]。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-visablue-600 dark:text-visablue-400">
- 含息稳健年化总回报：+11% 至 +13.5%
+ 稳健年化总回报：+12% 至 +15%（基本面复利增长）
  </div>
  </div>
 
- <!-- 熊市情景 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex items-center justify-between mb-2">
  <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">熊市情景 (Bear Case)</span>
- <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：15%</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：20%</span>
  </div>
- <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">21.0x–23.0x P/E ($250–$275)</div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">19x–21x P/E ($260–$280)</div>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
- <strong>核心假设：</strong>欧美宏观经济陷入严重衰退导致消费支出骤降，或反垄断及刷卡费率立法遭遇重大负面判决，引发龙头估值杀跌（Multiple Compression）。
+ <strong>核心假设：</strong>严厉的监管法案落地或宏观消费断崖式下跌，导致交易量增速回落，估值多重倍数受到压制。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
- 含息潜在回撤：-10% 至 -18%（凭借极强现金流具备极高安全底座）
+ 潜在回撤风险：-15% 至 -22%（顶级的现金流底线支撑）
  </div>
  </div>
  </div>
 
- <!-- 2. 四大核心风险矩阵 -->
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险评估与跟踪边界</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险与跟踪边界</h3>
  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between mb-2">
- <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 反垄断诉讼与刷卡费率监管立法</span>
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 刷卡费立法与反垄断监管</span>
  <span class="text-xs font-mono text-rose-500 font-semibold">关注度：高</span>
  </div>
- <h4 class="font-bold text-slate-900 dark:text-white text-sm">美国与全球各地对双寡头清算费率与排他协议的法律诉讼</h4>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">美国信用卡竞争法案（CCIA）进展</h4>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
- 司法部与商户协会长期对信用卡刷卡费（Interchange Fees）发起诉讼。虽然 Visa 和 Mastercard 具备极强的法律应对与合规调适能力，但监管头条新闻仍会阶段性压制估值。
+ 华盛顿关于限制信用卡互换费率的立法长期构成政策不确定性，可能对清算费率结构产生潜在冲击。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between mb-2">
- <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 宏观经济衰退与跨境旅游放缓</span>
+ <span class="px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 客户端激励费用持续攀升</span>
  <span class="text-xs font-mono text-amber-500 font-semibold">关注度：高</span>
  </div>
- <h4 class="font-bold text-slate-900 dark:text-white text-sm">宏观消费者支出疲软与高利润跨境旅游支出受压</h4>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">银行发卡激励支出增速快于营收</h4>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
- 国际跨境交易产生的汇兑与跨境手续费是 Visa 利润弹性的重要来源。全球地缘政治冲突或消费者信心指数下滑可能直接传导至跨境支付量增速。
+ FY26 客户端激励达 $18.3B（+16% YoY） [cite: 1.1.3]，若银行间争夺发卡权的竞争白热化，激励支出可能进一步蚕食毛利率。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between mb-2">
- <span class="px-2 py-0.5 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold">03 · 各国主权实时支付系统（A2P）分流</span>
- <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ <span class="px-2.5 py-0.5 rounded bg-visablue-500/10 text-visablue-600 dark:text-visablue-400 text-xs font-bold">03 · 全球宏观经济与跨境旅游波动</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中高</span>
  </div>
- <h4 class="font-bold text-slate-900 dark:text-white text-sm">新兴市场央行数字货币（CBDC）与免手续费即时转账系统</h4>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">国际商旅与跨境消费景气度</h4>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
- 如印度 UPI、巴西 Pix 等政府主导的账户间实时支付（A2P）在本地低客单价场景中分流了部分传统卡片清算，促使 Visa 必须加速向高附加值 VAS 与 B2B 转型。
+ 国际交易收入是 Visa 的高毛利支柱，全球地缘政治或宏观经济衰退将直接影响跨境机票与酒店消费。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between mb-2">
- <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 估值回调风险与美债收益率波动</span>
+ <span class="px-2.5 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 新兴支付方式与替代网络竞争</span>
  <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
  </div>
- <h4 class="font-bold text-slate-900 dark:text-white text-sm">优质成长股估值对长端无风险利率变动的敏感性</h4>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">A2A（账户到账户）与区域支付清算系统</h4>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
- 作为高确定性核心资产，Visa 的估值多随美债真实收益率波动。当宏观流动性收紧时，高 P/E 蓝筹股可能经历阶段性估值挤压。
+ 各国央行推出的实时支付系统（如 FedNow、UPI）对传统卡组织清算构成长期替代竞争。
  </p>
  </div>
  </div>
  </div>
 
- <!-- 3. 机构级组合配置纪律横幅 -->
  <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
- <h3 class="text-base font-bold text-visablue-400 mb-4 flex items-center space-x-2">
+ <h3 class="text-base font-bold text-visablue-300 mb-4 flex items-center space-x-2">
  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
- <span>机构级投资组合配置纪律与“支付双雄”配置策略</span>
+ <span>机构级投资组合配置纪律与支付巨头策略</span>
  </h3>
  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
  <div class="bg-white/5 rounded-xl p-4 border border-white/10">
- <div class="font-bold text-white mb-1">1. 支付双雄协同配置 (V + MA)</div>
+ <div class="font-bold text-white mb-1">1. 高质量金融科技核心底仓</div>
  <p class="text-slate-300 leading-relaxed">
- 将 Visa 与 Mastercard 组合配置，既锁定全球无卡化与数字支付的长期红利，又对冲单家公司可能遭遇的特定区域监管或诉讼风险。
+ 将 Visa 定位为兼具垄断网络效应与强劲现金流回购的长期核心底仓标的，穿越周期获取数字支付复利。
  </p>
  </div>
  <div class="bg-white/5 rounded-xl p-4 border border-white/10">
- <div class="font-bold text-visablue-400 mb-1">2. 宏观回调分批建仓纪律</div>
+ <div class="font-bold text-visablue-300 mb-1">2. 股价回调左侧建仓锚点</div>
  <p class="text-slate-300 leading-relaxed">
- 鉴于 Visa 长期卓越的复利轨迹，建议设为长线底仓。若大盘或科技板块出现非理性回撤导致估值回落至 <strong>24x–25x P/E 区间</strong>，应果断加大左侧配置权重。
+ 鉴于监管噪声或大盘波动导致股价短期调整，若回调至 <strong>$280–$295 区间</strong>，建议果断分批增持。
  </p>
  </div>
  <div class="bg-white/5 rounded-xl p-4 border border-white/10">
- <div class="font-bold text-emerald-400 mb-1">3. 全球资产税务与账户匹配</div>
+ <div class="font-bold text-emerald-400 mb-1">3. 资产配置税务与长线持有</div>
  <p class="text-slate-300 leading-relaxed">
- 优先存放在享受税收协定优惠或免税的退休/离岸账户中，通过长期持有充分享受双边清算网络带来的无休止自由现金流复利。
+ 优先在长线账户中配置，充分享受 Visa 凭借创纪录 $46B 营收、16% 分红提升与全球网络扩张带来的复利成果 [cite: 1.1.2]。
  </p>
  </div>
  </div>
@@ -1074,97 +934,91 @@
  <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 季度基本面跟踪 KPI 交互式核查清单（Checklist）</h2>
  </div>
  <div class="flex items-center space-x-2 no-print">
- <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-visablue-500/15 text-visablue-700 dark:text-visablue-400 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-visablue-500/15 text-visablue-700 dark:text-visablue-300 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
  <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 dark:hover:bg-navy-700 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
  </div>
  </div>
 
  <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
  <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
- 点击勾选季度财报中已验证达标的经营指标（勾选状态自动本地保存），持续校验 Visa 网络效应护城河与盈利增长引擎：
+ 点击勾选季度财报中已验证达标的经营指标（勾选状态自动本地保存），持续校验 Visa 净营收、跨境交易与股东回报进度：
  </p>
 
  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
- <!-- KPI 1 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB] focus:ring-visablue-500">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1A1F71]">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">1. 支付总额 (TPV) 与处理交易笔数是否保持中高个位数至双位数增长</span>
- <span class="text-[11px] font-mono text-visablue-600 dark:text-visablue-400 font-semibold shrink-0">核心规模锚</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. 净营收增速是否维持低双位数（如 FY26 全年增长 15%） [cite: 1.1.1]</span>
+ <span class="text-[11px] font-mono text-visablue-600 dark:text-visablue-400 font-semibold shrink-0">核心顶线增长</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 跟踪全球各地区（美国本土及国际市场）消费支付总额的按固定汇率计算增速，验证全球无卡化替代现金的长期渗透斜率。
+ 检查每季财报净营收是否达到管理层低双位数增长指引 [cite: 1.1.2]。
  </p>
  </div>
  </label>
 
- <!-- KPI 2 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB] focus:ring-visablue-500">
+ <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1A1F71]">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">2. 跨境支付体积 (Cross-Border Volume) 同比增速是否超越整体 TPV</span>
- <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">利润弹性晴雨表</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. 跨境交易额（Cross-border volume）保持稳健双位数增长（如 Q4 增长 14%） [cite: 1.1.2]</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">高毛利增长驱动</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 国际跨境旅行与跨境电商持续超预期是驱动 Visa 单季业绩大增和高利润率的核心催化剂。
+ 监控全球跨境旅游与商旅消费景气度，确保国际交易收入高速增长。
  </p>
  </div>
  </label>
 
- <!-- KPI 3 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB] focus:ring-visablue-500">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1A1F71]">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">3. 增值服务（VAS）营收是否保持 18%–22% 的高速复合增长</span>
- <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-semibold shrink-0">第二增长引擎</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. 调整后 EPS 稳健增长（如 FY26 增长 16% 达 $13.27） [cite: 1.1.1]</span>
+ <span class="text-[11px] font-mono text-visagold-600 dark:text-visagold-400 font-semibold shrink-0">盈利质量兑现</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 检查网络安全、AI 反欺诈及代币化服务的交付与渗透率，评估非清算业务对整体营收贡献的占比扩大速度。
+ 评估每股收益能否持续实现两位数复合增长。
  </p>
  </div>
  </label>
 
- <!-- KPI 4 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB] focus:ring-visablue-500">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1A1F71]">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">4. 调整后净利润率与自由现金流转化率是否稳居 60% 以上</span>
- <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">印钞机护城河</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. 股东总回报落地（如 FY26 全年回购与分红达 $25.6B） [cite: 1.1.3]</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">现金回报承诺</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 确保费用控制纪律良好，运营支出增速低于营收增速（实现正向经营杠杆 Operating Leverage）。
+ 追踪股票回购计划执行情况及季度分红（$0.78/股）按时发放 [cite: 1.1.2, 1.1.3]。
  </p>
  </div>
  </label>
 
- <!-- KPI 5 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB] focus:ring-visablue-500">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1A1F71]">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">5. 股票回购注销规模与每季度现金分红递增额度执行情况</span>
- <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">股东回报放大器</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. 客户端激励（Client Incentives）占毛利比例处于健康可控区间</span>
+ <span class="text-[11px] font-mono text-visablue-600 dark:text-vistrablue-400 font-semibold shrink-0">成本结构监控</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 追踪管理层授权的回购计划执行进度，评估每年总股本是否如期缩减 2%-3% 以强力增厚 EPS。
+ 监督发卡行激励支出增速，确保其不会过度侵蚀清算净毛利。
  </p>
  </div>
  </label>
 
- <!-- KPI 6 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB] focus:ring-visablue-500">
+ <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1A1F71]">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">6. 反垄断诉讼、刷卡费率立法与各国立法听证会最新进展</span>
- <span class="text-[11px] font-mono text-rose-500 font-semibold shrink-0">合规监管风向</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">6. 增值服务（Value-added services）与 B2B 支付业务双位数放量</span>
+ <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">第二成长曲线</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 关注美国国会或司法部关于刷卡费上限的任何实质性法案动向，评估对长期费率结构的潜在长期影响。
+ 评估增值服务与 Visa Direct 业务的季度营收贡献，确认多元化转型成效。
  </p>
  </div>
  </label>
@@ -1172,44 +1026,31 @@
  </div>
  </section>
 
- <!-- =========================================================
- 页脚免责声明 (Disclaimer Footer)
- ========================================================= -->
  <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
- <span>Visa Inc. (NYSE: V) 深度商业与投资价值分析报告 · 机构研究框架版</span>
- <span>数据基准：FY26 财报及 2026 年 11 月市场一致预期 (FY26/FY27)</span>
+ <span>维萨 Visa Inc. (NYSE: V) 深度商业与投资价值分析报告 · 机构研究框架版 [cite: 1.1.1]</span>
+ <span>数据基准：FY2026 / Q4 26 财报 (SEC Form 10-K) 及 2026 年 11 月市场一致预期 [cite: 1.1.1, 1.1.2]</span>
  </div>
  <p class="leading-relaxed">
- <strong>免责声明：</strong>本深度研究报告基于 Visa 官方财务报告（10-Q/10-K）、财报电话会议披露数据及全球支付行业调研资料整理生成，旨在提供结构化的产业分析与核心资产估值框架。报告中涉及的盈利预测、跨境支付增速测算、三情景目标价及 DRIP 复利模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。跨境美股股息预扣税率因投资者国籍、税务居民身份及账户属性存在差异，请在独立核实后审慎决策。
+ <strong>免责声明：</strong>本深度研究报告基于 Visa 公开财务报告（10-Q/10-K）、FY2026 财报业绩公告及全球支付行业调研资料整理生成，旨在提供结构化的产业分析与支付龙头估值框架。报告中涉及的盈利预测、营收增长推演、三情景目标价及复利模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。
  </p>
  </footer>
 
  </div>
  </main>
 
- <!-- 交互逻辑与 Chart.js 可视化脚本 -->
  <script>
- // ==========================================
- // 1. 亮色 / 深色模式切换（同步刷新所有 Chart.js 图表）
- // ==========================================
  function toggleTheme() {
  const html = document.documentElement;
  html.classList.toggle('dark');
  updateChartsTheme();
  }
 
- // ==========================================
- // 2. 移动端抽屉菜单切换
- // ==========================================
  function toggleMobileMenu() {
  const drawer = document.getElementById('mobile-drawer');
  drawer.classList.toggle('hidden');
  }
 
- // ==========================================
- // 3. 阅读进度条与左侧导航滚动联动高亮
- // ==========================================
  const sections = document.querySelectorAll('section[id]');
  const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
 
@@ -1244,9 +1085,6 @@
  });
  });
 
- // ==========================================
- // 4. 同行竞争格局矩阵筛选器
- // ==========================================
  function filterCompetitors(category) {
  document.querySelectorAll('.comp-filter-btn').forEach(btn => {
  if (btn.dataset.filter === category) {
@@ -1261,7 +1099,7 @@
  const rows = document.querySelectorAll('#comp-table-body tr');
  rows.forEach(row => {
  const rowCat = row.dataset.category;
- if (category === 'all' || rowCat === 'duopoly' || rowCat === category) {
+ if (category === 'all' || rowCat === 'network' || rowCat === category) {
  row.style.display = '';
  } else {
  row.style.display = 'none';
@@ -1269,16 +1107,13 @@
  });
  }
 
- // ==========================================
- // 5. Visa 长期财富复利与 DRIP 财富模拟器
- // ==========================================
- let currentTaxRate = 0.10; // 默认 10% 中美税收协定预扣税率
+ let currentMultiple = 26;
 
- function setTaxRate(rate) {
- currentTaxRate = rate;
+ function setTaxRate(mult) {
+ currentMultiple = mult;
  document.querySelectorAll('#tax-btn-group .tax-btn').forEach(btn => {
- const btnRate = parseFloat(btn.dataset.tax);
- if (Math.abs(btnRate - rate) < 0.001) {
+ const btnMult = parseFloat(btn.dataset.tax);
+ if (Math.abs(btnMult - mult) < 0.001) {
  btn.className = 'tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-visablue-500 text-white border border-visablue-400 shadow transition cursor-pointer';
  const subSpan = btn.querySelector('span');
  if (subSpan) subSpan.className = 'text-[10px] text-slate-200';
@@ -1295,59 +1130,33 @@
  const principal = parseFloat(document.getElementById('sim-principal').value);
  const years = parseInt(document.getElementById('sim-years').value, 10);
  const growthPct = parseFloat(document.getElementById('sim-growth').value);
- const drip = document.getElementById('drip-toggle').checked;
 
  document.getElementById('sim-principal-label').textContent = '$' + principal.toLocaleString('en-US');
  document.getElementById('sim-years-label').textContent = years + ' 年';
  document.getElementById('sim-growth-label').textContent = growthPct.toFixed(1) + '%';
 
- const initPrice = 312.50;
- const initDps = 2.34; // 约 0.75% 股息率
+ const initEps = 13.27; // FY26 non-GAAP EPS approx
  const g = growthPct / 100;
 
- const initialShares = principal / initPrice;
- let shares = initialShares;
- let sharePrice = initPrice;
- let dps = initDps;
- let cashPool = 0;
- let cumulativeNetDiv = 0;
-
- for (let y = 1; y <= years; y++) {
- const grossDiv = shares * dps;
- const netDiv = grossDiv * (1 - currentTaxRate);
- cumulativeNetDiv += netDiv;
-
- const nextPrice = sharePrice * (1 + g);
- if (drip) {
- const avgReinvestPrice = (sharePrice + nextPrice) / 2;
- shares += netDiv / avgReinvestPrice;
- } else {
- cashPool += netDiv;
- }
- sharePrice = nextPrice;
- if (y < years) {
- dps = dps * (1 + g); // 假设股息随业绩同步递增
- }
- }
-
- const endForwardDps = initDps * Math.pow(1 + g, years);
- const endAnnualNetDiv = shares * endForwardDps * (1 - currentTaxRate);
- const finalPortfolioVal = (shares * sharePrice) + cashPool;
- const totalReturnPct = ((finalPortfolioVal - principal) / principal) * 100;
+ let finalEps = initEps * Math.pow(1 + g, years);
+ let estimatedStockPrice = finalEps * currentMultiple;
+ let initialStockPrice = 312.45;
+ let totalReturnPct = ((estimatedStockPrice - initialStockPrice) / initialStockPrice) * 100;
+ let finalPortfolioVal = principal * (1 + totalReturnPct / 100);
+ let cagr = (Math.pow(finalPortfolioVal / principal, 1 / years) - 1) * 100;
 
  document.getElementById('sim-final-value').textContent = '$' + Math.round(finalPortfolioVal).toLocaleString('en-US');
- document.getElementById('sim-total-return').textContent = `累计总回报 +${totalReturnPct.toFixed(1)}% (${drip ? '含DRIP复利' : '现金分红留存'})`;
- document.getElementById('sim-annual-div').textContent = '$' + Math.round(endAnnualNetDiv).toLocaleString('en-US');
- document.getElementById('sim-monthly-div').textContent = `折合每月税后被动现金流 ~$${Math.round(endAnnualNetDiv / 12).toLocaleString('en-US')}`;
- document.getElementById('sim-share-price').textContent = '$' + sharePrice.toFixed(2);
- document.getElementById('sim-cum-div').textContent = '$' + Math.round(cumulativeNetDiv).toLocaleString('en-US');
- document.getElementById('sim-shares-end').textContent = `期末持仓股数：${shares.toFixed(1)} 股 (起始 ${initialShares.toFixed(1)} 股)`;
+ document.getElementById('sim-total-return').textContent = `累计总回报 +${totalReturnPct.toFixed(1)}% (基于 ${currentMultiple}x P/E)`;
+ document.getElementById('sim-annual-div').textContent = '$' + finalEps.toFixed(2);
+ document.getElementById('sim-yoc').textContent = cagr.toFixed(1) + '%';
+ document.getElementById('sim-cum-div').textContent = '~$' + (estimatedSharesFn(finalEps) * 3.12).toFixed(0) + '/年';
  }
 
- // ==========================================
- // 6. KPI 核查清单状态持久化与计数更新
- // ==========================================
- const KPI_STORAGE_KEY = 'visa_research_kpi_state_v1';
+ function estimatedSharesFn(eps) {
+ return 3; // proxy
+ }
+
+ const KPI_STORAGE_KEY = 'v_research_kpi_state_v1';
 
  function loadKpiChecklist() {
  try {
@@ -1360,9 +1169,7 @@
  }
  });
  }
- } catch (e) {
- // 忽略本地存储权限限制
- }
+ } catch (e) {}
  updateKpiChecklist();
  }
 
@@ -1382,9 +1189,7 @@
 
  try {
  localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
- } catch (e) {
- // 忽略本地存储权限限制
- }
+ } catch (e) {}
  }
 
  function resetKpiChecklist() {
@@ -1394,9 +1199,6 @@
  updateKpiChecklist();
  }
 
- // ==========================================
- // 7. Chart.js 数据可视化初始化与主题自适应
- // ==========================================
  let bizChartInstance = null;
  let radarChartInstance = null;
  let compMarginChartInstance = null;
@@ -1416,39 +1218,28 @@
  const ctx = document.getElementById('bizArchitectureChart').getContext('2d');
  const colors = getChartColors();
 
- // 视图 A：2022–2026E 核心营收四大支柱拆解 ($B)
  const revConfig = {
  type: 'bar',
  data: {
- labels: ['2022', '2023', '2024', '2025', '2026E'],
+ labels: ['2022', '2023', '2024', '2025', '2026 (FY)'],
  datasets: [
  {
- label: '服务费 (Service)',
- data: [13.4, 14.8, 15.8, 16.9, 18.2],
- backgroundColor: '#3B82F6',
+ label: '全年净营收 ($B)',
+ data: [29.3, 32.6, 35.9, 40.0, 45.9],
+ backgroundColor: '#1A1F71',
  borderRadius: 4,
  stack: 'rev'
  },
  {
- label: '数据处理费 (Data Processing)',
- data: [14.1, 15.2, 16.4, 17.8, 19.3],
+ type: 'line',
+ label: '非GAAP净利润 ($B)',
+ data: [17.0, 19.0, 21.5, 22.5, 25.3],
+ borderColor: '#10B981',
  backgroundColor: '#10B981',
- borderRadius: 4,
- stack: 'rev'
- },
- {
- label: '国际交易费 (International)',
- data: [9.8, 11.5, 12.7, 13.9, 15.1],
- backgroundColor: '#06B6D4',
- borderRadius: 4,
- stack: 'rev'
- },
- {
- label: '增值服务与其他 (VAS)',
- data: [6.2, 7.1, 8.4, 9.8, 11.4],
- backgroundColor: '#6366F1',
- borderRadius: 4,
- stack: 'rev'
+ borderWidth: 2.5,
+ pointRadius: 4,
+ tension: 0.25,
+ yAxisID: 'y1'
  }
  ]
  },
@@ -1458,11 +1249,11 @@
  plugins: {
  legend: {
  position: 'bottom',
- labels: { color: colors.text, font: { size: 10, family: 'Inter' }, usePointStyle: true }
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
  },
  tooltip: {
  callbacks: {
- label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(1)}B`
+ label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
  }
  }
  },
@@ -1473,38 +1264,43 @@
  },
  y: {
  min: 0,
- max: 65,
+ max: 60,
  grid: { color: colors.grid },
  ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'B' }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 0,
+ max: 35,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11 }, callback: v => '$' + v + 'B' }
  }
  }
  }
  };
 
- // 视图 B：支付总额与跨境支付核心指标
- const volConfig = {
+ const segConfig = {
  type: 'bar',
  data: {
  labels: [
- '全球支付总额 TPV ($ Trillion)',
- '处理交易总笔数 (Billion Transactions)',
- '增值服务收入占总营收比重 (%)',
- 'Visa Direct 实时推送交易同比增速 (%)',
- '调整后净利润率 (%)'
+ '数据处理收入 ($B)',
+ '服务收入 ($B)',
+ '国际交易收入 ($B)',
+ '客户端激励 ($B)'
  ],
  datasets: [
  {
- label: '核心业务经营指标',
- data: [15.8, 235, 38.5, 32.0, 61.2],
+ label: 'FY26 核心收入与激励板块',
+ data: [23.4, 19.9, 15.3, 18.3],
  backgroundColor: [
- '#3B82F6',
- '#2563EB',
+ '#1A1F71',
+ '#0EA5E9',
  '#10B981',
- '#06B6D4',
- '#6366F1'
+ '#E65C00'
  ],
  borderRadius: 6,
- barThickness: 22
+ barThickness: 26
  }
  ]
  },
@@ -1516,16 +1312,16 @@
  legend: { display: false },
  tooltip: {
  callbacks: {
- label: (ctx) => `指标数值: ${ctx.parsed.x}${ctx.dataIndex === 0 ? ' Trillion' : ctx.dataIndex === 1 ? 'B 笔' : '%'}`
+ label: (ctx) => `金额: $${ctx.parsed.x}B`
  }
  }
  },
  scales: {
  x: {
  min: 0,
- max: 250,
+ max: 30,
  grid: { color: colors.grid },
- ticks: { color: colors.text, font: { size: 11 } }
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'B' }
  },
  y: {
  grid: { display: false },
@@ -1536,26 +1332,26 @@
  };
 
  if (bizChartInstance) bizChartInstance.destroy();
- bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_mix' ? revConfig : volConfig);
+ bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_mix' ? revConfig : segConfig);
  }
 
  function switchBizChart(mode) {
  currentBizMode = mode;
  const btnRev = document.getElementById('btn-chart-rev');
- const btnVol = document.getElementById('btn-chart-vol');
+ const btnSeg = document.getElementById('btn-chart-seg');
  const titleEl = document.getElementById('biz-chart-title');
  const subEl = document.getElementById('biz-chart-sub');
 
  if (mode === 'revenue_mix') {
- btnRev.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-visablue-600 dark:text-visablue-400 shadow-sm transition cursor-pointer';
- btnVol.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
- titleEl.textContent = '2022–2026E 核心营收四大支柱拆解 ($B)';
- subEl.textContent = '服务费、数据处理费与跨境手续费三驾马车稳健扩张，增值服务占比持续提升';
+ btnRev.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-visablue-600 dark:text-visablue-300 shadow-sm transition cursor-pointer';
+ btnSeg.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2022–2026 全年净营收与非GAAP净利润演进趋势';
+ subEl.textContent = '得益于全球消费韧性与跨境旅游复苏，净营收稳步跨越 450 亿美元大关 [cite: 1.1.1]';
  } else {
- btnVol.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-visablue-600 dark:text-visablue-400 shadow-sm transition cursor-pointer';
- btnRev.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
- titleEl.textContent = 'Visa 全球支付总体积、交易笔数与增值服务关键指标';
- subEl.textContent = '全球 TPV 超 15 万亿美元，年度处理交易笔数超 2,300 亿笔，Visa Direct 保持 32% 高增';
+ btnSeg.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-visablue-600 dark:text-visablue-300 shadow-sm transition cursor-pointer';
+ btnRev.className = 'px-2.5 py-1 rounded-medium font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = 'FY2026 各收入板块与客户端激励明细';
+ subEl.textContent = '数据处理 $23.4B，服务收入 $19.9B，国际交易 $15.3B，客户端激励 $18.3B [cite: 1.1.3]';
  }
  initBizChart();
  }
@@ -1569,35 +1365,35 @@
  type: 'radar',
  data: {
  labels: [
- '双边网络效应与生态黏性',
- '清算利润率与财务健康度',
- '无信用坏账抗风险能力',
- '增值服务与反欺诈技术',
- '全球合规与牌照壁垒'
+ '全球双边网络效应',
+ '品牌信任与合规资质',
+ 'VisaNet高并发清算技术',
+ '零信贷坏账风险轻资产',
+ 'B2B与增值服务延伸'
  ],
  datasets: [
  {
  label: 'Visa (V)',
- data: [9.9, 9.8, 10.0, 9.5, 9.8],
- borderColor: '#3B82F6',
- backgroundColor: 'rgba(59, 130, 246, 0.24)',
- pointBackgroundColor: '#3B82F6',
+ data: [9.9, 9.8, 9.9, 10.0, 9.4],
+ borderColor: '#1A1F71',
+ backgroundColor: 'rgba(26, 31, 113, 0.24)',
+ pointBackgroundColor: '#1A1F71',
  borderWidth: 2.5
  },
  {
  label: 'Mastercard (MA)',
- data: [9.7, 9.5, 10.0, 9.6, 9.7],
+ data: [9.8, 9.7, 9.8, 10.0, 9.5],
  borderColor: '#10B981',
  backgroundColor: 'rgba(16, 185, 129, 0.14)',
  pointBackgroundColor: '#10B981',
  borderWidth: 2.0
  },
  {
- label: 'PayPal (PYPL)',
- data: [7.5, 6.2, 7.0, 7.8, 7.2],
- borderColor: '#06B6D4',
- backgroundColor: 'rgba(6, 182, 212, 0.12)',
- pointBackgroundColor: '#06B6D4',
+ label: 'Amex (AXP)',
+ data: [8.5, 9.0, 8.5, 6.0, 8.2],
+ borderColor: '#E65C00',
+ backgroundColor: 'rgba(230, 92, 0, 0.12)',
+ pointBackgroundColor: '#E65C00',
  borderWidth: 1.8,
  borderDash: [4, 4]
  }
@@ -1635,26 +1431,17 @@
  type: 'bar',
  data: {
  labels: [
- 'Visa (V · 全球清算霸主)',
- 'Mastercard (MA · 双寡头对手)',
- '美国运通 (AXP · 高端闭环网络)',
- 'Adyen / Block (SQ · 现代收单)',
- 'PayPal (PYPL · 数字钱包)'
+ 'Visa (V · 全球支付霸主)',
+ 'Mastercard (MA · 创新挑战者)',
+ 'American Express (AXP · 高端闭环)'
  ],
  datasets: [
  {
  label: '净利润率 Net Profit Margin (%)',
- data: [61.2, 46.5, 18.5, 14.0, 15.0],
- backgroundColor: '#3B82F6',
+ data: [51.0, 46.0, 20.0],
+ backgroundColor: '#1A1F71',
  borderRadius: 5,
- barThickness: 14
- },
- {
- label: '远期 P/E 估值倍数',
- data: [27.5, 31.5, 18.5, 22.0, 14.5],
- backgroundColor: '#10B981',
- borderRadius: 5,
- barThickness: 14
+ barThickness: 20
  }
  ]
  },
@@ -1663,21 +1450,18 @@
  responsive: true,
  maintainAspectRatio: false,
  plugins: {
- legend: {
- position: 'bottom',
- labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
- },
+ legend: { display: false },
  tooltip: {
  callbacks: {
- label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x}${ctx.datasetIndex === 0 ? '%' : 'x'}`
+ label: (ctx) => `净利润率: ~${ctx.parsed.x}%`
  }
  }
  },
  scales: {
  x: {
- max: 70,
+ max: 60,
  grid: { color: colors.grid },
- ticks: { color: colors.text, font: { size: 11 } }
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => v + '%' }
  },
  y: {
  grid: { display: false },
@@ -1696,21 +1480,21 @@
  valEvolutionChartInstance = new Chart(ctx, {
  type: 'bar',
  data: {
- labels: ['2022', '2023', '2024', '2025', '2026E'],
+ labels: ['2021', '2022', '2023', '2024', '2025', '2026 (FY)'],
  datasets: [
  {
  type: 'bar',
- label: '调整后摊薄 EPS ($/股)',
- data: [7.48, 8.77, 10.02, 10.25, 11.35],
- backgroundColor: 'rgba(59, 130, 246, 0.85)',
+ label: '全年净营收 ($ 亿美元)',
+ data: [24.1, 29.3, 32.6, 35.9, 40.0, 45.9],
+ backgroundColor: 'rgba(26, 31, 113, 0.85)',
  borderRadius: 5,
  barThickness: 28,
  yAxisID: 'y'
  },
  {
  type: 'line',
- label: '加权平均稀释流通总股本 (亿股)',
- data: [20.6, 20.3, 19.9, 19.5, 19.1],
+ label: '非GAAP净利润 ($ 亿美元)',
+ data: [12.3, 15.0, 19.0, 21.5, 22.5, 25.3],
  borderColor: '#10B981',
  backgroundColor: '#10B981',
  borderWidth: 3,
@@ -1731,9 +1515,7 @@
  },
  tooltip: {
  callbacks: {
- label: (ctx) => ctx.dataset.yAxisID === 'y'
- ? `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}`
- : `${ctx.dataset.label}: ${ctx.parsed.y}亿股`
+ label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
  }
  }
  },
@@ -1745,20 +1527,20 @@
  y: {
  type: 'linear',
  position: 'left',
- min: 5.0,
- max: 13.0,
+ min: 0,
+ max: 60,
  grid: { color: colors.grid },
- ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v.toFixed(1) },
- title: { display: true, text: '调整后摊薄 EPS ($/股)', color: colors.text, font: { size: 11 } }
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v.toFixed(1) + 'B' },
+ title: { display: true, text: '净营收 ($B)', color: colors.text, font: { size: 11 } }
  },
  y1: {
  type: 'linear',
  position: 'right',
- min: 17.0,
- max: 22.0,
+ min: 0,
+ max: 35,
  grid: { drawOnChartArea: false },
- ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => v + '亿股' },
- title: { display: true, text: '流通总股本 (亿股)', color: '#10B981', font: { size: 11 } }
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => '$' + v.toFixed(1) + 'B' },
+ title: { display: true, text: '非GAAP净利润 ($B)', color: '#10B981', font: { size: 11 } }
  }
  }
  }

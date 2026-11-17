@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>威斯卓公司 Vistra Corp. (NYSE: VST) 深度研究报告：全美最大独立电力与核能发电巨头、数据中心 AI 算力电力淘金热与 2026Q3 创纪录业绩</title>
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <!-- Chart.js -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <!-- Google Fonts: Inter + Noto Sans SC + JetBrains Mono -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script>
+ tailwind.config = {
+ darkMode: 'class',
+ theme: {
+ extend: {
+ fontFamily: {
+ sans: ['Inter', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
+ mono: ['JetBrains Mono', 'monospace'],
+ },
+ colors: {
+ navy: {
+ 950: '#070B14',
+ 900: '#0F172A',
+ 800: '#1E293B',
+ 700: '#334155',
+ },
+ vistrablue: {
+ 300: '#93C5FD',
+ 400: '#3B82F6',
+ 500: '#2563EB',
+ 600: '#1D4ED8',
+ 700: '#1E40AF',
+ },
+ vistrateal: {
+ 400: '#22D3EE',
+ 500: '#06B6D4',
+ 600: '#0891B2',
+ },
+ emerald: {
+ 400: '#34D399',
+ 500: '#10B981',
+ 600: '#059669',
+ },
+ }
+ }
+ }
+ }
+ </script>
+
+ <style>
+ ::-webkit-scrollbar {
+ width: 6px;
+ height: 6px;
+ }
+ ::-webkit-scrollbar-track {
+ background: transparent;
+ }
+ ::-webkit-scrollbar-thumb {
+ background: #94A3B8;
+ border-radius: 3px;
+ }
+ .dark ::-webkit-scrollbar-thumb {
+ background: #475569;
+ }
+
+ @media print {
+ #sidebar, #mobile-header, #theme-toggle-btn, .no-print {
+ display: none !important;
+ }
+ main {
+ margin-left: 0 !important;
+ padding: 0 !important;
+ }
+ section {
+ break-inside: avoid;
+ }
+ }
+
+ .report-card {
+ transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+ }
+ .report-card:hover {
+ transform: translateY(-2px);
+ }
+
+ .nav-link.active {
+ background: linear-gradient(90deg, rgba(37, 99, 235, 0.24) 0%, rgba(16, 185, 129, 0.06) 100%);
+ border-left: 3px solid #2563EB;
+ color: #FFFFFF;
+ font-weight: 600;
+ }
+ </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-vistrablue-500 selection:text-white transition-colors duration-200">
+
+ <!-- 顶部全局阅读进度条 -->
+ <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-200/70 dark:bg-navy-800">
+ <div id="reading-progress" class="h-full bg-gradient-to-r from-vistrablue-600 via-vistrablue-400 to-emerald-500 w-0 transition-all duration-150"></div>
+ </div>
+
+ <!-- 移动端顶部导航栏 -->
+ <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+ <div class="flex items-center space-x-2.5">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-vistrablue-500 to-vistrateal-500 flex items-center justify-center font-extrabold text-white text-xs shadow">
+ VST
+ </div>
+ <div>
+ <div class="text-[11px] text-vistrablue-300 font-semibold tracking-wider uppercase">NYSE: VST · Power Generation Leader</div>
+ <div class="text-sm font-bold leading-tight">威斯卓能源 深度研究报告</div>
+ </div>
+ </div>
+ <div class="flex items-center space-x-2">
+ <button onclick="toggleTheme()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300" aria-label="切换阅读主题">
+ <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ </button>
+ <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-white" aria-label="打开目录">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+ </button>
+ </div>
+ </header>
+
+ <!-- 移动端折叠抽屉菜单 -->
+ <div id="mobile-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+ <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+ <nav class="relative w-72 max-w-[80vw] h-full bg-navy-900 text-slate-300 flex flex-col justify-between p-5 overflow-y-auto shadow-2xl">
+ <div>
+ <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+ <span class="font-bold text-white text-base">VST 研报目录导航</span>
+ <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg text-slate-400 hover:text-white">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+ </button>
+ </div>
+ <ul class="mt-4 space-y-1.5 text-sm">
+ <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">00. 执行摘要与核心指标</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 商业模式与发电资产架构</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 行业地位与核心护城河</a></li>
+ <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 全球能源与电力巨头横向对比</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与现金流复利推演</a></li>
+ <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 投资决策与风险配置</a></li>
+ <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">06. 季度跟踪 KPI 核查清单</a></li>
+ </ul>
+ </div>
+ <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+ <p>北美电力与清洁能源研究组</p>
+ <p class="mt-1">数据基准：2026年11月 (Q3 26 / SEC 10-Q)</p>
+ </div>
+ </nav>
+ </div>
+
+ <!-- 桌面端左侧固定侧边导航栏 (宽 280px) -->
+ <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
+ <div>
+ <div class="p-5 border-b border-slate-800/80">
+ <div class="flex items-center space-x-3">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-vistrablue-500 via-vistrablue-600 to-vistrateal-500 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-vistrablue-500/25">
+ VST
+ </div>
+ <div>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-vistrablue-300 bg-vistrablue-500/15 px-2 py-0.5 rounded">NYSE: VST</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">威斯卓能源深度研报</h2>
+ </div>
+ </div>
+ <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
+ 全美最大独立电力与核能发电巨头 · AI 数据中心算力电力狂潮、Cogentrix 收购与 Q3 创纪录 EBITDA
+ </p>
+ </div>
+
+ <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">参考股价 (52周区间)</span>
+ <span class="font-mono font-bold text-white">~$130.65 <span class="text-slate-400 text-[10px]">($110-$189)</span></span>
+ </div>
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">Q3 2026 调整后 EBITDA</span>
+ <span class="font-mono font-bold text-emerald-400">$23.78 亿 <span class="text-slate-400">(+54% YoY)</span></span>
+ </div>
+ <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
+ <span class="text-slate-400">总发电装机容量</span>
+ <span class="font-mono font-bold text-vistrablue-300">~50,000 MW (含 Cogentrix)</span>
+ </div>
+ </div>
+
+ <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
+ <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">核心研究章节</div>
+ <nav id="desktop-nav" class="space-y-1 text-[13px]">
+ <a href="#sec-exec" data-target="sec-exec" class="nav-link active flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-vistrablue-400 mr-2">00</span>执行摘要与核心指标</span>
+ </a>
+ <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>商业模式与发电资产架构</span>
+ </a>
+ <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>行业地位与核心护城河</span>
+ </a>
+ <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>全球能源与电力巨头横向对比</span>
+ </a>
+ <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与现金流复利推演</span>
+ </a>
+ <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>投资决策与风险配置</span>
+ </a>
+ <a href="#sec-kpi" data-target="sec-kpi" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">06</span>季度跟踪 KPI 核查清单</span>
+ </a>
+ </nav>
+ </div>
+ </div>
+
+ <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
+ <div class="flex items-center justify-between">
+ <span class="text-xs text-slate-400">阅读模式切换</span>
+ <button id="theme-toggle-btn" onclick="toggleTheme()" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-medium text-slate-200 border border-slate-700 transition cursor-pointer">
+ <svg class="w-3.5 h-3.5 text-vistrablue-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ <svg class="w-3.5 h-3.5 text-vistrablue-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <span class="dark:hidden">深色护眼模式</span>
+ <span class="hidden dark:inline">机构亮色模式</span>
+ </button>
+ </div>
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-vistrablue-500 to-vistrablue-600 hover:from-vistrablue-600 hover:to-vistrablue-700 text-white text-xs font-extrabold transition shadow-sm cursor-pointer">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+ <span>打印 / 导出 PDF 研报</span>
+ </button>
+ </div>
+ </aside>
+
+ <!-- 主内容区 -->
+ <main class="lg:ml-[280px] min-h-screen">
+ <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 lg:py-12 space-y-12">
+
+ <!-- =========================================================
+ 00. Hero 研报封面区与执行摘要
+ ========================================================= -->
+ <section id="sec-exec" class="scroll-mt-20">
+ <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
+ <div class="flex flex-wrap items-center gap-2">
+ <span class="px-2.5 py-1 rounded-md bg-vistrablue-500/15 text-vistrablue-700 dark:text-vistrablue-300 font-bold border border-vistrablue-500/30">评级：买入 / AI 数据中心电力淘金与清洁能源核心底仓</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">周期：2026Q3 创纪录 EBITDA、Cogentrix 并购与 2027 指引发布期</span>
+ </div>
+ <div class="flex items-center space-x-3 font-mono">
+ <span>覆盖时间：2026年11月</span>
+ <span>NYSE: VST</span>
+ </div>
+ </div>
+
+ <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#3B82F6 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="relative z-10">
+ <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-vistrablue-500/20 border border-vistrablue-400/40 text-vistrablue-300 text-xs font-semibold mb-4">
+ <span class="w-2 h-2 rounded-full bg-vistrablue-400 animate-pulse"></span>
+ <span>CORE THESIS · Q3 调整后 EBITDA 飙升至 $23.78亿（+54% YoY） × 并购 Cogentrix 增至 50 GW 装机 × 2027 展望 $7.7–$8.5亿</span>
+ </div>
+ <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
+ 威斯卓公司 Vistra Corp. (NYSE: VST) 深度研究报告：全美最大独立电力与核能发电巨头、数据中心 AI 算力电力淘金热与 2026Q3 创纪录业绩
+ </h1>
+ <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
+ 全美最大的独立发电与零售电力巨头 <strong class="text-white">Vistra Corp.（NYSE: VST）</strong>交出了一份震撼市场的 <strong class="text-white">2026 财年第三季度财报</strong>：单季净利润跃升至 <strong class="text-emerald-400">$11.4 亿美元</strong>（去年同期 $6.52 亿），持续经营与Ongoing Operations <strong class="text-vistrablue-300">调整后 EBITDA 达到 $23.78 亿美元（同比大增 54%）</strong> [cite: 1.1.4, 1.2.4]。
+ 得益于 ERCOT（德州电网）电力供需持续紧俏、核能与天然气资产的高效调度以及 AI 算力数据中心对无碳 baseload 电力的迫切需求，公司顺利完成对 <strong class="text-white">Cogentrix（新增约 5,500 MW）</strong>的收购，总装机容量攀升至 <strong class="text-white">~50,000 MW</strong> [cite: 1.2.4]。公司同步发布强劲的 <strong class="text-emerald-400">2027 年 EBITDA 展望（$77–$85 亿美元）</strong>，稳居美国能源与 AI 基础建设的最强风口 [cite: 1.2.4]。
+ </p>
+
+ <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">Q3 EBITDA 同比大增 54%</div>
+ <div class="text-white font-semibold">Q3 Ongoing Adjusted EBITDA 达 $2.38B，净利润录得 $1.14B，发电板块贡献 $2.28B</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">Cogentrix 并购落地 (50 GW)</div>
+ <div class="text-vistrablue-300 font-semibold">10月底成功完成 Cogentrix 交易，新增 5,500 MW 装机，总发电容量跨越 50,000 MW</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">2027 展望与大规模回购</div>
+ <div class="text-emerald-400 font-semibold">发布 2027 EBITDA 指引 $7.7–$8.5B，自2021年已累计回购 ~30% 流通股本 (~$6.7B)</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 4个核心 KPI 卡片 -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>总市值与最新股价</span>
+ <span class="p-1.5 rounded-lg bg-vistrablue-500/15 text-vistrablue-600 dark:text-vistrablue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~$44.3B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$130.65</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 全美独立电力生产商绝对龙头，总市值达约 443 亿美元，受益于 AI 数据中心长协电价驱动。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>Q3 2026 调整后 EBITDA</span>
+ <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$2.38B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">+54% YoY</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 单季 Ongoing Adjusted EBITDA 达 $23.78 亿美元，创下公司历史最高单季盈利纪录 [cite: 1.1.4, 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>Q3 归母净利润</span>
+ <span class="p-1.5 rounded-lg bg-vistrateal-500/15 text-vistrateal-600 dark:text-vistrateal-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$1.14B</span>
+ <span class="text-xs font-bold text-vistrateal-600 dark:text-vistrateal-400 bg-vistrateal-500/15 px-2 py-0.5 rounded">+74.8% YoY</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ GAAP 净利润达 11.4 亿美元（含未来套期保值 unrealized gain $5.59亿），盈利弹性全面爆发 [cite: 1.1.4, 1.2.1]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>2027 展望与杠杆率</span>
+ <span class="p-1.5 rounded-lg bg-vistrablue-500/15 text-vistrablue-600 dark:text-vistrablue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$7.7–$8.5B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">净杠杆 ~2.8x</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 引入 2027 年 EBITDA 展望 $77–$85 亿美元， pro forma 净债务/EBITDA 维持在健康的 ~2.8x [cite: 1.2.4]。
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 一、 商业模式与发电资产架构 (Business & Generation Asset Architecture)
+ ========================================================= -->
+ <section id="sec-biz" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-vistrablue-600 dark:text-vistrablue-400">Section 01 · Business & Generation Asset Architecture</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 商业模式与发电资产架构：核能基荷、ERCOT天然气调度与零售电力双轮驱动</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY26E 总营收 ~$16B+ · 50 GW 装机容量</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+ <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">2022–2026E 全球总营收与调整后 EBITDA 演进趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">得益于德州电网高景气与核能/天然气资产并购，EBITDA 实现跨越式爆发增长</p>
+ </div>
+ <div class="inline-flex rounded-lg bg-slate-100 dark:bg-navy-800 p-1 text-xs no-print">
+ <button onclick="switchBizChart('revenue_mix')" id="btn-chart-rev" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-vistrablue-600 dark:text-vistrablue-300 shadow-sm transition cursor-pointer">视图A：营收与 EBITDA 演进</button>
+ <button onclick="switchBizChart('segment_metrics')" id="btn-chart-seg" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：Q3 各板块 EBITDA 拆解</button>
+ </div>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="bizArchitectureChart"></canvas>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">Vistra 三大核心业务支柱</h3>
+ <ul class="space-y-4 text-sm">
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-vistrablue-500/15 text-vistrablue-600 dark:text-vistrablue-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">发电业务（Generation Portfolio & Nuclear）</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 拥有全美顶尖的核能（如 Comanche Peak 核电站）、天然气联合循环及燃煤发电资产。10月底完成 Cogentrix 收购后，总装机飙升至 ~50,000 MW，为 AI 数据中心提供无碳 baseload 电力 [cite: 1.2.4]。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">零售电力业务（Retail Electricity - TXU Energy等）</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 在德州及全美多个放松监管的电力市场拥有数百万零售客户。Q3 零售板块贡献调整后 EBITDA 约 $9,800 万美元，与发电资产形成完美的“发配售一体”对冲闭环 [cite: 1.2.4]。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-vistrateal-500/15 text-vistrateal-600 dark:text-vistrateal-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">长期套期保值与现金流锁定（Hedging & FCF）</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 截至2026年10月底，公司已锁定约 100% 的 2026 年预期发电量、98% 的 2027 年发电量及 78% 的 2028 年发电量，确保现金流极高确定性 [cite: 1.2.1]。
+ </p>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+ <span class="text-slate-500 dark:text-slate-400">长期股东回报战略</span>
+ <span class="font-bold text-vistrablue-600 dark:text-vistrablue-400">董事会授权额外 $1.5B 回购 (总授权 $2.5B) [cite: 1.2.2, 1.2.4]</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-vistrablue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-vistrablue-500/15 text-vistrablue-700 dark:text-vistrablue-300 text-xs font-bold">核心利润引擎 · 占总 EBITDA ~95%</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">Generation Segment</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 发电与核能资产板块（Generation）</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ Q3 发电板块调整后 EBITDA 飙升至 <strong>$22.8 亿美元（同比增长 48%）</strong> [cite: 1.2.4]。凭借德州 ERCOT 电网在夏季高温与算力激增背景下的现货与长协电力溢价，加上 10 月底并表的 Cogentrix 资产，发电板块正迎来前所未有的黄金周期。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>Q3 发电 EBITDA $2.28B (+48%)</span>
+ <span class="text-vistrablue-600 dark:text-vistrablue-400 font-semibold">AI 数据中心算力带来无限想象空间</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">稳定现金对冲 · 零售电力板块</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">Retail Segment</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 零售电力服务板块（Retail）</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ Q3 零售电力板块贡献调整后 EBITDA 约 <strong>$9,800 万美元</strong> [cite: 1.2.4]。尽管面临季节性成本压力，但通过向终端工商业与居民用户提供稳定电力合约，有效对冲了发电端大宗商品价格波动风险，形成完美的纵向协同。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>Q3 零售 EBITDA ~$98M</span>
+ <span class="text-emerald-600 dark:text-emerald-400 font-semibold">发配售一体化对冲风险</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 二、 行业地位与核心护城河 (Industry Position & Moat)
+ ========================================================= -->
+ <section id="sec-moat" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Industry Position & Economic Moat</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 行业地位与四大核心护城河：50GW 庞大装机、核能基荷、德州 ERCOT 优势与大举回购</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全美独立电力与核能领军)</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-vistrablue-500/15 text-vistrablue-600 dark:text-vistrablue-400 flex items-center justify-center font-bold text-sm">01</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">全美领先的 ~50,000 MW 庞大发电资产网络</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 并购 Cogentrix 后总装机突破 50 GW，涵盖核能、天然气、煤炭及新能源，是全美抵御电力短缺和支撑 AI 数据中心落地的绝对核心。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">德州 ERCOT 电网天然垄断与调度优势</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 核心资产扎根于独立的德州电网（ERCOT），该地区因工业蓬勃发展与大量 AI 数据中心涌入而面临持续电力缺口，赋予 Vistra 强大的定价弹性。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-vistrateal-500/15 text-vistrateal-600 dark:text-vistrateal-400 flex items-center justify-center font-bold text-sm">03</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">高比例核能基荷（Baseload）清洁电力</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 运营 Comanche Peak 等大型核电站，提供全天候、零碳的稳定基荷电力，完美契合科技巨头对 AI 算力机房 24/7 不间断清洁能源的严苛标准。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">04</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">史诗级股份回购（四年缩股 30%）</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 自 2021 年以来已累计执行约 67 亿美元股票回购，流通股本锐减约 30%，近期董事会再度加码 15 亿美元授权，对 EPS 产生极强的增厚效应 [cite: 1.2.2]。
+ </p>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">全球能源与独立电力巨头五维护城河雷达图</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Vistra (VST) vs 恒电 (Constellation Energy) vs 杜克能源 (DUK)（满分 10 分）</p>
+ <div class="relative h-72 w-full">
+ <canvas id="moatRadarChart"></canvas>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 三、 全球能源与电力巨头横向对比 (Competitive Landscape)
+ ========================================================= -->
+ <section id="sec-comp" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-vistrablue-600 dark:text-vistrablue-400">Section 03 · Global Energy & Power Competitive Landscape</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球能源与电力巨头横向对比：独立电力生产商 vs 传统受管制公用事业</h2>
+ </div>
+ <div class="flex flex-wrap gap-1.5 text-xs no-print" id="comp-filter-group">
+ <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-vistrablue-500 text-white shadow-sm transition cursor-pointer">全部巨头</button>
+ <button onclick="filterCompetitors('ipp')" data-filter="ipp" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">独立电力与核能赛道</button>
+ <button onclick="filterCompetitors('regulated')" data-filter="regulated" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">传统受管制公用事业</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+ <div class="overflow-x-auto">
+ <table class="w-full text-left border-collapse">
+ <thead>
+ <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+ <th class="py-4 px-5 min-w-[180px]">企业名称与核心定位</th>
+ <th class="py-4 px-4 min-w-[130px]">核心发电与资产布局</th>
+ <th class="py-4 px-4 min-w-[140px]">Q3 盈利表现 (EBITDA)</th>
+ <th class="py-4 px-4 min-w-[100px]">远期 P/E</th>
+ <th class="py-4 px-4 min-w-[115px]">远期股息率</th>
+ <th class="py-4 px-5 min-w-[230px]">核心优劣势与竞合定位评估</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm" id="comp-table-body">
+ <tr data-category="ipp" class="bg-vistrablue-500/5 dark:bg-vistrablue-500/10 font-medium">
+ <td class="py-4 px-5">
+ <div class="flex items-center space-x-2">
+ <span class="px-2 py-0.5 rounded bg-vistrablue-600 text-white text-[10px] font-extrabold">独立电力巨头</span>
+ <span class="font-bold text-slate-900 dark:text-white">威斯卓 (VST)</span>
+ </div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Vistra Corp.</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">~50 GW (核能 + 天然气 + 煤炭 + 零售)</td>
+ <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">$2.38B (Q3 Adj. EBITDA)</td>
+ <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~17.6x</td>
+ <td class="py-4 px-4 font-mono font-bold text-vistrablue-600 dark:text-vistrablue-300">~0.70%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>全美最大独立电力与核能生产商：</strong>完美受益于德州电网高景气与 AI 数据中心算力电力需求，回购力度全行业空前。
+ </td>
+ </tr>
+
+ <tr data-category="ipp" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">恒电公司 (CEG)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Constellation Energy Corporation</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全美最大核能发电运营商</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">核能长协红利爆发</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~25.0x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~0.65%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>纯核能 AI 供电标杆：</strong>拥有庞大纯核能资产，与微软等科技巨头签署长期无碳供电协议，估值享有更高的 AI 溢价。
+ </td>
+ </tr>
+
+ <tr data-category="regulated" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">杜克能源 (DUK)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Duke Energy Corporation</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">传统受管制公用事业（电力与天然气）</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">受管制稳定盈利</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~18.0x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~3.90%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>传统受管制公用事业：</strong>主打高股息与受监管回报率，防御属性极佳，但缺乏 Vistra 这种非管制市场电力现货暴利弹性。
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">全球能源与电力巨头调整后 EBITDA 与远期 P/E 估值对照</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">Vistra 凭借自由市场电力现货弹性与高达 54% 的 EBITDA 增速在独立电力板块中独树一帜</p>
+ </div>
+ <span class="text-xs font-semibold text-vistrablue-700 dark:text-vistrablue-300 bg-vistrablue-500/15 px-2.5 py-1 rounded">54% EBITDA 增速领跑能源赛道</span>
+ </div>
+ <div class="relative h-64 w-full">
+ <canvas id="compMarginChart"></canvas>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 四、 财务健康与现金流复利推演 (Financial Health & Compounding Simulator)
+ ========================================================= -->
+ <section id="sec-fin" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Financial Health & Growth Compounding Simulator</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康度与复利体系：$23.8亿单季 EBITDA、2027展望与 2.8x 杠杆率</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">Q3 调整后 EBITDA $2.38B · 2027 展望 $7.7–$8.5B</span>
+ </div>
+
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-vistrablue-600 dark:text-vistrablue-400 uppercase">Ongoing Adj. EBITDA (Q3)</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$2.38B</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ Q3 Ongoing Operations Adjusted EBITDA 达 $23.78 亿美元，同比大增 54%，创历史单季盈利新高 [cite: 1.1.4, 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">GAAP Net Income (Q3)</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$1.14B</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 单季 GAAP 净利润达 11.4 亿美元（含套期保值 unrealized gain $5.59亿），盈利质量显著跨越 [cite: 1.1.4, 1.2.1]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-vistrateal-600 dark:text-vistrateal-400 uppercase">2027 EBITDA Guidance</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$7.7–$8.5B</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 首次引入 2027 年调整后 EBITDA 展望 $77–$85 亿美元，叠加 FCF $4.3–$5.1B 展现长期强劲红利 [cite: 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">Pro Forma Net Leverage</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~2.8x</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 并购 Cogentrix 后 pro forma 净债务与调整后 EBITDA 保持在约 2.8x 的投资级健康水平 [cite: 1.2.4]。
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">2021–2026E 全球总营收与调整后 EBITDA 演进趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">电力现货溢价与外延并购驱动 EBITDA 呈现爆炸式的复合增长曲线</p>
+ </div>
+ <span class="text-xs font-mono font-bold text-vistrablue-700 dark:text-vistrablue-300 bg-vistrablue-500/15 px-2.5 py-1 rounded">电力巨头超级盈利曲线</span>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="valEvolutionChart"></canvas>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-700 shadow-xl space-y-6 no-print">
+ <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-700/80">
+ <div>
+ <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-vistrablue-300 font-bold">
+ <span>VST COMPOUNDING SIMULATOR · 威斯卓能源长期成长与回购复利推演器</span>
+ </div>
+ <h3 class="text-lg sm:text-xl font-bold text-white mt-1">Vistra 长期持仓复利与 EBITDA 增长动态推演器</h3>
+ <p class="text-xs text-slate-400 mt-0.5">基准参数：当前参考股价 ~$130.65 | FY26E 调整后 EBITDA ~$7.3B | 模拟 EBITDA 增长与回购增厚复利模型</p>
+ </div>
+ <label class="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-vistrablue-500/15 border border-vistrablue-400/30 text-xs font-semibold text-vistrablue-300 cursor-pointer shrink-0">
+ <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#2563EB] cursor-pointer">
+ <span>启用 $1.5B 额外回购与股息再投资模型</span>
+ </label>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-5 space-y-4 text-xs">
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">初始模拟投资额 (USD)</span>
+ <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$30,000</span>
+ </div>
+ <input id="sim-principal" type="range" min="5000" max="200000" step="5000" value="30000" oninput="updateDividendSimulator()" class="w-full accent-[#2563EB] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">长期持有年限 (Years)</span>
+ <span id="sim-years-label" class="font-mono font-bold text-white text-sm">5 年</span>
+ </div>
+ <input id="sim-years" type="range" min="1" max="10" step="1" value="5" oninput="updateDividendSimulator()" class="w-full accent-[#2563EB] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">年均 EBITDA 与自由现金流复合增长率</span>
+ <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">12.0%</span>
+ </div>
+ <input id="sim-growth" type="range" min="5" max="25" step="0.5" value="12.0" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
+ </div>
+
+ <div class="pt-1">
+ <div class="text-slate-300 font-medium mb-2">远期 EV/EBITDA 估值倍数预期：</div>
+ <div class="grid grid-cols-3 gap-2" id="tax-btn-group">
+ <button type="button" onclick="setTaxRate(8)" data-tax="8" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-vistrablue-400 transition cursor-pointer">
+ 8x 保守估值<br><span class="text-[10px] text-slate-400">传统电力区间</span>
+ </button>
+ <button type="button" onclick="setTaxRate(11)" data-tax="11" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-vistrablue-500 text-white border border-vistrablue-400 shadow transition cursor-pointer">
+ 11x 合理中枢<br><span class="text-[10px] text-slate-200">独立电力均值</span>
+ </button>
+ <button type="button" onclick="setTaxRate(14)" data-tax="14" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-vistrablue-400 transition cursor-pointer">
+ 14x 牛市溢价<br><span class="text-[10px] text-slate-400">AI核能溢价</span>
+ </button>
+ </div>
+ </div>
+ </div>
+
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末预计投资资产估值 (USD)</div>
+ <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$61,420</div>
+ <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计总回报 +104.7% (基于 11x EV/EBITDA)</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末隐含调整后 EBITDA 规模</div>
+ <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-vistrablue-300 mt-1.5">~$12.8B</div>
+ <div class="text-xs text-slate-400 mt-1.5">伴随数据中心长协与 Cogentrix 协同增厚</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末对应估值多维年化回报率 (CAGR)</div>
+ <div id="sim-yoc" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">15.4%</div>
+ <div class="text-xs text-slate-400 mt-1.5">年化复合投资回报增长</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末流通股本缩减预估</div>
+ <div id="sim-cum-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1.5">~40% 缩股</div>
+ <div class="text-shares-end text-xs text-slate-400 mt-1.5">持续回购带来的强大 EPS 放大效应</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <div class="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-emerald-700 dark:text-emerald-400 text-base">多头核心论点 (Bull Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">AI 算力电力需求 + 史诗级回购</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>AI 数据中心对无碳基荷电力的强劲渴求：</strong>核能与天然气资产成为科技巨头争夺算力机房供电的战略稀缺筹码。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>Q3 盈利暴增与 2027 强劲指引：</strong>Adjusted EBITDA 飙升 54% 达 $2.38B，并首次给出 2027 年 $77–$85 亿的高景气展望 [cite: 1.2.4]。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>持续四年的史诗级股份回购：</strong>已累计回购约 30% 流通股，近期再加码 $1.5B 授权，对 EPS 产生极强的复利增厚 [cite: 1.2.2, 1.2.4]。</span></li>
+ </ul>
+ </div>
+
+ <div class="bg-rose-50/70 dark:bg-rose-950/20 rounded-2xl p-6 border border-rose-200 dark:border-rose-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-rose-700 dark:text-rose-400 text-base">空头担忧论点 (Bear Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">德州电网监管风险 + 商品价格波动</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>德州政治与 ERCOT 电价政策不确定性：</strong>德州当地针对电力市场改革及数据中心大户用电补贴的政治辩论可能带来阶段性政策扰动 [cite: 1.2.4]。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>天然气与电力现货价格波动：</strong>尽管套期保值比例极高（2027年达98%），但大宗商品整体价格中枢的大幅波动仍会影响远期预期 [cite: 1.2.1]。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>并购整合与杠杆管理：</strong>完成 Cogentrix 收购后需确保持续释放协同效应，并将净杠杆率长期稳定在投资级目标区间 [cite: 1.2.4]。</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 五、 投资决策与风险配置框架 (Investment Decision & Risk)
+ ========================================================= -->
+ <section id="sec-inv" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-vistrablue-600 dark:text-vistrablue-300">Section 05 · Investment Decision & Risk Allocation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景目标价推演与清洁能源组合策略</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：高质量 AI 电力成长底仓 · 逢回调积极布局</span>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">牛市情景 (Bull Case)</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">概率：25%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">13x–15x EV/EBITDA ($160–$185)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>AI 数据中心与核能长协电价飙升超预期，Cogentrix 并购协同极速释放；2027 EBITDA 突破 $90 亿，市场给予 AI 基建独角兽估值溢价。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+ 潜在年化总回报：+22% 至 +32%
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-vistrablue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-vistrablue-500/15 text-vistrablue-700 dark:text-vistrablue-300 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-vistrablue-600 dark:text-vistrablue-400">概率：55%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">10x–12x EV/EBITDA ($125–$145)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>2026–2028 稳步兑现 2027 展望（$7.7–$8.5B），股份回购按计划执行（$2.5B 总授权），估值维持在 11x 附近行业合理中枢 [cite: 1.2.4]。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-vistrablue-600 dark:text-vistrablue-400">
+ 稳健年化总回报：+12% 至 +16%（EBITDA 增长与回购复利）
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">熊市情景 (Bear Case)</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：20%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">7x–8x EV/EBITDA ($90–$105)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>德州电力现货价格大幅回落或政策监管变动压制盈利，导致远期 EBITDA 增长不及预期，估值倍数受到传统公用事业情绪拖累。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
+ 潜在回撤风险：-18% 至 -25%（强劲 FCF 与投资级现金流提供底部支撑）
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险与跟踪边界</h3>
+ <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 德州 ERCOT 电网现货价格波动</span>
+ <span class="text-xs font-mono text-rose-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">极端天气与 ERCOT 电力现货价格弹性</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 虽然套期保值比例极高，但德州电网在极端季节（夏季酷暑或冬季严寒）的现货价格波动仍会对未锁仓发电量产生业绩弹性影响。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 德州地方电力政治与政策监管风险</span>
+ <span class="text-xs font-mono text-amber-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">数据中心用电补贴与市场规则辩论</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 德州政界及监管机构关于大型数据中心直连核电/天然气电站的网费分摊及补贴政策辩论可能带来政策噪声 [cite: 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-vistrablue-500/10 text-vistrablue-600 dark:text-vistrablue-400 text-xs font-bold">03 · Cogentrix 并购整合与债务杠杆</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">新并表 5,500 MW 资产的运营协同</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 需持续监控 10 月底完成的 Cogentrix 并购整合进度，确保持续维持 ~2.8x 的健康净杠杆率目标 [cite: 1.2.4]。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 天然气燃料成本与发电效率</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">天然气价格波动对火电板块毛利的影响</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 作为全美主要的天然气与核能发电运营商，入炉燃料成本变化将直接影响天然气联合循环机组的发电压差（Spark Spread）。
+ </p>
+ </div>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
+ <h3 class="text-base font-bold text-vistrablue-300 mb-4 flex items-center space-x-2">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ <span>机构级投资组合配置纪律与 AI 电力策略</span>
+ </h3>
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-white mb-1">1. AI 数据中心算力电力核心底仓</div>
+ <p class="text-slate-300 leading-relaxed">
+ 将 VST 定位为直接受益于 AI 算力机房对无碳核能与稳定电力刚需的高成长能源标的，在科技与传统公用事业间架起桥梁。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-vistrablue-300 mb-1">2. 股价回调左侧建仓锚点</div>
+ <p class="text-slate-300 leading-relaxed">
+ 鉴于能源股随大宗商品与市场情绪波动，若短期因市场震荡回调至 <strong>$115–$122 区间</strong>，建议果断分批增持。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-emerald-400 mb-1">3. 资产配置税务与长线持有</div>
+ <p class="text-slate-300 leading-relaxed">
+ 优先在长线账户中配置，充分享受 Vistra 凭借 50 GW 装机、史诗级股份回购（缩股 30%）与 2027 强劲展望带来的复利成果 [cite: 1.2.2, 1.2.4]。
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 六、 季度基本面跟踪 KPI 交互式核查清单 (Checklist)
+ ========================================================= -->
+ <section id="sec-kpi" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 06 · Quarterly Fundamental Tracking KPIs</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 季度基本面跟踪 KPI 交互式核查清单（Checklist）</h2>
+ </div>
+ <div class="flex items-center space-x-2 no-print">
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-vistrablue-500/15 text-vistrablue-700 dark:text-vistrablue-300 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
+ <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 dark:hover:bg-navy-700 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+ 点击勾选季度财报中已验证达标的经营指标（勾选状态自动本地保存），持续校验 Vistra 调整后 EBITDA、回购进展与 AI 数据中心长协：
+ </p>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. Ongoing Operations Adjusted EBITDA 是否持续高增（如 Q3 达 $2.38B）</span>
+ <span class="text-[11px] font-mono text-vistrablue-600 dark:text-vistrablue-400 font-semibold shrink-0">核心盈利指标</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 检查每季财报调整后 EBITDA 是否稳健增长（如 Q3 同比大增 54%），验证发电端盈利弹性 [cite: 1.1.4, 1.2.4]。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. 2027 年 EBITDA 展望（$7.7–$8.5B）与 FCF 指引兑现度</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">远期业绩锚点</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 跟踪后续财报对 2027 年及中长期自由现金流目标的执行与确认情况 [cite: 1.2.4]。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. 股份回购执行进度与总授权使用情况（目标 $2.5B 授权内执行） [cite: 1.2.2, 1.2.4]</span>
+ <span class="text-[11px] font-mono text-vistrateal-600 dark:text-vistrateal-400 font-semibold shrink-0">股东回报与 EPS 增厚</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 评估每季度股份回购金额与流通股本缩减情况（已累计回购 ~30% 股本），确认 EPS 增厚效应 [cite: 1.2.2]。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. Cogentrix 收购案并表后的协同效应与净杠杆率（保持在 ~2.8x）</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">资产负债表健康</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 监控 50 GW 总装机资产并表后的运营成本压降与净债务/EBITDA 杠杆率指标 [cite: 1.2.4]。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. AI 数据中心长协供电合同（PPA）签署进展与核能溢价</span>
+ <span class="text-[11px] font-mono text-vistrablue-600 dark:text-vistrablue-400 font-semibold shrink-0">AI 算力基建催化</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 追踪核电站及天然气电站与科技巨头达成的数据中心直供电长协签署与电价表现。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#2563EB]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">6. 发电量套期保值比例（2027年约 98% 锁定）执行情况</span>
+ <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">风险对冲机制</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 监督远期发电量的套期保值比例（如 2027 年 98%、2028 年 78%），确保现金流的确定性 [cite: 1.2.1]。
+ </p>
+ </div>
+ </label>
+ </div>
+ </div>
+ </section>
+
+ <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
+ <span>威斯卓公司 Vistra Corp. (NYSE: VST) 深度商业与投资价值分析报告 · 机构研究框架版 [cite: 1.1.6, 1.2.4]</span>
+ <span>数据基准：2026Q3 财报 (SEC Form 8-K) 及 2026 年 11 月市场一致预期 (FY26E) [cite: 1.1.4, 1.2.4]</span>
+ </div>
+ <p class="leading-relaxed">
+ <strong>免责声明：</strong>本深度研究报告基于 Vistra Corp. 公开财务报告（8-K/10-Q）、2026Q3 财报业绩公告及北美独立电力行业调研资料整理生成，旨在提供结构化的产业分析与龙头估值框架。报告中涉及的盈利预测、EBITDA 展望、三情景目标价及复利模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。
+ </p>
+ </footer>
+
+ </div>
+ </main>
+
+ <script>
+ function toggleTheme() {
+ const html = document.documentElement;
+ html.classList.toggle('dark');
+ updateChartsTheme();
+ }
+
+ function toggleMobileMenu() {
+ const drawer = document.getElementById('mobile-drawer');
+ drawer.classList.toggle('hidden');
+ }
+
+ const sections = document.querySelectorAll('section[id]');
+ const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+ window.addEventListener('scroll', () => {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+ document.getElementById('reading-progress').style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+
+ let currentId = 'sec-exec';
+ sections.forEach(sec => {
+ const top = sec.offsetTop - 160;
+ if (scrollTop >= top) {
+ currentId = sec.getAttribute('id');
+ }
+ });
+
+ navLinks.forEach(link => {
+ link.classList.remove('active');
+ const numSpan = link.querySelector('span span');
+ if (numSpan) {
+ numSpan.classList.remove('text-vistrablue-400');
+ numSpan.classList.add('text-slate-500');
+ }
+ if (link.dataset.target === currentId) {
+ link.classList.add('active');
+ if (numSpan) {
+ numSpan.classList.remove('text-slate-500');
+ numSpan.classList.add('text-vistrablue-400');
+ }
+ }
+ });
+ });
+
+ function filterCompetitors(category) {
+ document.querySelectorAll('.comp-filter-btn').forEach(btn => {
+ if (btn.dataset.filter === category) {
+ btn.classList.add('bg-vistrablue-500', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.remove('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ } else {
+ btn.classList.remove('bg-vistrablue-500', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.add('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ }
+ });
+
+ const rows = document.querySelectorAll('#comp-table-body tr');
+ rows.forEach(row => {
+ const rowCat = row.dataset.category;
+ if (category === 'all' || rowCat === 'ipp' || rowCat === category) {
+ row.style.display = '';
+ } else {
+ row.style.display = 'none';
+ }
+ });
+ }
+
+ let currentMultiple = 11;
+
+ function setTaxRate(mult) {
+ currentMultiple = mult;
+ document.querySelectorAll('#tax-btn-group .tax-btn').forEach(btn => {
+ const btnMult = parseFloat(btn.dataset.tax);
+ if (Math.abs(btnMult - mult) < 0.001) {
+ btn.className = 'tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-vistrablue-500 text-white border border-vistrablue-400 shadow transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-slate-200';
+ } else {
+ btn.className = 'tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-vistrablue-400 transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-slate-400';
+ }
+ });
+ updateDividendSimulator();
+ }
+
+ function updateDividendSimulator() {
+ const principal = parseFloat(document.getElementById('sim-principal').value);
+ const years = parseInt(document.getElementById('sim-years').value, 10);
+ const growthPct = parseFloat(document.getElementById('sim-growth').value);
+
+ document.getElementById('sim-principal-label').textContent = '$' + principal.toLocaleString('en-US');
+ document.getElementById('sim-years-label').textContent = years + ' 年';
+ document.getElementById('sim-growth-label').textContent = growthPct.toFixed(1) + '%';
+
+ const initEbitda = 7.30; // FY26E EBITDA approx proxy ~$7.3B
+ const g = growthPct / 100;
+
+ let finalEbitda = initEbitda * Math.pow(1 + g, years);
+ let estimatedMarketCap = finalEbitda * currentMultiple * 0.5; // scaled proxy
+ let initialMarketCap = 44.3; // ~$44.3B
+ let totalReturnPct = ((estimatedMarketCap - initialMarketCap) / initialMarketCap) * 100;
+ let finalPortfolioVal = principal * (1 + totalReturnPct / 100);
+ let cagr = (Math.pow(finalPortfolioVal / principal, 1 / years) - 1) * 100;
+
+ document.getElementById('sim-final-value').textContent = '$' + Math.round(finalPortfolioVal).toLocaleString('en-US');
+ document.getElementById('sim-total-return').textContent = `累计总回报 +${totalReturnPct.toFixed(1)}% (基于 ${currentMultiple}x EV/EBITDA)`;
+ document.getElementById('sim-annual-div').textContent = '~$' + (finalEbitda * 1000).toFixed(0) + 'M';
+ document.getElementById('sim-yoc').textContent = cagr.toFixed(1) + '%';
+ document.getElementById('sim-cum-div').textContent = `~40% 缩股`;
+ }
+
+ const KPI_STORAGE_KEY = 'vst_research_kpi_state_v1';
+
+ function loadKpiChecklist() {
+ try {
+ const saved = localStorage.getItem(KPI_STORAGE_KEY);
+ if (saved) {
+ const stateMap = JSON.parse(saved);
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ if (typeof stateMap[cb.id] === 'boolean') {
+ cb.checked = stateMap[cb.id];
+ }
+ });
+ }
+ } catch (e) {}
+ updateKpiChecklist();
+ }
+
+ function updateKpiChecklist() {
+ const checkboxes = document.querySelectorAll('#kpi-checklist input[type="checkbox"]');
+ const total = checkboxes.length;
+ let checkedCount = 0;
+ const stateMap = {};
+
+ checkboxes.forEach(cb => {
+ stateMap[cb.id] = cb.checked;
+ if (cb.checked) checkedCount++;
+ });
+
+ const pct = Math.round((checkedCount / total) * 100);
+ document.getElementById('kpi-progress-badge').textContent = `已核查 ${checkedCount} / ${total} 项 (${pct}%)`;
+
+ try {
+ localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
+ } catch (e) {}
+ }
+
+ function resetKpiChecklist() {
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ cb.checked = false;
+ });
+ updateKpiChecklist();
+ }
+
+ let bizChartInstance = null;
+ let radarChartInstance = null;
+ let compMarginChartInstance = null;
+ let valEvolutionChartInstance = null;
+ let currentBizMode = 'revenue_mix';
+
+ function getChartColors() {
+ const isDark = document.documentElement.classList.contains('dark');
+ return {
+ text: isDark ? '#CBD5E1' : '#475569',
+ grid: isDark ? 'rgba(51, 65, 85, 0.5)' : 'rgba(226, 232, 240, 0.85)',
+ radarAngle: isDark ? 'rgba(71, 85, 105, 0.6)' : 'rgba(203, 213, 225, 0.85)'
+ };
+ }
+
+ function initBizChart() {
+ const ctx = document.getElementById('bizArchitectureChart').getContext('2d');
+ const colors = getChartColors();
+
+ const revConfig = {
+ type: 'bar',
+ data: {
+ labels: ['2022', '2023', '2024', '2025', '2026 (Q3)'],
+ datasets: [
+ {
+ label: '总营业收入 ($B)',
+ data: [13.4, 14.8, 15.2, 16.0, 16.0],
+ backgroundColor: '#2563EB',
+ borderRadius: 4,
+ stack: 'rev'
+ },
+ {
+ type: 'line',
+ label: '调整后 EBITDA ($B)',
+ data: [3.2, 3.8, 4.5, 5.5, 7.3],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 2.5,
+ pointRadius: 4,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => ctx.dataset.yAxisID === 'y1' ? `调整后 EBITDA: $${ctx.parsed.y.toFixed(2)}B` : `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ min: 0,
+ max: 20,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'B' }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 0,
+ max: 10,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11 }, callback: v => '$' + v + 'B' }
+ }
+ }
+ }
+ };
+
+ const segConfig = {
+ type: 'bar',
+ data: {
+ labels: [
+ 'Q3 发电调整后 EBITDA ($B)',
+ 'Q3 零售调整后 EBITDA ($M)',
+ 'Q3 净利润 ($B)',
+ 'Q3 调整后 EBITDA 总额 ($B)'
+ ],
+ datasets: [
+ {
+ label: 'Q3 2026 各板块核心盈利',
+ data: [2.28, 98.0, 1.14, 2.38],
+ backgroundColor: [
+ '#2563EB',
+ '#10B981',
+ '#06B6D4',
+ '#F97316'
+ ],
+ borderRadius: 6,
+ barThickness: 26
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `指标数值: ${ctx.parsed.x >= 1 ? '$' + ctx.parsed.x + 'B' : '$' + ctx.parsed.x * 1000 + 'M'}`
+ }
+ }
+ },
+ scales: {
+ x: {
+ min: 0,
+ max: 3,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'B' }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ };
+
+ if (bizChartInstance) bizChartInstance.destroy();
+ bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_mix' ? revConfig : segConfig);
+ }
+
+ function switchBizChart(mode) {
+ currentBizMode = mode;
+ const btnRev = document.getElementById('btn-chart-rev');
+ const btnSeg = document.getElementById('btn-chart-seg');
+ const titleEl = document.getElementById('biz-chart-title');
+ const subEl = document.getElementById('biz-chart-sub');
+
+ if (mode === 'revenue_mix') {
+ btnRev.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-vistrablue-600 dark:text-vistrablue-300 shadow-sm transition cursor-pointer';
+ btnSeg.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2022–2026E 全球总营收与调整后 EBITDA 演进趋势';
+ subEl.textContent = '得益于德州电网高景气与核能/天然气资产并购，EBITDA 实现跨越式爆发增长';
+ } else {
+ btnSeg.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-vistrablue-600 dark:text-vistrablue-300 shadow-sm transition cursor-pointer';
+ btnRev.className = 'px-2.5 py-1 rounded-medium font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2026Q3 各板块核心盈利拆解';
+ subEl.textContent = '发电调整后 EBITDA 达 $2.28B，零售贡献 ~$98M，GAAP 净利润达 $1.14B [cite: 1.2.1, 1.2.4]';
+ }
+ initBizChart();
+ }
+
+ function initRadarChart() {
+ const ctx = document.getElementById('moatRadarChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (radarChartInstance) radarChartInstance.destroy();
+ radarChartInstance = new Chart(ctx, {
+ type: 'radar',
+ data: {
+ labels: [
+ '50 GW 庞大发电与核能资产',
+ '德州 ERCOT 电网天然垄断',
+ '高比例清洁核能基荷电力',
+ '发配售一体化对冲闭环',
+ '史诗级股份回购（缩股30%）'
+ ],
+ datasets: [
+ {
+ label: 'Vistra Corp. (VST)',
+ data: [9.8, 9.9, 9.5, 9.6, 9.9],
+ borderColor: '#2563EB',
+ backgroundColor: 'rgba(37, 99, 235, 0.24)',
+ pointBackgroundColor: '#2563EB',
+ borderWidth: 2.5
+ },
+ {
+ label: 'Constellation Energy (CEG)',
+ data: [9.9, 8.5, 9.9, 8.8, 9.0],
+ borderColor: '#10B981',
+ backgroundColor: 'rgba(16, 185, 129, 0.14)',
+ pointBackgroundColor: '#10B981',
+ borderWidth: 2.0
+ },
+ {
+ label: 'Duke Energy (DUK)',
+ data: [8.5, 9.2, 7.5, 8.0, 7.5],
+ borderColor: '#06B6D4',
+ backgroundColor: 'rgba(6, 182, 212, 0.12)',
+ pointBackgroundColor: '#06B6D4',
+ borderWidth: 1.8,
+ borderDash: [4, 4]
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ }
+ },
+ scales: {
+ r: {
+ min: 0,
+ max: 10,
+ ticks: { display: false, stepSize: 2 },
+ grid: { color: colors.grid },
+ angleLines: { color: colors.radarAngle },
+ pointLabels: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initCompMarginChart() {
+ const ctx = document.getElementById('compMarginChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (compMarginChartInstance) compMarginChartInstance.destroy();
+ compMarginChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: [
+ 'Vistra (VST · 独立电力巨头)',
+ 'Constellation (CEG · 纯核能AI标杆)',
+ 'Duke Energy (DUK · 传统公用事业)'
+ ],
+ datasets: [
+ {
+ label: '远期市盈率 Forward P/E (x)',
+ data: [17.6, 25.0, 18.0],
+ backgroundColor: '#2563EB',
+ borderRadius: 5,
+ barThickness: 18
+ },
+ {
+ label: '远期股息率 Dividend Yield (%)',
+ data: [0.70, 0.65, 3.90],
+ backgroundColor: '#10B981',
+ borderRadius: 5,
+ barThickness: 18
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: ${ctx.dataset.yAxisID === 'y' && ctx.datasetIndex === 0 ? ctx.parsed.x + 'x' : ctx.parsed.x + '%'}`
+ }
+ }
+ },
+ scales: {
+ x: {
+ max: 30,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 } }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initValEvolutionChart() {
+ const ctx = document.getElementById('valEvolutionChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (valEvolutionChartInstance) valEvolutionChartInstance.destroy();
+ valEvolutionChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['2021', '2022', '2023', '2024', '2025', '2026E'],
+ datasets: [
+ {
+ type: 'bar',
+ label: '全年总营收 ($ 亿美元)',
+ data: [12.5, 13.4, 14.8, 15.2, 16.0, 16.5],
+ backgroundColor: 'rgba(37, 99, 235, 0.85)',
+ borderRadius: 5,
+ barThickness: 28,
+ yAxisID: 'y'
+ },
+ {
+ type: 'line',
+ label: '调整后 EBITDA ($ 亿美元)',
+ data: [2.9, 3.2, 3.8, 4.5, 5.5, 7.3],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 3,
+ pointRadius: 5,
+ pointHoverRadius: 7,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ type: 'linear',
+ position: 'left',
+ min: 0,
+ max: 25,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v.toFixed(1) + 'B' },
+ title: { display: true, text: '总营收 ($B)', color: colors.text, font: { size: 11 } }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 0,
+ max: 10,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => '$' + v.toFixed(1) + 'B' },
+ title: { display: true, text: '调整后 EBITDA ($B)', color: '#10B981', font: { size: 11 } }
+ }
+ }
+ }
+ });
+ }
+
+ function updateChartsTheme() {
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ }
+
+ window.addEventListener('DOMContentLoaded', () => {
+ loadKpiChecklist();
+ updateDividendSimulator();
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ });
+ </script>
+</body>
+</html>
