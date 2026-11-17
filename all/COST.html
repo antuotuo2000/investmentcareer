@@ -1,9 +1,9 @@
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN" class="scroll-smooth">
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>好市多 Costco Wholesale (NYSE: COST) 深度研究报告：仓储会员制全球王者、高复购私有品牌帝国与无可匹敌的复利现金牛</title>
+ <title>好市多 Costco Wholesale (NASDAQ: COST) 深度研究报告：极致会员制零售之王、92.3%续费壁垒与“负毛利”极致性价比复利机器</title>
  <!-- Tailwind CSS -->
  <script src="https://cdn.tailwindcss.com"></script>
  <!-- Chart.js -->
@@ -29,10 +29,12 @@ html_content = """<!DOCTYPE html>
  800: '#1E293B',
  700: '#334155',
  },
- costred: {
- 500: '#DC2626',
- 600: '#B91C1C',
- 700: '#991B1B',
+ costco: {
+ 300: '#93C5FD',
+ 400: '#60A5FA',
+ 500: '#3B82F6',
+ 600: '#1D4ED8',
+ 700: '#1E40AF',
  },
  emerald: {
  400: '#34D399',
@@ -51,7 +53,6 @@ html_content = """<!DOCTYPE html>
  </script>
 
  <style>
- /* 自定义滚动条与机构研报细节排版 */
  ::-webkit-scrollbar {
  width: 6px;
  height: 6px;
@@ -67,7 +68,6 @@ html_content = """<!DOCTYPE html>
  background: #475569;
  }
 
- /* 打印友好优化 */
  @media print {
  #sidebar, #mobile-header, #theme-toggle-btn, .no-print {
  display: none !important;
@@ -81,7 +81,6 @@ html_content = """<!DOCTYPE html>
  }
  }
 
- /* 卡片悬浮微光与上移过渡 */
  .report-card {
  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
  }
@@ -89,31 +88,30 @@ html_content = """<!DOCTYPE html>
  transform: translateY(-2px);
  }
 
- /* 侧边导航激活态：Costco 红渐变标识 */
  .nav-link.active {
- background: linear-gradient(90deg, rgba(220, 38, 38, 0.22) 0%, rgba(16, 185, 129, 0.06) 100%);
- border-left: 3px solid #DC2626;
+ background: linear-gradient(90deg, rgba(59, 130, 246, 0.24) 0%, rgba(16, 185, 129, 0.06) 100%);
+ border-left: 3px solid #3B82F6;
  color: #FFFFFF;
  font-weight: 600;
  }
  </style>
 </head>
-<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-costred-500 selection:text-white transition-colors duration-200">
+<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-costco-500 selection:text-white transition-colors duration-200">
 
- <!-- 顶部全局阅读进度条 -->
+ <!-- 顶部阅读进度条 -->
  <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-200/70 dark:bg-navy-800">
- <div id="reading-progress" class="h-full bg-gradient-to-r from-costred-600 via-costred-400 to-emerald-500 w-0 transition-all duration-150"></div>
+ <div id="reading-progress" class="h-full bg-gradient-to-r from-costco-600 via-costco-400 to-emerald-500 w-0 transition-all duration-150"></div>
  </div>
 
  <!-- 移动端顶部导航栏 -->
  <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
  <div class="flex items-center space-x-2.5">
- <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-costred-500 to-costred-700 flex items-center justify-center font-extrabold text-white text-xs shadow">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-costco-500 to-costco-700 flex items-center justify-center font-extrabold text-white text-xs shadow">
  COST
  </div>
  <div>
- <div class="text-[11px] text-costred-400 font-semibold tracking-wider uppercase">NASDAQ: COST · Retail King</div>
- <div class="text-sm font-bold leading-tight">Costco 好市多 深度研究报告</div>
+ <div class="text-[11px] text-costco-400 font-semibold tracking-wider uppercase">NASDAQ: COST</div>
+ <div class="text-sm font-bold leading-tight">好市多 Costco 深度研究报告</div>
  </div>
  </div>
  <div class="flex items-center space-x-2">
@@ -133,84 +131,81 @@ html_content = """<!DOCTYPE html>
  <nav class="relative w-72 max-w-[80vw] h-full bg-navy-900 text-slate-300 flex flex-col justify-between p-5 overflow-y-auto shadow-2xl">
  <div>
  <div class="flex items-center justify-between pb-4 border-b border-slate-800">
- <span class="font-bold text-white text-base">Costco 研报目录导航</span>
+ <span class="font-bold text-white text-base">COST 研报目录导航</span>
  <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg text-slate-400 hover:text-white">
  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
  </button>
  </div>
  <ul class="mt-4 space-y-1.5 text-sm">
  <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">00. 执行摘要与核心指标</a></li>
- <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 商业模式与收入架构</a></li>
- <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 行业地位与会员制护城河</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 商业模式与会员费架构</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 核心护城河与供应链壁垒</a></li>
  <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 全球零售巨头横向对比</a></li>
- <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与股东回报推演</a></li>
- <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 投资决策与风险配置</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与复利模拟器</a></li>
+ <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 估值审视与风险配置</a></li>
  <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">06. 季度跟踪 KPI 核查清单</a></li>
  </ul>
  </div>
  <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
- <p>全球消费零售与核心资产研究组</p>
- <p class="mt-1">数据基准：2026年11月 (FY26 / Q1财报)</p>
+ <p>全球优质必需消费与核心资产研究组</p>
+ <p class="mt-1">数据基准：FY2026 财年 / 2026年11月</p>
  </div>
  </nav>
  </div>
 
- <!-- 桌面端左侧固定侧边导航栏 (宽 280px) -->
+ <!-- 桌面端左侧固定侧边导航栏 -->
  <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
  <div>
- <!-- 机构品牌头 -->
  <div class="p-5 border-b border-slate-800/80">
  <div class="flex items-center space-x-3">
- <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-costred-500 via-costred-600 to-costred-700 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-costred-500/25">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-costco-400 via-costco-500 to-costco-600 flex items-center justify-center text-white font-extrabold text-sm shadow-lg shadow-costco-500/25">
  COST
  </div>
  <div>
- <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-costred-400 bg-costred-500/15 px-2 py-0.5 rounded">NASDAQ: COST</span>
- <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">Costco 深度研报</h2>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-costco-400 bg-costco-500/15 px-2 py-0.5 rounded">NASDAQ: COST</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">好市多深度研报</h2>
  </div>
  </div>
  <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
- 全球仓储会员制零售之王 · 会员费利润引擎与极致性价比复利机器
+ 全球仓储会员店开创者 · 92.3% 会员续费奇迹与“负毛利”极致性价比平台
  </p>
  </div>
 
- <!-- 股票实时快照徽章 -->
  <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
  <div class="flex items-center justify-between">
  <span class="text-slate-400">参考股价 (52周区间)</span>
- <span class="font-mono font-bold text-white">~$915.00 <span class="text-slate-400 text-[10px]">($750-$980)</span></span>
+ <span class="font-mono font-bold text-white">~$982.73 <span class="text-slate-400 text-[10px]">(~$750-$995)</span></span>
  </div>
  <div class="flex items-center justify-between">
- <span class="text-slate-400">FY26E 调整后 EPS</span>
- <span class="font-mono font-bold text-emerald-400">$18.50–$19.20 <span class="text-slate-400">(+11.0%)</span></span>
+ <span class="text-slate-400">FY26 稀释 EPS</span>
+ <span class="font-mono font-bold text-emerald-400">$20.61 <span class="text-slate-400">(+11.8%)</span></span>
  </div>
  <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
- <span class="text-slate-400">远期估值与股息</span>
- <span class="font-mono font-bold text-costred-400">~48.0x P/E · 股息率 0.55%</span>
+ <span class="text-slate-400">远期估值与市净率</span>
+ <span class="font-mono font-bold text-costco-400">~47x–49x P/E · 高溢价优质资产</span>
  </div>
  </div>
 
- <!-- 七大核心章节目录导航 -->
  <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
  <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">核心研究章节</div>
  <nav id="desktop-nav" class="space-y-1 text-[13px]">
  <a href="#sec-exec" data-target="sec-exec" class="nav-link active flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-costred-400 mr-2">00</span>执行摘要与核心指标</span>
+ <span><span class="text-xs font-mono text-costco-400 mr-2">00</span>执行摘要与核心指标</span>
  </a>
  <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>商业模式与收入架构</span>
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>商业模式与会员费架构</span>
  </a>
  <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>行业地位与会员制护城河</span>
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>核心护城河与供应链壁垒</span>
  </a>
  <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
  <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>全球零售巨头横向对比</span>
  </a>
  <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与股东回报推演</span>
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与复利模拟器</span>
  </a>
  <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
- <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>投资决策与风险配置</span>
+ <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>估值审视与风险配置</span>
  </a>
  <a href="#sec-kpi" data-target="sec-kpi" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
  <span><span class="text-xs font-mono text-slate-500 mr-2">06</span>季度跟踪 KPI 核查清单</span>
@@ -219,18 +214,17 @@ html_content = """<!DOCTYPE html>
  </div>
  </div>
 
- <!-- 侧边栏底部工具栏 -->
  <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
  <div class="flex items-center justify-between">
  <span class="text-xs text-slate-400">阅读模式切换</span>
  <button id="theme-toggle-btn" onclick="toggleTheme()" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-medium text-slate-200 border border-slate-700 transition cursor-pointer">
- <svg class="w-3.5 h-3.5 text-costred-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
- <svg class="w-3.5 h-3.5 text-costred-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <svg class="w-3.5 h-3.5 text-costco-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ <svg class="w-3.5 h-3.5 text-costco-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
  <span class="dark:hidden">深色护眼模式</span>
  <span class="hidden dark:inline">机构亮色模式</span>
  </button>
  </div>
- <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-costred-500 to-costred-600 hover:from-costred-600 hover:to-costred-700 text-white text-xs font-extrabold transition shadow-sm cursor-pointer">
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-costco-500 to-costco-600 hover:from-costco-600 hover:to-costco-700 text-white text-xs font-extrabold transition shadow-sm cursor-pointer">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
  <span>打印 / 导出 PDF 研报</span>
  </button>
@@ -241,15 +235,12 @@ html_content = """<!DOCTYPE html>
  <main class="lg:ml-[280px] min-h-screen">
  <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 lg:py-12 space-y-12">
 
- <!-- =========================================================
- 00. Hero 研报封面区与执行摘要
- ========================================================= -->
+ <!-- 00. 封面与执行摘要 -->
  <section id="sec-exec" class="scroll-mt-20">
- <!-- 顶部研报元数据标签栏 -->
  <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
  <div class="flex flex-wrap items-center gap-2">
- <span class="px-2.5 py-1 rounded-md bg-costred-500/15 text-costred-700 dark:text-costred-400 font-bold border border-costred-500/30">评级：买入 / 全球零售核心长线底仓</span>
- <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">周期：FY26 财年与会员费增长周期兑现期</span>
+ <span class="px-2.5 py-1 rounded-md bg-costco-500/15 text-costco-700 dark:text-costco-400 font-bold border border-costco-500/30">评级：长线核心底仓 / 逢回调坚决增配</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">基准：FY2026 全年财报与最新运营数据</span>
  </div>
  <div class="flex items-center space-x-3 font-mono">
  <span>覆盖时间：2026年11月</span>
@@ -257,35 +248,32 @@ html_content = """<!DOCTYPE html>
  </div>
  </div>
 
- <!-- Hero 标题卡片 -->
  <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
- <!-- 背景红色点阵纹理 -->
- <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#DC2626 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#3B82F6 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
  <div class="relative z-10">
- <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-costred-500/20 border border-costred-400/40 text-costred-300 text-xs font-semibold mb-4">
- <span class="w-2 h-2 rounded-full bg-costred-400 animate-pulse"></span>
- <span>CORE THESIS · 仓储会员制全球霸主 × 93%+ 惊人会员续费率 × “零毛利定价”与会员费纯利驱动的商业奇迹</span>
+ <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-costco-500/20 border border-costco-400/40 text-costco-300 text-xs font-semibold mb-4">
+ <span class="w-2 h-2 rounded-full bg-costco-400 animate-pulse"></span>
+ <span>CORE THESIS · 8410万付费会员 × 92.3% 美加续费率 × 零库存周转盈利模式</span>
  </div>
  <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
- 好市多 Costco Wholesale (NASDAQ: COST) 深度研究报告：仓储会员制全球王者、高复购私有品牌帝国与无可匹敌的复利现金牛
+ 好市多 Costco Wholesale (NASDAQ: COST) 深度研究报告：极致会员制零售之王、92.3%续费壁垒与“负毛利”极致性价比复利机器
  </h1>
  <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
- 作为全球仓储会员超市的绝对开创者与王者，Costco 凭借极致的精简SKU策略、将毛利率常年死死锁在 11%–14% 的“成本定价哲学”以及在全球突破 <strong class="text-costred-300">1.3 亿持卡会员</strong>的高粘性生态，交出了高质量的 FY26 答卷。公司绝大部分净利润不靠商品赚取差价，而是由全球高达 <strong class="text-emerald-400">93%+（北美 94.8%）的恐怖续费率</strong>带来的会员费（Membership Fees）全额贡献。在 Kirkland Signature 私有品牌护城河与仓储快速周转的推动下，Costco 构筑了传统零售业无法逾越的护城河。
+ 亮眼交出的 <strong class="text-white">FY2026 全年财报</strong>显示：好市多全年净销售额突破 <strong class="text-costco-300">$2,972亿</strong>（同比增长 <strong class="text-emerald-400">+10.1%</strong>），全年摊薄 EPS 达到 <strong class="text-costco-300">$20.61</strong>。公司依靠独步全球的“SKU 严格精简、商品零加价利润率”商业哲学，将绝大部分商品毛利压至盈亏平衡点，将利润全部让渡于消费者，从而构建起令传统零售望尘莫及的 <strong class="text-white">8,410万付费会员矩阵</strong>与 <strong class="text-emerald-400">92.3% 的美加超高续费率护城河</strong>。
  </p>
 
- <!-- 核心投资结论高亮条 -->
  <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
  <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
- <div class="text-slate-400 font-medium mb-1">极致会员续费率堡垒</div>
- <div class="text-white font-semibold">全球续费率稳定在 93%+（北美高达 94.8%），付费会员数突破 1.3 亿，形成极具粘性的消费生态</div>
+ <div class="text-slate-400 font-medium mb-1">会员续费率极高</div>
+ <div class="text-white font-semibold">美加续费率达 92.3%（环比提升 10 bps），全球总体续费率高达 89.8%，客户忠诚度无出其右</div>
  </div>
  <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
- <div class="text-slate-400 font-medium mb-1">商品零毛利与会员费纯利</div>
- <div class="text-costred-300 font-semibold">商品毛利率常年维持 ~11-14% 极限低位，超 70% 营业利润由每年稳定增长的会员费贡献</div>
+ <div class="text-slate-400 font-medium mb-1">庞大经营现金流</div>
+ <div class="text-costco-400 font-semibold">全年经营现金流增至 $158.2亿，期末现金及等价物高达 $202.1亿，资本分配极为强劲</div>
  </div>
  <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
- <div class="text-slate-400 font-medium mb-1">高现金流与特别分红返还</div>
- <div class="text-emerald-400 font-semibold">营运现金流超 $120亿美元，历史上多次派发高达数十亿美元的特别现金分红回报长线股东</div>
+ <div class="text-slate-400 font-medium mb-1">线上数字电商爆发</div>
+ <div class="text-emerald-400 font-semibold">FY26 全年数字赋能销售额突破 $330亿，同比增长超 20%，线上线下全渠道协同加速</div>
  </div>
  </div>
  </div>
@@ -293,100 +281,92 @@ html_content = """<!DOCTYPE html>
 
  <!-- 4个核心 KPI 卡片 -->
  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
- <!-- KPI 1 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
  <span>总市值与最新股价</span>
- <span class="p-1.5 rounded-lg bg-costred-500/15 text-costred-600 dark:text-costred-400">
+ <span class="p-1.5 rounded-lg bg-costco-500/15 text-costco-600 dark:text-costco-400">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
  </span>
  </div>
  <div class="mt-3 flex items-baseline space-x-2">
- <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~$405B</span>
- <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$915.00</span>
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~$435B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$982.73</span>
  </div>
  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
- 全球市值最高、商业模式最稳健的消费零售巨头，享有长线蓝筹估值溢价。
+ 全球零售市值翘楚，凭借极度稳固的商业模式长期享有美股消费板块最高估值溢价。
  </p>
  </div>
 
- <!-- KPI 2 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
- <span>FY26E 调整后 EPS 指引</span>
+ <span>FY2026 净销售额与 EPS</span>
  <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
  </span>
  </div>
  <div class="mt-3 flex items-baseline space-x-2">
- <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$18.50–$19.20</span>
- <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">+11.0% YoY</span>
+ <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$297.2B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">EPS $20.61</span>
  </div>
  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
- 同店销售额（Comparable Sales）持续稳健增长，会员费收入随着近期会员卡提价周期全面释放。
+ 全年净销售额增长 10.1%，摊薄每股收益从上年 $16.12 显著提升至 $20.61。
  </p>
  </div>
 
- <!-- KPI 3 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
- <span>全球会员续费率 & 仓储数</span>
+ <span>付费会员规模与续费率</span>
  <span class="p-1.5 rounded-lg bg-teal-500/15 text-teal-600 dark:text-teal-400">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
  </span>
  </div>
  <div class="mt-3 flex items-baseline space-x-2">
- <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">93.0%+</span>
- <span class="text-xs font-bold text-teal-600 dark:text-teal-400 bg-teal-500/15 px-2 py-0.5 rounded">890+ 家仓储</span>
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">84.1M</span>
+ <span class="text-xs font-bold text-teal-600 dark:text-teal-400 bg-teal-500/15 px-2 py-0.5 rounded">续费 92.3%</span>
  </div>
  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
- 全球运营超 890 家标准大卖场，北美地区会员续费率高达 94.8%，用户粘性无可匹敌。
+ 截至财年末全球付费会员达 8,410 万（同比增 3.8%），美加续费率稳居 92.3% 历史高位。
  </p>
  </div>
 
- <!-- KPI 4 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
- <span>远期估值与股息率</span>
- <span class="p-1.5 rounded-lg bg-costred-500/15 text-costred-600 dark:text-costred-400">
+ <span>营运现金流与仓储规模</span>
+ <span class="p-1.5 rounded-lg bg-costco-500/15 text-costco-600 dark:text-costco-400">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
  </span>
  </div>
  <div class="mt-3 flex items-baseline space-x-2">
- <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">~48.0x</span>
- <span class="text-xs font-bold text-costred-700 dark:text-costred-400 bg-costred-500/15 px-2 py-0.5 rounded">股息率 0.55%</span>
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$15.8B</span>
+ <span class="text-xs font-bold text-costco-700 dark:text-costco-400 bg-costco-500/15 px-2 py-0.5 rounded">全球 900+ 门店</span>
  </div>
  <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
- 远期 P/E 处于历史优质成长股高位，享有强劲的业绩确定性与品牌溢价。
+ 经营现金流达 $158 亿美元，全球大型仓储会员店网络稳步扩张，单店坪效持续领跑全球。
  </p>
  </div>
  </div>
  </section>
 
- <!-- =========================================================
- 一、 商业模式与收入架构 (Business & Revenue Architecture)
- ========================================================= -->
+ <!-- 一、 商业模式与会员费架构 -->
  <section id="sec-biz" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
- <span class="text-xs font-bold uppercase tracking-wider text-costred-600 dark:text-costred-400">Section 01 · Business & Revenue Architecture</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 商业模式与收入架构：商品“零差价”让利、会员费纯利引擎与高周转奇迹</h2>
+ <span class="text-xs font-bold uppercase tracking-wider text-costco-600 dark:text-costco-400">Section 01 · Business Model & Membership Architecture</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 商业模式与收入架构：“零加价商品矩阵”与“会员费即全部净利润”</h2>
  </div>
- <span class="text-xs text-slate-500 dark:text-slate-400">FY26 净营收 ~$260B+ · 会员费收入 ~$5.2B+ (占营业利润 ~70%+)</span>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY26 净销售额 $297.2B · 会员费收入稳定高增</span>
  </div>
 
- <!-- 交互式 Chart.js 双视图切换面板 -->
  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
- <!-- 左侧：双视图图表 -->
  <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">2022–2026E 总营收与会员费利润引擎演进 ($B)</h3>
- <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">商品销售实现超大规模吞吐，而每年稳步增长的会员费构成公司核心利润来源</p>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">2022–2026 净销售额、会员费收入与净利润演进</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">商品销售基本实现接近零毛利运营，公司绝大部分净利润由高粘性会员费贡献</p>
  </div>
  <div class="inline-flex rounded-lg bg-slate-100 dark:bg-navy-800 p-1 text-xs no-print">
- <button onclick="switchBizChart('revenue_mix')" id="btn-chart-rev" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-costred-600 dark:text-costred-400 shadow-sm transition cursor-pointer">视图A：商品营收与会员费构成</button>
- <button onclick="switchBizChart('volume_growth')" id="btn-chart-vol" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：仓储会员数与同店增速</button>
+ <button onclick="switchBizChart('financials')" id="btn-chart-fin" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-costco-600 dark:text-costco-400 shadow-sm transition cursor-pointer">视图A：营收与利润核心演进</button>
+ <button onclick="switchBizChart('metrics')" id="btn-chart-met" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：会员规模与续费率拆解</button>
  </div>
  </div>
  <div class="relative h-72 w-full">
@@ -394,196 +374,139 @@ html_content = """<!DOCTYPE html>
  </div>
  </div>
 
- <!-- 右侧：结构性拆解核心洞察 -->
  <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">Costco 商业模式四大颠覆性法则</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">好市多独特的商业哲学三大支柱</h3>
  <ul class="space-y-4 text-sm">
  <li class="flex items-start space-x-3">
- <span class="w-6 h-6 rounded-full bg-costred-500/15 text-costred-600 dark:text-costred-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+ <span class="w-6 h-6 rounded-full bg-costco-500/15 text-costco-600 dark:text-costco-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
  <div>
- <div class="font-semibold text-slate-900 dark:text-white">商品毛利率上限 14%：严格的成本定价哲学</div>
+ <div class="font-semibold text-slate-900 dark:text-white">商品毛利率上限 14% 的自律红线</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- Costco 自我设限：所有商品毛利率绝不超过 14%（自有品牌上限 15%）。一旦采购成本降低，立刻降价回馈消费者，将利润率压至同行无法竞争的极限。
+ 好市多严格规定所有品牌商品的毛利率绝不超过 14%（自有品牌 Kirkland Signature 不超过 15%）。若采购成本下降，零售价随之调低，将超额利润全部返还会员。
  </p>
  </div>
  </li>
  <li class="flex items-start space-x-3">
  <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
  <div>
- <div class="font-semibold text-slate-900 dark:text-white">会员费即全部利润：70%+ 营业利润来自年费</div>
+ <div class="font-semibold text-slate-900 dark:text-white">会员费构成 100% 的净利润安全垫</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 由于商品销售几乎接近“零差价”，Costco 财报中的大部分净利润直接来源于全球 1.3 亿会员缴纳的年度会员费（基础卡 $60/年，高级卡 $120/年）。
+ 商品销售收入仅用于覆盖门店运营和仓储物流成本；公司几乎所有的净利润都直接来源于会员费收入（Annual Membership Fees），这种模式对传统零售构成了降维打击。
  </p>
  </div>
  </li>
  <li class="flex items-start space-x-3">
  <span class="w-6 h-6 rounded-full bg-teal-500/15 text-teal-600 dark:text-teal-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
  <div>
- <div class="font-semibold text-slate-900 dark:text-white">极致精简 SKU（约 4,000 个）与超高库存周转</div>
+ <div class="font-semibold text-slate-900 dark:text-white">极简 SKU（约 4,000 个）实现极致规模效应</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 对比传统超市动辄数万个 SKU，Costco 每个品类只精选 1-2 款极致爆品，令单品采购量巨大、议价能力达到顶峰，库存周转天数甚至快于账期。
- </p>
- </div>
- </li>
- <li class="flex items-start space-x-3">
- <span class="w-6 h-6 rounded-full bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
- <div>
- <div class="font-semibold text-slate-900 dark:text-white">Kirkland Signature (科克兰)：私有品牌护城河</div>
- <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 旗下私有品牌 Kirkland 销售额占总收入近三分之一，凭借“大牌品质、平民价格”锁死忠实会员，毛利率空间更为充裕。
+ 对比传统大卖场数万种商品，好市多每家店仅精选约 4,000 个核心 SKU。单个单品采购量巨大，对上游供应商拥有极强的议价权，确保品质对标大牌而价格无敌。
  </p>
  </div>
  </li>
  </ul>
  </div>
  <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
- <span class="text-slate-500 dark:text-slate-400">商业运作精髓</span>
- <span class="font-bold text-costred-600 dark:text-costred-400">“替消费者省钱”转为极高品牌信任与复购</span>
+ <span class="text-slate-500 dark:text-slate-400">长期盈利驱动锚点</span>
+ <span class="font-bold text-costco-600 dark:text-costco-400">高级会员渗透率提升与全球开店</span>
  </div>
  </div>
  </div>
 
- <!-- 四大业务与战略板块详细卡片矩阵 -->
  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
- <!-- 分部 1：仓储会员卖场核心业务 -->
- <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-costred-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-costco-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
- <span class="px-2.5 py-1 rounded-md bg-costred-500/15 text-costred-700 dark:text-costred-400 text-xs font-bold">基本盘核心基石 · 占总收入 ~98%</span>
- <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">全球 890+ 家大卖场</span>
+ <span class="px-2.5 py-1 rounded-md bg-costco-500/15 text-costco-700 dark:text-costco-400 text-xs font-bold">基本盘 · 全球 8,410 万付费会员</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">续费率 92.3%</span>
  </div>
- <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 全球仓储会员卖场矩阵（Core Warehouses）</h3>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 会员费与高级会员（Executive Membership）生态</h3>
  <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
- 以大面积仓储式陈列、pallet 托盘直展、无过度装修的工业风卖场降低运营及固定资产折旧成本。单店平均年销售额超亿美元，单店坪效在全球实体零售业中遥遥领先。
+ 全球付费会员数达 8,410 万（同比增 3.8%）。其中贡献丰厚现金返还与更高客单价的**高级会员（Executive Members）**渗透率再创历史新高；美加地区续费率高达 92.3%，全球总体续费率高达 89.8%，构筑了极难被攻破的用户粘性城墙。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
- <span>持续稳健推进全球开店扩张</span>
- <span class="text-costred-600 dark:text-costred-400 font-semibold">单店单产全球第一</span>
+ <span>会员费收入稳健增长</span>
+ <span class="text-costco-600 dark:text-costco-400 font-semibold">客户终身价值极高</span>
  </div>
  </div>
 
- <!-- 分部 2：会员费收入与高级卡黑卡生态 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
- <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">核心利润引擎 · 续费率 93%+</span>
- <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">付费会员 1.3亿+</span>
+ <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">自有品牌王牌 · Kirkland Signature</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">渗透率持续攀升</span>
  </div>
- <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 会员服务与 Executive（黑卡）生态</h3>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 柯克兰自有品牌（Kirkland Signature）</h3>
  <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
- 全球付费会员数突破 1.3 亿，其中享受 2% 现金返利的高级黑卡会员（Executive Members）占比过半且贡献了公司绝大部分销售额。近期顺利完成会员卡费上调（北美基础卡从 $60 升至 $65，黑卡从 $120 升至 $130），增厚现金流。
+ 自有品牌 <em>Kirkland Signature</em> 涵盖食品、日化、服装等多品类，销售额占总营收比重持续提高。其采取“名牌品质、极低定价”策略，不仅牢牢绑定了中产阶级消费者的心智，更成为好市多在上游谈判中对冲通胀、保持产品毛利优势的核心杀手锏。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
- <span>会员费总额超 $5.2B / 年</span>
- <span class="text-emerald-600 dark:text-emerald-400 font-semibold">纯利贡献超 70%</span>
- </div>
- </div>
-
- <!-- 分部 3：电商与数字渠道 (Costco.com) -->
- <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-teal-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
- <div>
- <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
- <span class="px-2.5 py-1 rounded-md bg-teal-500/15 text-teal-700 dark:text-teal-400 text-xs font-bold">线上增量拓展 · 大件与配送</span>
- <span class="font-mono text-xs font-bold text-teal-600 dark:text-teal-400">数字销售双位数增长</span>
- </div>
- <h3 class="text-lg font-bold text-slate-900 dark:text-white">3. 电商平台与数字化物流（Costco.com & Instacart）</h3>
- <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
- 与 Instacart 深度合作实现同城即时配送，并强化 Costco.com 上的大件家电、珠宝、贵金属及特选线上专属商品的销售。电商业务保持双位数增长，有效打破实体卖场物理空间限制。
- </p>
- </div>
- <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
- <span>线上线下全渠道无缝协同</span>
- <span class="text-teal-600 dark:text-teal-400 font-semibold">拓展年轻数字客群</span>
- </div>
- </div>
-
- <!-- 分部 4：高毛利配套服务矩阵 -->
- <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-indigo-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
- <div>
- <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
- <span class="px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-700 dark:text-indigo-400 text-xs font-bold">高毛利协同生态 · 增值服务</span>
- <span class="font-mono text-xs font-bold text-indigo-600 dark:text-indigo-400">加油站、眼科与旅游</span>
- </div>
- <h3 class="text-lg font-bold text-slate-900 dark:text-white">4. 配套高客流服务（加油站、药房、光学与旅游）</h3>
- <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
- 卖场外围的 Costco 加油站（以低于市场价的高品质油品吸引车流进店）、店内眼科验光、药房、轮胎中心及 Costco Travel 旅游度假预订服务，构成了极具差异化的全方位生活圈护城河。
- </p>
- </div>
- <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
- <span>高频刚需引流大杀器</span>
- <span class="text-indigo-600 dark:text-indigo-400 font-semibold">大幅提升会员到店频次</span>
+ <span>极致性价比与大牌平替</span>
+ <span class="text-emerald-600 dark:text-emerald-400 font-semibold">毛利护城河坚固</span>
  </div>
  </div>
  </div>
  </section>
 
- <!-- =========================================================
- 二、 行业地位与会员制护城河 (Industry Position & Moat)
- ========================================================= -->
+ <!-- 二、 核心护城河与供应链壁垒 -->
  <section id="sec-moat" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
- <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Industry Position & Economic Moat</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 行业地位与会员制护城河：规模效应、私有品牌神话与 93%+ 续费铁壁</h2>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Economic Moat & Supply Chain Advantage</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 核心护城河与供应链壁垒：负库存营运周期与超强坪效神话</h2>
  </div>
- <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全球仓储会员超市绝对泰斗)</span>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全球零售绝对标杆)</span>
  </div>
 
  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
- <!-- 左侧：四重护城河深度解析 -->
  <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
- <!-- 护城河 1 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center space-x-2.5 mb-2.5">
- <span class="w-8 h-8 rounded-lg bg-costred-500/15 text-costred-600 dark:text-costred-400 flex items-center justify-center font-bold text-sm">01</span>
- <h3 class="font-bold text-slate-900 dark:text-white text-sm">93%+ 恐怖续费率与超级付费会员心智</h3>
+ <span class="w-8 h-8 rounded-lg bg-costco-500/15 text-costco-600 dark:text-costco-400 flex items-center justify-center font-bold text-sm">01</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">负营运资本周期（Negative Working Capital）</h3>
  </div>
  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- 全球续费率常年维持在 93%+（北美高达 94.8%）。消费者一旦支付了会员费，就会产生“必须多去 Costco 购物以赚回年费”的心理账户效应，形成极高的消费忠诚度。
+ 好市多商品周转天数通常极短（显著快于供应商账期），这意味着好市多在把商品卖给会员并拿到现金之后，才需要向供应商支付货款。巨额沉淀资金产生可观的利息收入。
  </p>
  </div>
 
- <!-- 护城河 2 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center space-x-2.5 mb-2.5">
  <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
- <h3 class="font-bold text-slate-900 dark:text-white text-sm">对全球顶级供应商的绝对议价权力</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">单品爆款与 pallet-level 极简物流</h3>
  </div>
  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- 凭借单品百亿美元级的采购体量，Costco 对可口可乐、宝洁、苹果等全球大牌拥有极致的话语权，厂商愿意提供市面上最低的供货价与独家定制大包装规格。
+ 门店不设繁复货架，商品直接连托盘（Pallet）摆放在仓储货架上，省去大量理货和二次分拣人工。极致精简的 SKU 带来单品海量出货，物流与仓储成本被摊薄至行业最低。
  </p>
  </div>
 
- <!-- 护城河 3 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center space-x-2.5 mb-2.5">
  <span class="w-8 h-8 rounded-lg bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold text-sm">03</span>
- <h3 class="font-bold text-slate-900 dark:text-white text-sm">Kirkland Signature (科克兰) 黄金金字招牌</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">中产富裕客群与极低流失率</h3>
  </div>
  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- 科克兰私有品牌涵盖食品、日化、服装各领域，其品质对标甚至超越一线大牌，但价格低 20%–30%，成为消费者闭眼盲买的信任图腾与利润蓄水池。
+ 好市多会员多为家庭年收入中上阶层，具备极强抗经济周期能力。无论宏观经济如何波动，高续费率保障了基本盘牢不可破，成为穿越周期的避险资产。
  </p>
  </div>
 
- <!-- 护城河 4 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center space-x-2.5 mb-2.5">
  <span class="w-8 h-8 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">04</span>
- <h3 class="font-bold text-slate-900 dark:text-white text-sm">负营运资本与极致高效的供应链周转</h3>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">全球协同供应链与高附加值增值服务</h3>
+ </div>
  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- Costco 的库存周转天数（约 30 天以内）通常短于其账期（应付账款天数常超 35 天），这意味着 Costco 实际上是“用供应商的钱进货卖货”，现金流极其健康。
+ 仓储配套服务（如加油站、光学眼镜、药房、轮胎修配及旅行预订）极具黏性，汽油和药房带来的高频客流进一步反哺卖场主业。
  </p>
  </div>
  </div>
- </div>
 
- <!-- 右侧：五维护城河雷达图 -->
  <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
- <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">全球仓储与传统零售巨头五维护城河雷达图</h3>
- <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Costco (COST) vs 山姆会员店/Walmart (WMT) vs 塔吉特 (TGT)（满分 10 分）</p>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">零售巨头五维护城河雷达图</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Costco vs Walmart(山姆) vs Target vs Amazon（满分 10 分）</p>
  <div class="relative h-72 w-full">
  <canvas id="moatRadarChart"></canvas>
  </div>
@@ -591,111 +514,103 @@ html_content = """<!DOCTYPE html>
  </div>
  </section>
 
- <!-- =========================================================
- 三、 全球零售巨头横向对比 (Competitive Landscape)
- ========================================================= -->
+ <!-- 三、 全球零售巨头横向对比 -->
  <section id="sec-comp" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
  <div>
- <span class="text-xs font-bold uppercase tracking-wider text-costred-600 dark:text-costred-400">Section 03 · Global Retail Competitive Landscape</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球零售巨头横向对比：Costco、山姆会员店 (WMT) 与传统零售商的降维打击</h2>
+ <span class="text-xs font-bold uppercase tracking-wider text-costco-600 dark:text-costco-400">Section 03 · Global Retail Competitive Landscape</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球零售巨头横向对比：会员粘性、坪效与估值多维解码</h2>
  </div>
- <!-- 交互式筛选按钮 -->
  <div class="flex flex-wrap gap-1.5 text-xs no-print" id="comp-filter-group">
- <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-costred-500 text-white shadow-sm transition cursor-pointer">全部巨头</button>
- <button onclick="filterCompetitors('warehouse')" data-filter="warehouse" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">仓储会员制同业</button>
- <button onclick="filterCompetitors('mass')" data-filter="mass" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">综合大卖场与超市</button>
+ <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-costco-500 text-white shadow-sm transition cursor-pointer">全部零售商</button>
+ <button onclick="filterCompetitors('club')" data-filter="club" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">仓储会员对标</button>
+ <button onclick="filterCompetitors('mass')" data-filter="mass" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">综合卖场与电商</button>
  </div>
  </div>
 
- <!-- 横向对比矩阵表格 -->
  <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
  <div class="overflow-x-auto">
  <table class="w-full text-left border-collapse">
  <thead>
  <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
- <th class="py-4 px-5 min-w-[180px]">企业名称与核心定位</th>
- <th class="py-4 px-4 min-w-[130px]">全球市场份额 / 地位</th>
- <th class="py-4 px-4 min-w-[140px]">商业模式特征</th>
+ <th class="py-4 px-5 min-w-[180px]">企业名称与核心业态</th>
+ <th class="py-4 px-4 min-w-[130px]">主营市场与规模</th>
+ <th class="py-4 px-4 min-w-[140px]">会员续费率/模式</th>
  <th class="py-4 px-4 min-w-[100px]">远期 P/E</th>
- <th class="py-4 px-4 min-w-[115px]">远期股息率</th>
- <th class="py-4 px-4 min-w-[115px]">商品毛利率</th>
- <th class="py-4 px-5 min-w-[230px]">核心优劣势与竞合定位评估</th>
+ <th class="py-4 px-4 min-w-[115px]">股息率</th>
+ <th class="py-4 px-4 min-w-[115px]">营业利润率</th>
+ <th class="py-4 px-5 min-w-[230px]">核心优势与竞争定位评估</th>
  </tr>
  </thead>
  <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm" id="comp-table-body">
- <!-- 行 1：Costco COST 基准 -->
- <tr data-category="warehouse" class="bg-costred-500/5 dark:bg-costred-500/10 font-medium">
+ <tr data-category="club" class="bg-costco-500/5 dark:bg-costco-500/10 font-medium">
  <td class="py-4 px-5">
  <div class="flex items-center space-x-2">
- <span class="px-2 py-0.5 rounded bg-costred-500 text-white text-[10px] font-extrabold">全球王者</span>
+ <span class="px-2 py-0.5 rounded bg-costco-500 text-white text-[10px] font-extrabold">行业翘楚</span>
  <span class="font-bold text-slate-900 dark:text-white">好市多 (COST)</span>
  </div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Costco Wholesale / Kirkland</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Costco / Kirkland Signature</div>
  </td>
- <td class="py-4 px-4 font-semibold text-slate-900 dark:text-white">全球仓储会员超市绝对龙头 (1.3亿会员)</td>
+ <td class="py-4 px-4 font-semibold text-slate-900 dark:text-white">全球 900+ 家仓储会员店</td>
  <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-costred-500/15 text-costred-700 dark:text-costred-300">付费会员制 + 极限低毛利</span>
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400">美加 92.3% 续费率</span>
  </td>
- <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~48.0x</td>
- <td class="py-4 px-4 font-mono font-bold text-costred-600 dark:text-costred-400">~0.55%</td>
- <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">~11.5%</td>
+ <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~47x–49x</td>
+ <td class="py-4 px-4 font-mono font-bold text-costco-600 dark:text-costco-400">~0.6% (+特大分红)</td>
+ <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">~3.5%–3.8%</td>
  <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>极致效率与会员心智天花板：</strong>商品几乎零差价，利润全靠会员费与高周转；估值常年处于 40x+ 蓝筹成长高位。
+ <strong>极致会员制零售之王：</strong>主动放弃商品毛利，将会员费转化为全部利润与极致性价比，用户粘性全球第一，估值享有高溢价。
  </td>
  </tr>
 
- <!-- 行 2：Walmart / Sam's Club WMT -->
- <tr data-category="warehouse" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <tr data-category="mass" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
  <td class="py-4 px-5">
- <div class="font-bold text-slate-900 dark:text-white">沃尔玛 / 山姆会员店 (WMT)</div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Walmart Supercenter / Sam's Club</div>
+ <div class="font-bold text-slate-900 dark:text-white">沃尔玛 / 山姆 (WMT)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Walmart / Sam's Club</div>
  </td>
- <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球最大综合零售商 (山姆为最强劲对手)</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球数千家卖场与山姆会员店</td>
  <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400">大卖场 + 山姆会员店双轮驱动</span>
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-500/15 text-teal-700 dark:text-teal-400">山姆会员高增</span>
  </td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~32.0x</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~1.15%</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~24.5%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~30x–33x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~1.1%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~4.2%</td>
  <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>全渠道巨无霸：</strong>山姆会员店在美国本土对 Costco 形成强力追赶之势，且沃尔玛整体电商与供应链广告变现能力极强。
+ <strong>全渠道供应链巨头：</strong>旗下山姆会员店与 Costco 直接竞争，传统大卖场及强大电商物流网络提供更广阔的下沉市场覆盖。
  </td>
  </tr>
 
- <!-- 行 3：Target TGT -->
  <tr data-category="mass" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
  <td class="py-4 px-5">
  <div class="font-bold text-slate-900 dark:text-white">塔吉特 (TGT)</div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Target Retail Stores</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Target Retail</div>
  </td>
- <td class="py-4 px-4 text-slate-700 dark:text-slate-300">美国中高端百货与日用百货零售商</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">美国全境时尚百货与日用</td>
  <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-500/15 text-teal-700 dark:text-teal-400">时尚设计百货 + 自有品牌</span>
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/15 text-amber-700 dark:text-amber-400">Circle 免费会员体系</span>
  </td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~16.5x</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~3.20%</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~27.5%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~16x–18x</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~3.2%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~5.5%</td>
  <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>定位差异：</strong>主打时尚设计与百货杂货，不采用付费会员制；受宏观非必需消费品（Discretionary）波动影响较大。
+ <strong>时尚与可选消费偏好：</strong>更加聚焦家居、服饰等高毛利品类，受宏观非必需消费支出波动影响较大，估值较 Costco 更具弹性。
  </td>
  </tr>
 
- <!-- 行 4：BJ's Wholesale Club BJ -->
- <tr data-category="warehouse" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <tr data-category="mass" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
  <td class="py-4 px-5">
- <div class="font-bold text-slate-900 dark:text-white">BJ's Wholesale Club (BJ)</div>
- <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">BJ's Wholesale</div>
+ <div class="font-bold text-slate-900 dark:text-white">亚马逊 (AMZN)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Amazon Prime / AWS</div>
  </td>
- <td class="py-4 px-4 text-slate-700 dark:text-slate-300">美国东海岸区域性仓储会员超市</td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球电商与云计算垄断者</td>
  <td class="py-4 px-4">
- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/15 text-amber-700 dark:text-amber-400">区域仓储会员制 + 生鲜食品</span>
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/15 text-blue-700 dark:text-blue-400">Prime 亿级生态</span>
  </td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~20.5x</td>
- <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">0.00%</td>
- <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~18.0%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~35x–40x</td>
+ <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">0%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~8.0%+</td>
  <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
- <strong>区域跟随者：</strong>主要深耕美国东部地区，单店规模和全球供应链议价力逊于 Costco 与山姆，但估值更具弹性。
+ <strong>数字电商与云计算双擎：</strong>电商覆盖全品类无边界，但大件生鲜及仓储精选体验与 Costco 形成差异化互补。
  </td>
  </tr>
  </tbody>
@@ -703,14 +618,13 @@ html_content = """<!DOCTYPE html>
  </div>
  </div>
 
- <!-- 配套 Chart.js 横向条形图：商品毛利率与估值倍数对比 -->
  <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base">全球主要零售与仓储会员企业商品毛利率 (Gross Margin) 与远期 P/E 估值双维对比</h3>
- <p class="text-xs text-slate-500 dark:text-slate-400">Costco 以 ~11.5% 的极低商品毛利率将最大让利给予消费者，却享有 ~48x 的顶级长期成长溢价</p>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">全球主要零售商远期估值 P/E 与营业利润率（Operating Margin）对比</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">好市多保持 ~3.5% 极低营业利润率换取超强口碑，以 ~48x P/E 稳居美股消费估值金字塔尖</p>
  </div>
- <span class="text-xs font-semibold text-costred-700 dark:text-costred-400 bg-costred-500/15 px-2.5 py-1 rounded">11.5% 极限让利与高估值溢价</span>
+ <span class="text-xs font-semibold text-costco-700 dark:text-costco-400 bg-costco-500/15 px-2.5 py-1 rounded">极低利润率与极致客户信赖</span>
  </div>
  <div class="relative h-64 w-full">
  <canvas id="compMarginChart"></canvas>
@@ -718,335 +632,314 @@ html_content = """<!DOCTYPE html>
  </div>
  </section>
 
- <!-- =========================================================
- 四、 财务健康与股东回报推演 (Financial Health & Dividend Simulator)
- ========================================================= -->
+ <!-- 四、 财务健康与复利模拟器 -->
  <section id="sec-fin" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
- <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Financial Health & Shareholder Return Simulator</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康度与股东回报体系：百亿营运现金流与特别分红复利机器</h2>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Financial Health & Membership Compound Simulator</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康度与复利体系：$158亿经营现金流与成长推演</h2>
  </div>
- <span class="text-xs text-slate-500 dark:text-slate-400">稳定常规分红 + 周期性数十亿美元特别分红 (Special Dividend)</span>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY26 经营现金流 $15.8B · 期末现金及等价物 $202亿</span>
  </div>
 
- <!-- 1. 财务健康度四大硬核指标卡 -->
  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
- <div class="text-xs font-bold text-costred-600 dark:text-costred-400 uppercase">Membership Fee Profit Share</div>
- <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~70%+</div>
+ <div class="text-xs font-bold text-costco-600 dark:text-costco-400 uppercase">Operating Margin</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~3.5%–3.8%</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
- 几乎所有商品销售毛利用于覆盖卖场运营开支，而每年稳定到账的数十几亿美元会员费构成了公司超过 70% 的纯利来源。
+ 主动把控超低商品加价率，将营业利润率常年锚定在 3.5%-3.8% 铁律区间，追求会员终身价值而非单笔暴利。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Operating Cash Flow</div>
- <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~$12.5B+</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$15.82B</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
- 强劲的现金创收能力支撑全球开店资本开支，账上拥有充沛现金流，且无任何长期偿债压力。
+ 随着会员规模扩大与仓储扩张，FY26 全年经营现金流大幅增至 $158.2 亿美元（上年为 $133.3亿）。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
- <div class="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase">Debt / EBITDA & Rating</div>
- <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">&lt; 0.5x (A+)</div>
+ <div class="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase">Cash & Equivalents</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$20.21B</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
- 标普与穆迪授予 A+ 级高信用评级，杠杆率极低，具备行业内无可匹敌的资产负债表安全垫。
+ 截至财年末，公司持有高达 $202.1 亿美元的现金及等价物，资产负债表极度强健，随时具备派发特别分红能力。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
- <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">Special Dividends History</div>
- <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">历史多次派发</div>
+ <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">Normalized EPS Growth</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~10% CAGR</div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
- Costco 历史上每隔数年就会积累巨额自由现金流，向全体股东派发高达每股数美元至十余美元的巨额特别现金分红。
+ 华尔街一致预期 normalized EPS 将从 FY24 的 $16.12 稳步增长至 FY26 的 $20.61，并向 FY28 的 $25.02 迈进。
  </p>
  </div>
  </div>
 
- <!-- 2. 交互式 Chart.js 双轴演进图 -->
  <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
  <div>
- <h3 class="font-bold text-slate-900 dark:text-white text-base">2022–2026E 调整后摊薄 EPS 稳步攀升 vs 付费会员总数持续扩张</h3>
- <p class="text-xs text-slate-500 dark:text-slate-400">会员基数突破 1.3 亿大关，叠加会员卡费周期性上调与单店同店销售额增长，推动 EPS 稳健实现双位数复合增长</p>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">FY2022–FY2026 净销售额增长 vs 摊薄 EPS 复合演进趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">展现了好市多在庞大体量下依然实现净销售额年均双位数增长与每股收益的高质量复利</p>
  </div>
- <span class="text-xs font-mono font-bold text-costred-700 dark:text-costred-400 bg-costred-500/15 px-2.5 py-1 rounded">EPS 年化复合增速 ~12%</span>
+ <span class="text-xs font-mono font-bold text-costco-700 dark:text-costco-400 bg-costco-500/15 px-2.5 py-1 rounded">FY26 净销售额突破 $2,972亿</span>
  </div>
  <div class="relative h-72 w-full">
  <canvas id="valEvolutionChart"></canvas>
  </div>
  </div>
 
- <!-- 3. 交互式组件：Costco 长期投资复利与 DRIP 财富增长模拟器 -->
+ <!-- 模拟器组件 -->
  <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-700 shadow-xl space-y-6 no-print">
  <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-700/80">
  <div>
- <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-costred-400 font-bold">
- <span>COMPOUNDING WEALTH ENGINE · 长期财富复利与 DRIP 模拟器</span>
+ <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-costco-400 font-bold">
+ <span>COSTCO COMPOUNDING & MEMBERSHIP REVENUE SIMULATOR</span>
  </div>
- <h3 class="text-lg sm:text-xl font-bold text-white mt-1">Costco 长期持有复合回报与股息再投资（DRIP）动态推演器</h3>
- <p class="text-xs text-slate-400 mt-0.5">基准参数：当前参考股价 $915.00 | 基础股息率 ~0.55% | 支持不同地区美股股息预扣税率测算</p>
+ <h3 class="text-lg sm:text-xl font-bold text-white mt-1">好市多长期复利与持仓资产动态推演器</h3>
+ <p class="text-xs text-slate-400 mt-0.5">基准参数：股价 ~$982.73 | EPS 增长率约 10% | 支持不同税务预扣模拟</p>
  </div>
- <label class="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-costred-500/15 border border-costred-400/30 text-xs font-semibold text-costred-300 cursor-pointer shrink-0">
- <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#DC2626] cursor-pointer">
- <span>开启股息自动再投资 (DRIP)</span>
+ <label class="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-costco-500/15 border border-costco-400/30 text-xs font-semibold text-costco-300 cursor-pointer shrink-0">
+ <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#3B82F6] cursor-pointer">
+ <span>开启股息与分红再投资 (DRIP)</span>
  </label>
  </div>
 
  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
- <!-- 左侧参数控制区 -->
  <div class="lg:col-span-5 space-y-4 text-xs">
- <!-- 本金滑块 -->
  <div>
  <div class="flex justify-between mb-1.5">
  <span class="text-slate-300 font-medium">初始投入本金 (USD)</span>
  <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$50,000</span>
  </div>
- <input id="sim-principal" type="range" min="10000" max="300000" step="10000" value="50000" oninput="updateDividendSimulator()" class="w-full accent-[#DC2626] cursor-pointer">
+ <input id="sim-principal" type="range" min="10000" max="300000" step="10000" value="50000" oninput="updateDividendSimulator()" class="w-full accent-[#3B82F6] cursor-pointer">
  </div>
 
- <!-- 年限滑块 -->
  <div>
  <div class="flex justify-between mb-1.5">
  <span class="text-slate-300 font-medium">长期持有年限 (Years)</span>
  <span id="sim-years-label" class="font-mono font-bold text-white text-sm">10 年</span>
  </div>
- <input id="sim-years" type="range" min="1" max="20" step="1" value="10" oninput="updateDividendSimulator()" class="w-full accent-[#DC2626] cursor-pointer">
+ <input id="sim-years" type="range" min="1" max="20" step="1" value="10" oninput="updateDividendSimulator()" class="w-full accent-[#3B82F6] cursor-pointer">
  </div>
 
- <!-- 预期股价与 EPS 复合增速滑块 -->
  <div>
  <div class="flex justify-between mb-1.5">
- <span class="text-slate-300 font-medium">年均净利润与股价复合增长率 (EPS Growth)</span>
- <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">13.0%</span>
+ <span class="text-slate-300 font-medium">年均 EPS 与股价复合增长率</span>
+ <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">10.0%</span>
  </div>
- <input id="sim-growth" type="range" min="6" max="18" step="0.5" value="13" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
+ <input id="sim-growth" type="range" min="5" max="15" step="0.5" value="10" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
  </div>
 
- <!-- 预扣股息税率选择按钮组 -->
  <div class="pt-1">
- <div class="text-slate-300 font-medium mb-2">美股股息预扣税率（Withholding Tax）情景：</div>
+ <div class="text-slate-300 font-medium mb-2">美股分红预扣税率情景：</div>
  <div class="grid grid-cols-3 gap-2" id="tax-btn-group">
- <button type="button" onclick="setTaxRate(0)" data-tax="0" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-costred-400 transition cursor-pointer">
+ <button type="button" onclick="setTaxRate(0)" data-tax="0" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-costco-400 transition cursor-pointer">
  0% 免税账户<br><span class="text-[10px] text-slate-400">IRA/RRSP等</span>
  </button>
- <button type="button" onclick="setTaxRate(0.10)" data-tax="0.1" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-costred-500 text-white border border-costred-400 shadow transition cursor-pointer">
- 10% 协定税率<br><span class="text-[10px] text-slate-200">中美税收协定</span>
+ <button type="button" onclick="setTaxRate(0.10)" data-tax="0.1" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-costco-500 text-white border border-costco-400 shadow transition cursor-pointer">
+ 10% 协定税率<br><span class="text-[10px] text-costco-200">中美税收协定</span>
  </button>
- <button type="button" onclick="setTaxRate(0.30)" data-tax="0.3" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-costred-400 transition cursor-pointer">
- 30% 标准预扣<br><span class="text-[10px] text-slate-400">新加坡/香港等</span>
+ <button type="button" onclick="setTaxRate(0.30)" data-tax="0.3" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-costco-400 transition cursor-pointer">
+ 30% 标准预扣<br><span class="text-[10px] text-slate-400">国际通用</span>
  </button>
  </div>
  </div>
  </div>
 
- <!-- 右侧四大实时测算结果卡片 -->
  <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
- <div class="text-xs text-slate-400">期末预计总资产 (含再投资)</div>
- <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$169,450</div>
- <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计总回报 +238.9%</div>
+ <div class="text-xs text-slate-400">期末预计总资产市值</div>
+ <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$129,687</div>
+ <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计总回报 +159.4%</div>
  </div>
 
  <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
- <div class="text-xs text-slate-400">期末年度税后股息现金流</div>
- <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-costred-400 mt-1.5">$1,120</div>
- <div id="sim-monthly-div" class="text-xs text-slate-400 mt-1.5">折合每月被动现金流 ~$93</div>
+ <div class="text-xs text-slate-400">期末预计年度分红现金流</div>
+ <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-costco-400 mt-1.5">$778</div>
+ <div id="sim-monthly-div" class="text-xs text-slate-400 mt-1.5">常规股息被动现金流</div>
  </div>
 
  <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
- <div class="text-xs text-slate-400">期末股价表现</div>
- <div id="sim-share-price" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">$3,101.50</div>
- <div class="text-xs text-slate-400 mt-1.5">基于 13% 年化复合增长推演</div>
+ <div class="text-xs text-slate-400">期末税后成本股息率</div>
+ <div id="sim-yoc" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">1.56%</div>
+ <div class="text-xs text-slate-400 mt-1.5">注：好市多历史常态化派发超大额特别分红（Special Dividend）</div>
  </div>
 
  <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
- <div class="text-xs text-slate-400">持有期累计获配税后股息总额</div>
- <div id="sim-cum-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1.5">$4,150</div>
- <div id="sim-shares-end" class="text-xs text-slate-400 mt-1.5">期末持仓股数：54.6 股 (起始 54.6 股)</div>
+ <div class="text-xs text-slate-400">期末持仓总股数</div>
+ <div id="sim-shares-end" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1.5">65.8 股</div>
+ <div class="text-xs text-slate-400 mt-1.5">起始持仓：50.9 股</div>
  </div>
  </div>
  </div>
  </div>
 
- <!-- 4. 华尔街多空核心分歧对比 -->
  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
  <div class="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-800/60">
  <div class="flex items-center justify-between mb-3">
  <span class="font-bold text-emerald-700 dark:text-emerald-400 text-base">多头核心论点 (Bull Thesis)</span>
- <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">会员续费铁壁 + 全球拓店</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">商业模式无敌 + 会员续费壁垒</span>
  </div>
  <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
- <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>无与伦比的消费粘性与续费率：</strong>93%+ 的超高续费率在零售史上绝无仅有，无论宏观经济如何波动，消费者均倾向于前往 Costco 寻求高性价比。</span></li>
- <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>会员卡费上调周期释放巨额纯利：</strong>每隔数年例行的会员费上调直接转化为高弹性的营业利润增量，兼具抗通胀属性。</span></li>
- <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>全球国际化门店扩张空间广阔：</strong>除北美成熟市场外，在欧洲、亚洲（中国大陆及日本等）的新店开拓和单店爆满印证了其模式的全球普适性。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>无可匹敌的用户忠诚度：</strong>美加 92.3% 的续费率和全球 8,410 万付费会员构成了全球零售业最坚固的护城河。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>逆势通胀中的性价比避风港：</strong>在宏观经济承压时，消费者更倾向于前往好市多寻求极致性价比，客单价与客流量保持稳健增长。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>数字电商与海外拓展空间巨大：</strong>数字赋能销售额突破 $330亿（同比增超 20%），且全球新开门店空间依然充足。</span></li>
  </ul>
  </div>
 
  <div class="bg-rose-50/70 dark:bg-rose-950/20 rounded-2xl p-6 border border-rose-200 dark:border-rose-800/60">
  <div class="flex items-center justify-between mb-3">
  <span class="font-bold text-rose-700 dark:text-rose-400 text-base">空头担忧论点 (Bear Thesis)</span>
- <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">估值过高 + 实体扩张天花板</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">估值高企 + 增长边际放缓</span>
  </div>
  <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
- <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>48x+ 远期 P/E 估值容错率极低：</strong>作为零售股，其估值倍数远超传统同行，一旦某季度同店销售增速或会员续费率出现微小 miss，可能引发估值回调。</span></li>
- <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>美国本土实体卖场密度渐趋饱和：</strong>在美国成熟商圈开新店的边际增量效益递减，未来高度依赖国际市场开拓及电商数字渗透。</span></li>
- <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>工资上涨与劳动力成本上升压力：</strong>随着各州最低工资标准的不断提高，仓储卖场员工薪酬福利支出刚性增加，对极限低毛利带来成本考验。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>估值倍数处于历史高位：</strong>当前 Forward P/E 高达 ~47x–49x，显著高于 37x 的 10 年历史平均水平，已计入大部分成长预期。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>会员增速边际放缓：</strong>第四季度付费会员增速（3.8%）较前期略有放缓，未来依靠大规模开店和会员费上调驱动高增长的难度增加。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>极低利润率容错空间小：</strong>营业利润率常年维持在 3.5%-3.8%，任何劳动力成本急剧上升或供应链摩擦都可能对净利润造成明显扰动。</span></li>
  </ul>
  </div>
  </div>
  </section>
 
- <!-- =========================================================
- 五、 投资决策与风险配置框架 (Investment Decision & Risk)
- ========================================================= -->
+ <!-- 五、 投资决策与风险配置框架 -->
  <section id="sec-inv" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
- <span class="text-xs font-bold uppercase tracking-wider text-costred-600 dark:text-costred-400">Section 05 · Investment Decision & Risk Allocation</span>
- <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景估值推演与核心资产建仓纪律</h2>
+ <span class="text-xs font-bold uppercase tracking-wider text-costco-600 dark:text-costco-400">Section 05 · Investment Decision & Risk Allocation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景推演与逢回调配置策略</h2>
  </div>
- <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：长线核心底仓 · 逢大盘非理性回调积极分批加仓</span>
+ <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：优质美股核心资产 · 逢大盘回调分批建仓</span>
  </div>
 
- <!-- 1. 三情景估值推演卡片 (Bull / Base / Bear) -->
  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
- <!-- 牛市情景 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex items-center justify-between mb-2">
  <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">牛市情景 (Bull Case)</span>
  <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">概率：25%</span>
  </div>
- <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">52.0x–55.0x P/E ($1,050–$1,120)</div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">53x–55x P/E ($1,100+)</div>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
- <strong>核心假设：</strong>全球新开仓储门店超预期火爆（尤其中国大陆及欧洲放量），会员续费率突破 95%，数字电商渗透率大幅跃升，市场给予顶级成长溢价。
+ <strong>核心假设：</strong>数字电商增速超预期突破 25%，海外新开门店坪效表现亮眼，高级会员渗透率持续超预期跳升，市场给予其更长期的平台型估值溢价。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
- 含息潜在年化总回报：+15% 至 +20%
+ 潜在年化回报：+15% 至 +22%
  </div>
  </div>
 
- <!-- 基准情景 -->
- <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-costred-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-costco-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex items-center justify-between mb-2">
- <span class="px-2.5 py-0.5 rounded bg-costred-500/15 text-costred-700 dark:text-costred-400 text-xs font-bold">基准情景 (Base Case)</span>
- <span class="font-mono text-xs font-bold text-costred-600 dark:text-costred-400">概率：60%</span>
+ <span class="px-2.5 py-0.5 rounded bg-costco-500/15 text-costco-700 dark:text-costco-400 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-costco-600 dark:text-costco-400">概率：55%</span>
  </div>
- <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">45.0x–48.0x P/E ($880–$950)</div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">45x–48x P/E ($950–$1,020)</div>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
- <strong>核心假设：</strong>同店销售额保持 5%–7% 稳健增长，会员费周期红利释放，EPS 实现 11%–13% 复合增长，估值维持在历史优质蓝筹中枢。
+ <strong>核心假设：</strong>FY2026–FY2028 稳健兑现 10% 左右的 EPS 复合增长，美加续费率维持 92%+，估值在中枢区间平稳震荡，兑现高质量核心资产收益。
  </p>
  </div>
- <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-costred-600 dark:text-costred-400">
- 含息稳健年化总回报：+11% 至 +13.5%
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-costco-600 dark:text-costco-400">
+ 稳健年化回报：+9% 至 +12%（确定性极高）
  </div>
  </div>
 
- <!-- 熊市情景 -->
  <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
  <div>
  <div class="flex items-center justify-between mb-2">
  <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">熊市情景 (Bear Case)</span>
- <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：15%</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：20%</span>
  </div>
- <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">35.0x–38.0x P/E ($680–$740)</div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">35x–38x P/E ($750–$820)</div>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
- <strong>核心假设：</strong>宏观通胀引发消费降级或人工成本超预期激增，导致利润率短暂受压，引发高估值蓝筹股的估值压缩（Multiple Compression）。
+ <strong>核心假设：</strong>宏观高利率环境下高估值美股遭遇杀估值，或人工薪酬成本超预期上涨侵蚀本已薄弱的营业利润率，导致股价经历一段时间的估值回撤。
  </p>
  </div>
  <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
- 含息潜在回撤：-15% 至 -22%（长期基本面极具韧性，可视为绝佳左侧加仓机会）
+ 潜在回撤风险：-15% 至 -22%（优质标的逢低加仓良机）
  </div>
  </div>
  </div>
 
- <!-- 2. 四大核心风险矩阵 -->
  <div>
  <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险评估与跟踪边界</h3>
  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between mb-2">
- <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 高估值回调风险与市场情绪波动</span>
+ <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 估值过高带来的杀估值风险</span>
  <span class="text-xs font-mono text-rose-500 font-semibold">关注度：高</span>
  </div>
- <h4 class="font-bold text-slate-900 dark:text-white text-sm">48x P/E 估值对长端无风险利率变动的高度敏感性</h4>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">47x–49x 远期 P/E 留给业绩不及预期的容错空间极窄</h4>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
- 作为美股定价权最高的消费标的之一，一旦美债收益率出现剧烈波动或市场风险偏好转向，高估值成长股首当其冲面临杀估值压力。
+ 尽管业务完美无瑕，但极高的估值倍数意味着任何季度同店销售额（Comps）或会员增速出现微小 miss，都可能引发短期的股价剧烈震荡。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between mb-2">
- <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 人工与运营成本刚性上升</span>
+ <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 人工与物流履约成本持续通胀</span>
  <span class="text-xs font-mono text-amber-500 font-semibold">关注度：中高</span>
  </div>
- <h4 class="font-bold text-slate-900 dark:text-white text-sm">美国本土及全球各州最低工资法案推高门店员工薪酬</h4>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">美国零售业时薪上涨对 3.5% 营业利润率的直接压制</h4>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
- Costco 以提供高薪酬和优厚福利著称（员工流失率远低于同行），但在通胀周期中，持续上升的劳动力成本对极限低毛利的管理提出更高要求。
+ 好市多美国一线员工平均时薪较高（超 $33/小时），在劳动力市场紧张时期，薪酬福利刚性上升若不能及时通过效率或会员费上调对冲，将直接影响净利润。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between mb-2">
- <span class="px-2 py-0.5 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold">03 · 供应链中断与大宗商品价格波动</span>
+ <span class="px-2 py-0.5 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold">03 · 会员增长边际放缓与海外跑马圈地</h3>
  <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
  </div>
- <h4 class="font-bold text-slate-900 dark:text-white text-sm">全球航运物流瓶颈及生鲜食品、原材料价格剧烈波动</h4>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">北美成熟市场门店密集度上升后的新店回报率</h4>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
- 国际海运成本、极端天气对农产品供应链的冲击可能对部分品类采购成本造成短期扰动，考验其议价向下转嫁能力。
+ 随着北美本土门店逐渐密集，未来增量越来越依赖国际市场（如亚洲和欧洲）。海外供应链管理、文化适应及房产审批将考验管理层的全球执行力。
  </p>
  </div>
 
  <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
  <div class="flex items-center justify-between mb-2">
- <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 国际市场本地化合规与竞争阻力</span>
+ <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 供应链关税与地缘政治贸易摩擦</span>
  <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
  </div>
- <h4 class="font-bold text-slate-900 dark:text-white text-sm">海外拓展过程中面临的本土电商及地产政策限制</h4>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">进口商品关税变动对 Kirkland 极低售价的潜在扰动</h4>
  <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
- 在部分非英语国家或新兴市场扩张时，需面对消费者购物习惯差异、本地商业地产审批以及强势本土仓储竞品的直接竞争。
+ 尽管好市多管理层善于通过调整供应链和获得部分关税退税（如 Q4 获得的 $1.84亿关税相关退税）来缓冲影响，但宏观贸易摩擦仍需密切跟踪。
  </p>
  </div>
  </div>
  </div>
 
- <!-- 3. 机构级组合配置纪律横幅 -->
  <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
- <h3 class="text-base font-bold text-costred-400 mb-4 flex items-center space-x-2">
+ <h3 class="text-base font-bold text-costco-400 mb-4 flex items-center space-x-2">
  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
- <span>机构级投资组合配置纪律与长线复利核心策略</span>
+ <span>机构级投资组合配置纪律建议</span>
  </h3>
  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
  <div class="bg-white/5 rounded-xl p-4 border border-white/10">
- <div class="font-bold text-white mb-1">1. 核心底仓“买入并长期持有”</div>
+ <div class="font-bold text-white mb-1">1. 核心底仓，长期持有</div>
  <p class="text-slate-300 leading-relaxed">
- 鉴于 Costco 极高的商业模式护城河与 93%+ 续费率，不建议频繁做波段。作为美股长线抗通胀压舱石，应确立长期底仓定位。
+ 好市多是美股公认的最优质商业模式之一，极适合作为家庭资产或机构组合的长期压舱石。不建议因短期估值高企而轻易清仓，应以时间换空间。
  </p>
  </div>
  <div class="bg-white/5 rounded-xl p-4 border border-white/10">
- <div class="font-bold text-costred-400 mb-1">2. 宏观非理性回调左侧加仓</div>
+ <div class="font-bold text-costco-400 mb-1">2. 逢大盘系统性回调加仓</div>
  <p class="text-slate-300 leading-relaxed">
- 面对 48x+ 的高估值，若遭遇市场大盘泥沙俱下或短期业绩扰动导致股价回调至 <strong>40x–42x P/E 区域</strong>，应果断把握机会加大左侧增持权重。
+ 鉴于当前 P/E 处于 ~48x 历史高位，若市场遭遇流动性收紧或宏观杀估值导致股价回踩，建议在技术支撑位分批积极加仓。
  </p>
  </div>
  <div class="bg-white/5 rounded-xl p-4 border border-white/10">
- <div class="font-bold text-emerald-400 mb-1">3. 税务高效账户优先配置</div>
+ <div class="font-bold text-emerald-400 mb-1">3. 关注特别分红和会员费周期</div>
  <p class="text-slate-300 leading-relaxed">
- 优先存放在免税或税收协定优惠的账户中（如 IRA、RRSP），充分享受公司长年稳健派息以及未来潜在特别分红的复利效应。
+ 留意公司未来宣布新一轮会员费上调以及历史规律中的超大额特别现金分红（Special Dividend），这将直接为股东带来超额现金回报。
  </p>
  </div>
  </div>
  </div>
  </section>
 
- <!-- =========================================================
- 六、 季度基本面跟踪 KPI 交互式核查清单 (Checklist)
- ========================================================= -->
+ <!-- 六、 季度基本面跟踪 KPI 交互式核查清单 -->
  <section id="sec-kpi" class="scroll-mt-20 space-y-6">
  <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
  <div>
@@ -1054,97 +947,91 @@ html_content = """<!DOCTYPE html>
  <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 季度基本面跟踪 KPI 交互式核查清单（Checklist）</h2>
  </div>
  <div class="flex items-center space-x-2 no-print">
- <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-costred-500/15 text-costred-700 dark:text-costred-400 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-costco-500/15 text-costco-700 dark:text-costco-400 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
  <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 dark:hover:bg-navy-700 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
  </div>
  </div>
 
  <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
  <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
- 点击勾选季度财报中已验证达标的经营指标（勾选状态自动本地保存），持续校验 Costco 会员生态护城河与利润增长引擎：
+ 点击勾选季度财报中已验证达标的核心经营指标（勾选状态自动本地保存），持续追踪好市多的成长势能与护城河：
  </p>
 
  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
- <!-- KPI 1 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#DC2626] focus:ring-costred-500">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1D4ED8] focus:ring-costco-500">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">1. 全球及北美会员续费率是否稳守 93%–95% 铁壁防线</span>
- <span class="text-[11px] font-mono text-costred-600 dark:text-costred-400 font-semibold shrink-0">核心会员心智锚</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. 美加地区会员续费率是否稳守 92%+ 历史高位</span>
+ <span class="text-[11px] font-mono text-costco-600 dark:text-costco-400 font-semibold shrink-0">核心粘性锚</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 跟踪每季度财报公布的续费率数据（当前北美 94.8%），确保会员粘性未受任何外部竞争侵蚀。
+ FY26 末美加续费率达 92.3%，全球续费率 89.8%；需持续观察宏观波动下老会员的留存表现。
  </p>
  </div>
  </label>
 
- <!-- KPI 2 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#DC2626] focus:ring-costred-500">
+ <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1D4ED8] focus:ring-costco-500">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">2. 同店销售额 (Comparable Sales) 剔除油价影响后保持 5%–7% 增长</span>
- <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">实体店景气晴雨表</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. 同店销售额（Comps）剔除气价后维持中高个位数增长</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">销售景气度</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 关注美国本土、国际市场及电商渠道的同店销售拆解，验证客流量（Traffic）与客单价（Ticket Size）双轮驱动。
+ 监控剔除汽油和外汇影响后的同店销售额增速（如 Q4 调后同店增 6.7%），检验客流量与客单价增长动能。
  </p>
  </div>
  </label>
 
- <!-- KPI 3 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#DC2626] focus:ring-costred-500">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1D4ED8] focus:ring-costco-500">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">3. 会员费收入 (Membership Fees) 同比增速与卡费上调红利释放进度</span>
- <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-semibold shrink-0">利润引擎驱动源</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. 数字电商与全渠道销售额保持 20%+ 同比高增</span>
+ <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-semibold shrink-0">线上第二曲线</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 检查付费会员总数突破及高级黑卡（Executive）占比提升带动的会员费纯利释放。
+ FY26 全年数字赋能销售额突破 $330亿（同比增超 20%），追踪第三方配送及线上履约能力的扩展速度。
  </p>
  </div>
  </label>
 
- <!-- KPI 4 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#DC2626] focus:ring-costred-500">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1D4ED8] focus:ring-costco-500">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">4. 商品毛利率是否维持在 11%–14% 的极限让利区间</span>
- <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">成本定价铁律</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. 付费会员总数（8,410万+）与高级会员渗透率持续提升</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">会员基数扩张</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 确保公司未因通胀盲目扩大商品毛利，坚守“替消费者省钱”的商业承诺以维持极致口碑。
+ 关注每季末新增付费会员数及高级会员在总会员中的占比，评估高阶会员对整体收入和客单价的拉动效应。
  </p>
  </div>
  </label>
 
- <!-- KPI 5 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#DC2626] focus:ring-costred-500">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1D4ED8] focus:ring-costco-500">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">5. 全球新开仓储卖场数量与国际市场拓店进展</span>
- <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">长期成长空间</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. 营业利润率稳定在 3.5%–3.8% 核心红线区间</span>
+ <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-semibold shrink-0">成本纪律指标</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 追踪每年 25-30 家新店开业计划的落地执行情况，评估海外及中国区单店销售表现与盈利周期。
+ 验证公司是否坚守“将低成本红利让利于消费者”的哲学，监控 SG&A 费用率及薪酬通胀对毛利的微观影响。
  </p>
  </div>
  </label>
 
- <!-- KPI 6 -->
  <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
- <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#DC2626] focus:ring-costred-500">
+ <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#1D4ED8] focus:ring-costco-500">
  <div class="flex-1">
  <div class="flex items-center justify-between gap-2">
- <span class="font-bold text-sm text-slate-900 dark:text-white">6. 营运现金流生成状况与特别现金分红派发公告</span>
- <span class="text-[11px] font-mono text-rose-500 font-semibold shrink-0">股东现金回报</span>
+ <span class="font-bold text-sm text-slate-900 dark:text-white">6. 全球新开仓储门店进度与年度资本开支（CapEx）</span>
+ <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">实体扩张节奏</span>
  </div>
  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
- 监控自由现金流累积速度，评估管理层未来宣布新一轮巨额特别分红或常规分红大幅上调的时间窗口。
+ 追踪每年新开门店数量（如全年计划及落成 20+ 家新店）以及资本开支（约 $64亿+）的落地效率与单店投资回报率。
  </p>
  </div>
  </label>
@@ -1152,44 +1039,31 @@ html_content = """<!DOCTYPE html>
  </div>
  </section>
 
- <!-- =========================================================
- 页脚免责声明 (Disclaimer Footer)
- ========================================================= -->
  <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
- <span>Costco Wholesale Corporation (NASDAQ: COST) 深度商业与投资价值分析报告 · 机构研究框架版</span>
- <span>数据基准：FY26 财报及 2026 年 11 月市场一致预期 (FY26/FY27)</span>
+ <span>好市多 Costco Wholesale Corporation (NASDAQ: COST) 深度商业与投资价值分析报告 · 机构研究框架版</span>
+ <span>数据基准：FY2026 全年财报及 2026 年 11 月市场一致预期</span>
  </div>
  <p class="leading-relaxed">
- <strong>免责声明：</strong>本深度研究报告基于 Costco 官方财务报告（10-Q/10-K）、财报电话会议披露数据及全球零售行业调研资料整理生成，旨在提供结构化的产业分析与核心资产估值框架。报告中涉及的盈利预测、会员续费率测算、三情景目标价及 DRIP 复利模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。跨境美股股息预扣税率因投资者国籍、税务居民身份及账户属性存在差异，请在独立核实后审慎决策。
+ <strong>免责声明：</strong>本深度研究报告基于好市多官方财务报告（10-Q/10-K）、FY2026 全年业绩公告及全球零售行业调研资料整理生成，旨在提供结构化的产业分析与估值复利框架。报告中涉及的 EPS 预测、三情景目标价及复利模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。跨境美股股息预扣税率因投资者国籍及账户属性存在差异，请在独立核实后审慎决策。
  </p>
  </footer>
 
  </div>
  </main>
 
- <!-- 交互逻辑与 Chart.js 可视化脚本 -->
  <script>
- // ==========================================
- // 1. 亮色 / 深色模式切换（同步刷新所有 Chart.js 图表）
- // ==========================================
  function toggleTheme() {
  const html = document.documentElement;
  html.classList.toggle('dark');
  updateChartsTheme();
  }
 
- // ==========================================
- // 2. 移动端抽屉菜单切换
- // ==========================================
  function toggleMobileMenu() {
  const drawer = document.getElementById('mobile-drawer');
  drawer.classList.toggle('hidden');
  }
 
- // ==========================================
- // 3. 阅读进度条与左侧导航滚动联动高亮
- // ==========================================
  const sections = document.querySelectorAll('section[id]');
  const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
 
@@ -1211,29 +1085,26 @@ html_content = """<!DOCTYPE html>
  link.classList.remove('active');
  const numSpan = link.querySelector('span span');
  if (numSpan) {
- numSpan.classList.remove('text-costred-400');
+ numSpan.classList.remove('text-costco-400');
  numSpan.classList.add('text-slate-500');
  }
  if (link.dataset.target === currentId) {
  link.classList.add('active');
  if (numSpan) {
  numSpan.classList.remove('text-slate-500');
- numSpan.classList.add('text-costred-400');
+ numSpan.classList.add('text-costco-400');
  }
  }
  });
  });
 
- // ==========================================
- // 4. 同行竞争格局矩阵筛选器
- // ==========================================
  function filterCompetitors(category) {
  document.querySelectorAll('.comp-filter-btn').forEach(btn => {
  if (btn.dataset.filter === category) {
- btn.classList.add('bg-costred-500', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.add('bg-costco-500', 'text-white', 'font-semibold', 'shadow-sm');
  btn.classList.remove('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
  } else {
- btn.classList.remove('bg-costred-500', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.remove('bg-costco-500', 'text-white', 'font-semibold', 'shadow-sm');
  btn.classList.add('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
  }
  });
@@ -1241,7 +1112,7 @@ html_content = """<!DOCTYPE html>
  const rows = document.querySelectorAll('#comp-table-body tr');
  rows.forEach(row => {
  const rowCat = row.dataset.category;
- if (category === 'all' || rowCat === 'warehouse' || rowCat === category) {
+ if (category === 'all' || rowCat === category) {
  row.style.display = '';
  } else {
  row.style.display = 'none';
@@ -1249,21 +1120,18 @@ html_content = """<!DOCTYPE html>
  });
  }
 
- // ==========================================
- // 5. Costco 长期财富复利与 DRIP 财富模拟器
- // ==========================================
- let currentTaxRate = 0.10; // 默认 10% 中美税收协定预扣税率
+ let currentTaxRate = 0.10;
 
  function setTaxRate(rate) {
  currentTaxRate = rate;
  document.querySelectorAll('#tax-btn-group .tax-btn').forEach(btn => {
  const btnRate = parseFloat(btn.dataset.tax);
  if (Math.abs(btnRate - rate) < 0.001) {
- btn.className = 'tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-costred-500 text-white border border-costred-400 shadow transition cursor-pointer';
+ btn.className = 'tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-costco-500 text-white border border-costco-400 shadow transition cursor-pointer';
  const subSpan = btn.querySelector('span');
- if (subSpan) subSpan.className = 'text-[10px] text-slate-200';
+ if (subSpan) subSpan.className = 'text-[10px] text-costco-200';
  } else {
- btn.className = 'tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-costred-400 transition cursor-pointer';
+ btn.className = 'tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-costco-400 transition cursor-pointer';
  const subSpan = btn.querySelector('span');
  if (subSpan) subSpan.className = 'text-[10px] text-slate-400';
  }
@@ -1281,8 +1149,8 @@ html_content = """<!DOCTYPE html>
  document.getElementById('sim-years-label').textContent = years + ' 年';
  document.getElementById('sim-growth-label').textContent = growthPct.toFixed(1) + '%';
 
- const initPrice = 915.00;
- const initDps = 5.00; // 约 0.55% 股息率
+ const initPrice = 982.73;
+ const initDps = 4.60; // 常规年度分红基准
  const g = growthPct / 100;
 
  const initialShares = principal / initPrice;
@@ -1306,7 +1174,7 @@ html_content = """<!DOCTYPE html>
  }
  sharePrice = nextPrice;
  if (y < years) {
- dps = dps * (1 + g); // 假设股息随业绩同步递增
+ dps = dps * (1 + g);
  }
  }
 
@@ -1314,19 +1182,16 @@ html_content = """<!DOCTYPE html>
  const endAnnualNetDiv = shares * endForwardDps * (1 - currentTaxRate);
  const finalPortfolioVal = (shares * sharePrice) + cashPool;
  const totalReturnPct = ((finalPortfolioVal - principal) / principal) * 100;
+ const yieldOnCost = (endAnnualNetDiv / principal) * 100;
 
  document.getElementById('sim-final-value').textContent = '$' + Math.round(finalPortfolioVal).toLocaleString('en-US');
- document.getElementById('sim-total-return').textContent = `累计总回报 +${totalReturnPct.toFixed(1)}% (${drip ? '含DRIP复利' : '现金分红留存'})`;
+ document.getElementById('sim-total-return').textContent = `累计总回报 +${totalReturnPct.toFixed(1)}% (${drip ? '含DRIP复利' : '现金保留'})`;
  document.getElementById('sim-annual-div').textContent = '$' + Math.round(endAnnualNetDiv).toLocaleString('en-US');
- document.getElementById('sim-monthly-div').textContent = `折合每月被动现金流 ~$${Math.round(endAnnualNetDiv / 12).toLocaleString('en-US')}`;
- document.getElementById('sim-share-price').textContent = '$' + sharePrice.toFixed(2);
- document.getElementById('sim-cum-div').textContent = '$' + Math.round(cumulativeNetDiv).toLocaleString('en-US');
- document.getElementById('sim-shares-end').textContent = `期末持仓股数：${shares.toFixed(1)} 股 (起始 ${initialShares.toFixed(1)} 股)`;
+ document.getElementById('sim-monthly-div').textContent = `折合常规年度分红收益 ~$${Math.round(endAnnualNetDiv).toLocaleString('en-US')}/年`;
+ document.getElementById('sim-yoc').textContent = yieldOnCost.toFixed(2) + '%';
+ document.getElementById('sim-shares-end').textContent = shares.toFixed(1) + ' 股';
  }
 
- // ==========================================
- // 6. KPI 核查清单状态持久化与计数更新
- // ==========================================
  const KPI_STORAGE_KEY = 'costco_research_kpi_state_v1';
 
  function loadKpiChecklist() {
@@ -1340,9 +1205,7 @@ html_content = """<!DOCTYPE html>
  }
  });
  }
- } catch (e) {
- // 忽略本地存储权限限制
- }
+ } catch (e) {}
  updateKpiChecklist();
  }
 
@@ -1362,9 +1225,7 @@ html_content = """<!DOCTYPE html>
 
  try {
  localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
- } catch (e) {
- // 忽略本地存储权限限制
- }
+ } catch (e) {}
  }
 
  function resetKpiChecklist() {
@@ -1374,14 +1235,11 @@ html_content = """<!DOCTYPE html>
  updateKpiChecklist();
  }
 
- // ==========================================
- // 7. Chart.js 数据可视化初始化与主题自适应
- // ==========================================
  let bizChartInstance = null;
  let radarChartInstance = null;
  let compMarginChartInstance = null;
  let valEvolutionChartInstance = null;
- let currentBizMode = 'revenue_mix';
+ let currentBizMode = 'financials';
 
  function getChartColors() {
  const isDark = document.documentElement.classList.contains('dark');
@@ -1396,25 +1254,34 @@ html_content = """<!DOCTYPE html>
  const ctx = document.getElementById('bizArchitectureChart').getContext('2d');
  const colors = getChartColors();
 
- // 视图 A：2022–2026E 总营收与会员费收入拆解 ($B)
- const revConfig = {
+ const finConfig = {
  type: 'bar',
  data: {
- labels: ['2022', '2023', '2024', '2025', '2026E'],
+ labels: ['FY2022', 'FY2023', 'FY2024', 'FY2025', 'FY2026'],
  datasets: [
  {
- label: '商品与服务净销售额 ($B)',
- data: [222.7, 237.7, 254.4, 275.0, 298.0],
- backgroundColor: '#DC2626',
+ label: '净销售额 Net Sales ($B)',
+ data: [222.7, 237.7, 254.4, 269.9, 297.2],
+ backgroundColor: '#3B82F6',
  borderRadius: 4,
- stack: 'rev'
+ stack: 'sales'
  },
  {
- label: '会员费总收入 ($B)',
- data: [4.22, 4.58, 4.83, 5.20, 5.65],
+ label: '会员费收入 Membership Fees ($B)',
+ data: [4.22, 4.58, 4.83, 5.25, 5.60],
  backgroundColor: '#10B981',
  borderRadius: 4,
- stack: 'rev'
+ stack: 'fees'
+ },
+ {
+ type: 'line',
+ label: '净利润 Net Income ($B)',
+ data: [5.84, 6.29, 7.36, 8.10, 9.23],
+ borderColor: '#06B6D4',
+ backgroundColor: '#06B6D4',
+ borderWidth: 2.5,
+ pointRadius: 4,
+ tension: 0.25
  }
  ]
  },
@@ -1439,7 +1306,7 @@ html_content = """<!DOCTYPE html>
  },
  y: {
  min: 0,
- max: 330,
+ max: 320,
  grid: { color: colors.grid },
  ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'B' }
  }
@@ -1447,30 +1314,23 @@ html_content = """<!DOCTYPE html>
  }
  };
 
- // 视图 B：付费会员数与仓储卖场数量
- const volConfig = {
+ const metricsConfig = {
  type: 'bar',
  data: {
  labels: [
- '全球付费会员总数 (Million)',
- '全球仓储卖场总数 (Store Count)',
- '全球会员续费率 (%)',
- '北美会员续费率 (%)',
- '私有品牌 Kirkland 销售占比 (%)'
+ '付费会员总数 (百万)',
+ '美加地区会员续费率 (%)',
+ '全球总体会员续费率 (%)',
+ '数字赋能销售额 (百亿美元)',
+ 'FY26 摊薄 EPS ($/股)'
  ],
  datasets: [
  {
- label: '核心业务经营指标',
- data: [132, 892, 93.2, 94.8, 30.0],
- backgroundColor: [
- '#DC2626',
- '#B91C1C',
- '#10B981',
- '#06B6D4',
- '#6366F1'
- ],
+ label: '核心运营指标数据',
+ data: [84.1, 92.3, 89.8, 3.3, 20.61],
+ backgroundColor: ['#3B82F6', '#10B981', '#06B6D4', '#6366F1', '#F59E0B'],
  borderRadius: 6,
- barThickness: 22
+ barThickness: 24
  }
  ]
  },
@@ -1482,14 +1342,14 @@ html_content = """<!DOCTYPE html>
  legend: { display: false },
  tooltip: {
  callbacks: {
- label: (ctx) => `指标数值: ${ctx.parsed.x}${ctx.dataIndex === 0 ? 'M人' : ctx.dataIndex === 1 ? '家' : '%'}`
+ label: (ctx) => `指标数值: ${ctx.parsed.x}`
  }
  }
  },
  scales: {
  x: {
  min: 0,
- max: 150,
+ max: 100,
  grid: { color: colors.grid },
  ticks: { color: colors.text, font: { size: 11 } }
  },
@@ -1502,26 +1362,26 @@ html_content = """<!DOCTYPE html>
  };
 
  if (bizChartInstance) bizChartInstance.destroy();
- bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_mix' ? revConfig : volConfig);
+ bizChartInstance = new Chart(ctx, currentBizMode === 'financials' ? finConfig : metricsConfig);
  }
 
  function switchBizChart(mode) {
  currentBizMode = mode;
- const btnRev = document.getElementById('btn-chart-rev');
- const btnVol = document.getElementById('btn-chart-vol');
+ const btnFin = document.getElementById('btn-chart-fin');
+ const btnMet = document.getElementById('btn-chart-met');
  const titleEl = document.getElementById('biz-chart-title');
  const subEl = document.getElementById('biz-chart-sub');
 
- if (mode === 'revenue_mix') {
- btnRev.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-costred-600 dark:text-costred-400 shadow-sm transition cursor-pointer';
- btnVol.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
- titleEl.textContent = '2022–2026E 总营收与会员费收入演进 ($B)';
- subEl.textContent = '商品销售实现超大规模吞吐，而每年稳步增长的会员费构成公司核心利润来源';
+ if (mode === 'financials') {
+ btnFin.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-costco-600 dark:text-costco-400 shadow-sm transition cursor-pointer';
+ btnMet.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2022–2026 净销售额、会员费收入与净利润演进';
+ subEl.textContent = '商品销售基本实现接近零毛利运营，公司绝大部分净利润由高粘性会员费贡献';
  } else {
- btnVol.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-costred-600 dark:text-costred-400 shadow-sm transition cursor-pointer';
- btnRev.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
- titleEl.textContent = 'Costco 全球付费会员数、卖场数量与续费率关键指标';
- subEl.textContent = '付费会员突破 1.3 亿，全球门店逾 890 家，北美续费率高达 94.8%';
+ btnMet.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-costco-600 dark:text-costco-400 shadow-sm transition cursor-pointer';
+ btnFin.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '好市多核心会员与运营指标多维拆解';
+ subEl.textContent = '8410万付费会员、92.3%超高美加续费率与突破 $330亿 的数字赋能销售额';
  }
  initBizChart();
  }
@@ -1536,23 +1396,23 @@ html_content = """<!DOCTYPE html>
  data: {
  labels: [
  '会员粘性与续费率',
- '供应链议价与成本控制',
- '私有品牌 (Kirkland) 号召力',
- '单店坪效与库存周转效率',
- '品牌信任与长期口碑护城河'
+ '供应链议价与坪效',
+ '自有品牌忠诚度',
+ '现金流与营运资本',
+ '数字电商与全渠道'
  ],
  datasets: [
  {
- label: 'Costco (COST)',
- data: [9.9, 9.8, 9.7, 9.9, 9.8],
- borderColor: '#DC2626',
- backgroundColor: 'rgba(220, 38, 38, 0.24)',
- pointBackgroundColor: '#DC2626',
+ label: '好市多 (COST)',
+ data: [9.9, 9.8, 9.6, 9.7, 8.2],
+ borderColor: '#3B82F6',
+ backgroundColor: 'rgba(59, 130, 246, 0.24)',
+ pointBackgroundColor: '#3B82F6',
  borderWidth: 2.5
  },
  {
  label: '沃尔玛/山姆 (WMT)',
- data: [9.2, 9.9, 8.8, 9.0, 9.1],
+ data: [8.8, 9.5, 8.5, 9.0, 9.4],
  borderColor: '#10B981',
  backgroundColor: 'rgba(16, 185, 129, 0.14)',
  pointBackgroundColor: '#10B981',
@@ -1560,7 +1420,7 @@ html_content = """<!DOCTYPE html>
  },
  {
  label: '塔吉特 (TGT)',
- data: [7.2, 7.8, 8.0, 7.5, 7.9],
+ data: [7.2, 7.8, 7.5, 7.6, 8.5],
  borderColor: '#06B6D4',
  backgroundColor: 'rgba(6, 182, 212, 0.12)',
  pointBackgroundColor: '#06B6D4',
@@ -1601,26 +1461,25 @@ html_content = """<!DOCTYPE html>
  type: 'bar',
  data: {
  labels: [
- '好市多 (COST · 仓储会员王者)',
- '沃尔玛/山姆 (WMT · 综合零售巨头)',
- 'BJ\'s Wholesale (BJ · 东海岸区域仓储)',
+ '好市多 (COST · 会员制零售王者)',
+ '沃尔玛 (WMT · 全球零售巨头)',
  '塔吉特 (TGT · 百货与时尚零售)',
- '克罗格 (KR · 传统连锁超市)'
+ '亚马逊 (AMZN · 电商与云服务)'
  ],
  datasets: [
  {
- label: '商品毛利率 Gross Margin (%)',
- data: [11.5, 24.5, 18.0, 27.5, 22.0],
- backgroundColor: '#DC2626',
+ label: '营业利润率 Operating Margin (%)',
+ data: [3.6, 4.2, 5.5, 8.2],
+ backgroundColor: '#3B82F6',
  borderRadius: 5,
- barThickness: 14
+ barThickness: 16
  },
  {
- label: '远期 P/E 估值倍数',
- data: [48.0, 32.0, 20.5, 16.5, 14.0],
+ label: '远期估值 P/E (约数)',
+ data: [48.0, 31.0, 17.0, 38.0],
  backgroundColor: '#10B981',
  borderRadius: 5,
- barThickness: 14
+ barThickness: 16
  }
  ]
  },
@@ -1632,11 +1491,6 @@ html_content = """<!DOCTYPE html>
  legend: {
  position: 'bottom',
  labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
- },
- tooltip: {
- callbacks: {
- label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x}${ctx.datasetIndex === 0 ? '%' : 'x'}`
- }
  }
  },
  scales: {
@@ -1662,26 +1516,25 @@ html_content = """<!DOCTYPE html>
  valEvolutionChartInstance = new Chart(ctx, {
  type: 'bar',
  data: {
- labels: ['2022', '2023', '2024', '2025', '2026E'],
+ labels: ['FY2022', 'FY2023', 'FY2024', 'FY2025', 'FY2026'],
  datasets: [
  {
  type: 'bar',
- label: '调整后摊薄 EPS ($/股)',
- data: [13.14, 14.16, 16.56, 17.10, 18.85],
- backgroundColor: 'rgba(220, 38, 38, 0.85)',
+ label: '摊薄 EPS ($/股)',
+ data: [13.14, 14.16, 16.56, 18.21, 20.61],
+ backgroundColor: 'rgba(59, 130, 246, 0.85)',
  borderRadius: 5,
  barThickness: 28,
  yAxisID: 'y'
  },
  {
  type: 'line',
- label: '全球付费会员总数 (百万人)',
- data: [118.9, 123.4, 127.9, 130.5, 134.0],
+ label: '净销售额 ($B)',
+ data: [222.7, 237.7, 254.4, 269.9, 297.2],
  borderColor: '#10B981',
  backgroundColor: '#10B981',
  borderWidth: 3,
  pointRadius: 5,
- pointHoverRadius: 7,
  tension: 0.25,
  yAxisID: 'y1'
  }
@@ -1694,13 +1547,6 @@ html_content = """<!DOCTYPE html>
  legend: {
  position: 'bottom',
  labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
- },
- tooltip: {
- callbacks: {
- label: (ctx) => ctx.dataset.yAxisID === 'y'
- ? `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}`
- : `${ctx.dataset.label}: ${ctx.parsed.y}M人`
- }
  }
  },
  scales: {
@@ -1711,20 +1557,20 @@ html_content = """<!DOCTYPE html>
  y: {
  type: 'linear',
  position: 'left',
- min: 10.0,
- max: 21.0,
+ min: 10,
+ max: 25,
  grid: { color: colors.grid },
  ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v.toFixed(1) },
- title: { display: true, text: '调整后摊薄 EPS ($/股)', color: colors.text, font: { size: 11 } }
+ title: { display: true, text: '摊薄 EPS ($/股)', color: colors.text, font: { size: 11 } }
  },
  y1: {
  type: 'linear',
  position: 'right',
- min: 110,
- max: 145,
+ min: 200,
+ max: 350,
  grid: { drawOnChartArea: false },
- ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => v + 'M' },
- title: { display: true, text: '付费会员数 (百万人)', color: '#10B981', font: { size: 11 } }
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => '$' + v + 'B' },
+ title: { display: true, text: '净销售额 ($B)', color: '#10B981', font: { size: 11 } }
  }
  }
  }
@@ -1749,7 +1595,3 @@ html_content = """<!DOCTYPE html>
  </script>
 </body>
 </html>
-"""
-with open("/mnt/data/COST_Investment_Analysis_2026.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-print("Saved COST_Investment_Analysis_2026.html")

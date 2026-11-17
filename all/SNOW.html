@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Snowflake Inc. (NYSE: SNOW) 深度研究报告：云端数据与 AI 云平台霸主、Consumption 计费弹性与 Agentic AI 商业化突围</title>
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <!-- Chart.js -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <!-- Google Fonts: Inter + Noto Sans SC + JetBrains Mono -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script>
+ tailwind.config = {
+ darkMode: 'class',
+ theme: {
+ extend: {
+ fontFamily: {
+ sans: ['Inter', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
+ mono: ['JetBrains Mono', 'monospace'],
+ },
+ colors: {
+ navy: {
+ 950: '#070B14',
+ 900: '#0F172A',
+ 800: '#1E293B',
+ 700: '#334155',
+ },
+ snowblue: {
+ 300: '#7DD3FC',
+ 400: '#38BDF8',
+ 500: '#0284C7',
+ 600: '#02689C',
+ 700: '#034E7A',
+ },
+ emerald: {
+ 400: '#34D399',
+ 500: '#10B981',
+ 600: '#059669',
+ },
+ cyan: {
+ 400: '#22D3EE',
+ 500: '#06B6D4',
+ 600: '#0891B2',
+ }
+ }
+ }
+ }
+ }
+ </script>
+
+ <style>
+ ::-webkit-scrollbar {
+ width: 6px;
+ height: 6px;
+ }
+ ::-webkit-scrollbar-track {
+ background: transparent;
+ }
+ ::-webkit-scrollbar-thumb {
+ background: #94A3B8;
+ border-radius: 3px;
+ }
+ .dark ::-webkit-scrollbar-thumb {
+ background: #475569;
+ }
+
+ @media print {
+ #sidebar, #mobile-header, #theme-toggle-btn, .no-print {
+ display: none !important;
+ }
+ main {
+ margin-left: 0 !important;
+ padding: 0 !important;
+ }
+ section {
+ break-inside: avoid;
+ }
+ }
+
+ .report-card {
+ transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+ }
+ .report-card:hover {
+ transform: translateY(-2px);
+ }
+
+ .nav-link.active {
+ background: linear-gradient(90deg, rgba(56, 189, 248, 0.24) 0%, rgba(16, 185, 129, 0.06) 100%);
+ border-left: 3px solid #38BDF8;
+ color: #FFFFFF;
+ font-weight: 600;
+ }
+ </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-snowblue-500 selection:text-navy-950 transition-colors duration-200">
+
+ <!-- 顶部阅读进度条 -->
+ <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-200/70 dark:bg-navy-800">
+ <div id="reading-progress" class="h-full bg-gradient-to-r from-snowblue-600 via-snowblue-400 to-emerald-500 w-0 transition-all duration-150"></div>
+ </div>
+
+ <!-- 移动端顶部导航栏 -->
+ <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+ <div class="flex items-center space-x-2.5">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-snowblue-400 to-snowblue-600 flex items-center justify-center font-extrabold text-navy-950 text-xs shadow">
+ SNOW
+ </div>
+ <div>
+ <div class="text-[11px] text-snowblue-400 font-semibold tracking-wider uppercase">NYSE: SNOW · AI Data Cloud</div>
+ <div class="text-sm font-bold leading-tight">Snowflake 深度研究报告</div>
+ </div>
+ </div>
+ <div class="flex items-center space-x-2">
+ <button onclick="toggleTheme()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300" aria-label="切换主题">
+ <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ </button>
+ <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-white" aria-label="打开目录">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+ </button>
+ </div>
+ </header>
+
+ <!-- 移动端折叠抽屉菜单 -->
+ <div id="mobile-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+ <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+ <nav class="relative w-72 max-w-[80vw] h-full bg-navy-900 text-slate-300 flex flex-col justify-between p-5 overflow-y-auto shadow-2xl">
+ <div>
+ <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+ <span class="font-bold text-white text-base">SNOW 研报目录导航</span>
+ <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg text-slate-400 hover:text-white">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+ </button>
+ </div>
+ <ul class="mt-4 space-y-1.5 text-sm">
+ <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">00. 执行摘要与核心指标</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 业务与产品收入架构</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 行业地位与四重护城河</a></li>
+ <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 全球云数据与AI巨头横向对比</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与自由现金流推演</a></li>
+ <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 投资决策与三情景估值</a></li>
+ <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">06. 季度跟踪 KPI 核查清单</a></li>
+ </ul>
+ </div>
+ <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+ <p>全球科技与云数据架构研究组</p>
+ <p class="mt-1">数据基准：2026年11月 (FY27 Q3)</p>
+ </div>
+ </nav>
+ </div>
+
+ <!-- 桌面端左侧固定侧边导航栏 -->
+ <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
+ <div>
+ <div class="p-5 border-b border-slate-800/80">
+ <div class="flex items-center space-x-3">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-snowblue-400 via-snowblue-500 to-snowblue-600 flex items-center justify-center text-navy-950 font-extrabold text-base shadow-lg shadow-snowblue-500/25">
+ SNOW
+ </div>
+ <div>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-snowblue-400 bg-snowblue-500/15 px-2 py-0.5 rounded">NYSE: SNOW</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">Snowflake 深度研报</h2>
+ </div>
+ </div>
+ <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
+ AI Data Cloud 领军者 · Consumption 计费弹性与 Agentic AI 智能体商业化提速
+ </p>
+ </div>
+
+ <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">参考股价 (52周区间)</span>
+ <span class="font-mono font-bold text-white">~$282.92 <span class="text-slate-400 text-[10px]">($118.3-$384.6)</span></span>
+ </div>
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">FY27 产品营收指引</span>
+ <span class="font-mono font-bold text-emerald-400">~$6.07B <span class="text-slate-400">(+36% YoY)</span></span>
+ </div>
+ <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
+ <span class="text-slate-400">核心指标与 RPO</span>
+ <span class="font-mono font-bold text-snowblue-400">NRR 126% · RPO $9.0B</span>
+ </div>
+ </div>
+
+ <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
+ <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">核心研究章节</div>
+ <nav id="desktop-nav" class="space-y-1 text-[13px]">
+ <a href="#sec-exec" data-target="sec-exec" class="nav-link active flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-snowblue-400 mr-2">00</span>执行摘要与核心指标</span>
+ </a>
+ <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>业务与产品收入架构</span>
+ </a>
+ <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>行业地位与四重护城河</span>
+ </a>
+ <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>全球云数据与AI巨头横向对比</span>
+ </a>
+ <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与自由现金流推演</span>
+ </a>
+ <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>投资决策与三情景估值</span>
+ </a>
+ <a href="#sec-kpi" data-target="sec-kpi" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">06</span>季度跟踪 KPI 核查清单</span>
+ </a>
+ </nav>
+ </div>
+ </div>
+
+ <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
+ <div class="flex items-center justify-between">
+ <span class="text-xs text-slate-400">阅读模式切换</span>
+ <button id="theme-toggle-btn" onclick="toggleTheme()" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-medium text-slate-200 border border-slate-700 transition cursor-pointer">
+ <svg class="w-3.5 h-3.5 text-snowblue-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ <svg class="w-3.5 h-3.5 text-snowblue-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <span class="dark:hidden">深色护眼模式</span>
+ <span class="hidden dark:inline">机构亮色模式</span>
+ </button>
+ </div>
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-snowblue-500 to-snowblue-600 hover:from-snowblue-600 hover:to-snowblue-700 text-navy-950 text-xs font-extrabold transition shadow-sm cursor-pointer">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+ <span>打印 / 导出 PDF 研报</span>
+ </button>
+ </div>
+ </aside>
+
+ <!-- 主内容区 -->
+ <main class="lg:ml-[280px] min-h-screen">
+ <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 lg:py-12 space-y-12">
+
+ <!-- =========================================================
+ 00. Hero 研报封面区与执行摘要
+ ========================================================= -->
+ <section id="sec-exec" class="scroll-mt-20">
+ <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
+ <div class="flex flex-wrap items-center gap-2">
+ <span class="px-2.5 py-1 rounded-md bg-snowblue-500/15 text-snowblue-700 dark:text-snowblue-400 font-bold border border-snowblue-500/30">评级：买入 / AI 云数据核心成长底仓</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">覆盖周期：FY27 财务指引与 Agentic AI 落地验证期</span>
+ </div>
+ <div class="flex items-center space-x-3 font-mono">
+ <span>覆盖时间：2026年11月</span>
+ <span>NYSE: SNOW</span>
+ </div>
+ </div>
+
+ <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#38BDF8 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="relative z-10">
+ <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-snowblue-500/20 border border-snowblue-400/40 text-snowblue-300 text-xs font-semibold mb-4">
+ <span class="w-2 h-2 rounded-full bg-snowblue-400 animate-pulse"></span>
+ <span>CORE THESIS · Consumption 计费弹性恢复 × Cortex AI & Agentic Marketplace 平台网络效应 × 36% 产品营收高速增长</span>
+ </div>
+ <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
+ Snowflake Inc. (NYSE: SNOW) 深度研究报告：云端数据与 AI 云平台霸主、Consumption 计费弹性与 Agentic AI 商业化突围
+ </h1>
+ <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
+ Snowflake 凭借其独树一帜的 <strong class="text-white">Data Cloud（数据云）架构</strong> 与按需消耗（Consumption-based）计费模式，在企业级数据治理、跨云共享和 AI 基础设施中确立了绝对的护城河。随着宏观IT支出回暖及 <strong>Cortex AI、Snowflake CoCo、Agentic Marketplace</strong> 的全面落地，公司业务强劲反弹：FY27 全年产品营收预期上调至 <strong class="text-snowblue-300">$60.7亿（同比增长 +36%）</strong>，剩余履约义务（RPO）跃升至 <strong class="text-emerald-400">$90亿（同比 +30%）</strong>，非 GAAP 产品毛利率稳居 <strong>74%</strong> 高位，全面迈向高增长与自由现金流盈余的双轨复利阶段。
+ </p>
+
+ <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">大客户矩阵超预期膨胀</div>
+ <div class="text-white font-semibold">T12M 产品营收超 $100 万大客户达 828 家，Forbes Global 2000 渗透率突破 829 家</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">NRR 留存与消费韧性极强</div>
+ <div class="text-snowblue-400 font-semibold">净收入留存率（NRR）稳健维持在 126%，展现极高的数据粘性与平台拓展力</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">Agentic AI 与数据工程闭环</div>
+ <div class="text-emerald-400 font-semibold">收购 Observe 与 TensorStax，构建从 IT Observability 到智能体协同的端到端生态</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 4个核心 KPI 卡片 -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>总市值与最新股价</span>
+ <span class="p-1.5 rounded-lg bg-snowblue-500/15 text-snowblue-600 dark:text-snowblue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$98.9B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$282.92</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 随着 AI 数据云平台产品线大超预期，市值稳步重回千亿美元关口附近。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>FY27 产品营收指引</span>
+ <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$6.07B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">+36% YoY</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 较此前指引显著上调（前值 $58.4亿 / +31%），彰显企业级计算与存储消耗动能强劲。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>剩余履约义务 (RPO) & NRR</span>
+ <span class="p-1.5 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$9.0B</span>
+ <span class="text-xs font-bold text-cyan-600 dark:text-cyan-400 bg-cyan-500/15 px-2 py-0.5 rounded">NRR 126%</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ RPO 同比大增 +30%（达 $90亿），大客户续费与长期合同锁定能力在SaaS软件中首屈一指。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>非 GAAP 产品毛利与经调 FCF</span>
+ <span class="p-1.5 rounded-lg bg-snowblue-500/15 text-snowblue-600 dark:text-snowblue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">74.0%</span>
+ <span class="text-xs font-bold text-snowblue-700 dark:text-snowblue-400 bg-snowblue-500/15 px-2 py-0.5 rounded">FCF Margin 23%</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 经调整自由现金流利润率达 23%，展现出规模效应带来的强劲盈利转化能力。
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 一、 业务与产品收入架构 (Business & Revenue Architecture)
+ ========================================================= -->
+ <section id="sec-biz" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-snowblue-600 dark:text-snowblue-400">Section 01 · Business & Revenue Architecture</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 业务与产品收入架构：Data Cloud 数据云底座、按需消耗模式与 AI 矩阵协同</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY27 全年产品营收目标 ~$6.07B · 托管于 AWS/Azure/GCP 多云架构</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+ <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">FY23–FY27E 产品营收增长与自由现金流（FCF）演进</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">产品营收从 $2.0B 迅速跃升至超 $6.0B 规模，同时自由现金流转正并高速扩张</p>
+ </div>
+ <div class="inline-flex rounded-lg bg-slate-100 dark:bg-navy-800 p-1 text-xs no-print">
+ <button onclick="switchBizChart('revenue_fcf')" id="btn-chart-rev" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-snowblue-600 dark:text-snowblue-400 shadow-sm transition cursor-pointer">视图A：产品营收与FCF规模</button>
+ <button onclick="switchBizChart('metrics_split')" id="btn-chart-met" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：大客户与留存率拆解</button>
+ </div>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="bizArchitectureChart"></canvas>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">Snowflake 核心增长的三大引擎</h3>
+ <ul class="space-y-4 text-sm">
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-snowblue-500/15 text-snowblue-600 dark:text-snowblue-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">Consumption 模型：算力与存储按需消耗，随企业 AI 数据量爆发同步放大</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 摆脱传统 SaaS 的固定席位授权，Snowflake 采用基于计算资源（Virtual Warehouses）与存储消耗的定价模式，完美适配企业无上限的数据湖仓膨胀需求。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">Cortex AI 与 Agentic Marketplace 驱动智能化升级</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 通过内置大模型服务 Cortex AI、Snowflake CoCo 及智能体发现市场，让企业直接在统一安全的数据治理边界内构建和运行 AI Agent，大幅提升吞吐量。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">跨云互通与 Data Share 构筑的网络外部性</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 数据无需复制即可在 AWS、Azure 和 Google Cloud 之间安全共享，吸引 829 家 Forbes Global 2000 企业入驻，形成极强的供需两端网络效应。
+ </p>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+ <span class="text-slate-500 dark:text-slate-400">大客户护城河指标</span>
+ <span class="font-bold text-snowblue-600 dark:text-snowblue-400">百万美元营收客户突破 828 家</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-snowblue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-snowblue-500/15 text-snowblue-700 dark:text-snowblue-400 text-xs font-bold">核心营收绝对支柱 · 占总产品营收 ~95%+</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">毛利率 ~74%</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 数据云产品矩阵（Data Warehouse + Data Lake + Data Engineering）</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 涵盖结构化与半结构化数据的高性能存储与极速 SQL 查询。通过存算分离（Storage & Compute Separation）架构，企业可独立扩展计算节点以处理海量并发查询，产品毛利率常年维持在 <strong>74%–75%</strong> 的顶尖软件水准。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>FY27 产品营收指引 ~$6.07B (+36%)</span>
+ <span class="text-snowblue-600 dark:text-snowblue-400 font-semibold">存算分离架构标杆</span>
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">高成长第二曲线 · AI 与协作生态</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">RPO 高达 $9.0B</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. AI、应用与跨云协作生态（Cortex AI + Marketplace + Observe）</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 通过收购 <strong>Observe</strong> 进入 500 亿美元以上的 IT 运维与可观测性市场，并推出 <strong>Cortex Code</strong> 与 <strong>Agentic Marketplace</strong>。Snowflake 正在将数据平台从简单的“仓库”升级为企业运行 AI 智能体（AI Agents）的核心神经中枢。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+ <span>剩余履约义务 RPO 同比 +30%</span>
+ <span class="text-emerald-600 dark:text-emerald-400 font-semibold">AI Agent 基础底座爆发</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 二、 行业地位与四重核心护城河 (Industry Position & Moat)
+ ========================================================= -->
+ <section id="sec-moat" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Industry Position & Economic Moat</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 行业地位与四重核心护城河：存算分离、多云互通与 126% NRR 留存壁垒</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 全球企业级云数据事实标准)</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-snowblue-500/15 text-snowblue-600 dark:text-snowblue-400 flex items-center justify-center font-bold text-sm">01</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">跨云多云架构（AWS / Azure / GCP）中立性</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 不同于各大公有云厂商强绑定的自家数据服务（如 Redshift 或 BigQuery），Snowflake 实现了三大主流云平台的无缝跨云运行，消除企业“数据孤岛”与厂商锁死风险。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">Data Share 强大网络外部性</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 随着全球 829 家世界 2000 强企业和海量供应商入驻 Snowflake Data Marketplace，买卖双方可以直接在平台上进行安全、实时的零拷贝数据交换，网络效应极强。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-sm">03</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">126% 高留存率与高切换成本</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 核心业务系统、历史数据湖与 AI 管道一旦全面托管在 Snowflake 上，企业迁移至竞品的重构成本极高，从而支撑高达 126% 的净收入留存率（NRR）。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">04</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">Snowpark 与 Cortex AI 开发者生态</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ Snowpark 允许开发人员使用 Python、Java 等原生语言直接在数据端运行复杂代码，配合 Cortex AI 大模型加速，彻底打破了传统 SQL 引擎的功能边界。
+ </p>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">云数据与 AI 基础设施巨头五维护城河雷达图</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Snowflake (SNOW) vs Databricks vs AWS Redshift vs Google BigQuery（满分 10 分）</p>
+ <div class="relative h-72 w-full">
+ <canvas id="moatRadarChart"></canvas>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 三、 全球云数据与AI巨头横向对比 (Competitive Landscape)
+ ========================================================= -->
+ <section id="sec-comp" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-snowblue-600 dark:text-snowblue-400">Section 03 · Global Cloud Data & AI Competitive Landscape</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球云数据与 AI 巨头横向对比：多云中立定位、36% 营收增速与生态协同</h2>
+ </div>
+ <div class="flex flex-wrap gap-1.5 text-xs no-print" id="comp-filter-group">
+ <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-snowblue-500 text-navy-950 shadow-sm transition cursor-pointer">全部巨头</button>
+ <button onclick="filterCompetitors('cloud')" data-filter="cloud" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">云厂商自有数据服务</button>
+ <button onclick="filterCompetitors('independent')" data-filter="independent" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">独立云数据与AI平台</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+ <div class="overflow-x-auto">
+ <table class="w-full text-left border-collapse">
+ <thead>
+ <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+ <th class="py-4 px-5 min-w-[180px]">企业名称与核心平台</th>
+ <th class="py-4 px-4 min-w-[130px]">核心架构优势</th>
+ <th class="py-4 px-4 min-w-[140px]">AI 与大模型进展</th>
+ <th class="py-4 px-4 min-w-[100px]">营收增速 (YoY)</th>
+ <th class="py-4 px-4 min-w-[115px]">毛利率水平</th>
+ <th class="py-4 px-5 min-w-[230px]">核心优劣势与竞合定位评估</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm" id="comp-table-body">
+ <tr data-category="independent" class="bg-snowblue-500/5 dark:bg-snowblue-500/10 font-medium">
+ <td class="py-4 px-5">
+ <div class="flex items-center space-x-2">
+ <span class="px-2 py-0.5 rounded bg-snowblue-500 text-navy-950 text-[10px] font-extrabold">核心标的</span>
+ <span class="font-bold text-slate-900 dark:text-white">Snowflake (SNOW)</span>
+ </div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Data Cloud / Cortex AI / Observe</div>
+ </td>
+ <td class="py-4 px-4 font-semibold text-slate-900 dark:text-white">真正实现 AWS / Azure / GCP 跨云打通</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400">Cortex AI + Agentic Mkt</span>
+ </td>
+ <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">~36%</td>
+ <td class="py-4 px-4 font-mono font-bold text-snowblue-600 dark:text-snowblue-400">~74.0%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>企业级数据与 AI 中立平台标杆：</strong>客户留存高达 126%，大客户数量爆发，数据共享网络效应无出其右。
+ </td>
+ </tr>
+
+ <tr data-category="independent" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">Databricks (未上市)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Lakehouse / Mosaic AI / Delta Lake</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">开源数据湖泊技术与 AI 强绑定</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-snowblue-500/15 text-snowblue-700 dark:text-snowblue-400">Mosaic AI + DBRX 开源模型</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~50%+ (私有)</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~70% 估计</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>AI 研发与机器学习的最强竞争对手：</strong>在数据科学和生成式 AI 训练领域极具统治力，与 Snowflake 在企业级数仓和 AI 治理上形成直接竞争。
+ </td>
+ </tr>
+
+ <tr data-category="cloud" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">AWS (Amazon Redshift / Athena)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Amazon S3 + Bedrock 体系</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">AWS 基础设施底座与成本聚合优势</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/15 text-amber-700 dark:text-amber-400">Bedrock AI 智能体集成</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~15%-20%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">高 (云基础设施分摊)</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>云厂商原生竞争者：</strong>对纯 AWS 用户具有价格吸引力，但缺乏 Snowflake 的跨云中立性与优雅的多云数据共享体验。
+ </td>
+ </tr>
+
+ <tr data-category="cloud" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">Google Cloud (BigQuery)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">BigQuery + Vertex AI</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">无服务器架构与超大规模实时分析</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/15 text-emerald-700 dark:text-emerald-400">Gemini 深度原生集成</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~20%</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">高</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>AI 原生数据巨头：</strong>凭借 Gemini 模型在 BigQuery 中直接提供强大的文本与多模态分析能力，是 Snowflake 在大企业客户中的有力对手。
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">全球云数据与 AI 平台营收增速与产品毛利率横向对照</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">Snowflake 凭借 ~36% 的产品营收增速与 74% 毛利率，在独立云数据板块保持强劲领跑地位</p>
+ </div>
+ <span class="text-xs font-semibold text-snowblue-700 dark:text-snowblue-400 bg-snowblue-500/15 px-2.5 py-1 rounded">36% 增速与 74% 毛利率双优</span>
+ </div>
+ <div class="relative h-64 w-full">
+ <canvas id="compMarginChart"></canvas>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 四、 财务健康与自由现金流推演 (Financial Health & Simulator)
+ ========================================================= -->
+ <section id="sec-fin" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 · Financial Health & FCF Compound Simulator</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康度与现金流推演：43亿现金储备、23% FCF 利润率与成长复利模型</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">现金及短期投资 ~$43亿 · 零有息负债结构</span>
+ </div>
+
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-snowblue-600 dark:text-snowblue-400 uppercase">Cash & Investments</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~$4.3B</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 资产负债表极其稳健，持有逾 43 亿美元现金及有价证券，且无长期有息债务，为高强度研发与战略并购提供坚实底气。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Adjusted FCF Margin</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">23.0%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 经调整自由现金流利润率稳步攀升至 23%，全年自由现金流规模突破 11–12 亿美元，彻底告别纯烧钱 SaaS 阶段。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase">Remaining Performance Obligation</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">$9.0B</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 剩余履约义务（RPO）达 90 亿美元（同比增长 +30%），合同锁定效应为未来数年的营收变现提供极高可见度。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">Net Revenue Retention</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">126%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ NRR 稳定在 126%，展现出现有客户在平台上持续加大算力消耗和横向采购 AI 服务的强烈意愿。
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">FY22–FY27E 产品营收增长与非 GAAP 营业利润率演进趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">公司在保持 30% 以上高速营收增长的同时，非 GAAP 营业利润率与现金流兑现效率持续优化</p>
+ </div>
+ <span class="text-xs font-mono font-bold text-snowblue-700 dark:text-snowblue-400 bg-snowblue-500/15 px-2.5 py-1 rounded">规模效应驱动盈利能力稳步释放</span>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="valEvolutionChart"></canvas>
+ </div>
+ </div>
+
+ <!-- 交互式 Snowflake 长期成长与估值推演器 -->
+ <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-700 shadow-xl space-y-6 no-print">
+ <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-700/80">
+ <div>
+ <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-snowblue-400 font-bold">
+ <span>CLOUD & AI GROWTH COMPOUNDING ENGINE · 长期营收与估值推演模拟器</span>
+ </div>
+ <h3 class="text-lg sm:text-xl font-bold text-white mt-1">Snowflake 长期营收与估值市值动态推演器</h3>
+ <p class="text-xs text-slate-400 mt-0.5">基准参数：当前参考股价 $282.92 | 当前产品营收 ~$6.07B | 支持调整未来产品营收复合增速与远期 P/S 估值倍数</p>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-5 space-y-4 text-xs">
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">初始投资模拟本金 (USD)</span>
+ <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$50,000</span>
+ </div>
+ <input id="sim-principal" type="range" min="10000" max="200000" step="10000" value="50000" oninput="updateSnowSimulator()" class="w-full accent-[#38BDF8] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">预测持有年限 (Years)</span>
+ <span id="sim-years-label" class="font-mono font-bold text-white text-sm">5 年</span>
+ </div>
+ <input id="sim-years" type="range" min="1" max="10" step="1" value="5" oninput="updateSnowSimulator()" class="w-full accent-[#38BDF8] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">产品营收年均复合增速 (CAGR)</span>
+ <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">25.0%</span>
+ </div>
+ <input id="sim-growth" type="range" min="15" max="35" step="1" value="25" oninput="updateSnowSimulator()" class="w-full accent-[#10B981] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">期末市销率 P/S 估值倍数假设</span>
+ <span id="sim-ps-label" class="font-mono font-bold text-snowblue-400 text-sm">12.0x</span>
+ </div>
+ <input id="sim-ps" type="range" min="8" max="22" step="1" value="12" oninput="updateSnowSimulator()" class="w-full accent-[#38BDF8] cursor-pointer">
+ </div>
+ </div>
+
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末预计产品营收规模</div>
+ <div id="sim-final-rev" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$18.5B</div>
+ <div class="text-xs text-slate-400 mt-1.5">基于设定 CAGR 推演的未来年营收</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末预计合理总市值</div>
+ <div id="sim-final-mcap" class="text-2xl sm:text-3xl font-mono font-extrabold text-snowblue-400 mt-1.5">$222.0B</div>
+ <div class="text-xs text-slate-400 mt-1.5">对应产品营收与 P/S 乘积</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末投资账户总价值</div>
+ <div id="sim-final-val" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1.5">$111,200</div>
+ <div id="sim-total-return" class="text-xs text-slate-400 mt-1.5">模拟持有期总回报率</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末推演年化回报率 (CAGR)</div>
+ <div id="sim-annualized-return" class="text-2xl sm:text-3xl font-mono font-extrabold text-cyan-400 mt-1.5">+17.3%</div>
+ <div class="text-xs text-slate-400 mt-1.5">复合年化增长回报表现</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <div class="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-emerald-700 dark:text-emerald-400 text-base">多头核心论点 (Bull Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">AI 数据中枢 + 消费反弹</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>Agentic AI 浪潮下的底层数据刚需：</strong>企业构建智能体（AI Agents）的前提是拥有干净、统一且受治理的数据。Cortex AI 与 Snowpark 完美契合这一超级趋势。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>Consumption 弹性全面复苏：</strong>宏观IT预算收紧周期已过，FY27 产品营收增速回升至 36%，大客户数量与 RPO（$90亿）保持高增。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✓</span><span><strong>自由现金流拐点已至：</strong>经调整 FCF 利润率突破 23%，账面现金逾 43 亿美元，具备极强的内生造血与外延并购能力。</span></li>
+ </ul>
+ </div>
+
+ <div class="bg-rose-50/70 dark:bg-rose-950/20 rounded-2xl p-6 border border-rose-200 dark:border-rose-800/60">
+ <div class="flex items-center justify-between mb-3">
+ <span class="font-bold text-rose-700 dark:text-rose-400 text-base">空头担忧论点 (Bear Thesis)</span>
+ <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-700 dark:text-rose-300">云厂商竞争 + 估值敏感</span>
+ </div>
+ <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>来自公有云厂商与 Databricks 的双重挤压：</strong>AWS、GCP 以及 Databricks 在 AI 湖仓（Lakehouse）领域的激烈竞争可能在部分价格敏感型客户中引发分流。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>Consumption 模式在宏观波动下的不确定性：</strong>按需付费意味着一旦客户优化云端算力消耗，营收增速可能出现短期剧烈波动。</span></li>
+ <li class="flex items-start space-x-2"><span class="text-rose-600 font-bold">!</span><span><strong>高估值对利率和业绩容错率要求严苛：</strong>股价反弹至 $282 后，市场对高成长软件股的估值容错空间收窄，任何季度指引微调都易引发波动。</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 五、 投资决策与风险配置框架 (Investment Decision & Risk)
+ ========================================================= -->
+ <section id="sec-inv" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-snowblue-600 dark:text-snowblue-400">Section 05 · Investment Decision & Risk Allocation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置框架：三情景目标价与云数据组合策略</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：科技成长组合核心标的 · 逢大盘回调分批积极布局</span>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">牛市情景 (Bull Case)</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">概率：25%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">16.0x–18.0x P/S ($360–$410)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>Agentic AI 应用爆发超预期，Cortex AI 与 Agentic Marketplace 贡献爆发式增量算力消耗，产品营收增速持续保持 35%+，NRR 回升至 130% 以上。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+ 潜在上涨空间：+30% 至 +45%
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-snowblue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-snowblue-500/15 text-snowblue-700 dark:text-snowblue-400 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-snowblue-600 dark:text-snowblue-400">概率：55%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">11.0x–13.0x P/S ($260–$310)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>FY27 产品营收顺利实现 $60.7亿 目标（+36% YoY），大客户拓展与 FCF 利润率（23%）稳步兑现，估值在中枢区间理性震荡。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-snowblue-600 dark:text-snowblue-400">
+ 稳健年化回报：中枢震荡、长线增值
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">熊市情景 (Bear Case)</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：20%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">7.0x–9.0x P/S ($160–$200)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>宏观经济再度走弱导致企业云端 IT 预算削减，Consumption 消耗放缓，Databricks 或三大云厂商价格战侵蚀毛利率。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
+ 潜在回撤风险：-25% 至 -40%（依靠 $43亿 现金构筑底部）
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险评估与跟踪边界</h3>
+ <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 巨头与 Databricks 竞争加剧</span>
+ <span class="text-xs font-mono text-rose-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">开源 Lakehouse 与公有云原生服务的价格和生态分流</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ Databricks 在 AI 机器学习和开源数据湖社区拥有强大号召力，需持续追踪 Snowflake 在 AI 算力定价和开发者留存上的竞争动态。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · Consumption 模型对宏观景气度的敏感性</span>
+ <span class="text-xs font-mono text-amber-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">按需消耗模式在企业缩减IT开支时的短期波动</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 当客户进行极端的云端资源优化（Cloud Cost Optimization）时，SQL 查询与存储消耗会迅速放缓，直接传导至当季产品营收。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold">03 · 大模型 API 成本与毛利率稀释</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">Cortex AI 大模型调用成本对非 GAAP 利润率的影响</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 随着越来越多的企业客户在平台上运行大规模 AI 智能体任务，第三方基础大模型的 API 成本与底层算力消耗是否会侵蚀毛利率值得密切监控。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 科技股整体估值中枢波动</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">长端美债收益率与高成长科技板块风险偏好回撤</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 作为高成长美股标的，SNOW 的估值对宏观利率走势敏感，利率再度走高可能带来估值收缩压力。
+ </p>
+ </div>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
+ <h3 class="text-base font-bold text-snowblue-400 mb-4 flex items-center space-x-2">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ <span>机构级投资组合配置纪律与“云数据与 AI”协同策略</span>
+ </h3>
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-white mb-1">1. 核心成长底仓配置</div>
+ <p class="text-slate-300 leading-relaxed">
+ 将 Snowflake 作为云计算与企业级 AI 基础设施的核心进攻仓位，分享其大客户数量膨胀与 Agentic AI 商业化红利。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-snowblue-400 mb-1">2. 逢回调分批吸纳纪律</div>
+ <p class="text-slate-300 leading-relaxed">
+ 股价在近期反弹至 $282 后，建议避免盲目追高；若受大盘或科技板块波动回踩至估值安全边际区，则果断分批加仓。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-emerald-400 mb-1">3. 定期跟踪核心 KPI</div>
+ <p class="text-slate-300 leading-relaxed">
+ 严格按照下方季度核查清单，密切跟踪产品营收增速、NRR（>125%）、百万美元客户数及 RPO 变动，确保投资逻辑持续兑现。
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================
+ 六、 季度基本面跟踪 KPI 交互式核查清单 (Checklist)
+ ========================================================= -->
+ <section id="sec-kpi" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 06 · Quarterly Fundamental Tracking KPIs</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 季度基本面跟踪 KPI 交互式核查清单（Checklist）</h2>
+ </div>
+ <div class="flex items-center space-x-2 no-print">
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-snowblue-500/15 text-snowblue-700 dark:text-snowblue-400 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
+ <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 dark:hover:bg-navy-700 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+ 点击勾选每季财报发布后已验证达标的关键业务指标（勾选状态自动本地保存），持续追踪 Snowflake 业务基本面与成长护城河：
+ </p>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7] focus:ring-snowblue-500">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. 产品营收同比增速是否稳守 30%–35%+ 区间</span>
+ <span class="text-[11px] font-mono text-snowblue-600 dark:text-snowblue-400 font-semibold shrink-0">核心增长锚</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 验证 FY27 全年产品营收 $60.7亿（+36% YoY）目标及每季度实际交付是否符合预期。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-2" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7] focus:ring-snowblue-500">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. 净收入留存率 (NRR) 是否保持在 125% 以上高位</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">客户粘性晴雨表</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 当前 NRR 稳定在 126%，需追踪现有客户在平台上的算力消耗升级与 AI 应用扩展速度。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7] focus:ring-snowblue-500">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. T12M 产品营收超 $100 万大客户数及 Global 2000 渗透</span>
+ <span class="text-[11px] font-mono text-cyan-600 dark:text-cyan-400 font-semibold shrink-0">大企业拓展指标</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 追踪百万美元级客户（当前 828 家）与福布斯全球 2000 强企业（当前 829 家）的净增数量与渗透率。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7] focus:ring-snowblue-500">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. 剩余履约义务 (RPO) 是否维持 30%+ 强劲增速</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">合同锁定可见度</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 检查 RPO（当前达 $90 亿美元）的季度绝对额增长，确保大企业长期合同锁定动能不减。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7] focus:ring-snowblue-500">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. 非 GAAP 产品毛利率（74%+）与经调整 FCF 利润率（23%）</span>
+ <span class="text-[11px] font-mono text-snowblue-600 dark:text-snowblue-400 font-semibold shrink-0">盈利与现金转化</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 监控云端算力和 AI 大模型 API 成本波动对 74% 产品毛利率和 23% 自由现金流利润率的摊薄或增厚效应。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7] focus:ring-snowblue-500">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">6. Cortex AI、Snowflake CoCo 与 Agentic Marketplace 商业化落地</span>
+ <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold shrink-0">AI 变现第二曲线</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 跟踪 AI 相关产品给整体 Consumption 带来的额外消耗占比及客户采用率。
+ </p>
+ </div>
+ </label>
+ </div>
+ </div>
+ </section>
+
+ <!-- 页脚免责声明 -->
+ <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
+ <span>Snowflake Inc. (NYSE: SNOW) 深度商业与投资价值分析报告 · 机构研究框架版</span>
+ <span>数据基准：FY27 财报指引及 2026 年 11 月市场一致预期</span>
+ </div>
+ <p class="leading-relaxed">
+ <strong>免责声明：</strong>本深度研究报告基于 Snowflake 官方财务报告（10-Q/10-K）、业绩电话会议披露数据及全球云计算与 AI 行业调研资料整理生成，旨在提供结构化的产业分析与估值推演框架。报告中涉及的营收预测、自由现金流模拟、三情景目标价及估值推演均基于特定假设条件，不构成任何证券买卖建议或收益承诺。请在独立核实后审慎决策。
+ </p>
+ </footer>
+
+ </div>
+ </main>
+
+ <!-- 交互脚本与 Chart.js 可视化 -->
+ <script>
+ function toggleTheme() {
+ const html = document.documentElement;
+ html.classList.toggle('dark');
+ updateChartsTheme();
+ }
+
+ function toggleMobileMenu() {
+ const drawer = document.getElementById('mobile-drawer');
+ drawer.classList.toggle('hidden');
+ }
+
+ const sections = document.querySelectorAll('section[id]');
+ const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+ window.addEventListener('scroll', () => {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+ document.getElementById('reading-progress').style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+
+ let currentId = 'sec-exec';
+ sections.forEach(sec => {
+ const top = sec.offsetTop - 160;
+ if (scrollTop >= top) {
+ currentId = sec.getAttribute('id');
+ }
+ });
+
+ navLinks.forEach(link => {
+ link.classList.remove('active');
+ const numSpan = link.querySelector('span span');
+ if (numSpan) {
+ numSpan.classList.remove('text-snowblue-400');
+ numSpan.classList.add('text-slate-500');
+ }
+ if (link.dataset.target === currentId) {
+ link.classList.add('active');
+ if (numSpan) {
+ numSpan.classList.remove('text-slate-500');
+ numSpan.classList.add('text-snowblue-400');
+ }
+ }
+ });
+ });
+
+ function filterCompetitors(category) {
+ document.querySelectorAll('.comp-filter-btn').forEach(btn => {
+ if (btn.dataset.filter === category) {
+ btn.classList.add('bg-snowblue-500', 'text-navy-950', 'font-semibold', 'shadow-sm');
+ btn.classList.remove('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ } else {
+ btn.classList.remove('bg-snowblue-500', 'text-navy-950', 'font-semibold', 'shadow-sm');
+ btn.classList.add('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ }
+ });
+
+ const rows = document.querySelectorAll('#comp-table-body tr');
+ rows.forEach(row => {
+ const rowCat = row.dataset.category;
+ if (category === 'all' || rowCat === category) {
+ row.style.display = '';
+ } else {
+ row.style.display = 'none';
+ }
+ });
+ }
+
+ // 长期营收与估值市值模拟器
+ function updateSnowSimulator() {
+ const principal = parseFloat(document.getElementById('sim-principal').value);
+ const years = parseInt(document.getElementById('sim-years').value, 10);
+ const growthPct = parseFloat(document.getElementById('sim-growth').value);
+ const psMultiple = parseFloat(document.getElementById('sim-ps').value);
+
+ document.getElementById('sim-principal-label').textContent = '$' + principal.toLocaleString('en-US');
+ document.getElementById('sim-years-label').textContent = years + ' 年';
+ document.getElementById('sim-growth-label').textContent = growthPct.toFixed(1) + '%';
+ document.getElementById('sim-ps-label').textContent = psMultiple.toFixed(1) + 'x';
+
+ const baseRev = 6.07; // FY27 产品营收约 $6.07B
+ const g = growthPct / 100;
+ const finalRev = baseRev * Math.pow(1 + g, years);
+ const finalMcap = finalRev * psMultiple; // 单位：B ($)
+ const finalVal = (principal / (6.07 * 16.0)) * finalMcap; // 对应本金份额按市值比例放大
+ const totalReturnPct = ((finalVal - principal) / principal) * 100;
+ const annualizedReturn = (Math.pow(finalVal / principal, 1 / years) - 1) * 100;
+
+ document.getElementById('sim-final-rev').textContent = '$' + finalRev.toFixed(2) + 'B';
+ document.getElementById('sim-final-mcap').textContent = '$' + finalMcap.toFixed(1) + 'B';
+ document.getElementById('sim-final-val').textContent = '$' + Math.round(finalVal).toLocaleString('en-US');
+ document.getElementById('sim-total-return').textContent = `模拟持有期总回报 +${totalReturnPct.toFixed(1)}%`;
+ document.getElementById('sim-annualized-return.textContent` = (annualizedReturn >= 0 ? '+' : '') + annualizedReturn.toFixed(1) + '%';
+ document.getElementById('sim-annualized-return').textContent = (annualizedReturn >= 0 ? '+' : '') + annualizedReturn.toFixed(1) + '%';
+ }
+
+ const KPI_STORAGE_KEY = 'snow_research_kpi_state_v1';
+
+ function loadKpiChecklist() {
+ try {
+ const saved = localStorage.getItem(KPI_STORAGE_KEY);
+ if (saved) {
+ const stateMap = JSON.parse(saved);
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ if (typeof stateMap[cb.id] === 'boolean') {
+ cb.checked = stateMap[cb.id];
+ }
+ });
+ }
+ } catch (e) {}
+ updateKpiChecklist();
+ }
+
+ function updateKpiChecklist() {
+ const checkboxes = document.querySelectorAll('#kpi-checklist input[type="checkbox"]');
+ const total = checkboxes.length;
+ let checkedCount = 0;
+ const stateMap = {};
+
+ checkboxes.forEach(cb => {
+ stateMap[cb.id] = cb.checked;
+ if (cb.checked) checkedCount++;
+ });
+
+ const pct = Math.round((checkedCount / total) * 100);
+ document.getElementById('kpi-progress-badge').textContent = `已核查 ${checkedCount} / ${total} 项 (${pct}%)`;
+
+ try {
+ localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
+ } catch (e) {}
+ }
+
+ function resetKpiChecklist() {
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ cb.checked = false;
+ });
+ updateKpiChecklist();
+ }
+
+ let bizChartInstance = null;
+ let radarChartInstance = null;
+ let compMarginChartInstance = null;
+ let valEvolutionChartInstance = null;
+ let currentBizMode = 'revenue_fcf';
+
+ function getChartColors() {
+ const isDark = document.documentElement.classList.contains('dark');
+ return {
+ text: isDark ? '#CBD5E1' : '#475569',
+ grid: isDark ? 'rgba(51, 65, 85, 0.5)' : 'rgba(226, 232, 240, 0.85)',
+ radarAngle: isDark ? 'rgba(71, 85, 105, 0.6)' : 'rgba(203, 213, 225, 0.85)'
+ };
+ }
+
+ function initBizChart() {
+ const ctx = document.getElementById('bizArchitectureChart').getContext('2d');
+ const colors = getChartColors();
+
+ const revFcfConfig = {
+ type: 'bar',
+ data: {
+ labels: ['FY23', 'FY24', 'FY25', 'FY26', 'FY27E'],
+ datasets: [
+ {
+ label: '产品营收 ($B)',
+ data: [1.94, 2.67, 3.43, 4.47, 6.07],
+ backgroundColor: '#38BDF8',
+ borderRadius: 4,
+ stack: 'rev'
+ },
+ {
+ type: 'line',
+ label: '自由现金流 FCF ($B)',
+ data: [0.49, 0.81, 0.83, 1.12, 1.40],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 2.5,
+ pointRadius: 4,
+ tension: 0.25
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ min: 0,
+ max: 7,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v + 'B' }
+ }
+ }
+ }
+ };
+
+ const metricsSplitConfig = {
+ type: 'bar',
+ data: {
+ labels: [
+ '净收入留存率 NRR (%)',
+ '产品营收同比增速 YoY (%)',
+ '非 GAAP 产品毛利率 (%)',
+ '经调整自由现金流利润率 (%)',
+ '剩余履约义务 RPO 增速 (%)'
+ ],
+ datasets: [
+ {
+ label: '核心运营指标 (%)',
+ data: [126, 36, 74, 23, 30],
+ backgroundColor: [
+ '#38BDF8',
+ '#0284C7',
+ '#06B6D4',
+ '#10B981',
+ '#6366F1'
+ ],
+ borderRadius: 6,
+ barThickness: 24
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `指标数值: ${ctx.parsed.x}%`
+ }
+ }
+ },
+ scales: {
+ x: {
+ min: 0,
+ max: 140,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => v + '%' }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ };
+
+ if (bizChartInstance) bizChartInstance.destroy();
+ bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_fcf' ? revFcfConfig : metricsSplitConfig);
+ }
+
+ function switchBizChart(mode) {
+ currentBizMode = mode;
+ const btnRev = document.getElementById('btn-chart-rev');
+ const btnMet = document.getElementById('btn-chart-met');
+ const titleEl = document.getElementById('biz-chart-title');
+ const subEl = document.getElementById('biz-chart-sub');
+
+ if (mode === 'revenue_fcf') {
+ btnRev.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-snowblue-600 dark:text-snowblue-400 shadow-sm transition cursor-pointer';
+ btnMet.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = 'FY23–FY27E 产品营收增长与自由现金流（FCF）演进';
+ subEl.textContent = '产品营收从 $2.0B 迅速跃升至超 $6.0B 规模，同时自由现金流转正并高速扩张';
+ } else {
+ btnMet.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-snowblue-600 dark:text-snowblue-400 shadow-sm transition cursor-pointer';
+ btnRev.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = 'Snowflake 核心业务运营与效率指标拆解';
+ subEl.textContent = 'NRR 保持 126% 高位，产品毛利率 74%，展现软件行业罕见的成长与盈利双重爆发力';
+ }
+ initBizChart();
+ }
+
+ function initRadarChart() {
+ const ctx = document.getElementById('moatRadarChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (radarChartInstance) radarChartInstance.destroy();
+ radarChartInstance = new Chart(ctx, {
+ type: 'radar',
+ data: {
+ labels: [
+ '跨云多云中立性',
+ '数据共享网络效应',
+ '高留存与切换成本',
+ 'AI 与开发者生态',
+ '自由现金流与毛利率'
+ ],
+ datasets: [
+ {
+ label: 'Snowflake (SNOW)',
+ data: [9.8, 9.6, 9.5, 9.0, 9.2],
+ borderColor: '#38BDF8',
+ backgroundColor: 'rgba(56, 189, 248, 0.24)',
+ pointBackgroundColor: '#38BDF8',
+ borderWidth: 2.5
+ },
+ {
+ label: 'Databricks',
+ data: [8.5, 8.0, 8.5, 9.8, 8.0],
+ borderColor: '#10B981',
+ backgroundColor: 'rgba(16, 185, 129, 0.14)',
+ pointBackgroundColor: '#10B981',
+ borderWidth: 2.0
+ },
+ {
+ label: 'AWS Redshift / GCP BigQuery',
+ data: [7.0, 7.5, 8.8, 8.5, 9.5],
+ borderColor: '#06B6D4',
+ backgroundColor: 'rgba(6, 182, 212, 0.12)',
+ pointBackgroundColor: '#06B6D4',
+ borderWidth: 1.8,
+ borderDash: [4, 4]
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ }
+ },
+ scales: {
+ r: {
+ min: 0,
+ max: 10,
+ ticks: { display: false, stepSize: 2 },
+ grid: { color: colors.grid },
+ angleLines: { color: colors.radarAngle },
+ pointLabels: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initCompMarginChart() {
+ const ctx = document.getElementById('compMarginChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (compMarginChartInstance) compMarginChartInstance.destroy();
+ compMarginChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: [
+ 'Snowflake (SNOW · 独立云数据标杆)',
+ 'Databricks (AI与湖仓生态)',
+ 'Google Cloud (BigQuery 数据与AI)',
+ 'AWS (Redshift 云原生数仓)'
+ ],
+ datasets: [
+ {
+ label: '产品与服务营收增速 YoY (%)',
+ data: [36.0, 50.0, 20.0, 18.0],
+ backgroundColor: '#38BDF8',
+ borderRadius: 5,
+ barThickness: 16
+ },
+ {
+ label: '产品/服务毛利率 Margin (%)',
+ data: [74.0, 70.0, 75.0, 72.0],
+ backgroundColor: '#10B981',
+ borderRadius: 5,
+ barThickness: 16
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x}%`
+ }
+ }
+ },
+ scales: {
+ x: {
+ max: 70,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => v + '%' }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initValEvolutionChart() {
+ const ctx = document.getElementById('valEvolutionChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (valEvolutionChartInstance) valEvolutionChartInstance.destroy();
+ valEvolutionChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['FY23', 'FY24', 'FY25', 'FY26', 'FY27E'],
+ datasets: [
+ {
+ type: 'bar',
+ label: '产品营收 ($B)',
+ data: [1.94, 2.67, 3.43, 4.47, 6.07],
+ backgroundColor: 'rgba(56, 189, 248, 0.85)',
+ borderRadius: 5,
+ barThickness: 28,
+ yAxisID: 'y'
+ },
+ {
+ type: 'line',
+ label: '产品毛利率 (%)',
+ data: [75.0, 75.5, 75.2, 75.0, 74.0],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 3,
+ pointRadius: 5,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => ctx.dataset.yAxisID === 'y'
+ ? `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}B`
+ : `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ type: 'linear',
+ position: 'left',
+ min: 0,
+ max: 8,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => '$' + v.toFixed(1) + 'B' },
+ title: { display: true, text: '产品营收 ($B)', color: colors.text, font: { size: 11 } }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 60,
+ max: 90,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => v + '%' },
+ title: { display: true, text: '产品毛利率 (%)', color: '#10B981', font: { size: 11 } }
+ }
+ }
+ }
+ });
+ }
+
+ function updateChartsTheme() {
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ }
+
+ window.addEventListener('DOMContentLoaded', () => {
+ loadKpiChecklist();
+ updateSnowSimulator();
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ });
+ </script>
+</body>
+</html>

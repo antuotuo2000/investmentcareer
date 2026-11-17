@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>腾讯音乐娱乐集团 Tencent Music (NYSE: TME) 深度研究报告：中国在线音乐付费长牛、SVIP与喜马拉雅整合双轮驱动与高现金回报堡垒</title>
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <!-- Chart.js -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <!-- Google Fonts: Inter + Noto Sans SC + JetBrains Mono -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script>
+ tailwind.config = {
+ darkMode: 'class',
+ theme: {
+ extend: {
+ fontFamily: {
+ sans: ['Inter', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
+ mono: ['JetBrains Mono', 'monospace'],
+ },
+ colors: {
+ navy: {
+ 950: '#070B14',
+ 900: '#0F172A',
+ 800: '#1E293B',
+ 700: '#334155',
+ },
+ tmeblue: {
+ 350: '#38BDF8',
+ 400: '#0284C7',
+ 500: '#0284C7',
+ 600: '#0369A1',
+ 700: '#075985',
+ },
+ tmeviolet: {
+ 400: '#A855F7',
+ 500: '#8B5CF6',
+ 600: '#7C3AED',
+ }
+ }
+ }
+ }
+ }
+ </script>
+
+ <style>
+ ::-webkit-scrollbar {
+ width: 6px;
+ height: 6px;
+ }
+ ::-webkit-scrollbar-track {
+ background: transparent;
+ }
+ ::-webkit-scrollbar-thumb {
+ background: #94A3B8;
+ border-radius: 3px;
+ }
+ .dark ::-webkit-scrollbar-thumb {
+ background: #475569;
+ }
+
+ @media print {
+ #sidebar, #mobile-header, #theme-toggle-btn, .no-print {
+ display: none !important;
+ }
+ main {
+ margin-left: 0 !important;
+ padding: 0 !important;
+ }
+ section {
+ break-inside: avoid;
+ }
+ }
+
+ .report-card {
+ transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+ }
+ .report-card:hover {
+ transform: translateY(-2px);
+ }
+
+ .nav-link.active {
+ background: linear-gradient(90deg, rgba(2, 132, 199, 0.24) 0%, rgba(139, 92, 246, 0.06) 100%);
+ border-left: 3px solid #0284C7;
+ color: #FFFFFF;
+ font-weight: 600;
+ }
+ </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1E293B] dark:bg-navy-950 dark:text-slate-100 antialiased selection:bg-tmeblue-500 selection:text-white transition-colors duration-200">
+
+ <!-- 顶部阅读进度条 -->
+ <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-200/70 dark:bg-navy-800">
+ <div id="reading-progress" class="h-full bg-gradient-to-r from-tmeblue-500 via-sky-400 to-tmeviolet-500 w-0 transition-all duration-150"></div>
+ </div>
+
+ <!-- 移动端顶部导航栏 -->
+ <header id="mobile-header" class="lg:hidden sticky top-0 z-40 bg-navy-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+ <div class="flex items-center space-x-2.5">
+ <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tmeblue-400 to-tmeviolet-600 flex items-center justify-center font-extrabold text-white text-xs shadow">
+ TME
+ </div>
+ <div>
+ <div class="text-[11px] text-sky-400 font-semibold tracking-wider uppercase">NYSE: TME · Audio Streaming</div>
+ <div class="text-sm font-bold leading-tight">腾讯音乐 深度研究报告</div>
+ </div>
+ </div>
+ <div class="flex items-center space-x-2">
+ <button onclick="toggleTheme()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300" aria-label="切换阅读主题">
+ <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ </button>
+ <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-white" aria-label="打开目录">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+ </button>
+ </div>
+ </header>
+
+ <!-- 移动端抽屉菜单 -->
+ <div id="mobile-drawer" class="fixed inset-0 z-50 hidden lg:hidden">
+ <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+ <nav class="relative w-72 max-w-[80vw] h-full bg-navy-900 text-slate-300 flex flex-col justify-between p-5 overflow-y-auto shadow-2xl">
+ <div>
+ <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+ <span class="font-bold text-white text-base">TME 研报目录导航</span>
+ <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg text-slate-400 hover:text-white">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+ </button>
+ </div>
+ <ul class="mt-4 space-y-1.5 text-sm">
+ <li><a href="#sec-exec" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">00. 执行摘要与核心指标</a></li>
+ <li><a href="#sec-biz" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">01. 业务架构与订阅/IP演进</a></li>
+ <li><a href="#sec-moat" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">02. 版权壁垒与生态护城河</a></li>
+ <li><a href="#sec-comp" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">03. 全球流媒体与文娱横向对比</a></li>
+ <li><a href="#sec-fin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">04. 财务健康与回购复利模型</a></li>
+ <li><a href="#sec-inv" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">05. 投资决策与三情景估值</a></li>
+ <li><a href="#sec-kpi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg hover:bg-navy-800 hover:text-white">06. 季度跟踪 KPI 核查清单</a></li>
+ </ul>
+ </div>
+ <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+ <p>全球科技与数字文娱研究组</p>
+ <p class="mt-1">数据基准：2026年11月 (Q3 26 / FY26E)</p>
+ </div>
+ </nav>
+ </div>
+
+ <!-- 桌面端左侧固定侧边导航栏 -->
+ <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-[280px] bg-[#0F172A] text-slate-300 flex-col justify-between border-r border-slate-800 z-30 select-none">
+ <div>
+ <div class="p-5 border-b border-slate-800/80">
+ <div class="flex items-center space-x-3">
+ <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tmeblue-400 via-sky-500 to-tmeviolet-600 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-sky-500/25">
+ TME
+ </div>
+ <div>
+ <span class="inline-block text-[10px] font-bold tracking-widest uppercase text-sky-400 bg-sky-500/15 px-2 py-0.5 rounded">NYSE: TME</span>
+ <h2 class="text-white font-bold text-base mt-0.5 tracking-tight">腾讯音乐深度研报</h2>
+ </div>
+ </div>
+ <p class="text-xs text-slate-400 mt-2.5 leading-relaxed">
+ 中国在线音乐付费长牛 · SVIP高单价驱动与喜马拉雅深度并表协同
+ </p>
+ </div>
+
+ <div class="px-5 py-3 bg-navy-950/70 border-b border-slate-800/80 space-y-1.5 text-xs">
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">参考股价 (52周区间)</span>
+ <span class="font-mono font-bold text-white">~$9.15 <span class="text-slate-400 text-[10px]">($7.66-$19.45)</span></span>
+ </div>
+ <div class="flex items-center justify-between">
+ <span class="text-slate-400">2026E 调整后净利润</span>
+ <span class="font-mono font-bold text-emerald-400">~RMB 9.8B <span class="text-slate-400">(+5.2%)</span></span>
+ </div>
+ <div class="flex items-center justify-between pt-1 border-t border-slate-800/70">
+ <span class="text-slate-400">远期估值与市值</span>
+ <span class="font-mono font-bold text-sky-400">~10.4x P/E · 市值 ~$11.1B</span>
+ </div>
+ </div>
+
+ <div class="px-3 py-3.5 overflow-y-auto max-h-[calc(100vh-310px)]">
+ <div class="px-3 mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">核心研究章节</div>
+ <nav id="desktop-nav" class="space-y-1 text-[13px]">
+ <a href="#sec-exec" data-target="sec-exec" class="nav-link active flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-sky-400 mr-2">00</span>执行摘要与核心指标</span>
+ </a>
+ <a href="#sec-biz" data-target="sec-biz" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">01</span>业务架构与订阅/IP演进</span>
+ </a>
+ <a href="#sec-moat" data-target="sec-moat" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">02</span>版权壁垒与生态护城河</span>
+ </a>
+ <a href="#sec-comp" data-target="sec-comp" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">03</span>全球流媒体与文娱横向对比</span>
+ </a>
+ <a href="#sec-fin" data-target="sec-fin" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">04</span>财务健康与回购复利模型</span>
+ </a>
+ <a href="#sec-inv" data-target="sec-inv" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">05</span>投资决策与三情景估值</span>
+ </a>
+ <a href="#sec-kpi" data-target="sec-kpi" class="nav-link flex items-center justify-between px-3 py-2 rounded-r-lg text-slate-300 hover:bg-navy-800/70 hover:text-white transition-all">
+ <span><span class="text-xs font-mono text-slate-500 mr-2">06</span>季度跟踪 KPI 核查清单</span>
+ </a>
+ </nav>
+ </div>
+ </div>
+
+ <div class="p-4 border-t border-slate-800/80 bg-navy-950/50 space-y-2.5">
+ <div class="flex items-center justify-between">
+ <span class="text-xs text-slate-400">阅读模式切换</span>
+ <button id="theme-toggle-btn" onclick="toggleTheme()" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-medium text-slate-200 border border-slate-700 transition cursor-pointer">
+ <svg class="w-3.5 h-3.5 text-sky-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+ <svg class="w-3.5 h-3.5 text-sky-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+ <span class="dark:hidden">深色护眼模式</span>
+ <span class="hidden dark:inline">机构亮色模式</span>
+ </button>
+ </div>
+ <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-2 px-3 rounded-lg bg-gradient-to-r from-tmeblue-500 to-tmeviolet-600 hover:from-tmeblue-600 hover:to-tmeviolet-700 text-white text-xs font-extrabold transition shadow-sm cursor-pointer">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+ <span>打印 / 导出 PDF 研报</span>
+ </button>
+ </div>
+ </aside>
+
+ <!-- 主内容区 -->
+ <main class="lg:ml-[280px] min-h-screen">
+ <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 lg:py-12 space-y-12">
+
+ <!-- 00. 封面与执行摘要 -->
+ <section id="sec-exec" class="scroll-mt-20">
+ <div class="flex flex-wrap items-center justify-between gap-3 mb-4 text-xs text-slate-500 dark:text-slate-400">
+ <div class="flex flex-wrap items-center gap-2">
+ <span class="px-2.5 py-1 rounded-md bg-tmeblue-500/15 text-tmeblue-600 dark:text-tmeblue-400 font-bold border border-tmeblue-500/30">评级：买入 / 高增长数字文娱底仓</span>
+ <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-navy-800 text-slate-700 dark:text-slate-300 font-medium">周期：2026Q3 财报验证与 SVIP / 喜马拉雅并表爆发期</span>
+ </div>
+ <div class="flex items-center space-x-3 font-mono">
+ <span>覆盖时间：2026年11月</span>
+ <span>NYSE: TME</span>
+ </div>
+ </div>
+
+ <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-slate-700/70">
+ <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#0284C7 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+ <div class="relative z-10">
+ <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-tmeblue-500/20 border border-tmeblue-400/40 text-sky-300 text-xs font-semibold mb-4">
+ <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+ <span>CORE THESIS · 在线音乐付费率突破长牛 × SVIP 超高 ARPU 引擎 × 喜马拉雅并表生态协同 × 现金与股份回购双轮回报</span>
+ </div>
+ <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-white">
+ 腾讯音乐娱乐集团 Tencent Music (NYSE: TME) 深度研究报告：中国在线音乐付费长牛、SVIP与喜马拉雅整合双轮驱动与高现金回报堡垒
+ </h1>
+ <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
+ 腾讯音乐发布 <strong class="text-white">2026年第三季度财报</strong>：单季总收入达 <strong class="text-sky-300">RMB 89.4亿元</strong>（同比增长 <strong class="text-emerald-400">+5.6%</strong>），非国际财务报告准则（Non-IFRS）净利润达 <strong class="text-emerald-400">RMB 24.5亿元</strong>（同比增长 <strong class="text-white">+2.1%</strong>）。
+ 尽管社交娱乐服务因行业竞争调整延续同比收缩（-15.7%），但核心的<strong class="text-sky-300">音乐订阅（Membership）收入逆势增长 9.2% 至 RMB 49.9亿元</strong>，同时营销与消费类服务（线下演唱会与艺人周边）强劲飙升 <strong class="text-emerald-400">+12.1%</strong>。
+ 叠加顺利并表的音频平台喜马拉雅与高额股东回购（Q3 单季在公开市场回购 3,470 万股 ADS，耗资约 <strong class="text-white">$3.0亿</strong>，上半年已回购 $4.0亿），TME 持续巩固其全球现金流最健康、商业化效率最高的数字音乐巨头地位。
+ </p>
+
+ <div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">音乐订阅持续高质量增长</div>
+ <div class="text-white font-semibold">Q3 音乐订阅收入 RMB 49.9亿（+9.2% YoY），SVIP（超级会员）付费用户数与 ARPPU 维持双位数强劲扩张</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">IP 衍生与演出生态爆发</div>
+ <div class="text-sky-300 font-semibold">营销与消费类服务收入增至 RMB 27.0亿（+12.1% YoY），线下演唱会与艺人周边成第二增长曲线</div>
+ </div>
+ <div class="bg-white/5 rounded-xl p-3.5 border border-white/10">
+ <div class="text-slate-400 font-medium mb-1">巨额现金与密集回购</div>
+ <div class="text-emerald-400 font-semibold">现金及短期投资增至 RMB 515亿元，前三季度累计回购超 $7.0亿美元，构建极强安全垫</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>最新股价与总市值</span>
+ <span class="p-1.5 rounded-lg bg-tmeblue-500/15 text-tmeblue-600 dark:text-tmeblue-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">$111.3B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">~$9.15</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 美股 ADR 当前报价 $9.15，对应总市值约 111 亿美元，估值处于极具安全边际的 10.4x P/E 区间。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>2026Q3 经调整 Non-IFRS 净利</span>
+ <span class="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">RMB 2.45B</span>
+ <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded">+2.1% YoY</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 经调整净利润达 24.5 亿元人民币，展现出音乐订阅高毛利持续对冲社交娱乐业务下行的稳健盈利能力。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>现金、存款及短期投资总额</span>
+ <span class="p-1.5 rounded-lg bg-tmeviolet-500/15 text-tmeviolet-600 dark:text-tmeviolet-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">RMB 51.5B</span>
+ <span class="text-xs font-bold text-tmeviolet-600 dark:text-tmeviolet-400 bg-tmeviolet-500/15 px-2 py-0.5 rounded">~$7.5B 美元</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 截至 2026 年 9 月底，现金储备增至 514.9 亿元（含 9 月成功发行的 10 亿美元高级无担保优先票据），财务实力堪称堡垒。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+ <span>年度股东现金回报 (回购+股息)</span>
+ <span class="p-1.5 rounded-lg bg-sky-500/15 text-sky-600 dark:text-sky-400">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+ </span>
+ </div>
+ <div class="mt-3 flex items-baseline space-x-2">
+ <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">&gt;$700M</span>
+ <span class="text-xs font-bold text-sky-600 dark:text-sky-400 bg-sky-500/15 px-2 py-0.5 rounded">股息率 ~2.7%</span>
+ </div>
+ <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+ 2026 年前三季度已累计回购超过 7.5 亿美元股份，结合常规年度分红，股东总回报率在港美股传媒板块中名列前茅。
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- 01. 业务架构与收入演进 -->
+ <section id="sec-biz" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-tmeblue-600 dark:text-tmeblue-400">Section 01 · Business Architecture & Revenue Evolution</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">一、 业务架构与收入演进：订阅与演唱会双引擎狂飙，喜马拉雅并表拓宽音频版图</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">FY26E 总营收预计超 RMB 350亿 · 音乐订阅成绝对压舱石</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+ <div class="lg:col-span-7 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base" id="biz-chart-title">2023–2026E 在线音乐与社交娱乐收入结构演进 (亿元人民币)</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="biz-chart-sub">在线音乐订阅及 IP 消费收入占比持续攀升，成功对冲传统社交娱乐业务的结构性回调</p>
+ </div>
+ <div class="inline-flex rounded-lg bg-slate-100 dark:bg-navy-800 p-1 text-xs no-print">
+ <button onclick="switchBizChart('revenue_mix')" id="btn-chart-mix" class="px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-tmeblue-600 dark:text-tmeblue-400 shadow-sm transition cursor-pointer">视图A：收入分部结构</button>
+ <button onclick="switchBizChart('metrics_growth')" id="btn-chart-metrics" class="px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">视图B：Q3 2026 核心指标拆解</button>
+ </div>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="bizArchitectureChart"></canvas>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">2026Q3 三大核心增长驱动力</h3>
+ <ul class="space-y-4 text-sm">
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-tmeblue-500/15 text-tmeblue-600 dark:text-tmeblue-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">音乐订阅收入达 RMB 49.9亿（+9.2% YoY），SVIP 渗透提速</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 得益于超级会员（SVIP）体系的持续扩张与高品质音效、独家数字专辑权益赋能，ARPPU（每付费用户平均收入）实现结构性增长，对冲了泛大众基础订阅增速的自然放缓。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">营销与消费服务同比暴增 +12.1% 至 RMB 27.0亿</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 依托与华语乐坛头部艺人的战略合作，成功操盘多场现象级大型线下演唱会巡演，并带动艺人官方正版实体周边与粉丝经济消费爆发，构筑第二成长曲线。
+ </p>
+ </div>
+ </li>
+ <li class="flex items-start space-x-3">
+ <span class="w-6 h-6 rounded-full bg-tmeviolet-500/15 text-tmeviolet-600 dark:text-tmeviolet-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+ <div>
+ <div class="font-semibold text-slate-900 dark:text-white">喜马拉雅并表协同，长音频生态与内容库深度打通</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 随着喜马拉雅全面纳入合并报表（贡献单季数亿元稳健增量），TME 在长音频、播客及有声书领域的版权垄断力和跨场景分发优势达到历史巅峰。
+ </p>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+ <span class="text-slate-500 dark:text-slate-400">战略核心锚点</span>
+ <span class="font-bold text-tmeblue-600 dark:text-tmeblue-400">一体两翼：内容与平台双核驱动</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-tmeblue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-tmeblue-500/15 text-tmeblue-700 dark:text-tmeblue-400 text-xs font-bold">核心现金牛 · 占总营收 ~55.8%</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">+9.2% YoY</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 在线音乐订阅服务</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ Q3 订阅收入达 <strong>RMB 49.9亿元</strong>。通过腾讯生态（微信视频号、微信支付、QQ音乐及酷狗）的高效引流与 SVIP 高价值权益渗透，付费用户黏性与 ARPPU 保持双升。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500">
+ Q3 订阅收入 RMB 4.99B
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">高成长引擎 · 占总营收 ~30.2%</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">+12.1% YoY</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 营销与消费类服务</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ Q3 收入达 <strong>RMB 27.0亿元</strong>。涵盖大型线下演唱会主办、艺人周边售卖及数字专辑销售，成为拉动总收入超预期增长的核心催化剂。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500">
+ Q3 消费服务 RMB 2.70B
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-amber-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-700 dark:text-amber-400 text-xs font-bold">战略转型期 · 占总营收 ~14.0%</span>
+ <span class="font-mono text-xs font-bold text-rose-500">-15.7% YoY</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">3. 社交娱乐及其他服务</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ Q3 收入降至 <strong>RMB 12.6亿元</strong>。受行业合规监管及直播互动娱乐竞争分流影响，该板块虽延续同比收缩，但下滑斜率已逐步趋缓，对集团整体盈利负面冲击减弱。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500">
+ Q3 社交娱乐 RMB 1.26B
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-tmeviolet-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-3">
+ <span class="px-2.5 py-1 rounded-md bg-tmeviolet-500/15 text-tmeviolet-700 dark:text-tmeviolet-400 text-xs font-bold">重磅并表资产 · 音频新版图</span>
+ <span class="font-mono text-xs font-bold text-tmeviolet-600 dark:text-tmeviolet-400">深度协同</span>
+ </div>
+ <h3 class="text-lg font-bold text-slate-900 dark:text-white">4. 喜马拉雅并表音频生态</h3>
+ <p class="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+ 整合喜马拉雅全套播客、有声书与长音频内容库，不仅贡献稳健营收与会员权益交叉销售，更进一步构筑中国声音内容绝对统治地位。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500">
+ 全生态音频市占率领先
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 02. 版权壁垒与生态护城河 -->
+ <section id="sec-moat" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 02 · Copyright Moat & Ecosystem Advantage</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">二、 版权壁垒与生态护城河：腾讯社交帝国导流、AI DJ个性化与独家版权网络</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">护城河评级：极宽 (Wide Moat · 国内在线音乐绝对龙头)</span>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-tmeblue-500/15 text-tmeblue-600 dark:text-tmeblue-400 flex items-center justify-center font-bold text-sm">01</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">QQ音乐与酷狗音乐双超大流量基本盘</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 拥有国内最庞大的月活数字音乐用户群，结合腾讯微信生态（微信视频号一键分享、微信支付无缝续费、小程序轻量化点播），获客成本远低于任何互联网新进入者。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">02</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">环球、索尼、华纳全球三大唱片深度绑定</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 与全球三大顶级唱片公司及国内数百家头部独立厂牌保持数十年独家及紧密转授权合作，构筑起中国市场上无可替代的超豪华正版音乐版权曲库高墙。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-tmeviolet-500/15 text-tmeviolet-600 dark:text-tmeviolet-400 flex items-center justify-center font-bold text-sm">03</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">AI DJ 与生成式推荐算法赋能时长留存</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 推出升级版 AI DJ 智能助手，充当实时“个人DJ”根据用户听歌习惯动态生成个性化歌单；配合智能音效技术，显著推高核心付费用户的平台日均使用时长与留存率。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center space-x-2.5 mb-2.5">
+ <span class="w-8 h-8 rounded-lg bg-sky-500/15 text-sky-600 dark:text-sky-400 flex items-center justify-center font-bold text-sm">04</span>
+ <h3 class="font-bold text-slate-900 dark:text-white text-sm">SVIP 会员体系与跨界联名生态变现</h3>
+ </div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ 超级会员（SVIP）不仅享受最高音质与数字专辑特权，更深度打通热门游戏 IP（如《鸣潮》等联名装扮）及演出优先购票权，将单用户变现潜力挖掘到极致。
+ </p>
+ </div>
+ </div>
+
+ <div class="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-1">腾讯音乐 vs 全球流媒体与文娱巨头五维能力雷达图</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">TME vs Spotify (SPOT) vs 网易云音乐 (Cloud Village)（满分 10 分）</p>
+ <div class="relative h-72 w-full">
+ <canvas id="moatRadarChart"></canvas>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 03. 全球流媒体与文娱横向对比 -->
+ <section id="sec-comp" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-tmeblue-600 dark:text-tmeblue-400">Section 03 · Global Music & Streaming Competitive Landscape</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">三、 全球音乐与流媒体巨头横向对比：高盈利质量、高现金储备与股东回报标杆</h2>
+ </div>
+ <div class="flex flex-wrap gap-1.5 text-xs no-print" id="comp-filter-group">
+ <button onclick="filterCompetitors('all')" data-filter="all" class="comp-filter-btn active px-3 py-1.5 rounded-lg font-semibold bg-tmeblue-500 text-white shadow-sm transition cursor-pointer">全部巨头</button>
+ <button onclick="filterCompetitors('global')" data-filter="global" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">全球流媒体巨头</button>
+ <button onclick="filterCompetitors('domestic')" data-filter="domestic" class="comp-filter-btn px-3 py-1.5 rounded-lg font-medium bg-white dark:bg-navy-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition cursor-pointer">中国本土文娱对手</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+ <div class="overflow-x-auto">
+ <table class="w-full text-left border-collapse">
+ <thead>
+ <tr class="bg-slate-100/80 dark:bg-navy-800/80 border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+ <th class="py-4 px-5 min-w-[180px]">企业名称与核心平台</th>
+ <th class="py-4 px-4 min-w-[130px]">核心市场覆盖</th>
+ <th class="py-4 px-4 min-w-[140px]">商业模式与增值亮点</th>
+ <th class="py-4 px-4 min-w-[100px]">远期 P/E</th>
+ <th class="py-4 px-4 min-w-[115px]">股息率 / 回购率</th>
+ <th class="py-4 px-4 min-w-[115px]">净利润率</th>
+ <th class="py-4 px-5 min-w-[230px]">核心优劣势与资本定位评估</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-xs sm:text-sm" id="comp-table-body">
+ <tr data-category="core" class="bg-tmeblue-500/5 dark:bg-tmeblue-500/10 font-medium">
+ <td class="py-4 px-5">
+ <div class="flex items-center space-x-2">
+ <span class="px-2 py-0.5 rounded bg-tmeblue-500 text-white text-[10px] font-extrabold">核心标的</span>
+ <span class="font-bold text-slate-900 dark:text-white">腾讯音乐 (TME)</span>
+ </div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">QQ音乐 / 酷狗 / 喜马拉雅</div>
+ </td>
+ <td class="py-4 px-4 font-semibold text-slate-900 dark:text-white">中国大陆主导地位</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-tmeblue-500/15 text-tmeblue-700 dark:text-tmeblue-400">SVIP会员 + 演唱会IP</span>
+ </td>
+ <td class="py-4 px-4 font-mono font-bold text-slate-900 dark:text-white">~10.4x</td>
+ <td class="py-4 px-4 font-mono font-bold text-sky-600 dark:text-sky-400">~2.7% + 密集回购</td>
+ <td class="py-4 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">~27.5%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>高现金流与SVIP驱动利润红利：</strong>手握 RMB 515亿巨额现金，前三季度回购超 $7亿，ARPPU 提升与喜马拉雅并表释放极强盈利韧性。
+ </td>
+ </tr>
+
+ <tr data-category="global" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">Spotify (SPOT)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Spotify Premium / Podcasters</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球欧美及拉美市场</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400">全球付费订阅巨头</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~35.0x+</td>
+ <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">0% (无分红/轻回购)</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~8.5%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>全球化龙头但估值高企：</strong>拥有庞大全球 MAU，但受制于高昂的海外版权成本，净利润率远低于 TME，估值倍数较高。
+ </td>
+ </tr>
+
+ <tr data-category="domestic" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">网易云音乐 (Cloud Village)</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">网易云音乐 / LOOK直播</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">中国年轻世代音乐用户</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/15 text-amber-700 dark:text-amber-400">社区氛围与独立音乐人</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~14.0x</td>
+ <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">较低</td>
+ <td class="py-4 px-4 font-mono text-slate-700 dark:text-slate-300">~12.0%</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>年轻社区差异化竞争：</strong>在独立音乐人和评论区社区文化上具备特色，但总体曲库广度与 ARPPU 变现能力落后于 TME。
+ </td>
+ </tr>
+
+ <tr data-category="global" class="hover:bg-slate-50 dark:hover:bg-navy-800/40 transition">
+ <td class="py-4 px-5">
+ <div class="font-bold text-slate-900 dark:text-white">苹果 Apple Music / YouTube Music</div>
+ <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Apple Ecosystem / Google Play</div>
+ </td>
+ <td class="py-4 px-4 text-slate-700 dark:text-slate-300">全球高端硬件生态用户</td>
+ <td class="py-4 px-4">
+ <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-500/15 text-sky-700 dark:text-sky-400">硬件捆绑生态服务</span>
+ </td>
+ <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">作为巨头子业务</td>
+ <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">N/A</td>
+ <td class="py-4 px-4 font-mono text-slate-500 dark:text-slate-400">高 (综合体)</td>
+ <td class="py-4 px-5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+ <strong>生态捆绑巨兽：</strong>利用硬件生态自带高粘性用户，不以单一音乐流媒体盈利为首要目标，对独立流媒体形成长期跨界压制。
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">全球主要音乐流媒体平台净利润率 (Net Profit Margin) 与估值对比</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">腾讯音乐凭借高毛利订阅与精细化运营，净利润率与资本回报表现领先全行业</p>
+ </div>
+ <span class="text-xs font-semibold text-tmeblue-700 dark:text-tmeblue-400 bg-tmeblue-500/15 px-2.5 py-1 rounded">~27.5% 净利润率效率领先</span>
+ </div>
+ <div class="relative h-64 w-full">
+ <canvas id="compMarginChart"></canvas>
+ </div>
+ </div>
+ </section>
+
+ <!-- 04. 财务健康与回购复利模型 -->
+ <section id="sec-fin" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 04 | Financial Health & Buyback Compounding Model</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">四、 财务健康与股东回报：515亿现金堡垒与“回购注销+稳定分红”复利引擎</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">零有息负债压力 · 前三季度回购超 $7.0亿</span>
+ </div>
+
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-tmeblue-600 dark:text-tmeblue-400 uppercase">Gross Margin</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~42.8%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 尽管因低毛利 IP 演唱会周边及喜马拉雅并表结构性微调，整体毛利率依然稳在 43% 左右，高价值音乐订阅占比持续提升。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Cash & Short-Term Assets</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">RMB 51.5B</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 现金、定期存款及短期投资总额达 514.9 亿元人民币（约合 75 亿美元），占公司当前总市值比例超 65%，安全垫极其厚实。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-tmeviolet-600 dark:text-tmeviolet-400 uppercase">Share Buyback Pace</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">&gt;$700M (YTD)</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ Q3 单季在公开市场回购 3,470 万股 ADS（耗资约 $3.0亿），此前 Q2 亦回购 $4.0亿，强力缩减总股本并增厚每股收益。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase">Net Profit Margin</div>
+ <div class="text-2xl font-extrabold font-mono text-slate-900 dark:text-white mt-1">~27.5%</div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+ 严格的费用管控和高利润率音乐订阅驱动下，非国际财务报告准则净利润率保持在近 28% 的行业极高水平。
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base">2023–2026E 调整后净利润增长 vs 流通总股本持续注销缩减趋势</h3>
+ <p class="text-xs text-slate-500 dark:text-slate-400">通过持续的大额公开市场回购注销，TME 流通 ADS 数量稳步收缩，强力推动每股盈利（EPS）实现超越总利润的复利增长</p>
+ </div>
+ <span class="text-xs font-mono font-bold text-tmeblue-700 dark:text-tmeblue-400 bg-tmeblue-500/15 px-2.5 py-1 rounded">年化回购兑现每股增厚</span>
+ </div>
+ <div class="relative h-72 w-full">
+ <canvas id="valEvolutionChart"></canvas>
+ </div>
+ </div>
+
+ <!-- 互动推演器 -->
+ <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white border border-slate-700 shadow-xl space-y-6 no-print">
+ <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-700/80">
+ <div>
+ <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-sky-400 font-bold">
+ <span>TME LONG-TERM COMPOUNDING SIMULATOR · 腾讯音乐长线复利测算器</span>
+ </div>
+ <h3 class="text-lg sm:text-xl font-bold text-white mt-1">TME 股东回报与 DRIP 复利动态推演器</h3>
+ <p class="text-xs text-slate-400 mt-0.5">基准参数：当前股价 $9.15 | 预计年化净利增长 8.0% | 支持不同税务及分红再投资情景测算</p>
+ </div>
+ <label class="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-tmeblue-500/15 border border-tmeblue-400/30 text-xs font-semibold text-sky-300 cursor-pointer shrink-0">
+ <input type="checkbox" id="drip-toggle" checked onchange="updateDividendSimulator()" class="w-4 h-4 rounded accent-[#0284C7] cursor-pointer">
+ <span>开启股息自动再投资 (DRIP)</span>
+ </label>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+ <div class="lg:col-span-5 space-y-4 text-xs">
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">初始投入本金 (USD)</span>
+ <span id="sim-principal-label" class="font-mono font-bold text-white text-sm">$30,000</span>
+ </div>
+ <input id="sim-principal" type="range" min="5000" max="200000" step="5000" value="30000" oninput="updateDividendSimulator()" class="w-full accent-[#0284C7] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">长期持有年限 (Years)</span>
+ <span id="sim-years-label" class="font-mono font-bold text-white text-sm">10 年</span>
+ </div>
+ <input id="sim-years" type="range" min="1" max="20" step="1" value="10" oninput="updateDividendSimulator()" class="w-full accent-[#0284C7] cursor-pointer">
+ </div>
+
+ <div>
+ <div class="flex justify-between mb-1.5">
+ <span class="text-slate-300 font-medium">年均业绩与股价增长率</span>
+ <span id="sim-growth-label" class="font-mono font-bold text-emerald-400 text-sm">8.0%</span>
+ </div>
+ <input id="sim-growth" type="range" min="0" max="15" step="0.5" value="8.0" oninput="updateDividendSimulator()" class="w-full accent-[#10B981] cursor-pointer">
+ </div>
+
+ <div class="pt-1">
+ <div class="text-slate-300 font-medium mb-2">美股 ADR 股息预扣税率情景：</div>
+ <div class="grid grid-cols-3 gap-2" id="tax-btn-group">
+ <button type="button" onclick="setTaxRate(0)" data-tax="0" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-sky-400 transition cursor-pointer">
+ 0% 免税账户<br><span class="text-[10px] text-slate-400">海外/退休账户</span>
+ </button>
+ <button type="button" onclick="setTaxRate(0.10)" data-tax="0.1" class="tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-tmeblue-500 text-white border border-sky-400 shadow transition cursor-pointer">
+ 10% 协定税率<br><span class="text-[10px] text-sky-200">中美税收协定</span>
+ </button>
+ <button type="button" onclick="setTaxRate(0.30)" data-tax="0.3" class="tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-sky-400 transition cursor-pointer">
+ 30% 标准预扣<br><span class="text-[10px] text-slate-400">特定海外地区</span>
+ </button>
+ </div>
+ </div>
+ </div>
+
+ <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末预计总资产 (含分红)</div>
+ <div id="sim-final-value" class="text-2xl sm:text-3xl font-mono font-extrabold text-white mt-1.5">$78,450</div>
+ <div id="sim-total-return" class="text-xs font-semibold text-emerald-400 mt-1.5">累计总回报 +161.5%</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末年度税后现金分红</div>
+ <div id="sim-annual-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-sky-400 mt-1.5">$2,410</div>
+ <div id="sim-monthly-div" class="text-xs text-slate-400 mt-1.5">折合每月被动现金流 ~$201</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">期末税后成本股息率 (Yield on Cost)</div>
+ <div id="sim-yoc" class="text-2xl sm:text-3xl font-mono font-extrabold text-teal-400 mt-1.5">8.03%</div>
+ <div class="text-xs text-slate-400 mt-1.5">相对于初始投入本金的分红回报率</div>
+ </div>
+
+ <div class="bg-navy-950/80 rounded-xl p-5 border border-slate-800">
+ <div class="text-xs text-slate-400">持有期累计获配税后股息总额</div>
+ <div id="sim-cum-div" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 mt-1.5">$16,820</div>
+ <div id="sim-shares-end" class="text-xs text-slate-400 mt-1.5">期末持仓股数：3,580 股 (起始 3,278 股)</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 05. 投资决策与风险配置 -->
+ <section id="sec-inv" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-tmeblue-600 dark:text-tmeblue-400">Section 05 | Investment Decision & Risk Valuation</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">五、 投资决策与风险配置：三情景估值推演与文娱资产配置框架</h2>
+ </div>
+ <span class="text-xs text-slate-500 dark:text-slate-400">配置建议：逢回调积极布局 · 10x P/E 具备极高安全边际</span>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">牛市情景 (Bull Case)</span>
+ <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">概率：25%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">14.0x–16.0x P/E ($13–$15)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>付费用户ARPPU加速提升，SVIP渗透率超出预期；喜马拉雅并表协同效应全面爆发，线下演出及周边市场持续火爆，海外广告及流媒体估值溢价修复。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+ 潜在回报空间：+40% 至 +65%
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-tmeblue-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-tmeblue-500/15 text-tmeblue-700 dark:text-tmeblue-400 text-xs font-bold">基准情景 (Base Case)</span>
+ <span class="font-mono text-xs font-bold text-tmeblue-600 dark:text-tmeblue-400">概率：55%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">11.0x–13.0x P/E ($10–$11.5)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>音乐订阅稳健增长（高个位数），社交娱乐业务下滑逐季收窄企稳，公司延续每年超 7 亿美元的回购与常规分红强度，估值中枢向 12x P/E 合理靠拢。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-tmeblue-600 dark:text-tmeblue-400">
+ 稳健回报空间：+15% 至 +25% (含分红回购)
+ </div>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-2xl p-6 border-t-4 border-t-rose-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-xs font-bold">熊市情景 (Bear Case)</span>
+ <span class="font-mono text-xs font-bold text-rose-600 dark:text-rose-400">概率：20%</span>
+ </div>
+ <div class="text-xl font-extrabold font-mono text-slate-900 dark:text-white mt-2">8.0x–9.5x P/E ($7.5–$8.5)</div>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+ <strong>核心假设：</strong>宏观消费疲软导致在线音乐付费用户净增放缓，社交娱乐下滑超预期，版权成本或宣发费用刚性上涨压制毛利率。巨额现金底座构成坚实估值底部。
+ </p>
+ </div>
+ <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-rose-600 dark:text-rose-400">
+ 潜在回撤风险：-10% 至 -18% (现金底座构筑强支撑)
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <h3 class="font-bold text-slate-900 dark:text-white text-base mb-3">四大核心潜在风险评估与跟踪边界</h3>
+ <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">01 · 宏观消费波动与付费意愿放缓</span>
+ <span class="text-xs font-mono text-rose-500 font-semibold">关注度：高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">大众付费意愿与 ARPPU 提升斜率承压</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 若居民可支配收入增速放缓，可能对 SVIP 高阶会员的续费率及扩展速度产生扰动，影响订阅收入增速。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">02 · 社交娱乐收入持续下行压力</span>
+ <span class="text-xs font-mono text-amber-500 font-semibold">关注度：中高</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">直播与泛娱乐互动面临外部短视频分流</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 社交娱乐服务占比较高时期的下滑惯性若未能如期触底，将对整体营收增速形成一定拖累。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-tmeblue-500/10 text-tmeblue-600 dark:text-tmeblue-400 text-xs font-bold">03 · 版权成本续签与向上波动风险</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">与各大唱片公司长期版权协议续约条款</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 随着国内音乐版权竞争格局演变，头部版权采购成本若出现非理性上涨，将对毛利率改善构成扰动。
+ </p>
+ </div>
+
+ <div class="report-card bg-white dark:bg-navy-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">04 · 喜马拉雅整合进度与商誉减值考量</span>
+ <span class="text-xs font-mono text-slate-500 font-semibold">关注度：中</span>
+ </div>
+ <h4 class="font-bold text-slate-900 dark:text-white text-sm">新并购资产协同效应与财务摊销</h4>
+ <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+ 喜马拉雅并表带来的管理整合、业务交叉打通以及后续采购摊销需持续追踪其实际业绩兑现情况。
+ </p>
+ </div>
+ </div>
+ </div>
+
+ <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-6 text-white border border-slate-700 shadow-md">
+ <h3 class="text-base font-bold text-sky-400 mb-4 flex items-center space-x-2">
+ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ <span>机构级投资组合配置纪律与策略建议</span>
+ </h3>
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-white mb-1">1. 高现金底座与防御配置价值</div>
+ <p class="text-slate-300 leading-relaxed">
+ 鉴于 RMB 515 亿现金及短期投资（占市值超 65%）构成的极强安全垫，TME 在港美股科技板块中具备极高的抗波动防御与价值回归属性。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-sky-400 mb-1">2. 估值锚点与分批增配策略</div>
+ <p class="text-slate-300 leading-relaxed">
+ 当前 Forward P/E 仅 ~10.4x，处于历史估值中枢偏下区间。建议作为中国数字文娱核心标的长期底仓持有，逢市场回调积极增配。
+ </p>
+ </div>
+ <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+ <div class="font-bold text-emerald-400 mb-1">3. 回购与分红红利兑现</div>
+ <p class="text-slate-300 leading-relaxed">
+ 密切追踪管理层每季度公开市场股份回购执行力度及年度分红政策，充分享受流通股缩减带来的每股收益内生增长红利。
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 06. 季度跟踪 KPI 交互式核查清单 -->
+ <section id="sec-kpi" class="scroll-mt-20 space-y-6">
+ <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+ <div>
+ <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Section 06 | Quarterly Fundamental Tracking KPIs</span>
+ <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">六、 季度基本面跟踪 KPI 交互式核查清单（Checklist）</h2>
+ </div>
+ <div class="flex items-center space-x-2 no-print">
+ <span id="kpi-progress-badge" class="px-3 py-1 rounded-full bg-tmeblue-500/15 text-tmeblue-700 dark:text-tmeblue-400 text-xs font-bold">已核查 3 / 6 项 (50%)</span>
+ <button onclick="resetKpiChecklist()" class="px-2.5 py-1 rounded-lg bg-slate-200/80 dark:bg-navy-800 hover:bg-slate-300 dark:hover:bg-navy-700 text-xs font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">重置清单</button>
+ </div>
+ </div>
+
+ <div class="bg-white dark:bg-navy-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+ <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+ 点击勾选季度财报中已验证达标的经营指标（勾选状态自动本地保存），持续检验腾讯音乐付费转化与股东回报长牛逻辑：
+ </p>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="kpi-checklist">
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">1. 在线音乐订阅收入保持高个位数至双位数同比稳健增长</span>
+ <span class="text-[11px] font-mono text-tmeblue-600 dark:text-tmeblue-400 font-semibold shrink-0">核心订阅锚</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 2026Q3 订阅收入达 49.9 亿元（+9.2% YoY），需持续验证 ARPPU 与 SVIP 付费用户的扩张势头。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-1" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">2. SVIP（超级会员）渗透率与人均消费额（ARPPU）持续提升</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">高阶变现引擎</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 关注 SVIP 用户在平台总付费用户中的占比以及高音质、独家定制权益带来的 ARPU 增厚效应。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-3" checked onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">3. 营销与消费服务（演唱会与周边）保持双位数同比高增</span>
+ <span class="text-[11px] font-mono text-tmeviolet-600 dark:text-tmeviolet-400 font-semibold shrink-0">第二增长曲线</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ Q3 消费服务大增 12.1% 至 27.0 亿元；需追踪线下演出排期及粉丝经济周边变现的持续性。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-4" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">4. 喜马拉雅并表后的协同效应与音频生态盈利贡献</span>
+ <span class="text-[11px] font-mono text-sky-600 dark:text-sky-400 font-semibold shrink-0">并购整合指标</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 评估长音频与音乐会员权益交叉打通后的用户活跃度、流量转化率及毛利率平稳表现。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-5" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">5. 社交娱乐服务下滑幅度是否逐季收窄并企稳触底</span>
+ <span class="text-[11px] font-mono text-amber-600 dark:text-amber-400 font-semibold shrink-0">风险监测锚</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 监控社交娱乐及其他板块同比降幅（Q3 为 -15.7%）是否趋于平缓，减少对整体大盘的拖累。
+ </p>
+ </div>
+ </label>
+
+ <label class="flex items-start space-x-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-navy-800/50 cursor-pointer transition">
+ <input type="checkbox" id="kpi-6" onchange="updateKpiChecklist()" class="mt-1 w-4 h-4 rounded accent-[#0284C7]">
+ <div class="flex-1">
+ <div class="flex items-center justify-between gap-2">
+ <span class="font-bold text-sm text-slate-900 dark:text-white">6. 每季度公开市场股份回购执行力度与现金储备安全边界</span>
+ <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">股东回报放大器</span>
+ </div>
+ <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+ 确认公司现金及短期资产保持在 500 亿元人民币高位，并按计划推进每季度亿美元级别的 ADS 回购注销。
+ </p>
+ </div>
+ </label>
+ </div>
+ </div>
+ </section>
+
+ <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-2 pb-10">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-semibold text-slate-700 dark:text-slate-300">
+ <span>腾讯音乐娱乐集团 Tencent Music Entertainment Group (NYSE: TME) 深度商业与投资价值分析报告</span>
+ <span>数据基准：2026Q3 财报及 2026 年 11 月市场一致预期 (FY26E)</span>
+ </div>
+ <p class="leading-relaxed">
+ <strong>免责声明：</strong>本深度研究报告基于腾讯音乐娱乐集团公开财务报告（20-F/6-K）、2026Q3 业绩公告及全球数字流媒体行业调研资料整理生成，旨在提供结构化的产业分析与文娱资产估值框架。报告中涉及的盈利预测、回购测算、三情景目标价及 DRIP 复利模拟均基于特定假设条件推演，不构成任何证券买卖建议、税务规划意见或收益承诺。美股 ADR 股息预扣税率因投资者国籍及账户属性存在差异，请在独立核实后审慎决策。
+ </p>
+ </footer>
+
+ </div>
+ </main>
+
+ <script>
+ function toggleTheme() {
+ const html = document.documentElement;
+ html.classList.toggle('dark');
+ updateChartsTheme();
+ }
+
+ function toggleMobileMenu() {
+ const drawer = document.getElementById('mobile-drawer');
+ drawer.classList.toggle('hidden');
+ }
+
+ const sections = document.querySelectorAll('section[id]');
+ const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+
+ window.addEventListener('scroll', () => {
+ const scrollTop = window.scrollY;
+ const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+ document.getElementById('reading-progress').style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+
+ let currentId = 'sec-exec';
+ sections.forEach(sec => {
+ const top = sec.offsetTop - 160;
+ if (scrollTop >= top) {
+ currentId = sec.getAttribute('id');
+ }
+ });
+
+ navLinks.forEach(link => {
+ link.classList.remove('active');
+ const numSpan = link.querySelector('span span');
+ if (numSpan) {
+ numSpan.classList.remove('text-sky-400');
+ numSpan.classList.add('text-slate-500');
+ }
+ if (link.dataset.target === currentId) {
+ link.classList.add('active');
+ if (numSpan) {
+ numSpan.classList.remove('text-slate-500');
+ numSpan.classList.add('text-sky-400');
+ }
+ }
+ });
+ });
+
+ function filterCompetitors(category) {
+ document.querySelectorAll('.comp-filter-btn').forEach(btn => {
+ if (btn.dataset.filter === category) {
+ btn.classList.add('bg-tmeblue-500', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.remove('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ } else {
+ btn.classList.remove('bg-tmeblue-500', 'text-white', 'font-semibold', 'shadow-sm');
+ btn.classList.add('bg-white', 'dark:bg-navy-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'font-medium');
+ }
+ });
+
+ const rows = document.querySelectorAll('#comp-table-body tr');
+ rows.forEach(row => {
+ const rowCat = row.dataset.category;
+ if (category === 'all' || rowCat === 'core' || rowCat === category) {
+ row.style.display = '';
+ } else {
+ row.style.display = 'none';
+ }
+ });
+ }
+
+ let currentTaxRate = 0.10;
+
+ function setTaxRate(rate) {
+ currentTaxRate = rate;
+ document.querySelectorAll('#tax-btn-group .tax-btn').forEach(btn => {
+ const btnRate = parseFloat(btn.dataset.tax);
+ if (Math.abs(btnRate - rate) < 0.001) {
+ btn.className = 'tax-btn active px-2 py-2 rounded-lg text-[11px] font-bold bg-tmeblue-500 text-white border border-sky-400 shadow transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-sky-200';
+ } else {
+ btn.className = 'tax-btn px-2 py-2 rounded-lg text-[11px] font-medium bg-navy-950/70 text-slate-300 border border-slate-700 hover:border-sky-400 transition cursor-pointer';
+ const subSpan = btn.querySelector('span');
+ if (subSpan) subSpan.className = 'text-[10px] text-slate-400';
+ }
+ });
+ updateDividendSimulator();
+ }
+
+ function updateDividendSimulator() {
+ const principal = parseFloat(document.getElementById('sim-principal').value);
+ const years = parseInt(document.getElementById('sim-years').value, 10);
+ const growthPct = parseFloat(document.getElementById('sim-growth').value);
+ const drip = document.getElementById('drip-toggle').checked;
+
+ document.getElementById('sim-principal-label').textContent = '$' + principal.toLocaleString('en-US');
+ document.getElementById('sim-years-label').textContent = years + ' 年';
+ document.getElementById('sim-growth-label').textContent = growthPct.toFixed(1) + '%';
+
+ const initPrice = 9.15;
+ const initDps = 0.25;
+ const g = growthPct / 100;
+
+ const initialShares = principal / initPrice;
+ let shares = initialShares;
+ let sharePrice = initPrice;
+ let dps = initDps;
+ let cashPool = 0;
+ let cumulativeNetDiv = 0;
+
+ for (let y = 1; y <= years; y++) {
+ const grossDiv = shares * dps;
+ const netDiv = grossDiv * (1 - currentTaxRate);
+ cumulativeNetDiv += netDiv;
+
+ const nextPrice = sharePrice * (1 + g);
+ if (drip) {
+ const avgReinvestPrice = (sharePrice + nextPrice) / 2;
+ shares += netDiv / avgReinvestPrice;
+ } else {
+ cashPool += netDiv;
+ }
+ sharePrice = nextPrice;
+ if (y < years) {
+ dps = dps * (1 + g);
+ }
+ }
+
+ const endForwardDps = initDps * Math.pow(1 + g, years);
+ const endAnnualNetDiv = shares * endForwardDps * (1 - currentTaxRate);
+ const finalPortfolioVal = (shares * sharePrice) + cashPool;
+ const totalReturnPct = ((finalPortfolioVal - principal) / principal) * 100;
+ const yieldOnCost = (endAnnualNetDiv / principal) * 100;
+
+ document.getElementById('sim-final-value').textContent = '$' + Math.round(finalPortfolioVal).toLocaleString('en-US');
+ document.getElementById('sim-total-return').textContent = `累计总回报 +${totalReturnPct.toFixed(1)}% (${drip ? '含DRIP复利' : '现金分红留存'})`;
+ document.getElementById('sim-annual-div').textContent = '$' + Math.round(endAnnualNetDiv).toLocaleString('en-US');
+ document.getElementById('sim-monthly-div').textContent = `折合每月税后被动现金流 ~$${Math.round(endAnnualNetDiv / 12).toLocaleString('en-US')}`;
+ document.getElementById('sim-yoc').textContent = yieldOnCost.toFixed(2) + '%';
+ document.getElementById('sim-cum-div').textContent = '$' + Math.round(cumulativeNetDiv).toLocaleString('en-US');
+ document.getElementById('sim-shares-end').textContent = `期末持仓股数：${Math.round(shares).toLocaleString('en-US')} 股 (起始 ${Math.round(initialShares).toLocaleString('en-US')} 股)`;
+ }
+
+ const KPI_STORAGE_KEY = 'tme_research_kpi_state_v1';
+
+ function loadKpiChecklist() {
+ try {
+ const saved = localStorage.getItem(KPI_STORAGE_KEY);
+ if (saved) {
+ const stateMap = JSON.parse(saved);
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ if (typeof stateMap[cb.id] === 'boolean') {
+ cb.checked = stateMap[cb.id];
+ }
+ });
+ }
+ } catch (e) {}
+ updateKpiChecklist();
+ }
+
+ function updateKpiChecklist() {
+ const checkboxes = document.querySelectorAll('#kpi-checklist input[type="checkbox"]');
+ const total = checkboxes.length;
+ let checkedCount = 0;
+ const stateMap = {};
+
+ checkboxes.forEach(cb => {
+ stateMap[cb.id] = cb.checked;
+ if (cb.checked) checkedCount++;
+ });
+
+ const pct = Math.round((checkedCount / total) * 100);
+ document.getElementById('kpi-progress-badge').textContent = `已核查 ${checkedCount} / ${total} 项 (${pct}%)`;
+
+ try {
+ localStorage.setItem(KPI_STORAGE_KEY, JSON.stringify(stateMap));
+ } catch (e) {}
+ }
+
+ function resetKpiChecklist() {
+ document.querySelectorAll('#kpi-checklist input[type="checkbox"]').forEach(cb => {
+ cb.checked = false;
+ });
+ updateKpiChecklist();
+ }
+
+ let bizChartInstance = null;
+ let radarChartInstance = null;
+ let compMarginChartInstance = null;
+ let valEvolutionChartInstance = null;
+ let currentBizMode = 'revenue_mix';
+
+ function getChartColors() {
+ const isDark = document.documentElement.classList.contains('dark');
+ return {
+ text: isDark ? '#CBD5E1' : '#475569',
+ grid: isDark ? 'rgba(51, 65, 85, 0.5)' : 'rgba(226, 232, 240, 0.85)',
+ radarAngle: isDark ? 'rgba(71, 85, 105, 0.6)' : 'rgba(203, 213, 225, 0.85)'
+ };
+ }
+
+ function initBizChart() {
+ const ctx = document.getElementById('bizArchitectureChart').getContext('2d');
+ const colors = getChartColors();
+
+ const mixConfig = {
+ type: 'bar',
+ data: {
+ labels: ['2023', '2024', '2025', '2026E'],
+ datasets: [
+ {
+ label: '在线音乐订阅收入 (亿元)',
+ data: [102.2, 145.5, 182.0, 198.5],
+ backgroundColor: '#0284C7',
+ borderRadius: 4,
+ stack: 'rev'
+ },
+ {
+ label: '营销与消费服务收入 (亿元)',
+ data: [55.4, 78.2, 95.0, 108.0],
+ backgroundColor: '#10B981',
+ borderRadius: 4,
+ stack: 'rev'
+ },
+ {
+ label: '社交娱乐及其他收入 (亿元)',
+ data: [122.4, 88.0, 62.0, 52.5],
+ backgroundColor: '#F59E0B',
+ borderRadius: 4,
+ stack: 'rev'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: RMB ${ctx.parsed.y.toFixed(1)}亿`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ min: 0,
+ max: 360,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => ' RMB ' + v + '亿' }
+ }
+ }
+ }
+ };
+
+ const metricsConfig = {
+ type: 'bar',
+ data: {
+ labels: [
+ 'Q3 音乐订阅收入同比增速 (+9.2%)',
+ 'Q3 营销与消费服务同比增速 (+12.1%)',
+ 'Q3 非IFRS净利润同比增速 (+2.1%)',
+ 'Q3 社交娱乐服务同比变动 (-15.7%)',
+ '现金及短期投资规模 (亿元)'
+ ],
+ datasets: [
+ {
+ label: '2026Q3 核心财务指标表现',
+ data: [9.2, 12.1, 2.1, -15.7, 514.9],
+ backgroundColor: ['#0284C7', '#10B981', '#8B5CF6', '#F43F5E', '#0369A1'],
+ borderRadius: 6,
+ barThickness: 22
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `指标数值: ${ctx.parsed.x > 0 && ctx.dataIndex !== 4 ? '+' : ''}${ctx.parsed.x}${ctx.dataIndex === 4 ? '亿元' : '%'}`
+ }
+ }
+ },
+ scales: {
+ x: {
+ min: -20,
+ max: 550,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 } }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ };
+
+ if (bizChartInstance) bizChartInstance.destroy();
+ bizChartInstance = new Chart(ctx, currentBizMode === 'revenue_mix' ? mixConfig : metricsConfig);
+ }
+
+ function switchBizChart(mode) {
+ currentBizMode = mode;
+ const btnMix = document.getElementById('btn-chart-mix');
+ const btnMetrics = document.getElementById('btn-chart-metrics');
+ const titleEl = document.getElementById('biz-chart-title');
+ const subEl = document.getElementById('biz-chart-sub');
+
+ if (mode === 'revenue_mix') {
+ btnMix.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-tmeblue-600 dark:text-tmeblue-400 shadow-sm transition cursor-pointer';
+ btnMetrics.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2023–2026E 在线音乐与社交娱乐收入结构演进 (亿元人民币)';
+ subEl.textContent = '在线音乐订阅及 IP 消费收入占比持续攀升，成功对冲传统社交娱乐业务的结构性回调';
+ } else {
+ btnMetrics.className = 'px-2.5 py-1 rounded-md font-semibold bg-white dark:bg-navy-700 text-tmeblue-600 dark:text-tmeblue-400 shadow-sm transition cursor-pointer';
+ btnMix.className = 'px-2.5 py-1 rounded-md font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+ titleEl.textContent = '2026Q3 核心财务与业务指标增长拆解';
+ subEl.textContent = '订阅与演唱会消费保持双位数双引擎驱动，非IFRS净利保持正增长，现金资产突破 514 亿元';
+ }
+ initBizChart();
+ }
+
+ function initRadarChart() {
+ const ctx = document.getElementById('moatRadarChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (radarChartInstance) radarChartInstance.destroy();
+ radarChartInstance = new Chart(ctx, {
+ type: 'radar',
+ data: {
+ labels: [
+ '中国本土用户生态与导流',
+ '正版版权与唱片厂牌深度',
+ '商业化毛利与净利率效率',
+ '现金储备与股东回报力度',
+ '全球化出海与海外拓展'
+ ],
+ datasets: [
+ {
+ label: '腾讯音乐 (TME)',
+ data: [9.8, 9.7, 9.2, 9.6, 6.0],
+ borderColor: '#0284C7',
+ backgroundColor: 'rgba(2, 132, 199, 0.24)',
+ pointBackgroundColor: '#0284C7',
+ borderWidth: 2.5
+ },
+ {
+ label: 'Spotify (SPOT)',
+ data: [8.5, 9.0, 6.5, 5.0, 9.8],
+ borderColor: '#10B981',
+ backgroundColor: 'rgba(16, 185, 129, 0.14)',
+ pointBackgroundColor: '#10B981',
+ borderWidth: 2.0
+ },
+ {
+ label: '网易云音乐 (Cloud Village)',
+ data: [8.0, 7.8, 7.5, 6.5, 5.5],
+ borderColor: '#8B5CF6',
+ backgroundColor: 'rgba(139, 92, 246, 0.12)',
+ pointBackgroundColor: '#8B5CF6',
+ borderWidth: 1.8,
+ borderDash: [4, 4]
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ }
+ },
+ scales: {
+ r: {
+ min: 0,
+ max: 10,
+ ticks: { display: false, stepSize: 2 },
+ grid: { color: colors.grid },
+ angleLines: { color: colors.radarAngle },
+ pointLabels: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initCompMarginChart() {
+ const ctx = document.getElementById('compMarginChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (compMarginChartInstance) compMarginChartInstance.destroy();
+ compMarginChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: [
+ '腾讯音乐 (TME · 高效现金与订阅牛)',
+ '网易云音乐 (Cloud Village · 社区文娱)',
+ 'Spotify (SPOT · 全球流媒体龙头)'
+ ],
+ datasets: [
+ {
+ label: '净利润率 Net Profit Margin (%)',
+ data: [27.5, 12.0, 8.5],
+ backgroundColor: '#0284C7',
+ borderRadius: 5,
+ barThickness: 18
+ },
+ {
+ label: '远期估值 P/E Ratio',
+ data: [10.4, 14.0, 35.0],
+ backgroundColor: '#10B981',
+ borderRadius: 5,
+ barThickness: 18
+ }
+ ]
+ },
+ options: {
+ indexAxis: 'y',
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11 }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x}${ctx.datasetIndex === 0 ? '%' : 'x'}`
+ }
+ }
+ },
+ scales: {
+ x: {
+ max: 40,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 } }
+ },
+ y: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ }
+ }
+ }
+ });
+ }
+
+ function initValEvolutionChart() {
+ const ctx = document.getElementById('valEvolutionChart').getContext('2d');
+ const colors = getChartColors();
+
+ if (valEvolutionChartInstance) valEvolutionChartInstance.destroy();
+ valEvolutionChartInstance = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['2023', '2024', '2025', '2026E'],
+ datasets: [
+ {
+ type: 'bar',
+ label: '经调整 Non-IFRS 净利润 (亿元人民币)',
+ data: [62.2, 81.5, 93.0, 98.5],
+ backgroundColor: 'rgba(2, 132, 199, 0.85)',
+ borderRadius: 5,
+ barThickness: 32,
+ yAxisID: 'y'
+ },
+ {
+ type: 'line',
+ label: '流通 ADS 股份总数 (百万股)',
+ data: [3350, 3280, 3210, 3120],
+ borderColor: '#10B981',
+ backgroundColor: '#10B981',
+ borderWidth: 3,
+ pointRadius: 5,
+ pointHoverRadius: 7,
+ tension: 0.25,
+ yAxisID: 'y1'
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: {
+ legend: {
+ position: 'bottom',
+ labels: { color: colors.text, font: { size: 11, family: 'Inter' }, usePointStyle: true }
+ },
+ tooltip: {
+ callbacks: {
+ label: (ctx) => ctx.dataset.yAxisID === 'y'
+ ? `${ctx.dataset.label}: RMB ${ctx.parsed.y.toFixed(1)}亿`
+ : `${ctx.dataset.label}: ${ctx.parsed.y}M 股`
+ }
+ }
+ },
+ scales: {
+ x: {
+ grid: { display: false },
+ ticks: { color: colors.text, font: { size: 11, weight: '600' } }
+ },
+ y: {
+ type: 'linear',
+ position: 'left',
+ min: 40,
+ max: 120,
+ grid: { color: colors.grid },
+ ticks: { color: colors.text, font: { size: 11 }, callback: v => 'RMB ' + v + '亿' },
+ title: { display: true, text: 'Non-IFRS 净利润 (亿元)', color: colors.text, font: { size: 11 } }
+ },
+ y1: {
+ type: 'linear',
+ position: 'right',
+ min: 2800,
+ max: 3600,
+ grid: { drawOnChartArea: false },
+ ticks: { color: '#10B981', font: { size: 11, weight: '600' }, callback: v => v + 'M' },
+ title: { display: true, text: '流通 ADS 数量 (百万股)', color: '#10B981', font: { size: 11 } }
+ }
+ }
+ }
+ });
+ }
+
+ function updateChartsTheme() {
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ }
+
+ window.addEventListener('DOMContentLoaded', () => {
+ loadKpiChecklist();
+ updateDividendSimulator();
+ initBizChart();
+ initRadarChart();
+ initCompMarginChart();
+ initValEvolutionChart();
+ });
+ </script>
+</body>
+</html>
