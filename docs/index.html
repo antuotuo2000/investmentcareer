@@ -10,6 +10,14 @@
 /* Standalone reports scroll with the page for Safari full-page captures. */
 html[data-report-page],html[data-report-page] body{height:auto;overflow-y:visible!important;}
 html[data-report-page] .pro-header{position:relative;}
+@media(max-width:767px){
+html[data-report-page] body{padding-top:calc(56px + env(safe-area-inset-top,0px));}
+html[data-report-page] .pro-header{position:fixed;top:0;left:0;right:0;z-index:50;height:calc(56px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);}
+}
+@media print{
+html[data-report-page] body{padding-top:0;}
+html[data-report-page] .pro-header{position:static;height:56px;padding-top:0;}
+}
 html[data-report-page] #report-reader-modal{position:static;inset:auto;width:100%;height:auto;min-height:0;transform:none;}
 html[data-report-page] .reader-stage,html[data-report-page] .reader-pane{flex:none;height:auto;min-height:0;overflow:visible;}
 html[data-report-page] .reader-stage{display:block;}
