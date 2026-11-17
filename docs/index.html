@@ -3285,7 +3285,7 @@ if (iframe.id !== "report-reader-iframe" || !document.documentElement.hasAttribu
 if (stopReaderPageSizing) stopReaderPageSizing();
 try {
 const doc = iframe.contentDocument;
-if (!doc || !doc.body) return;
+if (!doc || !doc.body) throw new Error("Report document is inaccessible");
 const style = doc.createElement("style");
 style.textContent = "html,body{height:auto!important;min-height:0!important;overflow-y:visible!important}body{display:flow-root}.min-h-screen{min-height:0!important}";
 doc.head.appendChild(style);
